@@ -19,6 +19,7 @@ import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class EntityUtils {
 	}
 
 	public boolean isMobFromBiome(final EntityLivingBase toCheck, final Biome biome) {
-		if(this.isValidEntityLivingBase(toCheck)) {
+		if(toCheck != null && biome != null) {
 			boolean isFromBiome = false;
 			EnumCreatureType[] values = EnumCreatureType.values();
 			for(EnumCreatureType creatureType : values) {
@@ -58,8 +59,8 @@ public class EntityUtils {
 		}
 	}
 
-	public void spawnXpOrb(World world, BlockPos positionToSpawn, int xpAmount) {
-		if(!world.isRemote) {
+	public void spawnXpOrb(@Nonnull World world, BlockPos positionToSpawn, int xpAmount) {
+		if(!world.isRemote && positionToSpawn != null && xpAmount > 0) {
 			world.spawnEntity(new EntityXPOrb(world, positionToSpawn.getX(), positionToSpawn.getY(), positionToSpawn.getZ(), xpAmount));
 		}
 	}
@@ -94,8 +95,15 @@ public class EntityUtils {
 		});
 	}
 
-	public boolean doesEntityHaveFullElementalSetOfType(Entity toCheck, ElementalType type) {
-		if(this.isValidEntityLivingBase(toCheck)) {
+	/**
+	 * Takes an {@link Entity} and checks its armorInventoryList for a full set of {@link BaseArmor} where each {@code currentArmor.type == type}
+	 *
+	 * @param toCheck the entity to check
+	 * @param type    the {@link ElementalType} we are checking for
+	 * @return true if all 4 pieces of the wearer's armor is the same type as {@code type}, false otherwise
+	 */
+	public boolean doesEntityHaveFullElementalSetOfType(@Nullable Entity toCheck, ElementalType type) {
+		if(this.isValidEntityLivingBase(toCheck) && type != null) {
 			// do we have a full set?
 			boolean fullSet = true;
 			// iterate through toCheck's armor inventory and check for BaseArmor with the same type as what's passed in
@@ -155,7 +163,7 @@ public class EntityUtils {
 			case PLAIN:
 				return new EntityPlainArrow(world, x, y, z);
 			default:
-				ElementalItems.logger.log(Level.FATAL, "Error when creating arrow!\n" + "From type: " + type.getTypeName());
+				ElementalItems.logger.log(Level.ERROR, "Error when creating arrow!\n" + "From type: " + type.getTypeName());
 				// we don't want to crash their game, so just print something instead of returning null
 				return new EntityPlainArrow(world, x, y, z);
 		}

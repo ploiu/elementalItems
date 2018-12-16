@@ -12,9 +12,9 @@ public class TestHelper {
 		return toTest.getPotion().equals(effect) && toTest.getDuration() == duration && toTest.getAmplifier() == power && toTest.getIsAmbient() == ambient && toTest.doesShowParticles() == showParticles;
 	}
 
-	public static void setField(Object toSet, String fieldName, Object fieldValue, Class<?> toSetClass) {
+	public static void setField(Object toSet, String fieldName, Object fieldValue, Class<?> classWithField) {
 		try {
-			Field field = toSetClass.getDeclaredField(fieldName);
+			Field field = classWithField.getDeclaredField(fieldName);
 			field.setAccessible(true);
 			field.set(toSet, fieldValue);
 		} catch(NoSuchFieldException | IllegalAccessException e) {
