@@ -1,0 +1,104 @@
+[
+  {
+	"name": "CRYSTAL_FIRE",
+	"ingredient": {
+	  "item": "elementalitems:crystal_fire"
+	}
+  },
+  {
+	"name": "CRYSTAL_ICE",
+	"ingredient": {
+	  "item": "elementalitems:crystal_ice"
+	}
+  },
+  {
+	"name": "CRYSTAL_WATER",
+	"ingredient": {
+	  "item": "elementalitems:crystal_water"
+	}
+  },
+  {
+	"name": "CRYSTAL_LEAF",
+	"ingredient": {
+	  "item": "elementalitems:crystal_leaf"
+	}
+  },
+  {
+	"name": "CRYSTAL_EARTH",
+	"ingredient": {
+	  "item": "elementalitems:crystal_earth"
+	}
+  },
+  {
+	"name": "CRYSTAL_AIR",
+	"ingredient": {
+	  "item": "elementalitems:crystal_air"
+	}
+  },
+  {
+	"name": "CRYSTAL_ENDER",
+	"ingredient": {
+	  "item": "elementalitems:crystal_ender"
+	}
+  },
+  {
+	"name": "CRYSTAL_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:crystal_plain"
+	}
+  },
+  {
+	"name": "STICK",
+	"ingredient": {
+	  "item": "minecraft:stick"
+	}
+  },
+  {
+	"name": "SWORD_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:sword_plain"
+	}
+  },
+  {
+	"name": "AXE_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:axe_plain"
+	}
+  },
+  {
+	"name": "SHOVEL_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:shovel_plain"
+	}
+  },
+  {
+	"name": "PICKAXE_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:pickaxe_plain"
+	}
+  },
+  {
+	"name": "HEAD_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:head_plain"
+	}
+  },
+  {
+	"name": "CHEST_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:chest_plain"
+	}
+  },
+  {
+	"name": "LEGS_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:legs_plain"
+	}
+  },
+  {
+	"name": "FEET_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:feet_plain"
+	}
+  }
+]

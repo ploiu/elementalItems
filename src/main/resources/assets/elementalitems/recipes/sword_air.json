@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#P#",
+	"###"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_AIR"
+	},
+	"P": {
+	  "item": "#SWORD_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:sword_air",
+	"count": 1
+  }
+}

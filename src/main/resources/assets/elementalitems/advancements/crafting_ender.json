@@ -1,0 +1,28 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_ender",
+	  "elementalitems:legs_ender",
+	  "elementalitems:chest_ender",
+	  "elementalitems:head_ender",
+	  "elementalitems:sword_ender"
+	]
+  },
+  "criteria": {
+	"has_crystal_ender": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_ender"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_ender"
+	]
+  ]
+}

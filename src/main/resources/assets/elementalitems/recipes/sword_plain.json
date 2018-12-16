@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"#",
+	"#",
+	"|"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_PLAIN"
+	},
+	"|": {
+	  "item": "#STICK"
+	}
+  },
+  "result": {
+	"item": "elementalitems:sword_plain",
+	"count": 1
+  }
+}

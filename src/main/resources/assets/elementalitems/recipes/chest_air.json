@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#P#",
+	"###"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_AIR"
+	},
+	"P": {
+	  "item": "#CHEST_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:chest_air",
+	"count": 1
+  }
+}

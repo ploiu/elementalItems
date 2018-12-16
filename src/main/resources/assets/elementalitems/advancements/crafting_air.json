@@ -1,0 +1,28 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_air",
+	  "elementalitems:legs_air",
+	  "elementalitems:chest_air",
+	  "elementalitems:head_air",
+	  "elementalitems:sword_air"
+	]
+  },
+  "criteria": {
+	"has_crystal_air": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_air"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_air"
+	]
+  ]
+}

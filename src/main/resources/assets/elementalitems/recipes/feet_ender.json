@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#P#",
+	"###"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_ENDER"
+	},
+	"P": {
+	  "item": "#FEET_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:feet_ender",
+	"count": 1
+  }
+}
