@@ -2,6 +2,7 @@ package elementalitems.blocks;
 
 import elementalitems.ElementalItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.Level;
@@ -28,7 +29,7 @@ public class BlockHandler {
 	/**
 	 * The constant fireCrystalOre.
 	 */
-	public static BaseBlock fireCrystalOre = new BaseBlock("ore_fire");
+	public static BaseBlock fireCrystalOre = new FireCrystalOre();
 	/**
 	 * The constant waterCrystalOre.
 	 */
@@ -36,11 +37,11 @@ public class BlockHandler {
 	/**
 	 * The constant leafCrystalOre.
 	 */
-	public static BaseBlock leafCrystalOre = new BaseBlock("ore_leaf");
+	public static BaseBlock leafCrystalOre = new LeafCrystalOre();
 	/**
 	 * The constant iceCrystalOre.
 	 */
-	public static BaseBlock iceCrystalOre = new BaseBlock("ore_ice");
+	public static BaseBlock iceCrystalOre = new IceCrystalOre();
 	/**
 	 * The constant earthCrystalOre.
 	 */
@@ -74,7 +75,7 @@ public class BlockHandler {
 	/**
 	 * The constant iceCrystalBlock.
 	 */
-	public static BaseBlock iceCrystalBlock = new BaseBlock("block_crystal_ice", true);
+	public static BaseBlock iceCrystalBlock = new BaseBlock("block_crystal_ice", true, Material.PACKED_ICE);
 	/**
 	 * The constant earthCrystalBlock.
 	 */

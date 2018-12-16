@@ -30,6 +30,13 @@ public class EntityUtils {
 		return EntityUtils.SingletonHelper.instance;
 	}
 
+	/**
+	 * Checks if the passed {@link Entity} is a valid {@link EntityLivingBase} that can be operated on.
+	 * toCheck is valid if it's not {@code null}, an instanceof {@link EntityLivingBase}, and is alive
+	 *
+	 * @param toCheck the Entity we want to check
+	 * @return true if toCheck is not null and is a living instance of {@link EntityLivingBase}
+	 */
 	public boolean isValidEntityLivingBase(Entity toCheck) {
 		return toCheck instanceof EntityLivingBase && toCheck.isEntityAlive();
 	}
@@ -57,16 +64,6 @@ public class EntityUtils {
 		}
 	}
 
-	public int getNumberOfFreeSlotsInPlayerInventory(@Nonnull EntityPlayer player) {
-		int freeSlots = 0;
-		for(ItemStack currentStack : player.inventory.mainInventory) {
-			if(currentStack.isEmpty()) {
-				freeSlots++;
-			}
-		}
-		return freeSlots;
-	}
-
 	/**
 	 * attempts to add the passed itemsToAdd to the player's inventory, and returns any remaining {@link ItemStack}s to the calling method
 	 *
@@ -77,12 +74,11 @@ public class EntityUtils {
 	public List<ItemStack> addItemsToPlayerInventory(@Nonnull EntityPlayer player, List<ItemStack> itemsToAdd) {
 		List<ItemStack> leftOverItems = new ArrayList<>();
 		// try to add all items from itemToAdd to the player's inventory
-		boolean ableToAdd;
 		for(ItemStack stack : itemsToAdd) {
 			// attempt to add the current item to the player's inventory
-			ableToAdd = player.addItemStackToInventory(stack);
+			boolean wasAbleToAdd = player.addItemStackToInventory(stack);
 			// add the current stack to leftOverItems if we couldn't add it to the player's inventory
-			if(!ableToAdd) {
+			if(!wasAbleToAdd) {
 				leftOverItems.add(stack);
 			}
 		}

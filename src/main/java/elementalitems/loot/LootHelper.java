@@ -49,6 +49,9 @@ public class LootHelper {
 		return LootHelper.SingletonHelper.instance;
 	}
 
+	/**
+	 * called during mod initialization; loads all the loot pools for our above-declared pools
+	 */
 	private void createLootPools() {
 		logger.log(Level.INFO, "Loading loot pools...");
 

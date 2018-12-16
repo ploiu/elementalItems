@@ -7,6 +7,7 @@ import elementalitems.items.ItemHandler;
 import elementalitems.loot.LootHelper;
 import elementalitems.proxy.CommonProxy;
 import elementalitems.util.Utils;
+import elementalitems.worldgen.WorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
@@ -46,6 +48,8 @@ public class ElementalItems {
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
+		logger.log(Level.INFO, "Registering world generator...");
+		GameRegistry.registerWorldGenerator(new WorldGenerator(), 50);
 		EntityHandler.register();
 	}
 

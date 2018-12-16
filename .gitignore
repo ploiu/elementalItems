@@ -35,3 +35,4 @@ hs_err_pid*
 fileTemplates/*
 *.txt
 *.gz
+elementalitems/util/annotations.xml

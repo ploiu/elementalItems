@@ -1,7 +1,9 @@
 package elementalitems.util;
 
 import elementalitems.ElementalType;
+import elementalitems.items.ElementalItem;
 import elementalitems.items.ElementalMaterials;
+import elementalitems.items.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -28,24 +30,24 @@ public class Utils {
 		return Utils.SingletonHelper.instance;
 	}
 
-	public  ItemStack getSmeltedResultWithCorrectMeta(IBlockState state) {
+	public ItemStack getSmeltedResultWithCorrectMeta(IBlockState state) {
 		Block block = state.getBlock();
 		return FurnaceRecipes.instance().getSmeltingResult(new ItemStack(Item.getItemFromBlock(block), 1, block.damageDropped(state)));
 	}
 
-	public  void createBlockSmeltMap() {
+	public void createBlockSmeltMap() {
 		ForgeRegistries.BLOCKS.forEach(block -> blockToSmeltingResultMap.put(block, FurnaceRecipes.instance().getSmeltingResult(new ItemStack(block))));
 	}
 
-	public  Map<Block, ItemStack> getBlockToSmeltingResultMap() {
+	public Map<Block, ItemStack> getBlockToSmeltingResultMap() {
 		return blockToSmeltingResultMap;
 	}
 
-	public  void setBlockToSmeltingResultMap(Map<Block, ItemStack> blockToSmeltingResultMap) {
+	public void setBlockToSmeltingResultMap(Map<Block, ItemStack> blockToSmeltingResultMap) {
 		Utils.blockToSmeltingResultMap = blockToSmeltingResultMap;
 	}
 
-	public  List<ItemStack> getContainerContents(@Nonnull ILockableContainer container, boolean clearSlots) {
+	public List<ItemStack> getContainerContents(@Nonnull ILockableContainer container, boolean clearSlots) {
 		ArrayList<ItemStack> containerItemStacks = new ArrayList<>();
 		// get the size of the inventory
 		int containerInventorySize = container.getSizeInventory();
@@ -64,7 +66,7 @@ public class Utils {
 		return containerItemStacks;
 	}
 
-	public  Item.ToolMaterial getToolMaterialFromElementalType(ElementalType type) {
+	public Item.ToolMaterial getToolMaterialFromElementalType(ElementalType type) {
 		switch(type) {
 			case FIRE:
 				return ElementalMaterials.getInstance().TOOL_FIRE;
@@ -86,7 +88,7 @@ public class Utils {
 		}
 	}
 
-	public  ItemArmor.ArmorMaterial getArmorMaterialFromElementalType(ElementalType type) {
+	public ItemArmor.ArmorMaterial getArmorMaterialFromElementalType(ElementalType type) {
 		switch(type) {
 			case FIRE:
 				return ElementalMaterials.getInstance().ARMOR_FIRE;
@@ -107,7 +109,29 @@ public class Utils {
 				return ElementalMaterials.getInstance().ARMOR_PLAIN;
 		}
 	}
-	
+
+	public ElementalItem getCrystalFromElementalType(ElementalType type) {
+		switch(type) {
+			case FIRE:
+				return ItemHandler.fireCrystal;
+			case WATER:
+				return ItemHandler.waterCrystal;
+			case EARTH:
+				return ItemHandler.earthCrystal;
+			case AIR:
+				return ItemHandler.airCrystal;
+			case ICE:
+				return ItemHandler.iceCrystal;
+			case ENDER:
+				return ItemHandler.enderCrystal;
+			case LEAF:
+				return ItemHandler.leafCrystal;
+			case PLAIN:
+			default:
+				return ItemHandler.plainCrystal;
+		}
+	}
+
 	private static class SingletonHelper {
 		private static final Utils instance = new Utils();
 	}

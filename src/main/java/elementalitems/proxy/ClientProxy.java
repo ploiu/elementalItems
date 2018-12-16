@@ -10,7 +10,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 
-@SuppressWarnings("unchecked")
 public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerItemRenderer(Item item, int meta) {
