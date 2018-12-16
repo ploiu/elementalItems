@@ -32,11 +32,6 @@ run/*
 hs_err_pid*
 *.iml
 *.iws
-fileTemplates/armorCrafting.json
-fileTemplates/blockJson.json
-fileTemplates/blockModelJson.json
-fileTemplates/itemJson.json
-fileTemplates/swordRecipe.json
-fileTemplates/toolJson.json
+fileTemplates/*
 *.txt
 *.gz
