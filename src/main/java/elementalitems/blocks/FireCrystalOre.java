@@ -25,9 +25,9 @@ public class FireCrystalOre extends BaseOre {
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.NETHER, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HILLS);
 		this.biomesToGenerateIn.add(Biomes.HELL);
 		this.maxYGeneration = 20;
+		this.setLightLevel(1F); // same as glowstone
 		// set a varient for the nether so that it generates with a special texture
 		this.setDefaultState(this.blockState.getBaseState().withProperty(textureProperty, 0));
-
 	}
 
 	@Override
@@ -38,6 +38,7 @@ public class FireCrystalOre extends BaseOre {
 	@Override
 	@SuppressWarnings("deprecation") // this method is required else the game will crash
 	public IBlockState getStateFromMeta(int meta) {
+		// either 0 or 1
 		return this.getDefaultState().withProperty(textureProperty, Math.min(meta, 1));
 	}
 

@@ -32,19 +32,6 @@ public class BaseBlock extends BlockBreakable {
 	 */
 	protected boolean isBeaconBlock;
 
-	// the list of blocks this can replace during oreGen
-	protected List<Block> blocksThisCanGenerateOver;
-
-	// the list of biomes this block can generate in
-	protected Set<Biome> biomesToGenerateIn;
-
-	// the max and min y for generation
-	protected int minYGeneration = 0;
-	protected int maxYGeneration = 255;
-	// the max vein size
-	protected int maxVeinSize = 5;
-	// the max chances per chunk this can spawn
-	protected int spawnChances = 50;
 
 	/**
 	 * Instantiates a new Base block.
@@ -65,8 +52,6 @@ public class BaseBlock extends BlockBreakable {
 		this.setHardness(2.0f);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-		this.blocksThisCanGenerateOver = new ArrayList<>();
-		this.biomesToGenerateIn = new HashSet<>();
 		//add ourselves to the BlockHandler's list
 		BlockHandler.blocks.add(this);
 	}
@@ -101,27 +86,4 @@ public class BaseBlock extends BlockBreakable {
 		return this.isBeaconBlock;
 	}
 
-	public Predicate<IBlockState> getGeneratorPredicate() {
-		return input -> input != null && this.blocksThisCanGenerateOver.contains(input.getBlock());
-	}
-
-	public Set<Biome> getBiomesToGenerateIn() {
-		return this.biomesToGenerateIn;
-	}
-
-	public int getMinYGeneration() {
-		return this.minYGeneration;
-	}
-
-	public int getMaxYGeneration() {
-		return this.maxYGeneration;
-	}
-
-	public int getMaxVeinSize() {
-		return this.maxVeinSize;
-	}
-
-	public int getSpawnChances() {
-		return this.spawnChances;
-	}
 }

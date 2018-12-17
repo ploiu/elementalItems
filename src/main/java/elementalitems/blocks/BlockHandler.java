@@ -25,31 +25,31 @@ public class BlockHandler {
 	 * The constant plainCrystalOre.
 	 */
 	// ore blocks
-	public static BaseBlock plainCrystalOre = new BaseBlock("ore_plain");
+	public static BaseOre plainCrystalOre = new PlainCrystalOre();
 	/**
 	 * The constant fireCrystalOre.
 	 */
-	public static BaseBlock fireCrystalOre = new FireCrystalOre();
+	public static BaseOre fireCrystalOre = new FireCrystalOre();
 	/**
 	 * The constant waterCrystalOre.
 	 */
-	public static BaseBlock waterCrystalOre = new BaseBlock("ore_water");
+	public static BaseOre waterCrystalOre = new WaterCrystalOre();
 	/**
 	 * The constant leafCrystalOre.
 	 */
-	public static BaseBlock leafCrystalOre = new LeafCrystalOre();
+	public static BaseOre leafCrystalOre = new LeafCrystalOre();
 	/**
 	 * The constant iceCrystalOre.
 	 */
-	public static BaseBlock iceCrystalOre = new IceCrystalOre();
+	public static BaseOre iceCrystalOre = new IceCrystalOre();
 	/**
 	 * The constant earthCrystalOre.
 	 */
-	public static BaseBlock earthCrystalOre = new BaseBlock("ore_earth");
+	public static BaseOre earthCrystalOre = new EarthCrystalOre();
 	/**
 	 * The constant airCrystalOre.
 	 */
-	public static BaseBlock airCrystalOre = new BaseBlock("ore_air");
+	public static BaseOre airCrystalOre = new AirCrystalOre();
 	/**
 	 * The constant endCrystalOre.
 	 */
@@ -98,7 +98,6 @@ public class BlockHandler {
 		ElementalItems.logger.log(Level.INFO, "Registering blocks...");
 		//register all of our blocks
 		registry.registerAll(blocks.toArray(new BaseBlock[]{}));
-
 	}
 
 	/**

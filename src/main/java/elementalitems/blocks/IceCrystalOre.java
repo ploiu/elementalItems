@@ -33,6 +33,7 @@ public class IceCrystalOre extends BaseOre {
 		this.setHardness(0.5F);
 		this.setLightOpacity(3);
 		this.setSoundType(SoundType.GLASS);
+		this.maxYGeneration = 255;
 	}
 
 	@SideOnly(Side.CLIENT)
