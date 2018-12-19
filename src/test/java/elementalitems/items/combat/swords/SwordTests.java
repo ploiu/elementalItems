@@ -119,7 +119,7 @@ public class SwordTests {
 	@Test
 	public void testIceSwordSpawnsSnowballWhenUsed() {
 		assertThrows(NullPointerException.class, () -> {
-			this.iceSword.specialEffect(this.world, this.fakePlayer, null);
+			this.iceSword.specialEffect(this.world, this.fakePlayer);
 			verify(this.world).spawnEntity(isA(EntitySnowball.class));
 		});
 	}
@@ -134,7 +134,7 @@ public class SwordTests {
 	@Test
 	public void testEnderSwordSpawnsEnderPearlWhenUsed() {
 		assertThrows(NullPointerException.class, () -> {
-			this.enderSword.specialEffect(this.world, this.fakePlayer, null);
+			this.enderSword.specialEffect(this.world, this.fakePlayer);
 			verify(this.world).spawnEntity(isA(EntityEnderPearl.class));
 		});
 	}

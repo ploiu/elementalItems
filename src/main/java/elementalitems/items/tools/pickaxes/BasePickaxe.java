@@ -13,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 /**
  * The type Base pickaxe.
  */
@@ -20,11 +22,11 @@ public abstract class BasePickaxe extends ItemPickaxe implements ElementalItem {
 	/**
 	 * The Name.
 	 */
-	protected String name;
+	protected final String name;
 	/**
 	 * The Type.
 	 */
-	protected ElementalType type;
+	protected final ElementalType type;
 
 	private BasePickaxe(Item.ToolMaterial material, String name, ElementalType type) {
 		super(material);
@@ -73,5 +75,23 @@ public abstract class BasePickaxe extends ItemPickaxe implements ElementalItem {
 		}
 
 		return super.onBlockDestroyed(stack, world, state, pos, user);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name, this.type);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof BasePickaxe && ((BasePickaxe) other).getName().equals(this.name);
+	}
+
+	@Override
+	public String toString() {
+		return "BasePickaxe{" +
+				       "name='" + this.name + '\'' +
+				       ", type=" + this.type +
+				       '}';
 	}
 }

@@ -7,7 +7,6 @@ import net.minecraft.entity.item.EntityEnderPearl;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -65,7 +64,7 @@ public class EnderSword extends BaseSword {
 	}
 
 	@Override
-	protected void specialEffect(World world, EntityPlayer player, EnumHand hand) {
+	protected void specialEffect(World world, EntityPlayer player) {
 		world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 		if(!world.isRemote) {
 			// we need to spawn an ender pearl into the world

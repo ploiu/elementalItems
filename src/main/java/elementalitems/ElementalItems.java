@@ -6,7 +6,6 @@ import elementalitems.items.ElementalMaterials;
 import elementalitems.items.ItemHandler;
 import elementalitems.loot.LootHelper;
 import elementalitems.proxy.CommonProxy;
-import elementalitems.util.Utils;
 import elementalitems.worldgen.WorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -55,7 +54,6 @@ public class ElementalItems {
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		Utils.getInstance().createBlockSmeltMap();
 		// register loot tables
 		LootHelper.getInstance().registerLootTables();
 		logger.log(Level.INFO, "Finished loading!");
@@ -99,6 +97,5 @@ public class ElementalItems {
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			BlockHandler.register(event.getRegistry());
 		}
-
 	}
 }

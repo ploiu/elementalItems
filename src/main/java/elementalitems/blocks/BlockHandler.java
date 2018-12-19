@@ -1,6 +1,7 @@
 package elementalitems.blocks;
 
 import elementalitems.ElementalItems;
+import elementalitems.blocks.ore.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -19,75 +20,75 @@ public class BlockHandler {
 	 * The constant blocks.
 	 */
 	//the list of BaseBlocks to register
-	public static List<BaseBlock> blocks = new ArrayList<>();
+	protected static final List<BaseBlock> blocks = new ArrayList<>();
 
 	/**
 	 * The constant plainCrystalOre.
 	 */
 	// ore blocks
-	public static BaseOre plainCrystalOre = new PlainCrystalOre();
+	public static final BaseOre plainCrystalOre = new PlainCrystalOre();
 	/**
 	 * The constant fireCrystalOre.
 	 */
-	public static BaseOre fireCrystalOre = new FireCrystalOre();
+	public static final BaseOre fireCrystalOre = new FireCrystalOre();
 	/**
 	 * The constant waterCrystalOre.
 	 */
-	public static BaseOre waterCrystalOre = new WaterCrystalOre();
+	public static final BaseOre waterCrystalOre = new WaterCrystalOre();
 	/**
 	 * The constant leafCrystalOre.
 	 */
-	public static BaseOre leafCrystalOre = new LeafCrystalOre();
+	public static final BaseOre leafCrystalOre = new LeafCrystalOre();
 	/**
 	 * The constant iceCrystalOre.
 	 */
-	public static BaseOre iceCrystalOre = new IceCrystalOre();
+	public static final BaseOre iceCrystalOre = new IceCrystalOre();
 	/**
 	 * The constant earthCrystalOre.
 	 */
-	public static BaseOre earthCrystalOre = new EarthCrystalOre();
+	public static final BaseOre earthCrystalOre = new EarthCrystalOre();
 	/**
 	 * The constant airCrystalOre.
 	 */
-	public static BaseOre airCrystalOre = new AirCrystalOre();
+	public static final BaseOre airCrystalOre = new AirCrystalOre();
 	/**
 	 * The constant endCrystalOre.
 	 */
-	public static BaseBlock endCrystalOre = new BaseBlock("ore_end");
+	public static final BaseOre endCrystalOre = new EndCrystalOre();
 
 	/**
 	 * The constant plainCrystalBlock.
 	 */
 	// crystal blocks
-	public static BaseBlock plainCrystalBlock = new BaseBlock("block_crystal_plain", true);
+	public static final BaseBlock plainCrystalBlock = new BaseBlock("block_crystal_plain", true);
 	/**
 	 * The constant fireCrystalBlock.
 	 */
-	public static BaseBlock fireCrystalBlock = new BaseBlock("block_crystal_fire", true);
+	public static final BaseBlock fireCrystalBlock = new BaseBlock("block_crystal_fire", true);
 	/**
 	 * The constant waterCrystalBlock.
 	 */
-	public static BaseBlock waterCrystalBlock = new BaseBlock("block_crystal_water", true);
+	public static final BaseBlock waterCrystalBlock = new BaseBlock("block_crystal_water", true);
 	/**
 	 * The constant leafCrystalBlock.
 	 */
-	public static BaseBlock leafCrystalBlock = new BaseBlock("block_crystal_leaf", true);
+	public static final BaseBlock leafCrystalBlock = new BaseBlock("block_crystal_leaf", true);
 	/**
 	 * The constant iceCrystalBlock.
 	 */
-	public static BaseBlock iceCrystalBlock = new BaseBlock("block_crystal_ice", true, Material.PACKED_ICE);
+	public static final BaseBlock iceCrystalBlock = new BaseBlock("block_crystal_ice", true, Material.PACKED_ICE);
 	/**
 	 * The constant earthCrystalBlock.
 	 */
-	public static BaseBlock earthCrystalBlock = new BaseBlock("block_crystal_earth", true);
+	public static final BaseBlock earthCrystalBlock = new BaseBlock("block_crystal_earth", true);
 	/**
 	 * The constant airCrystalBlock.
 	 */
-	public static BaseBlock airCrystalBlock = new BaseBlock("block_crystal_air", true);
+	public static final BaseBlock airCrystalBlock = new BaseBlock("block_crystal_air", true);
 	/**
 	 * The constant enderCrystalBlock.
 	 */
-	public static BaseBlock enderCrystalBlock = new BaseBlock("block_crystal_ender", true);
+	public static final BaseBlock enderCrystalBlock = new BaseBlock("block_crystal_ender", true);
 
 	/**
 	 * Register.

@@ -1,9 +1,7 @@
 package elementalitems.util;
 
 import elementalitems.ElementalType;
-import elementalitems.items.ElementalItem;
 import elementalitems.items.ElementalMaterials;
-import elementalitems.items.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -11,16 +9,12 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.ILockableContainer;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Utils {
-	private static Map<Block, ItemStack> blockToSmeltingResultMap = new LinkedHashMap<>();
 
 	private Utils() {
 
@@ -33,18 +27,6 @@ public class Utils {
 	public ItemStack getSmeltedResultWithCorrectMeta(IBlockState state) {
 		Block block = state.getBlock();
 		return FurnaceRecipes.instance().getSmeltingResult(new ItemStack(Item.getItemFromBlock(block), 1, block.damageDropped(state)));
-	}
-
-	public void createBlockSmeltMap() {
-		ForgeRegistries.BLOCKS.forEach(block -> blockToSmeltingResultMap.put(block, FurnaceRecipes.instance().getSmeltingResult(new ItemStack(block))));
-	}
-
-	public Map<Block, ItemStack> getBlockToSmeltingResultMap() {
-		return blockToSmeltingResultMap;
-	}
-
-	public void setBlockToSmeltingResultMap(Map<Block, ItemStack> blockToSmeltingResultMap) {
-		Utils.blockToSmeltingResultMap = blockToSmeltingResultMap;
 	}
 
 	public List<ItemStack> getContainerContents(@Nonnull ILockableContainer container, boolean clearSlots) {
@@ -107,28 +89,6 @@ public class Utils {
 			case PLAIN:
 			default:
 				return ElementalMaterials.getInstance().ARMOR_PLAIN;
-		}
-	}
-
-	public ElementalItem getCrystalFromElementalType(ElementalType type) {
-		switch(type) {
-			case FIRE:
-				return ItemHandler.fireCrystal;
-			case WATER:
-				return ItemHandler.waterCrystal;
-			case EARTH:
-				return ItemHandler.earthCrystal;
-			case AIR:
-				return ItemHandler.airCrystal;
-			case ICE:
-				return ItemHandler.iceCrystal;
-			case ENDER:
-				return ItemHandler.enderCrystal;
-			case LEAF:
-				return ItemHandler.leafCrystal;
-			case PLAIN:
-			default:
-				return ItemHandler.plainCrystal;
 		}
 	}
 

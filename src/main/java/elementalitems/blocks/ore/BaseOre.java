@@ -1,7 +1,8 @@
-package elementalitems.blocks;
+package elementalitems.blocks.ore;
 
 import com.google.common.base.Predicate;
 import elementalitems.ElementalType;
+import elementalitems.blocks.BaseBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,9 +21,6 @@ import java.util.Set;
  */
 public abstract class BaseOre extends BaseBlock {
 
-	// the type associated with this 
-	protected ElementalType type;
-
 	// the list of blocks this can replace during oreGen
 	protected List<Block> blocksThisCanGenerateOver;
 
@@ -40,7 +38,6 @@ public abstract class BaseOre extends BaseBlock {
 
 	public BaseOre(ElementalType oreType, Material blockMaterial) {
 		super("ore_" + oreType.getTypeName(), blockMaterial);
-		this.type = oreType;
 		this.blocksThisCanGenerateOver = Collections.singletonList(Blocks.STONE);
 		this.biomesToGenerateIn = BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL);
 	}
@@ -84,5 +81,10 @@ public abstract class BaseOre extends BaseBlock {
 
 	public int getSpawnChances() {
 		return this.spawnChances;
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
 	}
 }

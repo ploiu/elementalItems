@@ -18,7 +18,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void registerEntityRenderer(Class<? extends Entity> entityClass, RenderManager renderManager) {
+	public void registerEntityRenderer(Class<? extends Entity> entityClass) {
 		RenderingRegistry.registerEntityRenderingHandler(entityClass, (RenderManager manager) -> (Render<Entity>) new RenderBaseArrow(manager));
 	}
 }

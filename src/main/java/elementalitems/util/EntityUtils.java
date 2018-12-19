@@ -77,9 +77,9 @@ public class EntityUtils {
 		// try to add all items from itemToAdd to the player's inventory
 		for(ItemStack stack : itemsToAdd) {
 			// attempt to add the current item to the player's inventory
-			boolean wasAbleToAdd = player.addItemStackToInventory(stack);
+			boolean wasUnableToAdd = !player.addItemStackToInventory(stack);
 			// add the current stack to leftOverItems if we couldn't add it to the player's inventory
-			if(!wasAbleToAdd) {
+			if(wasUnableToAdd) {
 				leftOverItems.add(stack);
 			}
 		}

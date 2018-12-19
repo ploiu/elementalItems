@@ -11,7 +11,6 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
@@ -57,7 +56,7 @@ public class IceSword extends BaseSword {
 	}
 
 	@Override
-	protected void specialEffect(World world, EntityPlayer player, EnumHand hand) {
+	protected void specialEffect(World world, EntityPlayer player) {
 		world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 		if(!world.isRemote) {
 			EntitySnowball entitysnowball = new EntitySnowball(world, player);

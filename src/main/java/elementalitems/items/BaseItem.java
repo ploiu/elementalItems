@@ -37,9 +37,9 @@ public class BaseItem extends Item implements ElementalItem {
 	/**
 	 * The Name.
 	 */
-	protected String name;
+	protected final String name;
 	/**
 	 * The Type.
 	 */
-	protected ElementalType type;
+	protected final ElementalType type;
 }

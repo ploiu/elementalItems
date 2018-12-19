@@ -17,10 +17,9 @@ import net.minecraft.world.World;
 public abstract class BaseEntityArrow extends EntityArrow implements ElementalArrow {
 
 	/**
-	 * The Type.
+	 * The type associated with this entity; defaults to PLAIN
 	 */
-	@SuppressWarnings("InstanceVariableMayNotBeInitialized")
-	protected ElementalType type;
+	protected ElementalType type = ElementalType.PLAIN;
 	private boolean hasAppliedLandingEffect;
 
 	/**
@@ -94,5 +93,13 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 		if(!this.getEntityWorld().isRemote && result.typeOfHit == RayTraceResult.Type.BLOCK && !this.hasAppliedLandingEffect) {
 			this.applyLandingEffect(result.getBlockPos(), result.sideHit);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "BaseEntityArrow{" +
+				       "type=" + this.type +
+				       ", hasAppliedLandingEffect=" + this.hasAppliedLandingEffect +
+				       '}';
 	}
 }

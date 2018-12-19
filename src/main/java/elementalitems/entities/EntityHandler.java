@@ -28,7 +28,7 @@ import static elementalitems.ElementalItems.logger;
 import static org.apache.logging.log4j.Level.INFO;
 
 public class EntityHandler {
-	public static final Map<String, Class<? extends Entity>> entities = new HashMap<>();
+	 static final Map<String, Class<? extends Entity>> entities = new HashMap<>();
 
 	// there's no real easy way to do this, so use a static initializer...
 	static {
@@ -56,7 +56,7 @@ public class EntityHandler {
 		logger.log(INFO, "Registering entity renderers...");
 		RenderManager renderManager = Minecraft.getMinecraft().getRenderManager();
 		// iterate through our entities and register them for rendering
-		entities.values().forEach(value -> ElementalItems.proxy.registerEntityRenderer(value, renderManager));
+		entities.values().forEach(value -> ElementalItems.proxy.registerEntityRenderer(value));
 		logger.log(INFO, "Finished registering entity renderers");
 	}
 

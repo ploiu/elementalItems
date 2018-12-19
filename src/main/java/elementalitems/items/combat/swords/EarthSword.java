@@ -5,7 +5,6 @@ import elementalitems.sharedeffects.combat.ISharedEarthEffects;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 /**
@@ -36,7 +35,7 @@ public class EarthSword extends BaseSword implements ISharedEarthEffects {
 	}
 
 	@Override
-	protected void specialEffect(World world, EntityPlayer player, EnumHand hand) {
+	protected void specialEffect(World world, EntityPlayer player) {
 
 	}
 

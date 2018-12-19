@@ -13,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 /**
  * The type Base shovel.
  */
@@ -20,11 +22,11 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem {
 	/**
 	 * The Name.
 	 */
-	protected String name;
+	protected final String name;
 	/**
 	 * The Type.
 	 */
-	protected ElementalType type;
+	protected final ElementalType type;
 
 	private BaseShovel(Item.ToolMaterial material, String name, ElementalType type) {
 		super(material);
@@ -73,5 +75,23 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem {
 			this.applyEffect(world, state, pos, user);
 		}
 		return super.onBlockDestroyed(stack, world, state, pos, user);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name, this.type);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof BaseShovel && ((BaseShovel) other).getName().equals(this.name);
+	}
+
+	@Override
+	public String toString() {
+		return "BaseShovel{" +
+				       "name='" + this.name + '\'' +
+				       ", type=" + this.type +
+				       '}';
 	}
 }

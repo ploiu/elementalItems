@@ -7,7 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 /**
@@ -29,7 +28,7 @@ public class LeafSword extends BaseSword {
 	}
 
 	@Override
-	protected void specialEffect(World world, EntityPlayer player, EnumHand hand) {
+	protected void specialEffect(World world, EntityPlayer player) {
 		// no op
 	}
 

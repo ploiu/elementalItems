@@ -13,10 +13,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 /**
  * The type Base axe.
  */
 public abstract class BaseAxe extends ItemAxe implements ElementalItem {
+	/**
+	 * The Name.
+	 */
+	protected final String name;
+	/**
+	 * The Type.
+	 */
+	protected final ElementalType type;
+
 	/**
 	 * Instantiates a new Base axe.
 	 *
@@ -73,12 +84,21 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem {
 		return super.onBlockDestroyed(stack, world, state, pos, user);
 	}
 
-	/**
-	 * The Name.
-	 */
-	protected String name;
-	/**
-	 * The Type.
-	 */
-	protected ElementalType type;
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name, this.type);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof BaseAxe && ((BaseAxe) other).getName().equals(this.name);
+	}
+
+	@Override
+	public String toString() {
+		return "BaseAxe{" +
+				       "name='" + this.name + '\'' +
+				       ", type=" + this.type +
+				       '}';
+	}
 }

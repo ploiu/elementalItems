@@ -14,10 +14,21 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 /**
  * The type Base sword.
  */
 public abstract class BaseSword extends ItemSword implements ElementalItem {
+	/**
+	 * The Name.
+	 */
+	protected final String name;
+	/**
+	 * The Type.
+	 */
+	protected final ElementalType type;
+
 	/**
 	 * Instantiates a new Base sword.
 	 *
@@ -37,10 +48,12 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	}
 
 	/**
-	 * Instantiates a new Base sword.
+	 * Instantiates a new Base sword. This constructor is used in tests so don't delete it
 	 */
-	protected BaseSword(){
+	protected BaseSword() {
 		super(Item.ToolMaterial.DIAMOND);
+		this.name = "baseSword";
+		this.type = ElementalType.PLAIN;
 	}
 
 	/**
@@ -63,15 +76,6 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	}
 
 	/**
-	 * The Name.
-	 */
-	protected String name;
-	/**
-	 * The Type.
-	 */
-	protected ElementalType type;
-
-	/**
 	 * Apply effect boolean.
 	 *
 	 * @param user   the user
@@ -82,16 +86,14 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 
 	/**
 	 * Special effect.
-	 *
-	 * @param world  the world
+	 *  @param world  the world
 	 * @param player the player
-	 * @param hand   the hand
 	 */
-	protected abstract void specialEffect(World world, EntityPlayer player, EnumHand hand);
+	protected abstract void specialEffect(World world, EntityPlayer player);
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-		this.specialEffect(world, player, hand);
+		this.specialEffect(world, player);
 		return super.onItemRightClick(world, player, hand);
 	}
 
@@ -99,5 +101,23 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		this.applyEffect(attacker, target);
 		return super.hitEntity(stack, target, attacker);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name, this.type);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof BaseSword && ((BaseSword) other).getName().equals(this.name);
+	}
+
+	@Override
+	public String toString() {
+		return "BaseSword{" +
+				       "name='" + this.name + '\'' +
+				       ", type=" + this.type +
+				       '}';
 	}
 }

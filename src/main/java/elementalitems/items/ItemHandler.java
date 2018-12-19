@@ -23,114 +23,114 @@ import static net.minecraft.inventory.EntityEquipmentSlot.*;
 @SuppressWarnings("unused")
 public class ItemHandler {
 	//arrayList of base items to register
-	public static List<ElementalItem> items = new ArrayList<>();
+	public static final List<ElementalItem> items = new ArrayList<>();
 	/**
 	 * The constant plainCrystal.
 	 */
 	// the crystals
-	public static ElementalItem plainCrystal = new BaseCrystal(PLAIN);
+	public static final ElementalItem plainCrystal = new BaseCrystal(PLAIN);
 	/**
 	 * The constant fireCrystal.
 	 */
-	public static ElementalItem fireCrystal = new BaseCrystal(FIRE);
-	public static ElementalItem waterCrystal = new BaseCrystal(WATER);
-	public static ElementalItem leafCrystal = new BaseCrystal(LEAF);
-	public static ElementalItem iceCrystal = new BaseCrystal(ICE);
-	public static ElementalItem earthCrystal = new BaseCrystal(EARTH);
-	public static ElementalItem airCrystal = new BaseCrystal(AIR);
-	public static ElementalItem enderCrystal = new BaseCrystal(ENDER);
+	public static final ElementalItem fireCrystal = new BaseCrystal(FIRE);
+	public static final ElementalItem waterCrystal = new BaseCrystal(WATER);
+	public static final ElementalItem leafCrystal = new BaseCrystal(LEAF);
+	public static final ElementalItem iceCrystal = new BaseCrystal(ICE);
+	public static final ElementalItem earthCrystal = new BaseCrystal(EARTH);
+	public static final ElementalItem airCrystal = new BaseCrystal(AIR);
+	public static final ElementalItem enderCrystal = new BaseCrystal(ENDER);
 
 	// swords
-	public static ElementalItem fireSword = new FireSword();
-	public static ElementalItem iceSword = new IceSword();
-	public static ElementalItem waterSword = new WaterSword();
-	public static ElementalItem leafSword = new LeafSword();
-	public static ElementalItem airSword = new AirSword();
-	public static ElementalItem earthSword = new EarthSword();
-	public static ElementalItem enderSword = new EnderSword();
-	public static ElementalItem lifeDeathSword = new LifeDeathSword();
-	public static ElementalItem plainSword = new PlainSword();
+	public static final ElementalItem fireSword = new FireSword();
+	public static final ElementalItem iceSword = new IceSword();
+	public static final ElementalItem waterSword = new WaterSword();
+	public static final ElementalItem leafSword = new LeafSword();
+	public static final ElementalItem airSword = new AirSword();
+	public static final ElementalItem earthSword = new EarthSword();
+	public static final ElementalItem enderSword = new EnderSword();
+	public static final ElementalItem lifeDeathSword = new LifeDeathSword();
+	public static final ElementalItem plainSword = new PlainSword();
 
 	// pickaxes
-	public static ElementalItem firePickaxe = new FirePickaxe();
-	public static ElementalItem icePickaxe = new IcePickaxe();
-	public static ElementalItem waterPickaxe = new WaterPickaxe();
-	public static ElementalItem leafPickaxe = new LeafPickaxe();
-	public static ElementalItem airPickaxe = new AirPickaxe();
-	public static ElementalItem earthPickaxe = new EarthPickaxe();
-	public static ElementalItem enderPickaxe = new EnderPickaxe();
-	public static ElementalItem plainPickaxe = new PlainPickaxe();
+	public static final ElementalItem firePickaxe = new FirePickaxe();
+	public static final ElementalItem icePickaxe = new IcePickaxe();
+	public static final ElementalItem waterPickaxe = new WaterPickaxe();
+	public static final ElementalItem leafPickaxe = new LeafPickaxe();
+	public static final ElementalItem airPickaxe = new AirPickaxe();
+	public static final ElementalItem earthPickaxe = new EarthPickaxe();
+	public static final ElementalItem enderPickaxe = new EnderPickaxe();
+	public static final ElementalItem plainPickaxe = new PlainPickaxe();
 
 	// axes
-	public static ElementalItem fireAxe = new FireAxe();
-	public static ElementalItem iceAxe = new IceAxe();
-	public static ElementalItem waterAxe = new WaterAxe();
-	public static ElementalItem leafAxe = new LeafAxe();
-	public static ElementalItem airAxe = new AirAxe();
-	public static ElementalItem earthAxe = new EarthAxe();
-	public static ElementalItem enderAxe = new EnderAxe();
-	public static ElementalItem plainAxe = new PlainAxe();
+	public static final ElementalItem fireAxe = new FireAxe();
+	public static final ElementalItem iceAxe = new IceAxe();
+	public static final ElementalItem waterAxe = new WaterAxe();
+	public static final ElementalItem leafAxe = new LeafAxe();
+	public static final ElementalItem airAxe = new AirAxe();
+	public static final ElementalItem earthAxe = new EarthAxe();
+	public static final ElementalItem enderAxe = new EnderAxe();
+	public static final ElementalItem plainAxe = new PlainAxe();
 
 	// shovels
-	public static ElementalItem fireShovel = new FireShovel();
-	public static ElementalItem iceShovel = new IceShovel();
-	public static ElementalItem waterShovel = new WaterShovel();
-	public static ElementalItem leafShovel = new LeafShovel();
-	public static ElementalItem airShovel = new AirShovel();
-	public static ElementalItem earthShovel = new EarthShovel();
-	public static ElementalItem enderShovel = new EnderShovel();
-	public static ElementalItem plainShovel = new PlainShovel();
+	public static final ElementalItem fireShovel = new FireShovel();
+	public static final ElementalItem iceShovel = new IceShovel();
+	public static final ElementalItem waterShovel = new WaterShovel();
+	public static final ElementalItem leafShovel = new LeafShovel();
+	public static final ElementalItem airShovel = new AirShovel();
+	public static final ElementalItem earthShovel = new EarthShovel();
+	public static final ElementalItem enderShovel = new EnderShovel();
+	public static final ElementalItem plainShovel = new PlainShovel();
 
 	// armor
-	public static ElementalItem fireHelmet = new FireArmor(HEAD);
-	public static ElementalItem fireChestplate = new FireArmor(CHEST);
-	public static ElementalItem fireLeggings = new FireArmor(LEGS);
-	public static ElementalItem fireBoots = new FireArmor(FEET);
+	public static final ElementalItem fireHelmet = new FireArmor(HEAD);
+	public static final ElementalItem fireChestplate = new FireArmor(CHEST);
+	public static final ElementalItem fireLeggings = new FireArmor(LEGS);
+	public static final ElementalItem fireBoots = new FireArmor(FEET);
 
-	public static ElementalItem iceHelmet = new IceArmor(HEAD);
-	public static ElementalItem iceChestplate = new IceArmor(CHEST);
-	public static ElementalItem iceLeggings = new IceArmor(LEGS);
-	public static ElementalItem iceBoots = new IceArmor(FEET);
+	public static final ElementalItem iceHelmet = new IceArmor(HEAD);
+	public static final ElementalItem iceChestplate = new IceArmor(CHEST);
+	public static final ElementalItem iceLeggings = new IceArmor(LEGS);
+	public static final ElementalItem iceBoots = new IceArmor(FEET);
 
-	public static ElementalItem waterHelmet = new WaterArmor(HEAD);
-	public static ElementalItem waterChestplate = new WaterArmor(CHEST);
-	public static ElementalItem waterLeggings = new WaterArmor(LEGS);
-	public static ElementalItem waterBoots = new WaterArmor(FEET);
+	public static final ElementalItem waterHelmet = new WaterArmor(HEAD);
+	public static final ElementalItem waterChestplate = new WaterArmor(CHEST);
+	public static final ElementalItem waterLeggings = new WaterArmor(LEGS);
+	public static final ElementalItem waterBoots = new WaterArmor(FEET);
 
-	public static ElementalItem leafHelmet = new LeafArmor(HEAD);
-	public static ElementalItem leafChestplate = new LeafArmor(CHEST);
-	public static ElementalItem leafLeggings = new LeafArmor(LEGS);
-	public static ElementalItem leafBoots = new LeafArmor(FEET);
+	public static final ElementalItem leafHelmet = new LeafArmor(HEAD);
+	public static final ElementalItem leafChestplate = new LeafArmor(CHEST);
+	public static final ElementalItem leafLeggings = new LeafArmor(LEGS);
+	public static final ElementalItem leafBoots = new LeafArmor(FEET);
 
-	public static ElementalItem earthHelmet = new EarthArmor(HEAD);
-	public static ElementalItem earthChestplate = new EarthArmor(CHEST);
-	public static ElementalItem earthLeggings = new EarthArmor(LEGS);
-	public static ElementalItem earthBoots = new EarthArmor(FEET);
+	public static final ElementalItem earthHelmet = new EarthArmor(HEAD);
+	public static final ElementalItem earthChestplate = new EarthArmor(CHEST);
+	public static final ElementalItem earthLeggings = new EarthArmor(LEGS);
+	public static final ElementalItem earthBoots = new EarthArmor(FEET);
 
-	public static ElementalItem airHelmet = new AirArmor(HEAD);
-	public static ElementalItem airChestplate = new AirArmor(CHEST);
-	public static ElementalItem airLeggings = new AirArmor(LEGS);
-	public static ElementalItem airBoots = new AirArmor(FEET);
+	public static final ElementalItem airHelmet = new AirArmor(HEAD);
+	public static final ElementalItem airChestplate = new AirArmor(CHEST);
+	public static final ElementalItem airLeggings = new AirArmor(LEGS);
+	public static final ElementalItem airBoots = new AirArmor(FEET);
 
-	public static ElementalItem enderHelmet = new EnderArmor(HEAD);
-	public static ElementalItem enderChestplate = new EnderArmor(CHEST);
-	public static ElementalItem enderLeggings = new EnderArmor(LEGS);
-	public static ElementalItem enderBoots = new EnderArmor(FEET);
+	public static final ElementalItem enderHelmet = new EnderArmor(HEAD);
+	public static final ElementalItem enderChestplate = new EnderArmor(CHEST);
+	public static final ElementalItem enderLeggings = new EnderArmor(LEGS);
+	public static final ElementalItem enderBoots = new EnderArmor(FEET);
 
-	public static ElementalItem plainHelmet = new PlainArmor(HEAD);
-	public static ElementalItem plainChestplate = new PlainArmor(CHEST);
-	public static ElementalItem plainLeggings = new PlainArmor(LEGS);
-	public static ElementalItem plainBoots = new PlainArmor(FEET);
+	public static final ElementalItem plainHelmet = new PlainArmor(HEAD);
+	public static final ElementalItem plainChestplate = new PlainArmor(CHEST);
+	public static final ElementalItem plainLeggings = new PlainArmor(LEGS);
+	public static final ElementalItem plainBoots = new PlainArmor(FEET);
 
 	// arrows
-	public static ElementalItem fireArrow = new BaseArrow(FIRE);
-	public static ElementalItem iceArrow = new BaseArrow(ICE);
-	public static ElementalItem waterArrow = new BaseArrow(WATER);
-	public static ElementalItem leafArrow = new BaseArrow(LEAF);
-	public static ElementalItem airArrow = new BaseArrow(AIR);
-	public static ElementalItem earthArrow = new BaseArrow(EARTH);
-	public static ElementalItem enderArrow = new BaseArrow(ENDER);
-	public static ElementalItem plainArrow = new BaseArrow(PLAIN);
+	public static final ElementalItem fireArrow = new BaseArrow(FIRE);
+	public static final ElementalItem iceArrow = new BaseArrow(ICE);
+	public static final ElementalItem waterArrow = new BaseArrow(WATER);
+	public static final ElementalItem leafArrow = new BaseArrow(LEAF);
+	public static final ElementalItem airArrow = new BaseArrow(AIR);
+	public static final ElementalItem earthArrow = new BaseArrow(EARTH);
+	public static final ElementalItem enderArrow = new BaseArrow(ENDER);
+	public static final ElementalItem plainArrow = new BaseArrow(PLAIN);
 
 	private ItemHandler() {
 	}

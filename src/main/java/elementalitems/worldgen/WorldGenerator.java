@@ -1,7 +1,7 @@
 package elementalitems.worldgen;
 
-import elementalitems.blocks.BaseOre;
-import elementalitems.blocks.FireCrystalOre;
+import elementalitems.blocks.ore.BaseOre;
+import elementalitems.blocks.ore.FireCrystalOre;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -31,7 +31,7 @@ public class WorldGenerator implements IWorldGenerator {
 				break;
 			// end
 			case 1:
-				// TODO generateEnd
+				this.generateEnd(random, world, chunkX, chunkZ);
 				break;
 			default:
 				break;
@@ -71,8 +71,12 @@ public class WorldGenerator implements IWorldGenerator {
 		this.runGenerator(iceCrystalOre, null, iceCrystalOre.getMaxVeinSize(), iceCrystalOre.getSpawnChances(), iceCrystalOre.getMinYGeneration(), iceCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
 		this.runGenerator(leafCrystalOre, null, leafCrystalOre.getMaxVeinSize(), leafCrystalOre.getSpawnChances(), leafCrystalOre.getMinYGeneration(), leafCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
 		this.runGenerator(waterCrystalOre, null, waterCrystalOre.getMaxVeinSize(), waterCrystalOre.getSpawnChances(), waterCrystalOre.getMinYGeneration(), waterCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
-		this.runGenerator(plainCrystalOre, null, plainCrystalOre.getMaxVeinSize(), plainCrystalOre.getSpawnChances(), plainCrystalOre.getMinYGeneration(), plainCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
 		this.runGenerator(airCrystalOre, null, airCrystalOre.getMaxVeinSize(), airCrystalOre.getSpawnChances(), airCrystalOre.getMinYGeneration(), airCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
 		this.runGenerator(earthCrystalOre, null, earthCrystalOre.getMaxVeinSize(), earthCrystalOre.getSpawnChances(), earthCrystalOre.getMinYGeneration(), earthCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
+		this.runGenerator(plainCrystalOre, null, plainCrystalOre.getMaxVeinSize(), plainCrystalOre.getSpawnChances(), plainCrystalOre.getMinYGeneration(), plainCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
+	}
+
+	private void generateEnd(Random random, World world, int chunkX, int chunkZ) {
+		this.runGenerator(endCrystalOre, null, endCrystalOre.getMaxVeinSize(), endCrystalOre.getSpawnChances(), endCrystalOre.getMinYGeneration(), endCrystalOre.getMaxYGeneration(), world, random, chunkX, chunkZ);
 	}
 }

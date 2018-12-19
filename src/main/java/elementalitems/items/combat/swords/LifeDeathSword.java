@@ -7,7 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -49,7 +48,7 @@ public class LifeDeathSword extends BaseSword {
 	}
 
 	@Override
-	protected void specialEffect(World world, EntityPlayer player, EnumHand hand) {
+	protected void specialEffect(World world, EntityPlayer player) {
 		// no op
 	}
 

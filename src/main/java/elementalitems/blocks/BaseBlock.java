@@ -1,22 +1,14 @@
 package elementalitems.blocks;
 
-import com.google.common.base.Predicate;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.Biome;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 /**
@@ -26,11 +18,11 @@ public class BaseBlock extends BlockBreakable {
 	/**
 	 * The Name.
 	 */
-	protected String name;
+	protected final String name;
 	/**
 	 * The Is beacon block.
 	 */
-	protected boolean isBeaconBlock;
+	protected final boolean isBeaconBlock;
 
 
 	/**
@@ -61,15 +53,6 @@ public class BaseBlock extends BlockBreakable {
 	}
 
 	/**
-	 * Instantiates a new Base block.
-	 *
-	 * @param name the name
-	 */
-	public BaseBlock(String name) {
-		this(name, false);
-	}
-
-	/**
 	 * Create block item item.
 	 *
 	 * @param basedOff the based off
@@ -84,6 +67,11 @@ public class BaseBlock extends BlockBreakable {
 	@Override
 	public boolean isBeaconBase(IBlockAccess world, BlockPos thisPosition, BlockPos beaconPos) {
 		return this.isBeaconBlock;
+	}
+	
+	@Override
+	public String toString(){
+		return this.name;
 	}
 
 }

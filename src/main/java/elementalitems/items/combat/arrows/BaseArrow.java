@@ -13,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.apache.logging.log4j.Level;
 
+import java.util.Objects;
+
 
 /**
  * The type Base arrow.
@@ -22,11 +24,11 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 	/**
 	 * The Name.
 	 */
-	protected String name;
+	protected final String name;
 	/**
 	 * The Type.
 	 */
-	protected ElementalType type;
+	protected final ElementalType type;
 
 	@Override
 	public String getName() {
@@ -88,4 +90,16 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 		return other instanceof BaseArrow && ((BaseArrow) other).getType() == this.type;
 	}
 
+	@Override
+	public String toString() {
+		return "BaseArrow{" +
+				       "name='" + this.name + '\'' +
+				       ", type=" + this.type +
+				       '}';
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name, this.type);
+	}
 }

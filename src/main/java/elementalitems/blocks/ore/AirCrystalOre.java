@@ -1,4 +1,4 @@
-package elementalitems.blocks;
+package elementalitems.blocks.ore;
 
 import elementalitems.ElementalType;
 import elementalitems.items.ItemHandler;

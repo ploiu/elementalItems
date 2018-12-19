@@ -24,11 +24,11 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected ElementalType type;
+	protected final ElementalType type;
 	/**
 	 * The Name.
 	 */
-	protected String name;
+	protected final String name;
 
 
 	private BaseArmor(ItemArmor.ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlot, ElementalType type, String name) {
@@ -106,5 +106,14 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 			return false;
 		}
 		return ((BaseArmor) other).getType() == this.getType() && ((BaseArmor) other).getEquipmentSlot() == this.getEquipmentSlot();
+	}
+
+	@Override
+	public String toString() {
+		return "BaseArmor{" +
+				       "type=" + this.type +
+				       ", name='" + this.name + '\'' +
+				       ", armorType=" + this.armorType.getName() +
+				       '}';
 	}
 }

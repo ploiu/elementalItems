@@ -32,7 +32,8 @@ public class EntityAirArrow extends BaseEntityArrow {
 	}
 
 	/**
-	 * Instantiates a new Entity air arrow.
+	 * Instantiates a new Entity air arrow. This is used during rendering, so ignore your IDE when it
+	 * says that it's unused
 	 *
 	 * @param world the world
 	 */

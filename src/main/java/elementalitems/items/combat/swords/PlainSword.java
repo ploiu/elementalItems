@@ -3,7 +3,6 @@ package elementalitems.items.combat.swords;
 import elementalitems.ElementalType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 /**
@@ -25,7 +24,7 @@ public class PlainSword extends BaseSword {
 	}
 
 	@Override
-	protected void specialEffect(World world, EntityPlayer player, EnumHand hand) {
+	protected void specialEffect(World world, EntityPlayer player) {
 		// no op
 	}
 }

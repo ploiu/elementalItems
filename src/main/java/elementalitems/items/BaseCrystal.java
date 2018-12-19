@@ -3,6 +3,8 @@ package elementalitems.items;
 import elementalitems.ElementalType;
 import net.minecraft.item.ItemStack;
 
+import java.util.Objects;
+
 /**
  * The base class for our crystals
  */
@@ -26,4 +28,21 @@ public class BaseCrystal extends BaseItem implements ElementalItem {
 		return true;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.name, this.type);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof BaseCrystal && ((BaseCrystal) other).getName().equals(this.name);
+	}
+
+	@Override
+	public String toString() {
+		return "BaseCrystal{" +
+				       "name='" + this.name + '\'' +
+				       ", type=" + this.type +
+				       '}';
+	}
 }
