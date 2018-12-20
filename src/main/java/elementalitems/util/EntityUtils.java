@@ -118,7 +118,7 @@ public class EntityUtils {
 		return false;
 	}
 
-	public int getPLayerLevel(Entity player) {
+	public int getPlayerLevel(Entity player) {
 		return this.isValidEntityLivingBase(player) && player instanceof EntityPlayer ? ((EntityPlayer) player).experienceLevel : 0;
 	}
 

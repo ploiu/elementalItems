@@ -3,6 +3,7 @@ package elementalitems.items.combat.swords;
 import elementalitems.ElementalType;
 import elementalitems.TestHelper;
 import elementalitems.items.ElementalMaterials;
+import elementalitems.items.ItemHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -34,13 +35,10 @@ import static org.mockito.Mockito.when;
 
 public class SwordTests {
 
-	private FireSword fireSword;
-	private IceSword iceSword;
-	private EnderSword enderSword;
-	private LifeDeathSword lifeDeathSword;
-	private EarthSword earthSword;
-
-	private BaseSword swordBeingTested;
+	// this is needed else the game throws a fit when we try to use its resources
+	static {
+		Bootstrap.register();
+	}
 
 	@Mock
 	EntityZombie fakeZombie;
@@ -54,17 +52,21 @@ public class SwordTests {
 	BlockPos position;
 	@Mock
 	World world;
-
+	
 	Float currentHealth;
-
-	// this is needed else the game throws a fit when we try to use its resources
-	static {
-		Bootstrap.register();
-	}
+	private FireSword fireSword;
+	private IceSword iceSword;
+	private EnderSword enderSword;
+	private LifeDeathSword lifeDeathSword;
+	private EarthSword earthSword;
+	private BaseSword swordBeingTested;
 
 	@BeforeEach
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
+		Bootstrap.register();
+		ElementalMaterials.getInstance().registerMaterials();
+		ItemHandler.initializeAllItems();
 
 		this.fireSword = new FireSword(ElementalMaterials.getInstance().TOOL_FIRE, "fakeSword", ElementalType.FIRE);
 		this.iceSword = new IceSword(ElementalMaterials.getInstance().TOOL_ICE, "fakeSword", ElementalType.ICE);
@@ -85,7 +87,6 @@ public class SwordTests {
 		when(this.position.getZ()).thenReturn(2);
 
 		TestHelper.setField(this.fakePlayer, "dataManager", this.manager, Entity.class);
-
 	}
 
 	@Test
@@ -111,7 +112,6 @@ public class SwordTests {
 			public boolean matches(Object item) {
 				PotionEffect effect = (PotionEffect) item;
 				return doPotionsMatch(effect, MobEffects.WEAKNESS, 100, 2, false, true);
-
 			}
 		}));
 	}
@@ -157,5 +157,4 @@ public class SwordTests {
 		verify(this.fakeZombie).attackEntityFrom(eq(DamageSource.OUT_OF_WORLD), eq(expectedExtraDamage));
 		verify(this.fakePlayer).heal(eq(expectedExtraDamage));
 	}
-
 }

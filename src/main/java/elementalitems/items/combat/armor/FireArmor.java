@@ -10,6 +10,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 
+import javax.annotation.Nonnull;
+
 /**
  * The type Fire armor.
  */
@@ -39,7 +41,7 @@ public class FireArmor extends BaseArmor {
 	}
 
 	@Override
-	public void applyPassiveEffect(EntityLivingBase wearer) {
+	public void applyPassiveEffect(@Nonnull EntityLivingBase wearer) {
 		// fire proof
 		if(this.getNumberOfEquippedArmorPiecesOfThisElementalType(wearer) == 4) {
 			wearer.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 21, 0, false, false));

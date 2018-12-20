@@ -2,6 +2,7 @@ package elementalitems;
 
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import org.mockito.internal.matchers.VarargCapturingMatcher;
 
 import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
@@ -20,5 +21,32 @@ public class TestHelper {
 		} catch(NoSuchFieldException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static VarargCapturingMatcher<PotionEffect> matchPotionOfLevel(Potion potion, int level) {
+		return new VarargCapturingMatcher<PotionEffect>() {
+			@Override
+			public boolean matches(Object argument) {
+				return (argument instanceof PotionEffect) && (((PotionEffect) argument).getAmplifier() == level) && (((PotionEffect) argument).getPotion().equals(potion));
+			}
+		};
+	}
+
+	public static VarargCapturingMatcher<PotionEffect> matchPotionEffect(Potion potion) {
+		return new VarargCapturingMatcher<PotionEffect>() {
+			@Override
+			public boolean matches(Object argument) {
+				return argument instanceof PotionEffect && ((PotionEffect) argument).getPotion().equals(potion);
+			}
+		};
+	}
+
+	public static VarargCapturingMatcher<Potion> matchPotion(Potion potion) {
+		return new VarargCapturingMatcher<Potion>() {
+			@Override
+			public boolean matches(Object argument) {
+				return argument.equals(potion);
+			}
+		};
 	}
 }

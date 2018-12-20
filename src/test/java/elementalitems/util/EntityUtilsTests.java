@@ -139,9 +139,9 @@ public class EntityUtilsTests {
 	@TestFactory
 	List<DynamicTest> getPlayerLevel() {
 		return Arrays.asList(
-				dynamicTest("should return player level when given a valid player", () -> assertEquals(this.playerXPLevel, this.utils.getPLayerLevel(this.player))),
-				dynamicTest("should return 0 when given a non-player entity", () -> assertEquals(0, this.utils.getPLayerLevel(this.entity))),
-				dynamicTest("should return 0 when given a null entity", () -> assertEquals(0, this.utils.getPLayerLevel(null)))
+				dynamicTest("should return player level when given a valid player", () -> assertEquals(this.playerXPLevel, this.utils.getPlayerLevel(this.player))),
+				dynamicTest("should return 0 when given a non-player entity", () -> assertEquals(0, this.utils.getPlayerLevel(this.entity))),
+				dynamicTest("should return 0 when given a null entity", () -> assertEquals(0, this.utils.getPlayerLevel(null)))
 		);
 	}
 

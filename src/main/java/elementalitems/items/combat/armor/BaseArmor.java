@@ -24,7 +24,7 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected ElementalType type;
 	/**
 	 * The Name.
 	 */
