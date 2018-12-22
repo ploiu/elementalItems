@@ -13,7 +13,7 @@ import java.util.Collections;
 
 public interface ISharedFireEffect {
 
-	default void applyFireEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
+	default void applyFireEffect(World world, IBlockState state, BlockPos position) {
 		if(!world.isRemote) {
 			// get the item to drop based on the smelting map
 			ItemStack smeltedItemStack = Utils.getInstance().getSmeltedResultWithCorrectMeta(state);
@@ -21,7 +21,7 @@ public interface ISharedFireEffect {
 			if(!smeltedItemStack.getItem().equals(Items.AIR)) {
 				// destroy the block and try to drop the smelted item where the block was
 				world.destroyBlock(position, false);
-				EntityUtils.getInstance().dropItemsInWorld(world, user, Collections.singletonList(smeltedItemStack));
+				EntityUtils.getInstance().dropItemsInWorld(world, position, Collections.singletonList(smeltedItemStack));
 			}
 		}
 	}

@@ -115,6 +115,22 @@ public class ElementalItemsEventHandler {
 	}
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
+	public static void onLavaFogRender(EntityViewRenderEvent.FogDensity event) {
+		// get the entity
+		Entity eventEntity = event.getEntity();
+		// ensure that it's valid and in lava
+		if(EntityUtils.getInstance().isValidEntityLivingBase(eventEntity) && eventEntity.isInLava()) {
+			EntityLivingBase livingBase = (EntityLivingBase) event.getEntity();
+			// check if they're wearing a fire helmet, if so cancel the event and set the fog density
+			if(ItemHandler.fireHelmet.equals(livingBase.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem())) {
+				event.setCanceled(true);
+				event.setDensity(0F);
+			}
+		}
+	}
+
+	@SubscribeEvent
 	public static void onLivingTeleport(EnderTeleportEvent event) {
 		// prevent if the event's entity is wearing a full set of ender armor
 		if(EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(event.getEntity(), ElementalType.ENDER)) {

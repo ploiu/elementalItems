@@ -8,6 +8,7 @@ import elementalitems.items.tools.axes.*;
 import elementalitems.items.tools.pickaxes.*;
 import elementalitems.items.tools.shovels.*;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.Level;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 import static elementalitems.ElementalType.*;
 import static net.minecraft.inventory.EntityEquipmentSlot.*;
+import static net.minecraftforge.fml.common.registry.GameRegistry.addSmelting;
 
 /**
  * The type Item handler.
@@ -125,8 +127,11 @@ public class ItemHandler {
 	public static ElementalItem earthArrow;
 	public static ElementalItem enderArrow;
 	public static ElementalItem plainArrow;
-	
-	public static void initializeAllItems(){
+
+	private ItemHandler() {
+	}
+
+	public static void initializeAllItems() {
 		plainCrystal = new BaseCrystal(PLAIN);
 		fireCrystal = new BaseCrystal(FIRE);
 		waterCrystal = new BaseCrystal(WATER);
@@ -210,9 +215,10 @@ public class ItemHandler {
 		plainArrow = new BaseArrow(PLAIN);
 	}
 
-	private ItemHandler() {
+	public static void registerSmelting() {
+		addSmelting(new ItemStack((Item) plainCrystal), new ItemStack((Item) fireCrystal), 5);
+		addSmelting(new ItemStack((Item) iceCrystal), new ItemStack((Item) waterCrystal), 5);
 	}
-
 
 	/**
 	 * Registers all of our items

@@ -112,6 +112,22 @@ public class EntityUtils {
 	}
 
 	/**
+	 * drops the passed list of {@link ItemStack ItemStacks} at the passed {@link BlockPos}
+	 *
+	 * @param world       the {@link World} that will spawn the items
+	 * @param position    the BlockPos to drop the items at
+	 * @param itemsToDrop the actual items that are being spawned into the world
+	 */
+	public void dropItemsInWorld(@Nonnull World world, @Nonnull BlockPos position, @Nonnull List<ItemStack> itemsToDrop) {
+		itemsToDrop.forEach(itemStack -> {
+			// create a new Item to be dropped into the world
+			EntityItem itemStackEntity = new EntityItem(world, position.getX(), position.getY(), position.getZ(), itemStack);
+			itemStackEntity.setDefaultPickupDelay();
+			world.spawnEntity(itemStackEntity);
+		});
+	}
+
+	/**
 	 * Takes an {@link Entity} and checks its armorInventoryList for a full set of {@link BaseArmor} where each {@code currentArmor.type == type}
 	 *
 	 * @param toCheck the entity to check
