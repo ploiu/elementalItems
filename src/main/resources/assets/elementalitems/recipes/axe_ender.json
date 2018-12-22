@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"##",
+	"|#"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_ENDER"
+	},
+	"|": {
+	  "item": "#AXE_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:axe_ender",
+	"count": 1
+  }
+}

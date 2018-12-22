@@ -8,7 +8,9 @@
 	  "elementalitems:sword_plain",
 	  "elementalitems:axe_plain",
 	  "elementalitems:pickaxe_plain",
-	  "elementalitems:shovel_plain"
+	  "elementalitems:shovel_plain",
+	  "elementalitems:arrow_plain",
+	  "elementalitems:block_crystal_plain"
 	]
   },
   "criteria": {

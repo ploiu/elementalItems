@@ -5,7 +5,12 @@
 	  "elementalitems:legs_water",
 	  "elementalitems:chest_water",
 	  "elementalitems:head_water",
-	  "elementalitems:sword_water"
+	  "elementalitems:sword_water",
+	  "elementalitems:shovel_water",
+	  "elementalitems:axe_water",
+	  "elementalitems:pickaxe_water",
+	  "elementalitems:arrow_water",
+	  "elementalitems:block_crystal_water"
 	]
   },
   "criteria": {

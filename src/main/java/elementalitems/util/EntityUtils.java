@@ -6,9 +6,7 @@ import elementalitems.entities.arrows.*;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.combat.armor.BaseArmor;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,6 +38,24 @@ public class EntityUtils {
 	 */
 	public boolean isValidEntityLivingBase(Entity toCheck) {
 		return toCheck instanceof EntityLivingBase && toCheck.isEntityAlive();
+	}
+
+	/**
+	 * attempts to get the parent of the passed {@link MultiPartEntityPart} and return it
+	 *
+	 * @param childEntity the part of the entity we want to get
+	 * @return null if we can't get the child's parent, else return the parent of the childEntity
+	 */
+	@Nullable
+	public EntityLiving getParentEntityFromMultipart(MultiPartEntityPart childEntity) {
+		if(childEntity != null && childEntity.parent != null) {
+			// get if the parent is an EntityLiving as well
+			if(childEntity.parent instanceof EntityLiving) {
+				return (EntityLiving) childEntity.parent;
+			}
+		}
+		// we can't really do anything...
+		return null;
 	}
 
 	public boolean isMobFromBiome(final EntityLivingBase toCheck, final Biome biome) {

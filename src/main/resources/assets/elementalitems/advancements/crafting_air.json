@@ -5,7 +5,12 @@
 	  "elementalitems:legs_air",
 	  "elementalitems:chest_air",
 	  "elementalitems:head_air",
-	  "elementalitems:sword_air"
+	  "elementalitems:sword_air",
+	  "elementalitems:shovel_air",
+	  "elementalitems:axe_air",
+	  "elementalitems:pickaxe_air",
+	  "elementalitems:arrow_air",
+	  "elementalitems:block_crystal_air"
 	]
   },
   "criteria": {

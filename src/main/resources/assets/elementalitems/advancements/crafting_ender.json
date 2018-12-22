@@ -5,7 +5,12 @@
 	  "elementalitems:legs_ender",
 	  "elementalitems:chest_ender",
 	  "elementalitems:head_ender",
-	  "elementalitems:sword_ender"
+	  "elementalitems:sword_ender",
+	  "elementalitems:shovel_ender",
+	  "elementalitems:axe_ender",
+	  "elementalitems:pickaxe_ender",
+	  "elementalitems:arrow_ender",
+	  "elementalitems:block_crystal_ender"
 	]
   },
   "criteria": {

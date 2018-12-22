@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"###",
+	"###"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_AIR"
+	}
+  },
+  "result": {
+	"item": "elementalitems:block_crystal_air",
+	"count": 1
+  }
+}

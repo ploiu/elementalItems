@@ -3,6 +3,7 @@ package elementalitems.entities.arrows;
 import elementalitems.ElementalType;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MultiPartEntityPart;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -51,10 +52,6 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 		this.type = type;
 	}
 
-	public ElementalType getType() {
-		return this.type;
-	}
-
 	/**
 	 * Instantiates a new Base entity arrow.
 	 *
@@ -64,9 +61,8 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 		super(world);
 	}
 
-	@Override
-	protected ItemStack getArrowStack() {
-		return new ItemStack((Item) EntityUtils.getInstance().getArrowItemFromElementalType(this.type));
+	public ElementalType getType() {
+		return this.type;
 	}
 
 	@Override
@@ -81,18 +77,31 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 	}
 
 	@Override
-	protected void arrowHit(EntityLivingBase living) {
-		super.arrowHit(living);
-		this.applyEffectOnEntity(living);
-	}
-
-	@Override
 	public void onHit(RayTraceResult result) {
 		super.onHit(result);
 		// if this is in the ground, apply the landing effect
-		if(!this.getEntityWorld().isRemote && result.typeOfHit == RayTraceResult.Type.BLOCK && !this.hasAppliedLandingEffect) {
-			this.applyLandingEffect(result.getBlockPos(), result.sideHit);
+		if(!this.getEntityWorld().isRemote) {
+			if(result.typeOfHit == RayTraceResult.Type.BLOCK && !this.hasAppliedLandingEffect) {
+				this.applyLandingEffect(result.getBlockPos(), result.sideHit);
+			} else if(result.typeOfHit == RayTraceResult.Type.ENTITY) {
+				if(EntityUtils.getInstance().isValidEntityLivingBase(result.entityHit)) {
+					// call the effect directly on entityHit
+					this.applyEffectOnEntity((EntityLivingBase) result.entityHit);
+				} else if(result.entityHit instanceof MultiPartEntityPart && EntityUtils.getInstance().getParentEntityFromMultipart((MultiPartEntityPart) result.entityHit) != null) {
+					this.applyEffectOnEntity(EntityUtils.getInstance().getParentEntityFromMultipart((MultiPartEntityPart) result.entityHit));
+				}
+			}
 		}
+	}
+
+	@Override
+	protected void arrowHit(EntityLivingBase living) {
+		super.arrowHit(living);
+	}
+
+	@Override
+	protected ItemStack getArrowStack() {
+		return new ItemStack((Item) EntityUtils.getInstance().getArrowItemFromElementalType(this.type));
 	}
 
 	@Override

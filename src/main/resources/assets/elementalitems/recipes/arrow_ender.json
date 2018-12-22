@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#|#",
+	"###"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_ENDER"
+	},
+	"|": {
+	  "item": "#ARROW_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:arrow_ender",
+	"count": 8
+  }
+}

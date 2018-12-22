@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#|#",
+	"###"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_ICE"
+	},
+	"|": {
+	  "item": "#ARROW_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:arrow_ice",
+	"count": 8
+  }
+}

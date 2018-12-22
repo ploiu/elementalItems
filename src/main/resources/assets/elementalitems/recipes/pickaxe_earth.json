@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	" | "
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_EARTH"
+	},
+	"|": {
+	  "item": "#PICKAXE_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:pickaxe_earth",
+	"count": 1
+  }
+}

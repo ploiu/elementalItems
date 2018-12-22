@@ -5,7 +5,12 @@
 	  "elementalitems:legs_ice",
 	  "elementalitems:chest_ice",
 	  "elementalitems:head_ice",
-	  "elementalitems:sword_ice"
+	  "elementalitems:sword_ice",
+	  "elementalitems:shovel_ice",
+	  "elementalitems:axe_ice",
+	  "elementalitems:pickaxe_ice",
+	  "elementalitems:arrow_ice",
+	  "elementalitems:block_crystal_ice"
 	]
   },
   "criteria": {

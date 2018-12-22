@@ -100,5 +100,23 @@
 	"ingredient": {
 	  "item": "elementalitems:feet_plain"
 	}
+  },
+  {
+	"name": "ARROW_PLAIN",
+	"ingredient": {
+	  "item": "elementalitems:arrow_plain"
+	}
+  },
+  {
+	"name": "FEATHER",
+	"ingredient": {
+	  "item": "minecraft:feather"
+	}
+  },
+  {
+	"name": "FLINT",
+	"ingredient": {
+	  "item": "minecraft:flint"
+	}
   }
 ]
