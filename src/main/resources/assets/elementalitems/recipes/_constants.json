@@ -114,9 +114,49 @@
 	}
   },
   {
-	"name": "FLINT",
+	"name": "ENDER_EYE",
 	"ingredient": {
-	  "item": "minecraft:flint"
+	  "item": "minecraft:ender_eye"
+	}
+  },
+  {
+	"name": "SNOWBALL",
+	"ingredient": {
+	  "item": "minecraft:snowball"
+	}
+  },
+  {
+	"name": "LEAVES",
+	"ingredient": {
+	  "item": "minecraft:leaves",
+	  "data": 32767
+	}
+  },
+  {
+	"name": "LEAVES2",
+	"ingredient": {
+	  "item": "minecraft:leaves2",
+	  "data": 32767
+	}
+  },
+  {
+	"name": "HARDENED_CLAY",
+	"ingredient": {
+	  "item": "minecraft:hardened_clay"
+	}
+  },
+  {
+	"name": "STAINED_HARDENED_CLAY",
+	"ingredient": {
+	  "item": "minecraft:stained_hardened_clay",
+	  "data": 32767
+	}
+  },
+  {
+	"name": "FIREWORKS",
+	"ingredient": {
+	  "item": "minecraft:fireworks",
+	  "data": 32767
 	}
   }
 ]

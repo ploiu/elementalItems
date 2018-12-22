@@ -230,6 +230,7 @@ public class ItemHandler {
 		initializeAllItems();
 		//register all of our items with the registry
 		registry.registerAll(items.toArray(new Item[]{}));
+		registerSmelting();
 	}
 
 	/**

@@ -11,7 +11,7 @@ item.crystal_water.name=Water Crystal
 item.crystal_leaf.name=Leaf Crystal
 item.crystal_earth.name=Earth Crystal
 item.crystal_air.name=Sky Crystal
-item.crystal_ender.name=End Crystal
+item.crystal_ender.name=Ender Crystal
 # pickaxes
 item.pickaxe_plain.name=Crystal Pickaxe
 item.pickaxe_fire.name=Fire Pickaxe

@@ -22,6 +22,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 	 */
 	protected ElementalType type = ElementalType.PLAIN;
 	private boolean hasAppliedLandingEffect;
+	private boolean hasAppliedEntityCollisionEffect;
 
 	/**
 	 * Instantiates a new Base entity arrow.
@@ -34,6 +35,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 		super(worldIn, shooter);
 		this.type = type;
 		this.hasAppliedLandingEffect = false;
+		this.hasAppliedEntityCollisionEffect = false;
 		this.setDamage(4.0D);
 	}
 
@@ -49,6 +51,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 	public BaseEntityArrow(World world, double x, double y, double z, ElementalType type) {
 		super(world, x, y, z);
 		this.hasAppliedLandingEffect = false;
+		this.hasAppliedEntityCollisionEffect = false;
 		this.type = type;
 	}
 
@@ -81,12 +84,15 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 		super.onHit(result);
 		// if this is in the ground, apply the landing effect
 		if(!this.getEntityWorld().isRemote) {
+			// if it's in the ground
 			if(result.typeOfHit == RayTraceResult.Type.BLOCK && !this.hasAppliedLandingEffect) {
 				this.applyLandingEffect(result.getBlockPos(), result.sideHit);
-			} else if(result.typeOfHit == RayTraceResult.Type.ENTITY) {
+				// previously I thought that overrideing arrowHit would work, but nope
+			} else if(!this.hasAppliedEntityCollisionEffect && result.typeOfHit == RayTraceResult.Type.ENTITY) {
 				if(EntityUtils.getInstance().isValidEntityLivingBase(result.entityHit)) {
 					// call the effect directly on entityHit
 					this.applyEffectOnEntity((EntityLivingBase) result.entityHit);
+					// the EnderDragon is actually made up of multiple parts, and this helps handle that
 				} else if(result.entityHit instanceof MultiPartEntityPart && EntityUtils.getInstance().getParentEntityFromMultipart((MultiPartEntityPart) result.entityHit) != null) {
 					this.applyEffectOnEntity(EntityUtils.getInstance().getParentEntityFromMultipart((MultiPartEntityPart) result.entityHit));
 				}
@@ -96,7 +102,10 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 
 	@Override
 	protected void arrowHit(EntityLivingBase living) {
-		super.arrowHit(living);
+		if(!this.hasAppliedEntityCollisionEffect){
+			this.applyEffectOnEntity(living);
+			this.hasAppliedEntityCollisionEffect = true;
+		}
 	}
 
 	@Override

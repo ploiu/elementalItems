@@ -2,6 +2,7 @@ package elementalitems.entities.arrows;
 
 import elementalitems.ElementalType;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 /**
@@ -44,6 +45,7 @@ public class EntityAirArrow extends BaseEntityArrow {
 
 	@Override
 	public void applyEffectOnEntity(EntityLivingBase target) {
-		// TODO
+		// do extra damage that bypasses armor
+		target.attackEntityFrom(DamageSource.MAGIC.setDamageBypassesArmor().setDamageIsAbsolute(), 4.0F);
 	}
 }
