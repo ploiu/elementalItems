@@ -35,7 +35,7 @@ public class EnderArmor extends BaseArmor {
 			wearer.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 21, 1, false, false));
 		}
 		if(numberOfPieces >= 2) {
-			// apply night vision
+			// apply night vision; the duration is so high because when it starts to run out the screen starts to flicker and it's annoying
 			wearer.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 240, 0, false, false));
 		}
 		if(numberOfPieces >= 3) {

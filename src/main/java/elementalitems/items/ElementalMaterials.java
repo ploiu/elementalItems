@@ -141,19 +141,19 @@ public class ElementalMaterials {
 		this.TOOL_FIRE = addToolMaterial("material_tool_fire", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, IRON.getEnchantability());
 		this.TOOL_ICE = addToolMaterial("material_tool_ice", BASE_HARVEST_LEVEL, 1000, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, ICE_ENCHANTABILITY);
 		this.TOOL_WATER = addToolMaterial("material_tool_water", BASE_HARVEST_LEVEL, BASE_DURABILITY, 50.0f, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
-		this.TOOL_LEAF = addToolMaterial("material_tool_leaf", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, WOOD.getEnchantability());
+		this.TOOL_LEAF = addToolMaterial("material_tool_leaf", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE * 4, WOOD.getEnchantability());
 		this.TOOL_EARTH = addToolMaterial("material_tool_earth", BASE_HARVEST_LEVEL, EARTH_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
 		this.TOOL_AIR = addToolMaterial("material_tool_air", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY * 1.25f, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
-		this.TOOL_ENDER = addToolMaterial("material_tool_end", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
+		this.TOOL_ENDER = addToolMaterial("material_tool_end", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE * 2, 15);
 		this.TOOL_PLAIN = addToolMaterial("material_tool_plain", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
 		// armor
-		this.ARMOR_FIRE = addArmorMaterial("material_armor_fire", "elementalitems:armor_fire", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
-		this.ARMOR_ICE = addArmorMaterial("material_armor_ice", "elementalitems:armor_ice", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, ICE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
+		this.ARMOR_FIRE = addArmorMaterial("material_armor_fire", "elementalitems:armor_fire", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, IRON.getEnchantability(), EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
+		this.ARMOR_ICE = addArmorMaterial("material_armor_ice", "elementalitems:armor_ice", 20, BASE_REDUCTION_AMOUNTS, ICE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
 		this.ARMOR_WATER = addArmorMaterial("material_armor_water", "elementalitems:armor_water", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
 		this.ARMOR_LEAF = addArmorMaterial("material_armor_leaf", "elementalitems:armor_leaf", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, WOOD.getEnchantability(), EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
-		this.ARMOR_EARTH = addArmorMaterial("material_armor_earth", "elementalitems:armor_earth", EARTH_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
+		this.ARMOR_EARTH = addArmorMaterial("material_armor_earth", "elementalitems:armor_earth", EARTH_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS * 4);
 		this.ARMOR_AIR = addArmorMaterial("material_armor_air", "elementalitems:armor_air", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
-		this.ARMOR_ENDER = addArmorMaterial("material_armor_ender", "elementalitems:armor_ender", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
+		this.ARMOR_ENDER = addArmorMaterial("material_armor_ender", "elementalitems:armor_ender", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, 15, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
 		this.ARMOR_PLAIN = addArmorMaterial("material_armor_plain", "elementalitems:armor_plain", BASE_ARMOR_DURABILITY, BASE_REDUCTION_AMOUNTS, BASE_ENCHANTABILITY, EQUIP_SOUND_EVENT, BASE_TOUGHNESS);
 	}
 

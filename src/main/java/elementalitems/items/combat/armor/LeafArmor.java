@@ -39,8 +39,9 @@ public class LeafArmor extends BaseArmor {
 
 	@Override
 	public void applyPassiveEffect(EntityLivingBase wearer) {
-		// apply regen level = player xp / 10, with a max of 2
-		int regenLevel = Math.min((EntityUtils.getInstance().getPlayerLevel(wearer) - 1) / 10, 2);
+		// apply regen level = player xp / 10 - 1, with a max of 2
+		int regenLevel = EntityUtils.getInstance().getPlayerLevel(wearer) / 10 - 1;
+		regenLevel = Math.min(Math.max(regenLevel, 0), 2);
 		wearer.removePotionEffect(MobEffects.WITHER);
 		wearer.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100, regenLevel, false, false));
 	}

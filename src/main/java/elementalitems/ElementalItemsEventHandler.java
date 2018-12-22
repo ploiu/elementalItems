@@ -14,10 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.event.entity.living.EnderTeleportEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -69,8 +66,8 @@ public class ElementalItemsEventHandler {
 	public static void onKnockBack(LivingKnockBackEvent event) {
 		EntityLivingBase hurtEntity = event.getEntityLiving();
 		if(EntityUtils.getInstance().isValidEntityLivingBase(hurtEntity) && EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(hurtEntity, ElementalType.EARTH)) {
-			// set the event strength to 0
-			event.setStrength(0.0f);
+			// cancel the event for the entity
+			event.setCanceled(true);
 		}
 	}
 
@@ -86,6 +83,17 @@ public class ElementalItemsEventHandler {
 				// prevent them from flying
 				eventEntity.capabilities.allowFlying = false;
 				eventEntity.capabilities.isFlying = false;
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onEntityFall(LivingFallEvent event) {
+		EntityLivingBase eventLiving = event.getEntityLiving();
+		if(EntityUtils.getInstance().isValidEntityLivingBase(eventLiving)) {
+			// get the entity's boots and check if they're air armor
+			if(ItemHandler.airBoots.equals(eventLiving.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem())) {
+				event.setDamageMultiplier(0);
 			}
 		}
 	}
@@ -150,5 +158,4 @@ public class ElementalItemsEventHandler {
 			}
 		}
 	}
-
 }

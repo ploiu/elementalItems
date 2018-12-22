@@ -35,9 +35,9 @@ public class LeafSword extends BaseSword {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		super.onUpdate(stack, world, entity, itemSlot, isSelected);
-		// enchant it with Undead V if not enchanted
+		// enchant it with smite V if not enchanted
 		if(!stack.isItemEnchanted()) {
-			stack.addEnchantment(Enchantments.SMITE, (EntityUtils.getInstance().getPlayerLevel(entity) - 1) / 10);
+			stack.addEnchantment(Enchantments.SMITE, 5);
 		}
 
 	}

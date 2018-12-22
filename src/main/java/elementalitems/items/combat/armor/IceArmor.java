@@ -67,7 +67,7 @@ public class IceArmor extends BaseArmor {
 		// if we have a full set
 		if(setCount == 4) {
 			// we know that this item is the ice boots, so give our boots the frost walker enchantment
-			if(areWearerBootsIceBoots && !EnchantmentHelper.hasFrostWalkerEnchantment(wearer)) {
+			if(!EnchantmentHelper.hasFrostWalkerEnchantment(wearer)) {
 				wearerBoots.addEnchantment(Enchantments.FROST_WALKER, 2);
 			}
 		} else if(areWearerBootsIceBoots) {
