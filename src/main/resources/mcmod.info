@@ -2,13 +2,13 @@
 {
   "modid": "elementalitems",
   "name": "Elemental Items Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
+  "description": "A mod that adds a bunch of powerful equipment inspired by the elements",
+  "version": "1.0",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/ploiu/elementalItems",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Curtis Langlitz (ploiu)"],
+  "credits": "The creators of minecraft forge, for creating such a great library for modification development",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

@@ -1,11 +1,5 @@
 {
   "variants": {
-	"normal": {
-	  "model": "cube_all"
-	},
-	"inventory": {
-	  "model": "cube_all"
-	},
 	"nether_variant=0": {
 	  "model": "elementalitems:ore_fire"
 	},

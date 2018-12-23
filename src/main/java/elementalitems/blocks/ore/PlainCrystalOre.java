@@ -31,6 +31,7 @@ public class PlainCrystalOre extends BaseOre {
 				BiomeDictionary.Type.SANDY,
 				BiomeDictionary.Type.SAVANNA
 		);
+		this.spawnChances = 3;
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package elementalitems.util;
 
 import elementalitems.ElementalType;
-import elementalitems.items.ElementalItem;
 import elementalitems.items.ElementalMaterials;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

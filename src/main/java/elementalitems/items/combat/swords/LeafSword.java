@@ -1,7 +1,6 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalType;
-import elementalitems.util.EntityUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

@@ -3,7 +3,6 @@ package elementalitems.sharedeffects.items;
 import elementalitems.util.EntityUtils;
 import elementalitems.util.Utils;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
