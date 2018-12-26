@@ -1,17 +1,17 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalType;
+import elementalitems.sharedeffects.combat.ISharedWaterEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
  * The type Water sword.
  */
-public class WaterSword extends BaseSword {
+public class WaterSword extends BaseSword implements ISharedWaterEffect {
 
 	/**
 	 * Instantiates a new Water sword.
@@ -34,12 +34,7 @@ public class WaterSword extends BaseSword {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		super.onUpdate(stack, world, entity, itemSlot, isSelected);
-		// if it's not enchanted yet we must enchant it with knockback V
-		if(!stack.isItemEnchanted()) {
-			// TODO based on player level
-			stack.addEnchantment(Enchantments.KNOCKBACK, 5);
-		}
-
+		// give this item knockback V
+		this.enchantWithKnockBack(stack, entity);
 	}
-
 }

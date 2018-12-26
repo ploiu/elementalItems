@@ -1,16 +1,15 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalType;
-import elementalitems.util.EntityUtils;
+import elementalitems.sharedeffects.combat.ISharedAirEffect;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 /**
  * The type Air sword.
  */
-public class AirSword extends BaseSword {
+public class AirSword extends BaseSword implements ISharedAirEffect {
 
 	/**
 	 * Instantiates a new Air sword.
@@ -21,12 +20,7 @@ public class AirSword extends BaseSword {
 
 	@Override
 	protected boolean applyEffect(EntityLivingBase user, EntityLivingBase target) {
-		if(EntityUtils.getInstance().isValidEntityLivingBase(target)) {
-			target.knockBack(target, 2F, user.posX - target.posX, user.posZ - target.posZ);
-			// launch it into the air, based on the target's knockBack resistance
-			target.addVelocity(0, target.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).getAttributeValue() + 1, 0);
-		}
-
+		this.launchTarget(user, target);
 		return true;
 	}
 
@@ -34,5 +28,4 @@ public class AirSword extends BaseSword {
 	protected void specialEffect(World world, EntityPlayer player) {
 		// no op
 	}
-
 }

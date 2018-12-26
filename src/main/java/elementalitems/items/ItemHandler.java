@@ -46,6 +46,10 @@ public class ItemHandler {
 	public static ElementalItem enderSword;
 	public static ElementalItem lifeDeathSword;
 	public static ElementalItem plainSword;
+	// dual swords
+	public static ElementalItem magmaSword;
+	public static ElementalItem coldFireSword;
+	public static ElementalItem steamSword;
 
 	// pickaxes
 	public static ElementalItem firePickaxe;
@@ -140,6 +144,7 @@ public class ItemHandler {
 		earthCrystal = new BaseCrystal(EARTH);
 		airCrystal = new BaseCrystal(AIR);
 		enderCrystal = new BaseCrystal(ENDER);
+		// swords
 		fireSword = new FireSword();
 		iceSword = new IceSword();
 		waterSword = new WaterSword();
@@ -149,6 +154,10 @@ public class ItemHandler {
 		enderSword = new EnderSword();
 		lifeDeathSword = new LifeDeathSword();
 		plainSword = new PlainSword();
+		magmaSword = new DualSwordBuilder(FIRE, EARTH).build();
+		coldFireSword = new DualSwordBuilder(ICE, FIRE).build();
+		steamSword = new DualSwordBuilder(FIRE, WATER).build();
+		// pickaxes
 		firePickaxe = new FirePickaxe();
 		icePickaxe = new IcePickaxe();
 		waterPickaxe = new WaterPickaxe();
@@ -157,6 +166,7 @@ public class ItemHandler {
 		earthPickaxe = new EarthPickaxe();
 		enderPickaxe = new EnderPickaxe();
 		plainPickaxe = new PlainPickaxe();
+		// axes
 		fireAxe = new FireAxe();
 		iceAxe = new IceAxe();
 		waterAxe = new WaterAxe();
@@ -165,6 +175,7 @@ public class ItemHandler {
 		earthAxe = new EarthAxe();
 		enderAxe = new EnderAxe();
 		plainAxe = new PlainAxe();
+		// shovels
 		fireShovel = new FireShovel();
 		iceShovel = new IceShovel();
 		waterShovel = new WaterShovel();
@@ -173,6 +184,7 @@ public class ItemHandler {
 		earthShovel = new EarthShovel();
 		enderShovel = new EnderShovel();
 		plainShovel = new PlainShovel();
+		// armor
 		fireHelmet = new FireArmor(HEAD);
 		fireChestplate = new FireArmor(CHEST);
 		fireLeggings = new FireArmor(LEGS);
@@ -205,6 +217,7 @@ public class ItemHandler {
 		plainChestplate = new PlainArmor(CHEST);
 		plainLeggings = new PlainArmor(LEGS);
 		plainBoots = new PlainArmor(FEET);
+		// arrows
 		fireArrow = new BaseArrow(FIRE);
 		iceArrow = new BaseArrow(ICE);
 		waterArrow = new BaseArrow(WATER);

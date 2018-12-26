@@ -1,15 +1,14 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalType;
+import elementalitems.sharedeffects.combat.ISharedIceEffect;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
-import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
@@ -19,7 +18,7 @@ import static net.minecraft.init.Biomes.HELL;
 /**
  * The type Ice sword.
  */
-public class IceSword extends BaseSword {
+public class IceSword extends BaseSword implements ISharedIceEffect {
 
 	/**
 	 * Instantiates a new Ice sword.
@@ -40,18 +39,11 @@ public class IceSword extends BaseSword {
 
 	@Override
 	protected boolean applyEffect(EntityLivingBase user, EntityLivingBase target) {
-		// check if the entity is alive and can be interacted with
-		if(EntityUtils.getInstance().isValidEntityLivingBase(target)) {
-			// afflict the target with weakness and slowness for 5 seconds
-			target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 2, false, true));
-			target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 100, 2, false, true));
-			// if the target is a nether mob, then we should do 1.5x the damage
-			if(EntityUtils.getInstance().isMobFromBiome(target, HELL) || target instanceof EntityBlaze) {
-				target.attackEntityFrom(DamageSource.causeIndirectMagicDamage(target, user), this.getAttackDamage() * 1.5f);
-			}
-
+		this.slowAndWeakenTarget(user, target);
+		// if the target is a nether mob, then we should do 1.5x the damage
+		if(EntityUtils.getInstance().isMobFromBiome(target, HELL) || target instanceof EntityBlaze) {
+			target.attackEntityFrom(DamageSource.causeIndirectMagicDamage(target, user), this.getAttackDamage() * 1.5f);
 		}
-
 		return false;
 	}
 
@@ -63,7 +55,5 @@ public class IceSword extends BaseSword {
 			entitysnowball.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 			world.spawnEntity(entitysnowball);
 		}
-
 	}
-
 }

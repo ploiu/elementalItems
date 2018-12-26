@@ -3,6 +3,7 @@ package elementalitems.items.tools.axes;
 import elementalitems.ElementalType;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
+import elementalitems.util.ElementalUtils;
 import elementalitems.util.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -52,7 +53,7 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem {
 	 * @param type the type
 	 */
 	public BaseAxe(ElementalType type) {
-		this(Utils.getInstance().getToolMaterialFromElementalType(type), "axe_" + type.getTypeName(), type);
+		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "axe_" + type.getTypeName(), type);
 	}
 
 	@Override

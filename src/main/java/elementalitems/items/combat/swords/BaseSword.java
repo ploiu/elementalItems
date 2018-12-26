@@ -3,7 +3,8 @@ package elementalitems.items.combat.swords;
 import elementalitems.ElementalType;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
-import elementalitems.util.Utils;
+import elementalitems.util.ElementalUtils;
+import elementalitems.util.EntityUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +15,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
@@ -62,7 +64,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 * @param type the type
 	 */
 	public BaseSword(ElementalType type) {
-		this(Utils.getInstance().getToolMaterialFromElementalType(type), "sword_" + type.getTypeName(), type);
+		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "sword_" + type.getTypeName(), type);
 	}
 
 	@Override
@@ -82,11 +84,12 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 * @param target the target
 	 * @return the boolean
 	 */
-	protected abstract boolean applyEffect(EntityLivingBase user, EntityLivingBase target);
+	protected abstract boolean applyEffect(@Nonnull EntityLivingBase user, @Nonnull EntityLivingBase target);
 
 	/**
 	 * Special effect.
-	 *  @param world  the world
+	 *
+	 * @param world  the world
 	 * @param player the player
 	 */
 	protected abstract void specialEffect(World world, EntityPlayer player);
@@ -99,7 +102,9 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-		this.applyEffect(attacker, target);
+		if(EntityUtils.getInstance().isValidEntityLivingBase(target) && EntityUtils.getInstance().isValidEntityLivingBase(attacker)) {
+			this.applyEffect(attacker, target);
+		}
 		return super.hitEntity(stack, target, attacker);
 	}
 

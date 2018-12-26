@@ -3,6 +3,7 @@ package elementalitems.items.tools.pickaxes;
 import elementalitems.ElementalType;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
+import elementalitems.util.ElementalUtils;
 import elementalitems.util.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,7 +46,7 @@ public abstract class BasePickaxe extends ItemPickaxe implements ElementalItem {
 	 * @param type the type
 	 */
 	public BasePickaxe(ElementalType type) {
-		this(Utils.getInstance().getToolMaterialFromElementalType(type), "pickaxe_" + type.getTypeName(), type);
+		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "pickaxe_" + type.getTypeName(), type);
 	}
 
 	@Override

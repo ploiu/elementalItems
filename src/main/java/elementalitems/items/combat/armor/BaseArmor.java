@@ -3,6 +3,7 @@ package elementalitems.items.combat.armor;
 import elementalitems.ElementalType;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
+import elementalitems.util.ElementalUtils;
 import elementalitems.util.Utils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -48,7 +49,7 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 	 * @param equipmentSlot the equipment slot
 	 */
 	public BaseArmor(ElementalType type, EntityEquipmentSlot equipmentSlot) {
-		this(Utils.getInstance().getArmorMaterialFromElementalType(type), equipmentSlot, type, equipmentSlot.getName() + "_" + type.getTypeName());
+		this(ElementalUtils.getInstance().getArmorMaterialFromElementalType(type), equipmentSlot, type, equipmentSlot.getName() + "_" + type.getTypeName());
 	}
 
 	@Override

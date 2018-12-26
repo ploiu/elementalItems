@@ -1,17 +1,17 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalType;
+import elementalitems.sharedeffects.combat.ISharedLeafEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
  * The type Leaf sword.
  */
-public class LeafSword extends BaseSword {
+public class LeafSword extends BaseSword implements ISharedLeafEffect {
 
 	/**
 	 * Instantiates a new Leaf sword.
@@ -34,11 +34,6 @@ public class LeafSword extends BaseSword {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		super.onUpdate(stack, world, entity, itemSlot, isSelected);
-		// enchant it with smite V if not enchanted
-		if(!stack.isItemEnchanted()) {
-			stack.addEnchantment(Enchantments.SMITE, 5);
-		}
-
+		this.enchantWithSmite(stack, entity);
 	}
-
 }

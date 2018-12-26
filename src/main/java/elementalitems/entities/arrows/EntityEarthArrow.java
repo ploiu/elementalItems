@@ -1,7 +1,7 @@
 package elementalitems.entities.arrows;
 
 import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedEarthEffects;
+import elementalitems.sharedeffects.combat.ISharedEarthEffect;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 /**
  * The type Entity earth arrow.
  */
-public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthEffects {
+public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthEffect {
 
 	/**
 	 * Instantiates a new Entity earth arrow.

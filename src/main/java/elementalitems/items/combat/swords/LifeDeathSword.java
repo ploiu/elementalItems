@@ -1,8 +1,8 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalType;
+import elementalitems.util.ElementalUtils;
 import elementalitems.util.EntityUtils;
-import elementalitems.util.Utils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -21,7 +21,7 @@ public class LifeDeathSword extends BaseSword {
 	 * Instantiates a new Life death sword.
 	 */
 	public LifeDeathSword() {
-		super(Utils.getInstance().getToolMaterialFromElementalType(ElementalType.PLAIN), "sword_life_death", ElementalType.PLAIN);
+		super(ElementalUtils.getInstance().getToolMaterialFromElementalType(ElementalType.PLAIN), "sword_life_death", ElementalType.PLAIN);
 	}
 
 	/**
