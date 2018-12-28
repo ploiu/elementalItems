@@ -1,6 +1,6 @@
 package elementalitems.items.tools.pickaxes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedEnderEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,7 @@ public class EnderPickaxe extends BasePickaxe implements ISharedEnderEffect {
 	 * Instantiates a new Ender pickaxe.
 	 */
 	public EnderPickaxe() {
-		super(ElementalType.ENDER);
+		super(ElementalTypes.ENDER);
 	}
 
 	@Override

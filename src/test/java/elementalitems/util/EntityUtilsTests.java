@@ -28,8 +28,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static elementalitems.ElementalType.FIRE;
-import static elementalitems.ElementalType.PLAIN;
+import static elementalitems.ElementalTypes.FIRE;
+import static elementalitems.ElementalTypes.PLAIN;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 import static org.mockito.Matchers.any;

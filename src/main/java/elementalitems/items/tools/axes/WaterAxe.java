@@ -1,6 +1,6 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ public class WaterAxe extends BaseAxe {
 	 * Instantiates a new Water axe.
 	 */
 	public WaterAxe() {
-		super(ElementalType.WATER);
+		super(ElementalTypes.WATER);
 	}
 
 	@Override

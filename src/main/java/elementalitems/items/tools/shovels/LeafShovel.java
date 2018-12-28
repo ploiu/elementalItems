@@ -1,6 +1,6 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedLeafEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ public class LeafShovel extends BaseShovel implements ISharedLeafEffect {
 	 * Instantiates a new Leaf shovel.
 	 */
 	public LeafShovel() {
-		super(ElementalType.LEAF);
+		super(ElementalTypes.LEAF);
 	}
 
 	@Override

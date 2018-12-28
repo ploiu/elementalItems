@@ -1,6 +1,6 @@
 package elementalitems.blocks.ore;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -20,7 +20,7 @@ public class FireCrystalOre extends BaseOre {
 	public static final IProperty<Integer> textureProperty = PropertyInteger.create("nether_variant", 0, 1);
 
 	public FireCrystalOre() {
-		super(ElementalType.FIRE, Material.ROCK);
+		super(ElementalTypes.FIRE, Material.ROCK);
 		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.STONE, Blocks.NETHERRACK, Blocks.MAGMA);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.NETHER, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HILLS);
 		this.biomesToGenerateIn.add(Biomes.HELL);

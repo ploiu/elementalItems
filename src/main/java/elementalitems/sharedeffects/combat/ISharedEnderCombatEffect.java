@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public interface ISharedEnderEffect {
+public interface ISharedEnderCombatEffect {
 	default void teleportEntity(EntityLivingBase target) {
 		Random rng = target.getRNG();
 		// get the target's position

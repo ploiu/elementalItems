@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -17,7 +17,7 @@ public class EntityAirArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityAirArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.AIR);
+		super(worldIn, shooter, ElementalTypes.AIR);
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class EntityAirArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityAirArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.AIR);
+		super(world, x, y, z, ElementalTypes.AIR);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class EntityAirArrow extends BaseEntityArrow {
 	 */
 	public EntityAirArrow(World world) {
 		super(world);
-		this.type = ElementalType.AIR;
+		this.type = ElementalTypes.AIR;
 	}
 
 	@Override

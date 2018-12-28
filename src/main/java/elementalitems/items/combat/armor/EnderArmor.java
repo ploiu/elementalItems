@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -18,7 +18,7 @@ public class EnderArmor extends BaseArmor {
 	 * @param slot the slot
 	 */
 	public EnderArmor(EntityEquipmentSlot slot) {
-		super(ElementalType.ENDER, slot);
+		super(ElementalTypes.ENDER, slot);
 	}
 
 	@Override

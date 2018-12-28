@@ -1,34 +1,39 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalMaterials;
 import elementalitems.sharedeffects.combat.*;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Arrays;
 
-public class DualSwordBuilder implements ISharedFireEffect, ISharedIceEffect, ISharedLeafEffect, ISharedWaterEffect, ISharedEarthEffect, ISharedAirEffect, ISharedEnderEffect {
-	private ElementalType type1;
-	private ElementalType type2;
+public class DualSwordBuilder implements ISharedFireCombatEffect, ISharedIceCombatEffect, ISharedLeafCombatEffect, ISharedWaterCombatEffect, ISharedEarthCombatEffect, ISharedAirCombatEffect, ISharedEnderCombatEffect {
+	private ElementalTypes type1;
+	private ElementalTypes type2;
 
-	public DualSwordBuilder(ElementalType type1, ElementalType type2) {
+	public DualSwordBuilder(ElementalTypes type1, ElementalTypes type2) {
 		this.type1 = type1;
 		this.type2 = type2;
 	}
 
 	public DualSword build() {
-		return new DualSword(ElementalMaterials.getInstance().TOOL_PLAIN, this.type1, this.type2, this.getActiveEffectFromType(this.type1), this.getActiveEffectFromType(this.type2), this.getPassiveEffectFromType(this.type1), this.getPassiveEffectFromType(this.type2));
+		// sort our types before using them
+		ElementalTypes[] sortedTypes = new ElementalTypes[]{this.type1, this.type2};
+		Arrays.sort(sortedTypes);
+		return new DualSword(ElementalMaterials.getInstance().dualMaterials.get(StringUtils.join(sortedTypes, '_')), sortedTypes[0], sortedTypes[1], this.getActiveEffectFromType(sortedTypes[0]), this.getActiveEffectFromType(sortedTypes[1]), this.getPassiveEffectFromType(sortedTypes[0]), this.getPassiveEffectFromType(sortedTypes[1]));
 	}
 
 	/**
-	 * creates an {@link IEffect} based on the passed {@link ElementalType}. This is the effect that will be applied
+	 * creates an {@link IEffect} based on the passed {@link ElementalTypes}. This is the effect that will be applied
 	 * when the user of this sword hits another entity
 	 *
-	 * @param type the ElementalType we want to get the effect of
+	 * @param type the ElementalTypes we want to get the effect of
 	 * @return an Effect to be used when the user of this sword hits an entity with this sword equipped
 	 */
 	@Nonnull
-	private IEffect getActiveEffectFromType(ElementalType type) {
+	private IEffect getActiveEffectFromType(ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return (user, target) -> this.ignite(target);
@@ -63,7 +68,7 @@ public class DualSwordBuilder implements ISharedFireEffect, ISharedIceEffect, IS
 	}
 
 	@Nullable
-	private IPassiveEffect getPassiveEffectFromType(ElementalType type) {
+	private IPassiveEffect getPassiveEffectFromType(ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return null;

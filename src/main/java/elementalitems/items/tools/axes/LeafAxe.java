@@ -1,6 +1,6 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedLeafEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ public class LeafAxe extends BaseAxe implements ISharedLeafEffect {
 	 * Instantiates a new Leaf axe.
 	 */
 	public LeafAxe() {
-		super(ElementalType.LEAF);
+		super(ElementalTypes.LEAF);
 	}
 
 	@Override

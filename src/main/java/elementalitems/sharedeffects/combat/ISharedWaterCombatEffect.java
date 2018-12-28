@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 
-public interface ISharedWaterEffect {
+public interface ISharedWaterCombatEffect {
 
 	default void enchantWithKnockBack(ItemStack stackToEnchant, Entity stackOwner) {
 		// make sure that our entity that's getting the enchanted item is valid first

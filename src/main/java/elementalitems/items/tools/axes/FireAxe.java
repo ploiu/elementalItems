@@ -1,6 +1,6 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedFireEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,7 @@ public class FireAxe extends BaseAxe implements ISharedFireEffect {
 	 * Instantiates a new Fire axe.
 	 */
 	public FireAxe() {
-		super(ElementalType.FIRE);
+		super(ElementalTypes.FIRE);
 	}
 
 	@Override

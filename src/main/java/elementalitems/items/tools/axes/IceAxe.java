@@ -1,6 +1,6 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ public class IceAxe extends BaseAxe {
 	 * Instantiates a new Ice axe.
 	 */
 	public IceAxe() {
-		super(ElementalType.ICE);
+		super(ElementalTypes.ICE);
 	}
 
 	@Override

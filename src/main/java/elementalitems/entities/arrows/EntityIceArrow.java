@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -21,7 +21,7 @@ public class EntityIceArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityIceArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.ICE);
+		super(world, x, y, z, ElementalTypes.ICE);
 	}
 
 	/**
@@ -31,7 +31,7 @@ public class EntityIceArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityIceArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.ICE);
+		super(worldIn, shooter, ElementalTypes.ICE);
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class EntityIceArrow extends BaseEntityArrow {
 	 */
 	public EntityIceArrow(World world) {
 		super(world);
-		this.type = ElementalType.ICE;
+		this.type = ElementalTypes.ICE;
 	}
 
 	@Override

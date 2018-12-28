@@ -1,6 +1,6 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.util.ElementalUtils;
@@ -29,7 +29,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected final ElementalTypes type;
 
 	/**
 	 * Instantiates a new Base sword.
@@ -38,7 +38,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	protected BaseSword(Item.ToolMaterial material, String name, ElementalType type) {
+	protected BaseSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 		super(material);
 		this.name = name;
 		this.setUnlocalizedName(name);
@@ -55,7 +55,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	protected BaseSword() {
 		super(Item.ToolMaterial.DIAMOND);
 		this.name = "baseSword";
-		this.type = ElementalType.PLAIN;
+		this.type = ElementalTypes.PLAIN;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 *
 	 * @param type the type
 	 */
-	public BaseSword(ElementalType type) {
+	public BaseSword(ElementalTypes type) {
 		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "sword_" + type.getTypeName(), type);
 	}
 
@@ -73,7 +73,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 

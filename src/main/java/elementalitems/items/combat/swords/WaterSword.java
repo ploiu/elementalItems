@@ -1,7 +1,7 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedWaterEffect;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedWaterCombatEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,13 +11,13 @@ import net.minecraft.world.World;
 /**
  * The type Water sword.
  */
-public class WaterSword extends BaseSword implements ISharedWaterEffect {
+public class WaterSword extends BaseSword implements ISharedWaterCombatEffect {
 
 	/**
 	 * Instantiates a new Water sword.
 	 */
 	public WaterSword() {
-		super(ElementalType.WATER);
+		super(ElementalTypes.WATER);
 	}
 
 	@Override

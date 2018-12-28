@@ -1,6 +1,6 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,15 +22,15 @@ public class DualSword extends BaseSword {
 	private IPassiveEffect secondPassiveEffect;
 
 	// the types associated with this sword
-	private ElementalType type1;
-	private ElementalType type2;
+	private ElementalTypes type1;
+	private ElementalTypes type2;
 
-	public DualSword(Item.ToolMaterial material, ElementalType type1, ElementalType type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect) {
+	public DualSword(Item.ToolMaterial material, ElementalTypes type1, ElementalTypes type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect) {
 		this(material, type1, type2, firstEffect, secondEffect, null, null);
 	}
 
-	public DualSword(Item.ToolMaterial material, ElementalType type1, ElementalType type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect, @Nullable IPassiveEffect firstPassiveEffect, @Nullable IPassiveEffect secondPassiveEffect) {
-		super(material, "sword_" + type1.getTypeName() + "_" + type2.getTypeName(), ElementalType.PLAIN);
+	public DualSword(Item.ToolMaterial material, ElementalTypes type1, ElementalTypes type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect, @Nullable IPassiveEffect firstPassiveEffect, @Nullable IPassiveEffect secondPassiveEffect) {
+		super(material, "sword_" + type1.getTypeName() + "_" + type2.getTypeName(), ElementalTypes.PLAIN);
 		this.type1 = type1;
 		this.type2 = type2;
 		this.firstEffect = firstEffect;

@@ -1,7 +1,7 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedIceEffect;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedIceCombatEffect;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
@@ -18,13 +18,13 @@ import static net.minecraft.init.Biomes.HELL;
 /**
  * The type Ice sword.
  */
-public class IceSword extends BaseSword implements ISharedIceEffect {
+public class IceSword extends BaseSword implements ISharedIceCombatEffect {
 
 	/**
 	 * Instantiates a new Ice sword.
 	 */
 	public IceSword() {
-		super(ElementalType.ICE);
+		super(ElementalTypes.ICE);
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class IceSword extends BaseSword implements ISharedIceEffect {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	public IceSword(Item.ToolMaterial material, String name, ElementalType type) {
+	public IceSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 	}
 
 	@Override

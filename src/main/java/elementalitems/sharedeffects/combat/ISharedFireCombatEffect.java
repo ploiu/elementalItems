@@ -2,7 +2,7 @@ package elementalitems.sharedeffects.combat;
 
 import net.minecraft.entity.EntityLivingBase;
 
-public interface ISharedFireEffect {
+public interface ISharedFireCombatEffect {
 
 	default void ignite(EntityLivingBase target) {
 		// set the target on fire

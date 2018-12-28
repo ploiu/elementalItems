@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,7 +21,7 @@ public class EntityFireArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityFireArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.FIRE);
+		super(worldIn, shooter, ElementalTypes.FIRE);
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class EntityFireArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityFireArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.FIRE);
+		super(world, x, y, z, ElementalTypes.FIRE);
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class EntityFireArrow extends BaseEntityArrow {
 	 */
 	public EntityFireArrow(World world) {
 		super(world);
-		this.type = ElementalType.FIRE;
+		this.type = ElementalTypes.FIRE;
 	}
 
 	@Override

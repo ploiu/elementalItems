@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 
-public interface ISharedLeafEffect {
+public interface ISharedLeafCombatEffect {
 	default void enchantWithSmite(ItemStack stackToEnchant, Entity itemOwner) {
 		if(EntityUtils.getInstance().isValidEntityLivingBase(itemOwner)) {
 			// enchant it with smite V if not enchanted with Smite already

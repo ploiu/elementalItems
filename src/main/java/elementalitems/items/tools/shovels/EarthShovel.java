@@ -1,6 +1,6 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ public class EarthShovel extends BaseShovel {
 	 * Instantiates a new Earth shovel.
 	 */
 	public EarthShovel() {
-		super(ElementalType.EARTH);
+		super(ElementalTypes.EARTH);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.DamageSource;
@@ -16,7 +16,7 @@ public class EarthArmor extends BaseArmor {
 	 * @param slot the slot
 	 */
 	public EarthArmor(EntityEquipmentSlot slot) {
-		super(ElementalType.EARTH, slot);
+		super(ElementalTypes.EARTH, slot);
 	}
 
 	@Override

@@ -1,8 +1,7 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedFireEffect;
-import elementalitems.util.EntityUtils;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedFireCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -11,13 +10,13 @@ import net.minecraft.world.World;
 /**
  * The type Fire sword.
  */
-public class FireSword extends BaseSword implements ISharedFireEffect {
+public class FireSword extends BaseSword implements ISharedFireCombatEffect {
 
 	/**
 	 * Instantiates a new Fire sword.
 	 */
 	public FireSword() {
-		super(ElementalType.FIRE);
+		super(ElementalTypes.FIRE);
 	}
 
 	/**
@@ -27,7 +26,7 @@ public class FireSword extends BaseSword implements ISharedFireEffect {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	public FireSword(Item.ToolMaterial material, String name, ElementalType type) {
+	public FireSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 		// no op
 	}
 

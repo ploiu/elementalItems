@@ -1,7 +1,7 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedLeafEffect;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedLeafCombatEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,13 +11,13 @@ import net.minecraft.world.World;
 /**
  * The type Leaf sword.
  */
-public class LeafSword extends BaseSword implements ISharedLeafEffect {
+public class LeafSword extends BaseSword implements ISharedLeafCombatEffect {
 
 	/**
 	 * Instantiates a new Leaf sword.
 	 */
 	public LeafSword() {
-		super(ElementalType.LEAF);
+		super(ElementalTypes.LEAF);
 	}
 
 	@Override

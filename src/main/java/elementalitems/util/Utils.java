@@ -1,11 +1,8 @@
 package elementalitems.util;
 
-import elementalitems.ElementalType;
-import elementalitems.items.ElementalMaterials;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.ILockableContainer;

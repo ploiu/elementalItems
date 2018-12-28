@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
@@ -18,7 +18,7 @@ public class EntityLeafArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityLeafArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.LEAF);
+		super(worldIn, shooter, ElementalTypes.LEAF);
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class EntityLeafArrow extends BaseEntityArrow {
 	 */
 	public EntityLeafArrow(World world) {
 		super(world);
-		this.type = ElementalType.LEAF;
+		this.type = ElementalTypes.LEAF;
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class EntityLeafArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityLeafArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.LEAF);
+		super(world, x, y, z, ElementalTypes.LEAF);
 	}
 
 	@Override

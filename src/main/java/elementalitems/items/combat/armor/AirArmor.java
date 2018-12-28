@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -18,7 +18,7 @@ public class AirArmor extends BaseArmor {
 	 * @param slot the slot
 	 */
 	public AirArmor(EntityEquipmentSlot slot) {
-		super(ElementalType.AIR, slot);
+		super(ElementalTypes.AIR, slot);
 	}
 
 	@Override

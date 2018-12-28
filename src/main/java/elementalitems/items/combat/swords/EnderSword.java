@@ -1,7 +1,7 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedEnderEffect;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedEnderCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityEnderPearl;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,13 +13,13 @@ import net.minecraft.world.World;
 /**
  * The type Ender sword.
  */
-public class EnderSword extends BaseSword implements ISharedEnderEffect {
+public class EnderSword extends BaseSword implements ISharedEnderCombatEffect {
 
 	/**
 	 * Instantiates a new Ender sword.
 	 */
 	public EnderSword() {
-		super(ElementalType.ENDER);
+		super(ElementalTypes.ENDER);
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class EnderSword extends BaseSword implements ISharedEnderEffect {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	public EnderSword(Item.ToolMaterial material, String name, ElementalType type) {
+	public EnderSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 	}
 
 	@Override

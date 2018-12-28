@@ -1,7 +1,7 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedEarthEffect;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedEarthCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -9,13 +9,13 @@ import net.minecraft.world.World;
 /**
  * The type Earth sword.
  */
-public class EarthSword extends BaseSword implements ISharedEarthEffect {
+public class EarthSword extends BaseSword implements ISharedEarthCombatEffect {
 
 	/**
 	 * Instantiates a new Earth sword.
 	 */
 	public EarthSword() {
-		super(ElementalType.EARTH);
+		super(ElementalTypes.EARTH);
 	}
 
 	@Override

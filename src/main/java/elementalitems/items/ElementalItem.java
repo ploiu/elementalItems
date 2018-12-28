@@ -1,6 +1,6 @@
 package elementalitems.items;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 
 /**
  * The interface Elemental item.
@@ -19,5 +19,5 @@ public interface ElementalItem {
 	 *
 	 * @return the type
 	 */
-	ElementalType getType();
+	ElementalTypes getType();
 }

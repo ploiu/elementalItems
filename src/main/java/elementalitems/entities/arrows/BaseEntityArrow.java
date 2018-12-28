@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
@@ -20,7 +20,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 	/**
 	 * The type associated with this entity; defaults to PLAIN
 	 */
-	protected ElementalType type = ElementalType.PLAIN;
+	protected ElementalTypes type = ElementalTypes.PLAIN;
 	private boolean hasAppliedLandingEffect;
 	private boolean hasAppliedEntityCollisionEffect;
 
@@ -31,7 +31,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 	 * @param shooter the shooter
 	 * @param type    the type
 	 */
-	public BaseEntityArrow(World worldIn, EntityLivingBase shooter, ElementalType type) {
+	public BaseEntityArrow(World worldIn, EntityLivingBase shooter, ElementalTypes type) {
 		super(worldIn, shooter);
 		this.type = type;
 		this.hasAppliedLandingEffect = false;
@@ -48,7 +48,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 	 * @param z     the z
 	 * @param type  the type
 	 */
-	public BaseEntityArrow(World world, double x, double y, double z, ElementalType type) {
+	public BaseEntityArrow(World world, double x, double y, double z, ElementalTypes type) {
 		super(world, x, y, z);
 		this.hasAppliedLandingEffect = false;
 		this.hasAppliedEntityCollisionEffect = false;
@@ -64,7 +64,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 		super(world);
 	}
 
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 

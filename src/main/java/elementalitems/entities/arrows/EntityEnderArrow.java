@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
@@ -21,7 +21,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityEnderArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.ENDER);
+		super(worldIn, shooter, ElementalTypes.ENDER);
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityEnderArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.ENDER);
+		super(world, x, y, z, ElementalTypes.ENDER);
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	 */
 	public EntityEnderArrow(World world) {
 		super(world);
-		this.type = ElementalType.ENDER;
+		this.type = ElementalTypes.ENDER;
 	}
 
 	@Override

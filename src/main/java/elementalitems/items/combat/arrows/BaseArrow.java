@@ -1,7 +1,7 @@
 package elementalitems.items.combat.arrows;
 
 import elementalitems.ElementalItems;
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.entities.arrows.*;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
@@ -28,7 +28,7 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected final ElementalTypes type;
 
 	@Override
 	public String getName() {
@@ -36,11 +36,11 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 
-	private BaseArrow(ElementalType type, String name) {
+	private BaseArrow(ElementalTypes type, String name) {
 		this.type = type;
 		this.name = name;
 		this.setUnlocalizedName(name);
@@ -57,7 +57,7 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 			case WATER:
 				return new EntityWaterArrow(world, shooter);
 			case EARTH:
-				return new EntityEarthArrow(world, shooter);
+				return new EntityEarthCombatArrow(world, shooter);
 			case AIR:
 				return new EntityAirArrow(world, shooter);
 			case ICE:
@@ -81,7 +81,7 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 	 *
 	 * @param type the type
 	 */
-	public BaseArrow(ElementalType type) {
+	public BaseArrow(ElementalTypes type) {
 		this(type, "arrow_" + type.getTypeName());
 	}
 

@@ -3,7 +3,7 @@ package elementalitems.sharedeffects.combat;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 
-public interface ISharedAirEffect {
+public interface ISharedAirCombatEffect {
 
 	default void launchTarget(EntityLivingBase user, EntityLivingBase target) {
 		target.knockBack(target, 2F, user.posX - target.posX, user.posZ - target.posZ);

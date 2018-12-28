@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import elementalitems.util.EntityUtils;
 import net.minecraft.enchantment.Enchantment;
@@ -30,7 +30,7 @@ public class IceArmor extends BaseArmor {
 	 * @param slot the slot
 	 */
 	public IceArmor(EntityEquipmentSlot slot) {
-		super(ElementalType.ICE, slot);
+		super(ElementalTypes.ICE, slot);
 	}
 
 	@Override

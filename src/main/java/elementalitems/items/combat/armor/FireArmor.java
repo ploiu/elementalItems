@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +23,7 @@ public class FireArmor extends BaseArmor {
 	 * @param equipmentSlot the equipment slot
 	 */
 	public FireArmor(EntityEquipmentSlot equipmentSlot) {
-		super(ElementalType.FIRE, equipmentSlot);
+		super(ElementalTypes.FIRE, equipmentSlot);
 	}
 
 	@Override

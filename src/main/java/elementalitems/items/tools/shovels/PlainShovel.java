@@ -1,6 +1,6 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,7 @@ public class PlainShovel extends BaseShovel {
 	 * Instantiates a new Plain shovel.
 	 */
 	public PlainShovel() {
-		super(ElementalType.PLAIN);
+		super(ElementalTypes.PLAIN);
 	}
 
 	@Override

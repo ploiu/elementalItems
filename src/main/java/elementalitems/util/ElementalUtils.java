@@ -1,6 +1,6 @@
 package elementalitems.util;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalMaterials;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -14,7 +14,7 @@ public class ElementalUtils {
 		return ElementalUtils.SingletonHelper.instance;
 	}
 
-	public Item.ToolMaterial getToolMaterialFromElementalType(ElementalType type) {
+	public Item.ToolMaterial getToolMaterialFromElementalType(ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return ElementalMaterials.getInstance().TOOL_FIRE;
@@ -36,7 +36,7 @@ public class ElementalUtils {
 		}
 	}
 
-	public ItemArmor.ArmorMaterial getArmorMaterialFromElementalType(ElementalType type) {
+	public ItemArmor.ArmorMaterial getArmorMaterialFromElementalType(ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return ElementalMaterials.getInstance().ARMOR_FIRE;

@@ -1,6 +1,6 @@
 package elementalitems.items;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -14,7 +14,7 @@ public class BaseItem extends Item implements ElementalItem {
 	 * @param name the name
 	 * @param type the type
 	 */
-	public BaseItem(String name, ElementalType type) {
+	public BaseItem(String name, ElementalTypes type) {
 		this.name = name;
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
@@ -30,7 +30,7 @@ public class BaseItem extends Item implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 
@@ -41,5 +41,5 @@ public class BaseItem extends Item implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected final ElementalTypes type;
 }

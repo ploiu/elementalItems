@@ -1,6 +1,6 @@
 package elementalitems.blocks.ore;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class PlainCrystalOre extends BaseOre {
 	public PlainCrystalOre() {
-		super(ElementalType.PLAIN, Material.ROCK);
+		super(ElementalTypes.PLAIN, Material.ROCK);
 		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.STONE, Blocks.COBBLESTONE, Blocks.GRAVEL);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(
 				BiomeDictionary.Type.WET,

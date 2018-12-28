@@ -1,7 +1,7 @@
 package elementalitems.util;
 
 import elementalitems.ElementalItems;
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.entities.arrows.*;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
@@ -131,10 +131,10 @@ public class EntityUtils {
 	 * Takes an {@link Entity} and checks its armorInventoryList for a full set of {@link BaseArmor} where each {@code currentArmor.type == type}
 	 *
 	 * @param toCheck the entity to check
-	 * @param type    the {@link ElementalType} we are checking for
+	 * @param type    the {@link ElementalTypes} we are checking for
 	 * @return true if all 4 pieces of the wearer's armor is the same type as {@code type}, false otherwise
 	 */
-	public boolean doesEntityHaveFullElementalSetOfType(@Nullable Entity toCheck, ElementalType type) {
+	public boolean doesEntityHaveFullElementalSetOfType(@Nullable Entity toCheck, ElementalTypes type) {
 		if(this.isValidEntityLivingBase(toCheck) && type != null) {
 			// do we have a full set?
 			boolean fullSet = true;
@@ -154,7 +154,7 @@ public class EntityUtils {
 		return this.isValidEntityLivingBase(player) && player instanceof EntityPlayer ? ((EntityPlayer) player).experienceLevel : 0;
 	}
 
-	public ElementalItem getArrowItemFromElementalType(ElementalType type) {
+	public ElementalItem getArrowItemFromElementalType(ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return ItemHandler.fireArrow;
@@ -176,14 +176,14 @@ public class EntityUtils {
 		}
 	}
 
-	public BaseEntityArrow createArrow(@Nonnull ElementalType type, World world, double x, double y, double z) {
+	public BaseEntityArrow createArrow(@Nonnull ElementalTypes type, World world, double x, double y, double z) {
 		switch(type) {
 			case FIRE:
 				return new EntityFireArrow(world, x, y, z);
 			case WATER:
 				return new EntityWaterArrow(world, x, y, z);
 			case EARTH:
-				return new EntityEarthArrow(world, x, y, z);
+				return new EntityEarthCombatArrow(world, x, y, z);
 			case AIR:
 				return new EntityAirArrow(world, x, y, z);
 			case ICE:

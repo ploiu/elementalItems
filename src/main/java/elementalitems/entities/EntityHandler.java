@@ -1,7 +1,7 @@
 package elementalitems.entities;
 
 import elementalitems.ElementalItems;
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.entities.arrows.*;
 import elementalitems.util.EntityUtils;
 import net.minecraft.block.BlockDispenser;
@@ -38,7 +38,7 @@ public class EntityHandler {
 		entities.put("arrow_ice", EntityIceArrow.class);
 		entities.put("arrow_leaf", EntityLeafArrow.class);
 		entities.put("arrow_air", EntityAirArrow.class);
-		entities.put("arrow_earth", EntityEarthArrow.class);
+		entities.put("arrow_earth", EntityEarthCombatArrow.class);
 		entities.put("arrow_ender", EntityEnderArrow.class);
 		entities.put("arrow_plain", EntityPlainArrow.class);
 	}
@@ -63,7 +63,7 @@ public class EntityHandler {
 	public static void setDispenserBehaviorForArrows() {
 		/* modify dispenser handling for our arrows by looping through all of our types, getting the arrow associated 
 		with that type, and getting the arrow entity associated with that type */
-		Arrays.stream(ElementalType.values()).forEach(type -> {
+		Arrays.stream(ElementalTypes.values()).forEach(type -> {
 			// get the BaseArrow by the elemental type
 			Item arrowToRegister = (Item) EntityUtils.getInstance().getArrowItemFromElementalType(type);
 			// now register the behavior of the item

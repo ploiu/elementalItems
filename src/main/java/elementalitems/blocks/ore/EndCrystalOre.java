@@ -1,6 +1,6 @@
 package elementalitems.blocks.ore;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,7 +14,7 @@ import java.util.Random;
 public class EndCrystalOre extends BaseOre {
 
 	public EndCrystalOre() {
-		super(ElementalType.ENDER, Material.ROCK);
+		super(ElementalTypes.ENDER, Material.ROCK);
 		this.blocksThisCanGenerateOver = Collections.singletonList(Blocks.END_STONE);
 		this.biomesToGenerateIn = Collections.singleton(Biomes.SKY);
 		this.minYGeneration = 0;

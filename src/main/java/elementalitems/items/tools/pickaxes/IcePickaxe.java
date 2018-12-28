@@ -1,6 +1,6 @@
 package elementalitems.items.tools.pickaxes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,7 @@ public class IcePickaxe extends BasePickaxe {
 	 * Instantiates a new Ice pickaxe.
 	 */
 	public IcePickaxe() {
-		super(ElementalType.ICE);
+		super(ElementalTypes.ICE);
 	}
 
 	@Override

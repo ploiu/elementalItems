@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public interface ISharedEarthEffect {
+public interface ISharedEarthCombatEffect {
 	default void strikeDownEntity(@Nonnull EntityLivingBase target) {
 		// get the world the entity is in
 		World world = target.getEntityWorld();
