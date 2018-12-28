@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -18,6 +19,7 @@ public class WaterSword extends BaseSword implements ISharedWaterCombatEffect {
 	 */
 	public WaterSword() {
 		super(ElementalTypes.WATER);
+		this.tooltip = TextFormatting.BLUE + "Swift as a Coursing River!";
 	}
 
 	@Override

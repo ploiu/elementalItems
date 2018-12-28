@@ -3,11 +3,9 @@ package elementalitems.items.combat.swords;
 import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.combat.ISharedEnderCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityEnderPearl;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -20,6 +18,7 @@ public class EnderSword extends BaseSword implements ISharedEnderCombatEffect {
 	 */
 	public EnderSword() {
 		super(ElementalTypes.ENDER);
+		this.tooltip = TextFormatting.DARK_AQUA + "Vwoop!";
 	}
 
 	/**
@@ -40,12 +39,6 @@ public class EnderSword extends BaseSword implements ISharedEnderCombatEffect {
 
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
-		world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-		if(!world.isRemote) {
-			// we need to spawn an ender pearl into the world
-			EntityEnderPearl enderPearl = new EntityEnderPearl(world, player);
-			enderPearl.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-			world.spawnEntity(enderPearl);
-		}
+		this.throwEnderPearl(world, player);
 	}
 }

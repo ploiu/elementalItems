@@ -4,6 +4,7 @@ import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.combat.ISharedAirCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -16,6 +17,7 @@ public class AirSword extends BaseSword implements ISharedAirCombatEffect {
 	 */
 	public AirSword() {
 		super(ElementalTypes.AIR);
+		this.tooltip = TextFormatting.BLUE + "And We Have Liftoff!";
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.combat.ISharedEarthCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -16,6 +17,7 @@ public class EarthSword extends BaseSword implements ISharedEarthCombatEffect {
 	 */
 	public EarthSword() {
 		super(ElementalTypes.EARTH);
+		this.tooltip = TextFormatting.DARK_RED + "Taphophobia!";
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.util.ElementalUtils;
 import elementalitems.util.EntityUtils;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +17,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -30,6 +33,8 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 * The Type.
 	 */
 	protected final ElementalTypes type;
+	// the tooltip that will render when the sword is hovered over
+	protected String tooltip;
 
 	/**
 	 * Instantiates a new Base sword.
@@ -67,6 +72,11 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "sword_" + type.getTypeName(), type);
 	}
 
+	public BaseSword setTooltip(String tooltip) {
+		this.tooltip = tooltip;
+		return this;
+	}
+
 	@Override
 	public String getName() {
 		return this.name;
@@ -98,6 +108,13 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		this.specialEffect(world, player);
 		return super.onItemRightClick(world, player, hand);
+	}
+
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if(this.tooltip != null) {
+			tooltip.add(this.tooltip);
+		}
 	}
 
 	@Override

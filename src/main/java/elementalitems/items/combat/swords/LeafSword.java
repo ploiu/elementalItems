@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -18,6 +19,7 @@ public class LeafSword extends BaseSword implements ISharedLeafCombatEffect {
 	 */
 	public LeafSword() {
 		super(ElementalTypes.LEAF);
+		this.tooltip = TextFormatting.GREEN + "Blade Of Grass!";
 	}
 
 	@Override

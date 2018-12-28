@@ -1,16 +1,18 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalTypes;
+import elementalitems.items.ElementalMaterials;
 import elementalitems.util.EntityUtils;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class DualSword extends BaseSword {
 
@@ -21,22 +23,49 @@ public class DualSword extends BaseSword {
 	private IPassiveEffect firstPassiveEffect;
 	private IPassiveEffect secondPassiveEffect;
 
+	// the right click effect for this sword
+	private IRightClickEffect rightClickEffect = null;
 	// the types associated with this sword
 	private ElementalTypes type1;
 	private ElementalTypes type2;
 
-	public DualSword(Item.ToolMaterial material, ElementalTypes type1, ElementalTypes type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect) {
-		this(material, type1, type2, firstEffect, secondEffect, null, null);
+	public DualSword(ElementalTypes type1, ElementalTypes type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect) {
+		this(type1, type2, firstEffect, secondEffect, null, null);
 	}
 
-	public DualSword(Item.ToolMaterial material, ElementalTypes type1, ElementalTypes type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect, @Nullable IPassiveEffect firstPassiveEffect, @Nullable IPassiveEffect secondPassiveEffect) {
-		super(material, "sword_" + type1.getTypeName() + "_" + type2.getTypeName(), ElementalTypes.PLAIN);
+	public DualSword(ElementalTypes type1, ElementalTypes type2, @Nonnull IEffect firstEffect, @Nonnull IEffect secondEffect, @Nullable IPassiveEffect firstPassiveEffect, @Nullable IPassiveEffect secondPassiveEffect) {
+		super(ElementalMaterials.getInstance().dualMaterials.get(type1.getTypeName() + "_" + type2.getTypeName()), "sword_" + type1.getTypeName() + "_" + type2.getTypeName(), ElementalTypes.PLAIN);
 		this.type1 = type1;
 		this.type2 = type2;
 		this.firstEffect = firstEffect;
 		this.secondEffect = secondEffect;
 		this.firstPassiveEffect = firstPassiveEffect;
 		this.secondPassiveEffect = secondPassiveEffect;
+	}
+
+	public DualSword setFirstEffect(IEffect firstEffect) {
+		this.firstEffect = firstEffect;
+		return this;
+	}
+
+	public DualSword setSecondEffect(IEffect secondEffect) {
+		this.secondEffect = secondEffect;
+		return this;
+	}
+
+	public DualSword setFirstPassiveEffect(IPassiveEffect firstPassiveEffect) {
+		this.firstPassiveEffect = firstPassiveEffect;
+		return this;
+	}
+
+	public DualSword setSecondPassiveEffect(IPassiveEffect secondPassiveEffect) {
+		this.secondPassiveEffect = secondPassiveEffect;
+		return this;
+	}
+
+	public DualSword setRightClickEffect(IRightClickEffect rightClickEffect) {
+		this.rightClickEffect = rightClickEffect;
+		return this;
 	}
 
 
@@ -59,7 +88,9 @@ public class DualSword extends BaseSword {
 
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
-		// no op
+		if(this.rightClickEffect != null) {
+			this.rightClickEffect.apply(world, player);
+		}
 	}
 
 	@Override

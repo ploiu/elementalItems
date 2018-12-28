@@ -17,6 +17,7 @@ import java.util.List;
 
 import static elementalitems.ElementalTypes.*;
 import static net.minecraft.inventory.EntityEquipmentSlot.*;
+import static net.minecraft.util.text.TextFormatting.*;
 import static net.minecraftforge.fml.common.registry.GameRegistry.addSmelting;
 
 /**
@@ -47,14 +48,14 @@ public class ItemHandler {
 	public static ElementalItem lifeDeathSword;
 	public static ElementalItem plainSword;
 	// dual swords
-	public static ElementalItem magmaSword; // fire and earth
+	public static ElementalItem meteorSword; // fire and earth
 	public static ElementalItem coldFireSword; // fire and ice
 	public static ElementalItem steamSword; // fire and water
 	public static ElementalItem typhoonSword; // water and air
 	public static ElementalItem blizzardSword; // ice and air
 	public static ElementalItem voidSword; // ice and ender
 	public static ElementalItem jungleSword; // water and leaf
-	public static ElementalItem iceBergSword; // water and ice
+	public static ElementalItem glacialSword; // water and ice
 
 	// pickaxes
 	public static ElementalItem firePickaxe;
@@ -159,14 +160,16 @@ public class ItemHandler {
 		enderSword = new EnderSword();
 		lifeDeathSword = new LifeDeathSword();
 		plainSword = new PlainSword();
-		magmaSword = new DualSwordBuilder(FIRE, EARTH).build();
-		coldFireSword = new DualSwordBuilder(ICE, FIRE).build();
-		steamSword = new DualSwordBuilder(FIRE, WATER).build();
-		typhoonSword = new DualSwordBuilder(WATER, AIR).build();
-		blizzardSword = new DualSwordBuilder(ICE, AIR).build();
-		voidSword = new DualSwordBuilder(ICE, ENDER).build();
-		jungleSword = new DualSwordBuilder(LEAF, WATER).build();
-		iceBergSword = new DualSwordBuilder(ICE, WATER).build();
+		// dual swords
+		// Thanks for the quote, Will Smith!
+		meteorSword = new DualSwordBuilder(FIRE, EARTH).build().setTooltip(DARK_RED + "That's " + RED + "Hot!");
+		coldFireSword = new DualSwordBuilder(ICE, FIRE).build().setTooltip(AQUA + "Freezer " + RED + "Burn!");
+		steamSword = new DualSwordBuilder(FIRE, WATER).build().setTooltip(GRAY + "Best Sale " + RED + UNDERLINE + ITALIC + "Ever!");
+		typhoonSword = new DualSwordBuilder(WATER, AIR).build().setTooltip(BLUE + "With All The Force Of A Great Typhoon!");
+		blizzardSword = new DualSwordBuilder(ICE, AIR).build().setTooltip(AQUA + "WoW.");
+		voidSword = new DualSwordBuilder(ICE, ENDER).build().setTooltip(DARK_GRAY + "Void Where Prohibited!");
+		jungleSword = new DualSwordBuilder(LEAF, WATER).build().setTooltip(BLUE + "Fun" + GRAY + " And " + GREEN + "Games!");
+		glacialSword = new DualSwordBuilder(ICE, WATER).build().setTooltip(BLUE + "You Want " + AQUA + "Ice " + BLUE + "With That?");
 
 		// pickaxes
 		firePickaxe = new FirePickaxe();

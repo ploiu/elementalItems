@@ -1,9 +1,7 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalTypes;
-import elementalitems.items.ElementalMaterials;
 import elementalitems.sharedeffects.combat.*;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,7 +20,14 @@ public class DualSwordBuilder implements ISharedFireCombatEffect, ISharedIceComb
 		// sort our types before using them
 		ElementalTypes[] sortedTypes = new ElementalTypes[]{this.type1, this.type2};
 		Arrays.sort(sortedTypes);
-		return new DualSword(ElementalMaterials.getInstance().dualMaterials.get(StringUtils.join(sortedTypes, '_')), sortedTypes[0], sortedTypes[1], this.getActiveEffectFromType(sortedTypes[0]), this.getActiveEffectFromType(sortedTypes[1]), this.getPassiveEffectFromType(sortedTypes[0]), this.getPassiveEffectFromType(sortedTypes[1]));
+		return new DualSword(
+				sortedTypes[0],
+				sortedTypes[1],
+				this.getActiveEffectFromType(sortedTypes[0]),
+				this.getActiveEffectFromType(sortedTypes[1]),
+				this.getPassiveEffectFromType(sortedTypes[0]),
+				this.getPassiveEffectFromType(sortedTypes[1])
+		).setRightClickEffect(this.getRightClickEffectFromType(sortedTypes[this.getRightClickEffectFromType(sortedTypes[0]) == null ? 1 : 0]));
 	}
 
 	/**
@@ -86,6 +91,29 @@ public class DualSwordBuilder implements ISharedFireCombatEffect, ISharedIceComb
 				return this::enchantWithSmite;
 			case PLAIN:
 				return null;
+		}
+		throw new IllegalArgumentException(type + " did not match the set choices for creating a dual sword!");
+	}
+
+	@Nullable
+	private IRightClickEffect getRightClickEffectFromType(ElementalTypes type) {
+		switch(type) {
+			case PLAIN:
+				return null;
+			case FIRE:
+				return null;
+			case ICE:
+				return this::throwSnowball;
+			case WATER:
+				return null;
+			case LEAF:
+				return null;
+			case EARTH:
+				return null;
+			case AIR:
+				return null;
+			case ENDER:
+				return this::throwEnderPearl;
 		}
 		throw new IllegalArgumentException(type + " did not match the set choices for creating a dual sword!");
 	}

@@ -5,6 +5,7 @@ import elementalitems.sharedeffects.combat.ISharedFireCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -17,6 +18,7 @@ public class FireSword extends BaseSword implements ISharedFireCombatEffect {
 	 */
 	public FireSword() {
 		super(ElementalTypes.FIRE);
+		this.tooltip = TextFormatting.RED + "Hot Stuff!";
 	}
 
 	/**
@@ -40,5 +42,4 @@ public class FireSword extends BaseSword implements ISharedFireCombatEffect {
 	protected void specialEffect(World world, EntityPlayer player) {
 
 	}
-
 }
