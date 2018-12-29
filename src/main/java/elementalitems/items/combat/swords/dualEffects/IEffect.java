@@ -1,4 +1,4 @@
-package elementalitems.items.combat.swords;
+package elementalitems.items.combat.swords.dualEffects;
 
 import net.minecraft.entity.EntityLivingBase;
 

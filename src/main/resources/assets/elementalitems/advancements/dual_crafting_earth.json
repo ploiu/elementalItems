@@ -1,0 +1,24 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:sword_fire_earth"
+	]
+  },
+  "criteria": {
+	"has_sword_earth": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:sword_earth"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_sword_earth"
+	]
+  ]
+}

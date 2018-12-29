@@ -1,0 +1,24 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:sword_ice_ender"
+	]
+  },
+  "criteria": {
+	"has_sword_ender": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:sword_ender"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_sword_ender"
+	]
+  ]
+}

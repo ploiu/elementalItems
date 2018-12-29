@@ -1,6 +1,9 @@
 package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalTypes;
+import elementalitems.items.combat.swords.dualEffects.IEffect;
+import elementalitems.items.combat.swords.dualEffects.IPassiveEffect;
+import elementalitems.items.combat.swords.dualEffects.IRightClickEffect;
 import elementalitems.sharedeffects.combat.*;
 
 import javax.annotation.Nonnull;

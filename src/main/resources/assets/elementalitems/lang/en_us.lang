@@ -49,8 +49,14 @@ item.sword_earth.name=Earth Sword
 item.sword_air.name=Sky Sword
 item.sword_ender.name=Ender Sword
 item.sword_life_death.name=Sword of Life and Death
-item.sword_lightning.name=Storm Sword
-item.sword_freezer_burn.name=Frost Fire Sword
+item.sword_fire_ice.name=Frost Fire Sword
+item.sword_fire_water.name=Steam Sword
+item.sword_fire_earth.name=Meteor Sword
+item.sword_ice_water.name=Glacial Sword
+item.sword_ice_air.name=Blizzard Sword
+item.sword_ice_ender.name=Void Sword
+item.sword_water_leaf.name=Jungle Sword
+item.sword_water_air.name=Typhoon Sword
 # ores
 tile.ore_plain.name=Crystal Ore
 tile.ore_fire.name=Fire Crystal Ore

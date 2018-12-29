@@ -2,8 +2,10 @@ package elementalitems.items.combat.swords;
 
 import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalMaterials;
+import elementalitems.items.combat.swords.dualEffects.IEffect;
+import elementalitems.items.combat.swords.dualEffects.IPassiveEffect;
+import elementalitems.items.combat.swords.dualEffects.IRightClickEffect;
 import elementalitems.util.EntityUtils;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +14,6 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class DualSword extends BaseSword {
 
