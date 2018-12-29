@@ -1,0 +1,11 @@
+{
+  "homepage":"https://www.planetminecraft.com/mod/elemental-items-2955914/",
+  "promos":{
+    "1.12.2-latest":"1.1",
+    "1.12.2-recommend":"1.0"
+  },
+  "1.12.2":{
+    "1.1":"Added swords with multiple types, bug fixes",
+    "1.0":"Complete rewrite and reversioning"
+  }
+}
