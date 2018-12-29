@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
@@ -20,7 +20,7 @@ public class LeafArmor extends BaseArmor {
 	 * @param slot the slot
 	 */
 	public LeafArmor(EntityEquipmentSlot slot) {
-		super(ElementalType.LEAF, slot);
+		super(ElementalTypes.LEAF, slot);
 	}
 
 	@Override

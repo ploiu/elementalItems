@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
@@ -16,7 +16,7 @@ public class EntityPlainArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityPlainArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.PLAIN);
+		super(worldIn, shooter, ElementalTypes.PLAIN);
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class EntityPlainArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityPlainArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.PLAIN);
+		super(world, x, y, z, ElementalTypes.PLAIN);
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class EntityPlainArrow extends BaseEntityArrow {
 	 */
 	public EntityPlainArrow(World world) {
 		super(world);
-		this.type = ElementalType.PLAIN;
+		this.type = ElementalTypes.PLAIN;
 	}
 
 	@Override

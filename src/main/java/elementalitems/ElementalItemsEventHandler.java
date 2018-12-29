@@ -65,7 +65,7 @@ public class ElementalItemsEventHandler {
 	@SubscribeEvent
 	public static void onKnockBack(LivingKnockBackEvent event) {
 		EntityLivingBase hurtEntity = event.getEntityLiving();
-		if(EntityUtils.getInstance().isValidEntityLivingBase(hurtEntity) && EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(hurtEntity, ElementalType.EARTH)) {
+		if(EntityUtils.getInstance().isValidEntityLivingBase(hurtEntity) && EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(hurtEntity, ElementalTypes.EARTH)) {
 			// cancel the event for the entity
 			event.setCanceled(true);
 		}
@@ -75,7 +75,7 @@ public class ElementalItemsEventHandler {
 	public static void onEntityJump(LivingEvent.LivingJumpEvent event) {
 		if(EntityUtils.getInstance().isValidEntityLivingBase(event.getEntityLiving()) && event.getEntityLiving() instanceof EntityPlayer) {
 			EntityPlayer eventEntity = (EntityPlayer) event.getEntityLiving();
-			if(EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(eventEntity, ElementalType.AIR) && !eventEntity.isCreative() && !eventEntity.isSpectator()) {
+			if(EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(eventEntity, ElementalTypes.AIR) && !eventEntity.isCreative() && !eventEntity.isSpectator()) {
 				eventEntity.capabilities.allowFlying = true;
 				//				eventEntity.capabilities.isFlying = true;
 				eventEntity.fallDistance = 0.0f;
@@ -133,7 +133,7 @@ public class ElementalItemsEventHandler {
 	@SubscribeEvent
 	public static void onLivingTeleport(EnderTeleportEvent event) {
 		// prevent if the event's entity is wearing a full set of ender armor
-		if(EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(event.getEntity(), ElementalType.ENDER)) {
+		if(EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(event.getEntity(), ElementalTypes.ENDER)) {
 			// set the event's damage to 0
 			event.setAttackDamage(0f);
 		}

@@ -1,9 +1,9 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
-import elementalitems.util.Utils;
+import elementalitems.util.ElementalUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,9 +26,9 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected final ElementalTypes type;
 
-	private BaseShovel(Item.ToolMaterial material, String name, ElementalType type) {
+	private BaseShovel(Item.ToolMaterial material, String name, ElementalTypes type) {
 		super(material);
 		this.name = name;
 		this.type = type;
@@ -44,8 +44,8 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem {
 	 *
 	 * @param type the type
 	 */
-	public BaseShovel(ElementalType type) {
-		this(Utils.getInstance().getToolMaterialFromElementalType(type), "shovel_" + type.getTypeName(), type);
+	public BaseShovel(ElementalTypes type) {
+		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "shovel_" + type.getTypeName(), type);
 	}
 
 
@@ -55,7 +55,7 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 

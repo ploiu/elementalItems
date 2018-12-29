@@ -1,6 +1,6 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedFireEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ public class FireShovel extends BaseShovel implements ISharedFireEffect {
 	 * Instantiates a new Fire shovel.
 	 */
 	public FireShovel() {
-		super(ElementalType.FIRE);
+		super(ElementalTypes.FIRE);
 	}
 
 	@Override

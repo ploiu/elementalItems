@@ -1,6 +1,6 @@
 package elementalitems.blocks.ore;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,7 +14,7 @@ import java.util.Random;
 public class EarthCrystalOre extends BaseOre {
 
 	public EarthCrystalOre() {
-		super(ElementalType.EARTH, Material.ROCK);
+		super(ElementalTypes.EARTH, Material.ROCK);
 		// override any type of hardened clay as well as stone
 		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.STONE, Blocks.COBBLESTONE, Blocks.HARDENED_CLAY, Blocks.STAINED_HARDENED_CLAY, Blocks.DIRT);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(

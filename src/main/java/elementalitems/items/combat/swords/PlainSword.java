@@ -1,8 +1,9 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
@@ -14,7 +15,8 @@ public class PlainSword extends BaseSword {
 	 * Instantiates a new Plain sword.
 	 */
 	public PlainSword() {
-		super(ElementalType.PLAIN);
+		super(ElementalTypes.PLAIN);
+		this.tooltip = TextFormatting.GRAY + "The Root Of All!";
 	}
 
 	@Override

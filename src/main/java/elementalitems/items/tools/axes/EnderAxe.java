@@ -1,6 +1,6 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedEnderEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ public class EnderAxe extends BaseAxe implements ISharedEnderEffect {
 	 * Instantiates a new Ender axe.
 	 */
 	public EnderAxe() {
-		super(ElementalType.ENDER);
+		super(ElementalTypes.ENDER);
 	}
 
 	@Override

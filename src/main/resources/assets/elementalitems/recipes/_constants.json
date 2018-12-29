@@ -158,5 +158,47 @@
 	  "item": "minecraft:fireworks",
 	  "data": 32767
 	}
+  },
+  {
+	"name": "SWORD_FIRE",
+	"ingredient": {
+	  "item": "elementalitems:sword_fire"
+	}
+  },
+  {
+	"name": "SWORD_ICE",
+	"ingredient": {
+	  "item": "elementalitems:sword_ice"
+	}
+  },
+  {
+	"name": "SWORD_WATER",
+	"ingredient": {
+	  "item": "elementalitems:sword_water"
+	}
+  },
+  {
+	"name": "SWORD_LEAF",
+	"ingredient": {
+	  "item": "elementalitems:sword_leaf"
+	}
+  },
+  {
+	"name": "SWORD_EARTH",
+	"ingredient": {
+	  "item": "elementalitems:sword_earth"
+	}
+  },
+  {
+	"name": "SWORD_AIR",
+	"ingredient": {
+	  "item": "elementalitems:sword_air"
+	}
+  },
+  {
+	"name": "SWORD_ENDER",
+	"ingredient": {
+	  "item": "elementalitems:sword_ender"
+	}
   }
 ]

@@ -1,6 +1,6 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.TestHelper;
 import elementalitems.items.ElementalMaterials;
 import elementalitems.items.ItemHandler;
@@ -68,10 +68,10 @@ public class SwordTests {
 		ElementalMaterials.getInstance().registerMaterials();
 		ItemHandler.initializeAllItems();
 
-		this.fireSword = new FireSword(ElementalMaterials.getInstance().TOOL_FIRE, "fakeSword", ElementalType.FIRE);
-		this.iceSword = new IceSword(ElementalMaterials.getInstance().TOOL_ICE, "fakeSword", ElementalType.ICE);
-		this.enderSword = new EnderSword(ElementalMaterials.getInstance().TOOL_ENDER, "fakeSword", ElementalType.ENDER);
-		this.lifeDeathSword = new LifeDeathSword(ElementalMaterials.getInstance().TOOL_PLAIN, "fakeSword", ElementalType.PLAIN);
+		this.fireSword = new FireSword(ElementalMaterials.getInstance().TOOL_FIRE, "fakeSword", ElementalTypes.FIRE);
+		this.iceSword = new IceSword(ElementalMaterials.getInstance().TOOL_ICE, "fakeSword", ElementalTypes.ICE);
+		this.enderSword = new EnderSword(ElementalMaterials.getInstance().TOOL_ENDER, "fakeSword", ElementalTypes.ENDER);
+		this.lifeDeathSword = new LifeDeathSword(ElementalMaterials.getInstance().TOOL_PLAIN, "fakeSword", ElementalTypes.PLAIN);
 
 		when(this.manager.get(anyObject())).thenAnswer((Answer<Float>) invocation -> this.currentHealth);
 		when(this.fakePlayer.attackEntityAsMob(any(Entity.class))).thenAnswer((Answer<Boolean>) invocation -> this.swordBeingTested.applyEffect(this.fakePlayer, this.fakeZombie));

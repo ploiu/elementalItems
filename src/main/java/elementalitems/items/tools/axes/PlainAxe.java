@@ -1,6 +1,6 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,7 @@ public class PlainAxe extends BaseAxe {
 	 * Instantiates a new Plain axe.
 	 */
 	public PlainAxe() {
-		super(ElementalType.PLAIN);
+		super(ElementalTypes.PLAIN);
 	}
 
 	@Override

@@ -1,9 +1,9 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
-import elementalitems.util.Utils;
+import elementalitems.util.ElementalUtils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,14 +24,14 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected ElementalType type;
+	protected ElementalTypes type;
 	/**
 	 * The Name.
 	 */
 	protected final String name;
 
 
-	private BaseArmor(ItemArmor.ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlot, ElementalType type, String name) {
+	private BaseArmor(ItemArmor.ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlot, ElementalTypes type, String name) {
 		super(materialIn, -1, equipmentSlot);
 		this.type = type;
 		this.name = name;
@@ -47,8 +47,8 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 	 * @param type          the type
 	 * @param equipmentSlot the equipment slot
 	 */
-	public BaseArmor(ElementalType type, EntityEquipmentSlot equipmentSlot) {
-		this(Utils.getInstance().getArmorMaterialFromElementalType(type), equipmentSlot, type, equipmentSlot.getName() + "_" + type.getTypeName());
+	public BaseArmor(ElementalTypes type, EntityEquipmentSlot equipmentSlot) {
+		this(ElementalUtils.getInstance().getArmorMaterialFromElementalType(type), equipmentSlot, type, equipmentSlot.getName() + "_" + type.getTypeName());
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 

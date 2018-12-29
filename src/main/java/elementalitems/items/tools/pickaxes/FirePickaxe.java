@@ -1,6 +1,6 @@
 package elementalitems.items.tools.pickaxes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedFireEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,7 @@ public class FirePickaxe extends BasePickaxe implements ISharedFireEffect {
 	 * Instantiates a new Fire pickaxe.
 	 */
 	public FirePickaxe() {
-		super(ElementalType.FIRE);
+		super(ElementalTypes.FIRE);
 	}
 
 	@Override

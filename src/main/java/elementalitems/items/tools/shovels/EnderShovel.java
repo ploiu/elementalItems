@@ -1,6 +1,6 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedEnderEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ public class EnderShovel extends BaseShovel implements ISharedEnderEffect {
 	 * Instantiates a new Ender shovel.
 	 */
 	public EnderShovel() {
-		super(ElementalType.ENDER);
+		super(ElementalTypes.ENDER);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package elementalitems.items;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.item.ItemStack;
 
 import java.util.Objects;
@@ -15,7 +15,7 @@ public class BaseCrystal extends BaseItem implements ElementalItem {
 	 *
 	 * @param type the type
 	 */
-	public BaseCrystal(ElementalType type) {
+	public BaseCrystal(ElementalTypes type) {
 		super("crystal_" + type.getTypeName(), type);
 	}
 

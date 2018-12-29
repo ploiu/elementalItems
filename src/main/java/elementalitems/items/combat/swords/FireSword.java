@@ -1,22 +1,24 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.util.EntityUtils;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedFireCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
  * The type Fire sword.
  */
-public class FireSword extends BaseSword {
+public class FireSword extends BaseSword implements ISharedFireCombatEffect {
 
 	/**
 	 * Instantiates a new Fire sword.
 	 */
 	public FireSword() {
-		super(ElementalType.FIRE);
+		super(ElementalTypes.FIRE);
+		this.tooltip = TextFormatting.RED + "Hot Stuff!";
 	}
 
 	/**
@@ -26,18 +28,13 @@ public class FireSword extends BaseSword {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	public FireSword(Item.ToolMaterial material, String name, ElementalType type) {
+	public FireSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 		// no op
 	}
 
 	@Override
 	public boolean applyEffect(EntityLivingBase user, EntityLivingBase target) {
-		// checks for the target
-		if(EntityUtils.getInstance().isValidEntityLivingBase(target) && !target.isImmuneToFire()) {
-			// set the target on fire
-			target.setFire(10);
-		}
-
+		this.ignite(target);
 		return true;
 	}
 
@@ -45,5 +42,4 @@ public class FireSword extends BaseSword {
 	protected void specialEffect(World world, EntityPlayer player) {
 
 	}
-
 }

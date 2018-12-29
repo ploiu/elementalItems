@@ -1,6 +1,6 @@
 package elementalitems.items.tools.shovels;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ public class WaterShovel extends BaseShovel {
 	 * Instantiates a new Water shovel.
 	 */
 	public WaterShovel() {
-		super(ElementalType.WATER);
+		super(ElementalTypes.WATER);
 	}
 
 	@Override

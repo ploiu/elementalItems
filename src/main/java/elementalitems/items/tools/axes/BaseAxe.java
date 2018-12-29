@@ -1,9 +1,9 @@
 package elementalitems.items.tools.axes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
-import elementalitems.util.Utils;
+import elementalitems.util.ElementalUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,7 +26,7 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected final ElementalTypes type;
 
 	/**
 	 * Instantiates a new Base axe.
@@ -35,7 +35,7 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	public BaseAxe(Item.ToolMaterial material, String name, ElementalType type) {
+	public BaseAxe(Item.ToolMaterial material, String name, ElementalTypes type) {
 		super(material, material.getAttackDamage(), material.getEfficiency());
 		this.name = name;
 		this.type = type;
@@ -51,8 +51,8 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem {
 	 *
 	 * @param type the type
 	 */
-	public BaseAxe(ElementalType type) {
-		this(Utils.getInstance().getToolMaterialFromElementalType(type), "axe_" + type.getTypeName(), type);
+	public BaseAxe(ElementalTypes type) {
+		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "axe_" + type.getTypeName(), type);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 

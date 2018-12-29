@@ -1,6 +1,6 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
@@ -20,7 +20,7 @@ public class EntityWaterArrow extends BaseEntityArrow {
 	 * @param shooter the shooter
 	 */
 	public EntityWaterArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.WATER);
+		super(worldIn, shooter, ElementalTypes.WATER);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class EntityWaterArrow extends BaseEntityArrow {
 	 * @param z     the z
 	 */
 	public EntityWaterArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.WATER);
+		super(world, x, y, z, ElementalTypes.WATER);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class EntityWaterArrow extends BaseEntityArrow {
 	 */
 	public EntityWaterArrow(World world) {
 		super(world);
-		this.type = ElementalType.WATER;
+		this.type = ElementalTypes.WATER;
 	}
 
 	@Override

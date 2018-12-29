@@ -1,9 +1,11 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
-import elementalitems.util.Utils;
+import elementalitems.util.ElementalUtils;
+import elementalitems.util.EntityUtils;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +16,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -27,7 +32,9 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	/**
 	 * The Type.
 	 */
-	protected final ElementalType type;
+	protected final ElementalTypes type;
+	// the tooltip that will render when the sword is hovered over
+	protected String tooltip;
 
 	/**
 	 * Instantiates a new Base sword.
@@ -36,7 +43,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 * @param name     the name
 	 * @param type     the type
 	 */
-	protected BaseSword(Item.ToolMaterial material, String name, ElementalType type) {
+	protected BaseSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 		super(material);
 		this.name = name;
 		this.setUnlocalizedName(name);
@@ -53,7 +60,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	protected BaseSword() {
 		super(Item.ToolMaterial.DIAMOND);
 		this.name = "baseSword";
-		this.type = ElementalType.PLAIN;
+		this.type = ElementalTypes.PLAIN;
 	}
 
 	/**
@@ -61,8 +68,13 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 *
 	 * @param type the type
 	 */
-	public BaseSword(ElementalType type) {
-		this(Utils.getInstance().getToolMaterialFromElementalType(type), "sword_" + type.getTypeName(), type);
+	public BaseSword(ElementalTypes type) {
+		this(ElementalUtils.getInstance().getToolMaterialFromElementalType(type), "sword_" + type.getTypeName(), type);
+	}
+
+	public BaseSword setTooltip(String tooltip) {
+		this.tooltip = tooltip;
+		return this;
 	}
 
 	@Override
@@ -71,7 +83,7 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	}
 
 	@Override
-	public ElementalType getType() {
+	public ElementalTypes getType() {
 		return this.type;
 	}
 
@@ -82,11 +94,12 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	 * @param target the target
 	 * @return the boolean
 	 */
-	protected abstract boolean applyEffect(EntityLivingBase user, EntityLivingBase target);
+	protected abstract boolean applyEffect(@Nonnull EntityLivingBase user, @Nonnull EntityLivingBase target);
 
 	/**
 	 * Special effect.
-	 *  @param world  the world
+	 *
+	 * @param world  the world
 	 * @param player the player
 	 */
 	protected abstract void specialEffect(World world, EntityPlayer player);
@@ -98,8 +111,17 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	}
 
 	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if(this.tooltip != null) {
+			tooltip.add(this.tooltip);
+		}
+	}
+
+	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-		this.applyEffect(attacker, target);
+		if(EntityUtils.getInstance().isValidEntityLivingBase(target) && EntityUtils.getInstance().isValidEntityLivingBase(attacker)) {
+			this.applyEffect(attacker, target);
+		}
 		return super.hitEntity(stack, target, attacker);
 	}
 

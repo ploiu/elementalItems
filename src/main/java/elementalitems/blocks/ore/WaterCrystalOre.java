@@ -1,6 +1,6 @@
 package elementalitems.blocks.ore;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,7 +15,7 @@ import java.util.Random;
 public class WaterCrystalOre extends BaseOre {
 
 	public WaterCrystalOre() {
-		super(ElementalType.WATER, Material.ROCK);
+		super(ElementalTypes.WATER, Material.ROCK);
 		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.STONE, Blocks.SAND, Blocks.GRAVEL, Blocks.COBBLESTONE);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(BiomeDictionary.Type.WATER, BiomeDictionary.Type.WET);
 	}

@@ -1,7 +1,7 @@
 package elementalitems.entities.arrows;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedEarthEffects;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedEarthCombatEffect;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 /**
  * The type Entity earth arrow.
  */
-public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthEffects {
+public class EntityEarthCombatArrow extends BaseEntityArrow implements ISharedEarthCombatEffect {
 
 	/**
 	 * Instantiates a new Entity earth arrow.
@@ -17,8 +17,8 @@ public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthEff
 	 * @param worldIn the world in
 	 * @param shooter the shooter
 	 */
-	public EntityEarthArrow(World worldIn, EntityLivingBase shooter) {
-		super(worldIn, shooter, ElementalType.EARTH);
+	public EntityEarthCombatArrow(World worldIn, EntityLivingBase shooter) {
+		super(worldIn, shooter, ElementalTypes.EARTH);
 	}
 
 	/**
@@ -29,8 +29,8 @@ public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthEff
 	 * @param y     the y
 	 * @param z     the z
 	 */
-	public EntityEarthArrow(World world, double x, double y, double z) {
-		super(world, x, y, z, ElementalType.EARTH);
+	public EntityEarthCombatArrow(World world, double x, double y, double z) {
+		super(world, x, y, z, ElementalTypes.EARTH);
 	}
 
 	/**
@@ -38,9 +38,9 @@ public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthEff
 	 *
 	 * @param world the world
 	 */
-	public EntityEarthArrow(World world) {
+	public EntityEarthCombatArrow(World world) {
 		super(world);
-		this.type = ElementalType.EARTH;
+		this.type = ElementalTypes.EARTH;
 	}
 
 	@Override

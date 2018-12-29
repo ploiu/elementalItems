@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+	{
+	  "item": "elementalitems:sword_water"
+	},
+	{
+	  "item": "elementalitems:sword_leaf"
+	}
+  ],
+  "result": {
+	"item": "elementalitems:sword_water_leaf",
+	"count": 1
+  }
+}

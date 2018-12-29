@@ -1,23 +1,25 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedLeafCombatEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
  * The type Leaf sword.
  */
-public class LeafSword extends BaseSword {
+public class LeafSword extends BaseSword implements ISharedLeafCombatEffect {
 
 	/**
 	 * Instantiates a new Leaf sword.
 	 */
 	public LeafSword() {
-		super(ElementalType.LEAF);
+		super(ElementalTypes.LEAF);
+		this.tooltip = TextFormatting.GREEN + "Blade Of Grass!";
 	}
 
 	@Override
@@ -34,11 +36,6 @@ public class LeafSword extends BaseSword {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		super.onUpdate(stack, world, entity, itemSlot, isSelected);
-		// enchant it with smite V if not enchanted
-		if(!stack.isItemEnchanted()) {
-			stack.addEnchantment(Enchantments.SMITE, 5);
-		}
-
+		this.enchantWithSmite(stack, entity);
 	}
-
 }

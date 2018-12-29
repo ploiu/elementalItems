@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public interface ISharedEarthEffects {
+public interface ISharedEarthCombatEffect {
 	default void strikeDownEntity(@Nonnull EntityLivingBase target) {
 		// get the world the entity is in
 		World world = target.getEntityWorld();
@@ -24,5 +24,18 @@ public interface ISharedEarthEffects {
 		target.setEntityBoundingBox(target.getEntityBoundingBox().offset(0, -distance, 0));
 		target.resetPositionToBB();
 		target.fall(distance, 2);
+	}
+
+	/**
+	 * takes an EntityLivingBase and pushes it under ground so it's in above its head
+	 *
+	 * @param target the entity we are attacking
+	 */
+	default void buryEntity(EntityLivingBase target) {
+		// get its height
+		float height = target.height + 1.0f;
+		// send it height blocks under ground
+		target.setEntityBoundingBox(target.getEntityBoundingBox().offset(0, -height, 0));
+		target.resetPositionToBB();
 	}
 }

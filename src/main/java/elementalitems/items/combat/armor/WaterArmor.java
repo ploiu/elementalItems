@@ -1,6 +1,6 @@
 package elementalitems.items.combat.armor;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -27,7 +27,7 @@ public class WaterArmor extends BaseArmor {
 	 * @param slot the slot
 	 */
 	public WaterArmor(EntityEquipmentSlot slot) {
-		super(ElementalType.WATER, slot);
+		super(ElementalTypes.WATER, slot);
 	}
 
 	@Override

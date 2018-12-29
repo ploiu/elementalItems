@@ -1,6 +1,6 @@
 package elementalitems.items.tools.pickaxes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,7 @@ public class WaterPickaxe extends BasePickaxe {
 	 * Instantiates a new Water pickaxe.
 	 */
 	public WaterPickaxe() {
-		super(ElementalType.WATER);
+		super(ElementalTypes.WATER);
 	}
 
 	@Override

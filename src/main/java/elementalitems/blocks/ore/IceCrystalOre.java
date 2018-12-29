@@ -1,6 +1,6 @@
 package elementalitems.blocks.ore;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.items.ItemHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -20,7 +20,7 @@ import java.util.Random;
 public class IceCrystalOre extends BaseOre {
 
 	public IceCrystalOre() {
-		super(ElementalType.ICE, Material.ICE);
+		super(ElementalTypes.ICE, Material.ICE);
 		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.ICE, Blocks.PACKED_ICE);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.BEACH);
 		this.maxVeinSize = 10;

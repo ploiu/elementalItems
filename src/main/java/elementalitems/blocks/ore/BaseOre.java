@@ -1,7 +1,7 @@
 package elementalitems.blocks.ore;
 
 import com.google.common.base.Predicate;
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.blocks.BaseBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -36,7 +36,7 @@ public abstract class BaseOre extends BaseBlock {
 	protected int spawnChances = 1;
 
 
-	public BaseOre(ElementalType oreType, Material blockMaterial) {
+	public BaseOre(ElementalTypes oreType, Material blockMaterial) {
 		super("ore_" + oreType.getTypeName(), blockMaterial);
 		this.blocksThisCanGenerateOver = Collections.singletonList(Blocks.STONE);
 		this.biomesToGenerateIn = BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL);

@@ -1,6 +1,6 @@
 package elementalitems.items.tools.pickaxes;
 
-import elementalitems.ElementalType;
+import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.items.ISharedLeafEffect;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,7 @@ public class LeafPickaxe extends BasePickaxe implements ISharedLeafEffect {
 	 * Instantiates a new Leaf pickaxe.
 	 */
 	public LeafPickaxe() {
-		super(ElementalType.LEAF);
+		super(ElementalTypes.LEAF);
 	}
 
 	@Override

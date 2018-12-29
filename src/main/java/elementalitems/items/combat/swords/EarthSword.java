@@ -1,34 +1,32 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalType;
-import elementalitems.sharedeffects.combat.ISharedEarthEffects;
-import elementalitems.util.EntityUtils;
+import elementalitems.ElementalTypes;
+import elementalitems.sharedeffects.combat.ISharedEarthCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 /**
  * The type Earth sword.
  */
-public class EarthSword extends BaseSword implements ISharedEarthEffects {
+public class EarthSword extends BaseSword implements ISharedEarthCombatEffect {
 
 	/**
 	 * Instantiates a new Earth sword.
 	 */
 	public EarthSword() {
-		super(ElementalType.EARTH);
+		super(ElementalTypes.EARTH);
+		this.tooltip = TextFormatting.DARK_RED + "Taphophobia!";
 	}
 
 	@Override
 	public boolean applyEffect(EntityLivingBase user, EntityLivingBase target) {
-		// make sure the target is alive and not null
-		if(EntityUtils.getInstance().isValidEntityLivingBase(target)) {
-			// check if it's on the ground
-			if(target.onGround) {
-				this.buryEntity(target);
-			} else {
-				this.strikeDownEntity(target);
-			}
+		// check if it's on the ground
+		if(target.onGround) {
+			this.buryEntity(target);
+		} else {
+			this.strikeDownEntity(target);
 		}
 
 		return true;
@@ -38,18 +36,4 @@ public class EarthSword extends BaseSword implements ISharedEarthEffects {
 	protected void specialEffect(World world, EntityPlayer player) {
 
 	}
-
-	/**
-	 * takes an EntityLivingBase and pushes it under ground so it's in above its head
-	 *
-	 * @param target the entity we are attacking
-	 */
-	private void buryEntity(EntityLivingBase target) {
-		// get its height
-		float height = target.height + 1.0f;
-		// send it height blocks under ground
-		target.setEntityBoundingBox(target.getEntityBoundingBox().offset(0, -height, 0));
-		target.resetPositionToBB();
-	}
-
 }
