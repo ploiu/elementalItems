@@ -57,7 +57,7 @@ public class BaseArrow extends ItemArrow implements ElementalItem {
 			case WATER:
 				return new EntityWaterArrow(world, shooter);
 			case EARTH:
-				return new EntityEarthCombatArrow(world, shooter);
+				return new EntityEarthArrow(world, shooter);
 			case AIR:
 				return new EntityAirArrow(world, shooter);
 			case ICE:

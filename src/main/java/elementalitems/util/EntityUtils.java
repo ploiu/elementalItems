@@ -183,7 +183,7 @@ public class EntityUtils {
 			case WATER:
 				return new EntityWaterArrow(world, x, y, z);
 			case EARTH:
-				return new EntityEarthCombatArrow(world, x, y, z);
+				return new EntityEarthArrow(world, x, y, z);
 			case AIR:
 				return new EntityAirArrow(world, x, y, z);
 			case ICE:

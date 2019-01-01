@@ -38,7 +38,7 @@ public class EntityHandler {
 		entities.put("arrow_ice", EntityIceArrow.class);
 		entities.put("arrow_leaf", EntityLeafArrow.class);
 		entities.put("arrow_air", EntityAirArrow.class);
-		entities.put("arrow_earth", EntityEarthCombatArrow.class);
+		entities.put("arrow_earth", EntityEarthArrow.class);
 		entities.put("arrow_ender", EntityEnderArrow.class);
 		entities.put("arrow_plain", EntityPlainArrow.class);
 	}
