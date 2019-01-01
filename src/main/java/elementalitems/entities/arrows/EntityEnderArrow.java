@@ -23,6 +23,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	 */
 	public EntityEnderArrow(World worldIn, EntityLivingBase shooter) {
 		super(worldIn, shooter, ElementalTypes.ENDER);
+		this.setSize(0.25f, 0.25f);
 	}
 
 	/**
@@ -35,6 +36,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	 */
 	public EntityEnderArrow(World world, double x, double y, double z) {
 		super(world, x, y, z, ElementalTypes.ENDER);
+		this.setSize(0.25f, 0.25f);
 	}
 
 	/**
@@ -45,6 +47,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	public EntityEnderArrow(World world) {
 		super(world);
 		this.type = ElementalTypes.ENDER;
+		this.setSize(0.25f, 0.25f);
 	}
 
 	@Override
