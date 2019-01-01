@@ -8,6 +8,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 /**
  * This EntityArrow  allows the shooter to teleport to where the arrow lands, be it mob or block
@@ -47,26 +48,6 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	}
 
 	@Override
-	public void applyLandingEffect(BlockPos positionHit, EnumFacing sideHit) {
-		// if the world is not remote and our shooter is a valid entity, attempt to teleport our shooter to where the arrow landed
-		if(!this.world.isRemote && EntityUtils.getInstance().isValidEntityLivingBase(this.shootingEntity)) {
-			/*
-				attempt to teleport our shooter to either:
-				A) the top of the block the arrow hit
-				B) the block this arrow hit, offset by the side of the block the arrow hit
-				C) the exact position the arrow hit
-			 */
-			BlockPos upOne = positionHit.offset(EnumFacing.UP);
-			BlockPos offsetFromSide = positionHit.offset(sideHit);
-			BlockPos thisBlockPos = this.getPosition();
-			if(this.tryToTeleportToLocations(upOne, offsetFromSide, thisBlockPos)) {
-				this.world.playSound(null, this.shootingEntity.getPosition().getX(), this.shootingEntity.getPosition().getY(), this.shootingEntity.getPosition().getZ(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-				this.shootingEntity.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
-			}
-		}
-	}
-
-	@Override
 	public void applyEffectOnEntity(EntityLivingBase target) {
 		// if there is a shooter, and the target is valid, teleport our shooter to the target
 		if(!this.world.isRemote && EntityUtils.getInstance().isValidEntityLivingBase(this.shootingEntity) && EntityUtils.getInstance().isValidEntityLivingBase(target)) {
@@ -78,19 +59,15 @@ public class EntityEnderArrow extends BaseEntityArrow {
 		}
 	}
 
-	/**
-	 * takes a list of positions and attempts to teleport this entity's {@code shootingEntity} to one of those positions
-	 *
-	 * @param positions the list of {@link BlockPos Block Positions} to attempt to teleport to
-	 * @return true if one of the teleports succeeds, false otherwise
-	 */
-	private boolean tryToTeleportToLocations(BlockPos... positions) {
-		for(BlockPos pos : positions) {
-			if(((EntityLivingBase) this.shootingEntity).attemptTeleport(pos.getX(), pos.getY(), pos.getZ())) {
-				return true;
-			}
+	@Override
+	public void applyLandingEffect(BlockPos positionHit, EnumFacing sideHit) {
+		// if the world is not remote and our shooter is a valid entity, attempt to teleport our shooter to where the arrow landed
+		if(!this.world.isRemote && EntityUtils.getInstance().isValidEntityLivingBase(this.shootingEntity)) {
+			EnderTeleportEvent event = new EnderTeleportEvent((EntityLivingBase) this.shootingEntity, this.posX, this.posY, this.posZ, 0);
+			this.shootingEntity.setPositionAndUpdate(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+			// play the sounds
+			this.world.playSound(null, this.shootingEntity.getPosition().getX(), this.shootingEntity.getPosition().getY(), this.shootingEntity.getPosition().getZ(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+			this.shootingEntity.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
 		}
-		// the teleport didn't succeed
-		return false;
 	}
 }
