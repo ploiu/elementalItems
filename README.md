@@ -54,5 +54,3 @@ With every piece of software, there are bugs. As of this writing, there are a fe
 
 * _The ender dragon ignores the knockback immunity the earth set provides_
   - Exists because of the way Minecraft Forge, the modding api I used to create this mod, works. The ender dragon doesn't technically apply a knockback effect. When the dragon runs into a living thing, it explicitly sets the velocity of that living thing instead of applying a knockback effect. There is no guaranteed way to prevent this from happening without potentially introducing weird bugs with knockback.
-* Ender Arrow/Ender Sword teleport behavior is weird
-  - Currently I am using Minecraft's built-in method to _safely_ teleport an entity (the same method that is used when you eat [Chorus Fruit](https://minecraft.gamepedia.com/Chorus_Fruit#Usage)). Changing this is on my list of things to do, but I have more exciting features for this mod I'm working on right now, and those will come first.
