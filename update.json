@@ -1,11 +1,12 @@
 {
-  "homepage":"https://github.com/ploiu/elementalItems/releases",
-  "promos":{
-    "1.12.2-latest":"1.1",
-    "1.12.2-recommend":"1.1"
+  "homepage": "https://github.com/ploiu/elementalItems/releases",
+  "promos": {
+	"1.12.2-latest": "1.2",
+	"1.12.2-recommend": "1.1"
   },
-  "1.12.2":{
-    "1.1":"Added swords with multiple types, bug fixes",
-    "1.0":"Complete rewrite and reversioning"
+  "1.12.2": {
+	"1.2": "Changed how the ender sword teleports hit mobs, made ender arrow teleports slightly more accurate",
+	"1.1": "Added swords with multiple types, bug fixes",
+	"1.0": "Complete rewrite and reversioning"
   }
 }
