@@ -4,30 +4,24 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityEnderPearl;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public interface ISharedEnderCombatEffect {
 	default void teleportEntity(EntityLivingBase target) {
 		Random rng = target.getRNG();
-		// get the target's position
-		BlockPos targetPosition = target.getPosition();
-		double x = targetPosition.getX();
-		double y = targetPosition.getY();
-		double z = targetPosition.getZ();
-		// get the seed for +/- x & z teleports
-		List<Boolean> seed = new ArrayList<>(Arrays.asList(rng.nextInt(2) == 0, rng.nextInt(20) % 2 == 0));
-		Integer maxTeleportDistance = 5;
-		double newX = x + rng.nextDouble() * (maxTeleportDistance * (seed.get(0) ? 1 : -1));
-		double newZ = z + rng.nextDouble() * (maxTeleportDistance * (seed.get(1) ? 1 : -1));
-		target.attemptTeleport(newX, y, newZ);
+		Integer maxTeleportDistance = 10;
+		double newX = target.posX + (rng.nextDouble() - 0.5D) * 16.0D;
+		// don't try and bury the target
+		double newY = Math.max(target.posY, MathHelper.clamp(target.posY + (double) (rng.nextInt(maxTeleportDistance) - maxTeleportDistance / 2), 0.0D, (double) (target.getEntityWorld().getActualHeight() - 1)));
+		double newZ = target.posZ + (rng.nextDouble() - 0.5D) * 16.0D;
 		if(!target.getEntityWorld().isRemote) {
+			target.setPositionAndUpdate(newX, newY, newZ);
 			target.getEntityWorld().playSound(null, target.prevPosX, target.prevPosY, target.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, target.getSoundCategory(), 1.0F, 1.0F);
 		}
 	}

@@ -128,7 +128,7 @@ public class SwordTests {
 	public void testEnderSwordAttemptsTeleport() {
 		this.swordBeingTested = this.enderSword;
 		this.fakePlayer.attackEntityAsMob(this.fakeZombie);
-		verify(this.fakeZombie).attemptTeleport(anyDouble(), anyDouble(), anyDouble());
+		verify(this.fakeZombie).setPositionAndUpdate(anyDouble(), anyDouble(), anyDouble());
 	}
 
 	@Test
