@@ -19,7 +19,7 @@ public class IceShovel extends BaseShovel {
 	}
 
 	@Override
-	protected void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
+	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 
 	}
 }

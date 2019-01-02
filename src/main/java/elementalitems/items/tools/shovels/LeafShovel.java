@@ -20,7 +20,7 @@ public class LeafShovel extends BaseShovel implements ISharedLeafEffect {
 	}
 
 	@Override
-	protected void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
+	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		this.applyLeafEffect(world, position, 2);
 	}
 }

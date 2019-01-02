@@ -3,6 +3,7 @@ package elementalitems.items.tools.shovels;
 import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
+import elementalitems.items.tools.BaseTool;
 import elementalitems.util.ElementalUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,7 +19,7 @@ import java.util.Objects;
 /**
  * The type Base shovel.
  */
-public abstract class BaseShovel extends ItemSpade implements ElementalItem {
+public abstract class BaseShovel extends ItemSpade implements ElementalItem, BaseTool {
 	/**
 	 * The Name.
 	 */
@@ -59,23 +60,14 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem {
 		return this.type;
 	}
 
-	/**
-	 * Apply effect.
-	 *
-	 * @param world    the world
-	 * @param state    the state
-	 * @param position the position
-	 * @param user     the user
-	 */
-	protected abstract void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user);
 
-	@Override
+	/*@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase user) {
 		if(stack.canHarvestBlock(state) || "shovel".equals(state.getBlock().getHarvestTool(state))) {
 			this.applyEffect(world, state, pos, user);
 		}
 		return super.onBlockDestroyed(stack, world, state, pos, user);
-	}
+	}*/
 
 	@Override
 	public int hashCode() {

@@ -3,6 +3,7 @@ package elementalitems;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.combat.armor.BaseArmor;
 import elementalitems.items.combat.armor.WaterArmor;
+import elementalitems.items.tools.BaseTool;
 import elementalitems.loot.LootHelper;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.Entity;
@@ -15,6 +16,7 @@ import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -94,6 +96,21 @@ public class ElementalItemsEventHandler {
 			// get the entity's boots and check if they're air armor
 			if(ItemHandler.airBoots.equals(eventLiving.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem())) {
 				event.setDamageMultiplier(0);
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onBlockBroken(BlockEvent.BreakEvent event) {
+		EntityPlayer player = event.getPlayer();
+		if(player != null) {
+			// check the item the player broke the block with
+			ItemStack heldItemStack = event.getPlayer().getHeldItemMainhand();
+			if(!heldItemStack.isEmpty()) {
+				Item heldItem = heldItemStack.getItem();
+				if(heldItem instanceof BaseTool) {
+					((BaseTool) heldItem).applyEffect(event.getWorld(), event.getState(), event.getPos(), player);
+				}
 			}
 		}
 	}

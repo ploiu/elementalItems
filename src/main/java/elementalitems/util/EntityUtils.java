@@ -6,6 +6,7 @@ import elementalitems.entities.arrows.*;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.combat.armor.BaseArmor;
+import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
@@ -119,12 +120,9 @@ public class EntityUtils {
 	 * @param itemsToDrop the actual items that are being spawned into the world
 	 */
 	public void dropItemsInWorld(@Nonnull World world, @Nonnull BlockPos position, @Nonnull List<ItemStack> itemsToDrop) {
-		itemsToDrop.forEach(itemStack -> {
-			// create a new Item to be dropped into the world
-			EntityItem itemStackEntity = new EntityItem(world, position.getX(), position.getY(), position.getZ(), itemStack);
-			itemStackEntity.setDefaultPickupDelay();
-			world.spawnEntity(itemStackEntity);
-		});
+		for(ItemStack itemStack : itemsToDrop) {
+			Block.spawnAsEntity(world, position, itemStack);
+		}
 	}
 
 	/**

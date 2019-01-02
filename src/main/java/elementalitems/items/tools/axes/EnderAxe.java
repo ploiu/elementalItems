@@ -20,7 +20,7 @@ public class EnderAxe extends BaseAxe implements ISharedEnderEffect {
 	}
 
 	@Override
-	protected void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
+	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		this.applyEnderEffect(world, state, position, user);
 	}
 }
