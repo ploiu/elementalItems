@@ -79,7 +79,7 @@ public class ElementalItemsEventHandler {
 			EntityPlayer eventEntity = (EntityPlayer) event.getEntityLiving();
 			if(EntityUtils.getInstance().doesEntityHaveFullElementalSetOfType(eventEntity, ElementalTypes.AIR) && !eventEntity.isCreative() && !eventEntity.isSpectator()) {
 				eventEntity.capabilities.allowFlying = true;
-				//				eventEntity.capabilities.isFlying = true;
+				// this is what allows them to begin flying
 				eventEntity.fallDistance = 0.0f;
 			} else if(!eventEntity.isCreative() && !eventEntity.isSpectator()) {
 				// prevent them from flying
