@@ -23,5 +23,4 @@ public class EnderPickaxe extends BasePickaxe implements ISharedEnderEffect {
 		this.applyEnderEffect(world, state, position, user);
 		user.getHeldItemMainhand().damageItem(1, user);
 	}
-
 }

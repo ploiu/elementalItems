@@ -52,7 +52,7 @@ public interface ISharedEnderEffect {
 				EntityUtils.getInstance().dropItemsInWorld(world, playerUser, remainingItems);
 			}
 			// delete the block
-			world.destroyBlock(position, false);
+			world.setBlockToAir(position);
 		}
 
 	}
