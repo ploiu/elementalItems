@@ -3,7 +3,7 @@
   "modid": "elementalitems",
   "name": "Elemental Items Mod",
   "description": "A mod that adds a bunch of powerful equipment inspired by the elements",
-  "version": "1.2",
+  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/ploiu/elementalItems",
   "updateUrl": "",
