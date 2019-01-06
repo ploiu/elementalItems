@@ -14,7 +14,6 @@ public interface ISharedFireEffect {
 	default void applyFireEffect(World world, IBlockState state, BlockPos position) {
 		// get the item to drop based on the smelting map
 		ItemStack smeltedItemStack = Utils.getInstance().getSmeltedResultWithCorrectMeta(state);
-		smeltedItemStack.setCount(2);
 		// make sure the result actually is something
 		if(!smeltedItemStack.getItem().equals(Items.AIR)) {
 			// destroy the block and try to drop the smelted item where the block was

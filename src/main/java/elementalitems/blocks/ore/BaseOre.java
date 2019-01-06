@@ -29,11 +29,11 @@ public abstract class BaseOre extends BaseBlock {
 
 	// the max and min y for generation
 	protected int minYGeneration = 0;
-	protected int maxYGeneration = 63;
+	protected int maxYGeneration = 64;
 	// the max vein size
 	protected int maxVeinSize = 5;
 	// the max chances per chunk this can spawn
-	protected int spawnChances = 1;
+	protected int spawnChances = 3;
 
 
 	public BaseOre(ElementalTypes oreType, Material blockMaterial) {

@@ -23,7 +23,9 @@ public class Utils {
 
 	public ItemStack getSmeltedResultWithCorrectMeta(IBlockState state) {
 		Block block = state.getBlock();
-		return FurnaceRecipes.instance().getSmeltingResult(new ItemStack(Item.getItemFromBlock(block), 1, block.damageDropped(state)));
+		// instead of directly returning the result stack, we are going to create a new item stack to avoid modifying smelting recipes
+		ItemStack resultStack = FurnaceRecipes.instance().getSmeltingResult(new ItemStack(Item.getItemFromBlock(block), 1, block.damageDropped(state)));
+		return new ItemStack(resultStack.getItem(), resultStack.getCount(), resultStack.getMetadata());
 	}
 
 	public List<ItemStack> getContainerContents(@Nonnull ILockableContainer container, boolean clearSlots) {

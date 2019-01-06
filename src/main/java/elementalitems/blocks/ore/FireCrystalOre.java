@@ -21,7 +21,7 @@ public class FireCrystalOre extends BaseOre {
 
 	public FireCrystalOre() {
 		super(ElementalTypes.FIRE, Material.ROCK);
-		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.STONE, Blocks.NETHERRACK, Blocks.MAGMA);
+		this.blocksThisCanGenerateOver = Arrays.asList(Blocks.STONE, Blocks.NETHERRACK, Blocks.MAGMA, Blocks.COBBLESTONE);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.NETHER, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HILLS);
 		this.biomesToGenerateIn.add(Biomes.HELL);
 		this.maxYGeneration = 20;

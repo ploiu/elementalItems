@@ -50,9 +50,9 @@ public class WorldGenerator implements IWorldGenerator {
 		// loop chancesToSpawn times and attempt to generate our blocks in a random position in the chunk
 		for(int i = 0; i < chancesToSpawn; i++) {
 			// create the x, y, and z locations in the chunk to spawn our ore
-			int x = chunkX * 16 + random.nextInt(8);
+			int x = chunkX * 16 + random.nextInt(16);
 			int y = minHeight + random.nextInt(heightDiff);
-			int z = chunkZ * 16 + random.nextInt(8);
+			int z = chunkZ * 16 + random.nextInt(16);
 
 			BlockPos generatePos = new BlockPos(x, y, z);
 			// attempt to generate
