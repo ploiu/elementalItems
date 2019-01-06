@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-version = '1.3'
+version = '1.4'
 group = "elementalitems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "elementalitems-1.12.2-14.23.2.2625"
 
