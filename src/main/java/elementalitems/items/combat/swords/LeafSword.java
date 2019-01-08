@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 /**
  * The type Leaf sword.
@@ -31,6 +32,11 @@ public class LeafSword extends BaseSword implements ISharedLeafCombatEffect {
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
 		// no op
+	}
+
+	@Override
+	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
+		// TODO
 	}
 
 	@Override

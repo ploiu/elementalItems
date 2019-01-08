@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -92,6 +93,11 @@ public class DualSword extends BaseSword {
 		if(this.rightClickEffect != null) {
 			this.rightClickEffect.apply(world, player);
 		}
+	}
+
+	@Override
+	protected void spawnAttackParticles(WorldServer world, EntityLivingBase targetToSpawnParticlesAt) {
+		// TODO take particles in constructor
 	}
 
 	@Override

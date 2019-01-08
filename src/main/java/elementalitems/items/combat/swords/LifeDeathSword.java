@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 
@@ -49,6 +50,11 @@ public class LifeDeathSword extends BaseSword {
 
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
+		// no op
+	}
+
+	@Override
+	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
 		// no op
 	}
 

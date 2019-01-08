@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 /**
  * The type Water sword.
@@ -31,6 +32,11 @@ public class WaterSword extends BaseSword implements ISharedWaterCombatEffect {
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
 		// no op TODO maybe?
+	}
+
+	@Override
+	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
+		// no op
 	}
 
 	@Override

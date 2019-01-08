@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 import static net.minecraft.init.Biomes.HELL;
 import static net.minecraft.util.text.TextFormatting.AQUA;
@@ -49,5 +50,10 @@ public class IceSword extends BaseSword implements ISharedIceCombatEffect {
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
 		this.throwSnowball(world, player);
+	}
+
+	@Override
+	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
+		// TODO
 	}
 }

@@ -15,6 +15,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -121,9 +122,15 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		if(EntityUtils.getInstance().isValidEntityLivingBase(target) && EntityUtils.getInstance().isValidEntityLivingBase(attacker)) {
 			this.applyEffect(attacker, target);
+			if(target.getEntityWorld() instanceof WorldServer){
+				WorldServer worldServer = (WorldServer)target.getEntityWorld();
+				this.spawnAttackParticles(worldServer, target);
+			}
 		}
 		return super.hitEntity(stack, target, attacker);
 	}
+	
+	protected abstract void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt);
 
 	@Override
 	public int hashCode() {
