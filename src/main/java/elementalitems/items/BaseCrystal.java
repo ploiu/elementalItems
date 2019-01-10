@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * The base class for our crystals
  */
-public class BaseCrystal extends BaseItem implements ElementalItem {
+public class BaseCrystal extends BaseItem {
 
 	/**
 	 * Instantiates a new Base crystal.

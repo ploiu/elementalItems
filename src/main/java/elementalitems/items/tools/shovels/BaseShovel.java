@@ -1,7 +1,6 @@
 package elementalitems.items.tools.shovels;
 
 import elementalitems.ElementalTypes;
-import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.tools.BaseTool;
 import elementalitems.util.ElementalUtils;
@@ -19,7 +18,7 @@ import java.util.Objects;
 /**
  * The type Base shovel.
  */
-public abstract class BaseShovel extends ItemSpade implements ElementalItem, BaseTool {
+public abstract class BaseShovel extends ItemSpade implements BaseTool {
 	/**
 	 * The Name.
 	 */
@@ -61,13 +60,13 @@ public abstract class BaseShovel extends ItemSpade implements ElementalItem, Bas
 	}
 
 
-	/*@Override
+	@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase user) {
-		if(stack.canHarvestBlock(state) || "shovel".equals(state.getBlock().getHarvestTool(state))) {
+		if(stack.canHarvestBlock(state) || "shovel".equals(state.getBlock().getHarvestTool(state)) || state.getMaterial().isToolNotRequired()) {
 			this.applyEffect(world, state, pos, user);
 		}
 		return super.onBlockDestroyed(stack, world, state, pos, user);
-	}*/
+	}
 
 	@Override
 	public int hashCode() {

@@ -22,6 +22,5 @@ public class EnderShovel extends BaseShovel implements ISharedEnderEffect {
 	@Override
 	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		this.applyEnderEffect(world, state, position, user);
-		user.getHeldItemMainhand().damageItem(1, user);
 	}
 }

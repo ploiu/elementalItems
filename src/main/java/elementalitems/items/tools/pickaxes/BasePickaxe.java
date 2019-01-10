@@ -5,16 +5,21 @@ import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.tools.BaseTool;
 import elementalitems.util.ElementalUtils;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import java.util.Objects;
 
 /**
  * The type Base pickaxe.
  */
-public abstract class BasePickaxe extends ItemPickaxe implements ElementalItem, BaseTool {
+public abstract class BasePickaxe extends ItemPickaxe implements BaseTool {
 	/**
 	 * The Name.
 	 */
@@ -55,14 +60,14 @@ public abstract class BasePickaxe extends ItemPickaxe implements ElementalItem, 
 	}
 
 
-	/*@Override
+	@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase user) {
-		if(stack.canHarvestBlock(state)) {
+		if(stack.canHarvestBlock(state) || state.getMaterial().isToolNotRequired()) {
 			this.applyEffect(world, state, pos, user);
 		}
 
 		return super.onBlockDestroyed(stack, world, state, pos, user);
-	}*/
+	}
 
 	@Override
 	public int hashCode() {

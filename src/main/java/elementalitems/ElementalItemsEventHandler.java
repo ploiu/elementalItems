@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = ElementalItems.MOD_ID)
 @SuppressWarnings("unused")
 public class ElementalItemsEventHandler {
 
@@ -100,7 +100,7 @@ public class ElementalItemsEventHandler {
 		}
 	}
 
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onBlockBroken(BlockEvent.BreakEvent event) {
 		EntityPlayer player = event.getPlayer();
 		if(player != null) {
@@ -113,7 +113,7 @@ public class ElementalItemsEventHandler {
 				}
 			}
 		}
-	}
+	}*/
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)

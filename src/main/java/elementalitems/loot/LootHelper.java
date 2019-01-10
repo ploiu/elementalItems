@@ -6,13 +6,9 @@ import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import org.apache.logging.log4j.Level;
 
-import static elementalitems.ElementalItems.MOD_ID;
 import static elementalitems.ElementalItems.logger;
 
 public class LootHelper {
-
-	private LootHelper() {
-	}
 
 	private LootPool crystalFirePool;
 	private LootPool crystalIcePool;
@@ -20,6 +16,13 @@ public class LootHelper {
 	private LootPool crystalPlainPool;
 	private LootPool crystalLeafPool;
 	private LootPool swordLifeDeathPool;
+
+	private LootHelper() {
+	}
+
+	public static LootHelper getInstance() {
+		return LootHelper.SingletonHelper.instance;
+	}
 
 	public LootPool getCrystalFirePool() {
 		return this.crystalFirePool;
@@ -43,10 +46,6 @@ public class LootHelper {
 
 	public LootPool getSwordLifeDeathPool() {
 		return this.swordLifeDeathPool;
-	}
-
-	public static LootHelper getInstance() {
-		return LootHelper.SingletonHelper.instance;
 	}
 
 	/**
@@ -87,7 +86,7 @@ public class LootHelper {
 	}
 
 	private void register(String resourceName) {
-		LootTableList.register(new ResourceLocation(MOD_ID, resourceName));
+		LootTableList.register(new ResourceLocation(ElementalItems.MOD_ID, resourceName));
 	}
 
 	private static class SingletonHelper {

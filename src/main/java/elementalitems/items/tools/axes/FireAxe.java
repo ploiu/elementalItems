@@ -21,7 +21,6 @@ public class FireAxe extends BaseAxe implements ISharedFireEffect {
 	@Override
 	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		this.applyFireEffect(world, state, position);
-		user.getHeldItemMainhand().damageItem(1, user);
 	}
 
 }

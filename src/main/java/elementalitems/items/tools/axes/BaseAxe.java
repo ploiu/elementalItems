@@ -1,20 +1,24 @@
 package elementalitems.items.tools.axes;
 
 import elementalitems.ElementalTypes;
-import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.tools.BaseTool;
 import elementalitems.util.ElementalUtils;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import java.util.Objects;
 
 /**
  * The type Base axe.
  */
-public abstract class BaseAxe extends ItemAxe implements ElementalItem, BaseTool {
+public abstract class BaseAxe extends ItemAxe implements BaseTool {
 	/**
 	 * The Name.
 	 */
@@ -62,14 +66,14 @@ public abstract class BaseAxe extends ItemAxe implements ElementalItem, BaseTool
 	}
 
 
-	/*@Override
+	@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase user) {
-		if("axe".equals(state.getBlock().getHarvestTool(state))) {
+		if("axe".equals(state.getBlock().getHarvestTool(state)) || state.getMaterial().isToolNotRequired()) {
 			this.applyEffect(world, state, pos, user);
 		}
 
 		return super.onBlockDestroyed(stack, world, state, pos, user);
-	}*/
+	}
 
 	@Override
 	public int hashCode() {
