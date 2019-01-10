@@ -1,5 +1,6 @@
 package elementalitems.items.combat.swords;
 
+import elementalitems.ElementalItemsConfig;
 import elementalitems.ElementalTypes;
 import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
@@ -91,19 +92,19 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	}
 
 	/**
-	 * Apply effect boolean.
+	 * Called when this sword is used to hit another {@link EntityLivingBase}
 	 *
-	 * @param user   the user
-	 * @param target the target
+	 * @param user   the user who attacked the target
+	 * @param target the target of the sword
 	 * @return the boolean
 	 */
 	protected abstract boolean applyEffect(@Nonnull EntityLivingBase user, @Nonnull EntityLivingBase target);
 
 	/**
-	 * Special effect.
+	 * The extra effect that is applied when this sword is used (right-clicked)
 	 *
-	 * @param world  the world
-	 * @param player the player
+	 * @param world  the {@link World} this is taking place in
+	 * @param player the {@link EntityPlayer} that used this sword
 	 */
 	protected abstract void specialEffect(World world, EntityPlayer player);
 
@@ -120,11 +121,12 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 		}
 	}
 
+
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		if(EntityUtils.getInstance().isValidEntityLivingBase(target) && EntityUtils.getInstance().isValidEntityLivingBase(attacker)) {
-			if(target.getEntityWorld() instanceof WorldServer){
-				WorldServer worldServer = (WorldServer)target.getEntityWorld();
+			if(target.getEntityWorld() instanceof WorldServer && ElementalItemsConfig.showSwordParticles) {
+				WorldServer worldServer = (WorldServer) target.getEntityWorld();
 				this.spawnAttackParticles(worldServer, target);
 			}
 			this.applyEffect(attacker, target);
@@ -132,6 +134,17 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 		return super.hitEntity(stack, target, attacker);
 	}
 
+	@Override
+	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type));
+	}
+
+	/**
+	 * attempts to spawn particles based on our {@link ElementalTypes} when this sword hits a mob
+	 *
+	 * @param worldServer              the {@link WorldServer} object we're using to spawn the particles
+	 * @param targetToSpawnParticlesAt the {@link EntityLivingBase} we're spawning the particles at
+	 */
 	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
 		Map<EnumParticleTypes, Integer> particlesToSpawn = ElementalUtils.getInstance().getParticlesForElementalType(this.type);
 		// spawn all the particle types associated with this

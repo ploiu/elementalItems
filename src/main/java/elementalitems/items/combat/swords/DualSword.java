@@ -101,6 +101,11 @@ public class DualSword extends BaseSword {
 	}
 
 	@Override
+	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type1)) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type2));
+	}
+
+	@Override
 	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
 		// the map of our particles
 		ElementalUtils utilsInstance = ElementalUtils.getInstance();

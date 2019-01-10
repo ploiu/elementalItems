@@ -1,7 +1,10 @@
 package elementalitems.util;
 
 import elementalitems.ElementalTypes;
+import elementalitems.items.BaseCrystal;
 import elementalitems.items.ElementalMaterials;
+import elementalitems.items.ItemHandler;
+import elementalitems.items.combat.swords.BaseSword;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.util.EnumParticleTypes;
@@ -19,7 +22,13 @@ public class ElementalUtils {
 		return ElementalUtils.SingletonHelper.instance;
 	}
 
-	public Item.ToolMaterial getToolMaterialFromElementalType(ElementalTypes type) {
+	/**
+	 * gets and returns a passed {@link Item.ToolMaterial ToolMaterial} whose {@link ElementalTypes} is the same as our type
+	 *
+	 * @param type the ElementalType we want to get the tool material for
+	 * @return the ToolMaterial associated with the passed type
+	 */
+	public Item.ToolMaterial getToolMaterialFromElementalType(@Nonnull ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return ElementalMaterials.getInstance().TOOL_FIRE;
@@ -41,7 +50,13 @@ public class ElementalUtils {
 		}
 	}
 
-	public ItemArmor.ArmorMaterial getArmorMaterialFromElementalType(ElementalTypes type) {
+	/**
+	 * gets the associated {@link ItemArmor.ArmorMaterial ArmorMaterial} from the passed {@link ElementalTypes}
+	 *
+	 * @param type the type we want the armor material from
+	 * @return the ArmorMaterial with the same type as our passed type
+	 */
+	public ItemArmor.ArmorMaterial getArmorMaterialFromElementalType(@Nonnull ElementalTypes type) {
 		switch(type) {
 			case FIRE:
 				return ElementalMaterials.getInstance().ARMOR_FIRE;
@@ -63,6 +78,41 @@ public class ElementalUtils {
 		}
 	}
 
+	/**
+	 * returns the {@link BaseCrystal} associated with the passed {@link ElementalTypes}
+	 *
+	 * @param type the type we want to get the crystal for
+	 * @return the assocated BaseCrystal for the passed type
+	 */
+	public BaseCrystal getCrystalForElementalType(@Nonnull ElementalTypes type) {
+		switch(type) {
+			case PLAIN:
+				return (BaseCrystal) ItemHandler.plainCrystal;
+			case FIRE:
+				return (BaseCrystal) ItemHandler.fireCrystal;
+			case ICE:
+				return (BaseCrystal) ItemHandler.iceCrystal;
+			case WATER:
+				return (BaseCrystal) ItemHandler.waterCrystal;
+			case LEAF:
+				return (BaseCrystal) ItemHandler.leafCrystal;
+			case EARTH:
+				return (BaseCrystal) ItemHandler.earthCrystal;
+			case AIR:
+				return (BaseCrystal) ItemHandler.airCrystal;
+			case ENDER:
+				return (BaseCrystal) ItemHandler.enderCrystal;
+		}
+		// this shouldn't happen
+		throw new IllegalArgumentException("There is not a crystal associated with type " + type.toString());
+	}
+
+	/**
+	 * Gets the particles that should be shown when a sword hits an entity
+	 * @param types the {@link ElementalTypes} we want to get the particles for
+	 * @return a Map that may contain particles to be used by the calling method 
+	 * @see BaseSword#spawnAttackParticles
+	 */
 	@Nonnull
 	public Map<EnumParticleTypes, Integer> getParticlesForElementalType(ElementalTypes types) {
 		// the map of particles

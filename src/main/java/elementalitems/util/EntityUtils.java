@@ -1,6 +1,7 @@
 package elementalitems.util;
 
 import elementalitems.ElementalItems;
+import elementalitems.ElementalItemsConfig;
 import elementalitems.ElementalTypes;
 import elementalitems.entities.arrows.*;
 import elementalitems.items.ElementalItem;
@@ -38,7 +39,10 @@ public class EntityUtils {
 	 * @return true if toCheck is not null and is a living instance of {@link EntityLivingBase}
 	 */
 	public boolean isValidEntityLivingBase(Entity toCheck) {
-		return toCheck instanceof EntityLivingBase && toCheck.isEntityAlive();
+		boolean isValid = toCheck instanceof EntityLivingBase;
+		// if we're set to check safely, ensure it's alive as well
+		isValid = isValid && (ElementalItemsConfig.shouldUseLessSafeCheckToValidateEntities || toCheck.isEntityAlive());
+		return isValid;
 	}
 
 	/**
