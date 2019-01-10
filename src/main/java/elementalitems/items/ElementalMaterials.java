@@ -103,9 +103,9 @@ public class ElementalMaterials {
 		SoundEvent EQUIP_SOUND_EVENT = SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
 		int BASE_ENCHANTABILITY = DIAMOND.getEnchantability();
 		int BASE_HARVEST_LEVEL = 10;
-		float BASE_ENTITY_DAMAGE = DIAMOND.getAttackDamage();
+		float BASE_ENTITY_DAMAGE = DIAMOND.getAttackDamage() + 2;
 		float BASE_EFFICIENCY = DIAMOND.getEfficiency();
-		int[] BASE_REDUCTION_AMOUNTS = new int[]{3, 6, 8, 3};
+		int[] BASE_REDUCTION_AMOUNTS = new int[]{4, 7, 9, 4};
 		int ICE_ENCHANTABILITY = 50;
 		int EARTH_DURABILITY = 4000;
 		int BASE_ARMOR_DURABILITY = 33;
@@ -115,7 +115,7 @@ public class ElementalMaterials {
 		this.TOOL_FIRE = addToolMaterial("material_tool_fire", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, STONE.getEnchantability());
 		this.TOOL_ICE = addToolMaterial("material_tool_ice", BASE_HARVEST_LEVEL, 1000, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, ICE_ENCHANTABILITY);
 		this.TOOL_WATER = addToolMaterial("material_tool_water", BASE_HARVEST_LEVEL, BASE_DURABILITY, 50.0f, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
-		this.TOOL_LEAF = addToolMaterial("material_tool_leaf", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE * 4, WOOD.getEnchantability());
+		this.TOOL_LEAF = addToolMaterial("material_tool_leaf", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE * 3, WOOD.getEnchantability());
 		this.TOOL_EARTH = addToolMaterial("material_tool_earth", BASE_HARVEST_LEVEL, EARTH_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
 		this.TOOL_AIR = addToolMaterial("material_tool_air", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY * 1.25f, BASE_ENTITY_DAMAGE, BASE_ENCHANTABILITY);
 		this.TOOL_ENDER = addToolMaterial("material_tool_end", BASE_HARVEST_LEVEL, BASE_DURABILITY, BASE_EFFICIENCY, BASE_ENTITY_DAMAGE * 2, GOLD.getEnchantability());
