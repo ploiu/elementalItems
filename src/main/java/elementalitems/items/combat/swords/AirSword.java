@@ -4,10 +4,8 @@ import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.combat.ISharedAirCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 
 /**
  * The type Air sword.
@@ -31,10 +29,5 @@ public class AirSword extends BaseSword implements ISharedAirCombatEffect {
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
 		// no op
-	}
-
-	@Override
-	protected void spawnAttackParticles(WorldServer world, EntityLivingBase targetToSpawnParticlesAt) {
-		world.spawnParticle(EnumParticleTypes.CLOUD, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, 50, targetToSpawnParticlesAt.width, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width, 0, 0);
 	}
 }

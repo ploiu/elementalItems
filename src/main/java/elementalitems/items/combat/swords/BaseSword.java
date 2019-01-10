@@ -14,12 +14,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -129,8 +131,15 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 		}
 		return super.hitEntity(stack, target, attacker);
 	}
-	
-	protected abstract void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt);
+
+	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
+		Map<EnumParticleTypes, Integer> particlesToSpawn = ElementalUtils.getInstance().getParticlesForElementalType(this.type);
+		// spawn all the particle types associated with this
+		particlesToSpawn.forEach((type, count) -> {
+			// use the worldServer to spawn the particles
+			worldServer.spawnParticle(type, false, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, count, targetToSpawnParticlesAt.width, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width, 0.0);
+		});
+	}
 
 	@Override
 	public int hashCode() {

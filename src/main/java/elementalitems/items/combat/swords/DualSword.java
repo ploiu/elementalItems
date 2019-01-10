@@ -5,16 +5,21 @@ import elementalitems.items.ElementalMaterials;
 import elementalitems.items.combat.swords.dualEffects.IEffect;
 import elementalitems.items.combat.swords.dualEffects.IPassiveEffect;
 import elementalitems.items.combat.swords.dualEffects.IRightClickEffect;
+import elementalitems.util.ElementalUtils;
 import elementalitems.util.EntityUtils;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Map;
 
 public class DualSword extends BaseSword {
 
@@ -96,8 +101,18 @@ public class DualSword extends BaseSword {
 	}
 
 	@Override
-	protected void spawnAttackParticles(WorldServer world, EntityLivingBase targetToSpawnParticlesAt) {
-		// TODO take particles in constructor
+	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
+		// the map of our particles
+		ElementalUtils utilsInstance = ElementalUtils.getInstance();
+		Map<EnumParticleTypes, Integer> particles = utilsInstance.getMixedParticlesForElementalTypes(this.type1, this.type2);
+		// only do this if we don't have mixed particles
+		if(particles.isEmpty()) {
+			// add all of our particles for both of our types
+			particles.putAll(utilsInstance.getParticlesForElementalType(this.type1));
+			particles.putAll(utilsInstance.getParticlesForElementalType(this.type2));
+		}
+		// now spawn our particles
+		particles.forEach((particleType, count) -> worldServer.spawnParticle(particleType, false, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, count, targetToSpawnParticlesAt.width, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width, particleType == EnumParticleTypes.PORTAL ? targetToSpawnParticlesAt.getRNG().nextGaussian() : 0.0, this.type1 == ElementalTypes.ICE ? Block.getStateId(Blocks.PACKED_ICE.getDefaultState()) : 0));
 	}
 
 	@Override

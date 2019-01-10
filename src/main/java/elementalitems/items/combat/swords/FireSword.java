@@ -5,10 +5,8 @@ import elementalitems.sharedeffects.combat.ISharedFireCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 
 /**
  * The type Fire sword.
@@ -43,9 +41,5 @@ public class FireSword extends BaseSword implements ISharedFireCombatEffect {
 	@Override
 	protected void specialEffect(World world, EntityPlayer player) {
 
-	}
-
-	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase target) {
-		worldServer.spawnParticle(EnumParticleTypes.FLAME, target.posX, target.posY, target.posZ, 200, target.width, target.height, target.width, 0.0, 0);
 	}
 }
