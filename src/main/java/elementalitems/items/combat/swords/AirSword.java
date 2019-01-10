@@ -35,6 +35,6 @@ public class AirSword extends BaseSword implements ISharedAirCombatEffect {
 
 	@Override
 	protected void spawnAttackParticles(WorldServer world, EntityLivingBase targetToSpawnParticlesAt) {
-		world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, 50, targetToSpawnParticlesAt.width, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width, 0, 0);
+		world.spawnParticle(EnumParticleTypes.CLOUD, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, 50, targetToSpawnParticlesAt.width, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width, 0, 0);
 	}
 }

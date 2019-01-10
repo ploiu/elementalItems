@@ -121,11 +121,11 @@ public abstract class BaseSword extends ItemSword implements ElementalItem {
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		if(EntityUtils.getInstance().isValidEntityLivingBase(target) && EntityUtils.getInstance().isValidEntityLivingBase(attacker)) {
-			this.applyEffect(attacker, target);
 			if(target.getEntityWorld() instanceof WorldServer){
 				WorldServer worldServer = (WorldServer)target.getEntityWorld();
 				this.spawnAttackParticles(worldServer, target);
 			}
+			this.applyEffect(attacker, target);
 		}
 		return super.hitEntity(stack, target, attacker);
 	}

@@ -46,6 +46,6 @@ public class EnderSword extends BaseSword implements ISharedEnderCombatEffect {
 
 	@Override
 	protected void spawnAttackParticles(WorldServer worldServer, EntityLivingBase targetToSpawnParticlesAt) {
-		worldServer.spawnParticle(EnumParticleTypes.PORTAL, true, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, 150, targetToSpawnParticlesAt.width * 1.5, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width * 1.5, 0.01, 0);
+		worldServer.spawnParticle(EnumParticleTypes.PORTAL, true, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, 150, targetToSpawnParticlesAt.width * 1.5, targetToSpawnParticlesAt.height, targetToSpawnParticlesAt.width * 1.5, targetToSpawnParticlesAt.getRNG().nextGaussian(), 0);
 	}
 }
