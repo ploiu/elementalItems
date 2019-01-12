@@ -31,7 +31,7 @@ public interface ISharedEarthCombatEffect {
 	 *
 	 * @param target the entity we are attacking
 	 */
-	default void buryEntity(EntityLivingBase target) {
+	default void buryEntity(@Nonnull EntityLivingBase target) {
 		// get its height
 		float height = target.height + 1.0f;
 		// send it height blocks under ground

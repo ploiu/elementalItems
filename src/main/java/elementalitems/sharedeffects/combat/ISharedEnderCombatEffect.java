@@ -15,14 +15,15 @@ import java.util.Random;
 public interface ISharedEnderCombatEffect {
 	default void teleportEntity(EntityLivingBase target) {
 		Random rng = target.getRNG();
+		World world = target.getEntityWorld();
 		Integer maxTeleportDistance = 10;
 		double newX = target.posX + (rng.nextDouble() - 0.5D) * 16.0D;
 		// don't try and bury the target
-		double newY = Math.max(target.posY, MathHelper.clamp(target.posY + (double) (rng.nextInt(maxTeleportDistance) - maxTeleportDistance / 2), 0.0D, (double) (target.getEntityWorld().getActualHeight() - 1)));
+		double newY = Math.max(target.posY, MathHelper.clamp(target.posY + (double) (rng.nextInt(maxTeleportDistance) - maxTeleportDistance / 2), 0.0D, (double) (world.getActualHeight() - 1)));
 		double newZ = target.posZ + (rng.nextDouble() - 0.5D) * 16.0D;
-		if(!target.getEntityWorld().isRemote) {
+		if(!world.isRemote) {
 			target.setPositionAndUpdate(newX, newY, newZ);
-			target.getEntityWorld().playSound(null, target.prevPosX, target.prevPosY, target.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, target.getSoundCategory(), 1.0F, 1.0F);
+			world.playSound(null, target.prevPosX, target.prevPosY, target.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, target.getSoundCategory(), 1.0F, 1.0F);
 		}
 	}
 

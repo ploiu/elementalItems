@@ -5,7 +5,6 @@ import elementalitems.util.ElementalUtils;
 import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -23,16 +22,6 @@ public class LifeDeathSword extends BaseSword {
 	 */
 	public LifeDeathSword() {
 		super(ElementalUtils.getInstance().getToolMaterialFromElementalType(ElementalTypes.PLAIN), "sword_life_death", ElementalTypes.PLAIN);
-	}
-
-	/**
-	 * Instantiates a new Life death sword.
-	 *
-	 * @param material the material
-	 * @param name     the name
-	 * @param type     the type
-	 */
-	public LifeDeathSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 	}
 
 	@Override

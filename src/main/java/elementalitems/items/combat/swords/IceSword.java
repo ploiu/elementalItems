@@ -6,7 +6,6 @@ import elementalitems.util.EntityUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -24,16 +23,6 @@ public class IceSword extends BaseSword implements ISharedIceCombatEffect {
 	public IceSword() {
 		super(ElementalTypes.ICE);
 		this.tooltip = AQUA + "Slow and Steady!";
-	}
-
-	/**
-	 * Instantiates a new Ice sword.
-	 *
-	 * @param material the material
-	 * @param name     the name
-	 * @param type     the type
-	 */
-	public IceSword(Item.ToolMaterial material, String name, ElementalTypes type) {
 	}
 
 	@Override

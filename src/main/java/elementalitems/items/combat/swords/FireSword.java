@@ -4,7 +4,6 @@ import elementalitems.ElementalTypes;
 import elementalitems.sharedeffects.combat.ISharedFireCombatEffect;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -21,16 +20,6 @@ public class FireSword extends BaseSword implements ISharedFireCombatEffect {
 		this.tooltip = TextFormatting.RED + "Hot Stuff!";
 	}
 
-	/**
-	 * Instantiates a new Fire sword.
-	 *
-	 * @param material the material
-	 * @param name     the name
-	 * @param type     the type
-	 */
-	public FireSword(Item.ToolMaterial material, String name, ElementalTypes type) {
-		// no op
-	}
 
 	@Override
 	public boolean applyEffect(EntityLivingBase user, EntityLivingBase target) {

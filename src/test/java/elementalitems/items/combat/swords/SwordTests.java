@@ -1,21 +1,23 @@
 package elementalitems.items.combat.swords;
 
-import elementalitems.ElementalTypes;
 import elementalitems.TestHelper;
 import elementalitems.items.ElementalMaterials;
 import elementalitems.items.ItemHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.EntityEnderPearl;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Bootstrap;
 import net.minecraft.init.MobEffects;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,14 +32,15 @@ import java.util.Random;
 import static elementalitems.TestHelper.doPotionsMatch;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class SwordTests {
 
 	// this is needed else the game throws a fit when we try to use its resources
 	static {
 		Bootstrap.register();
+		ElementalMaterials.getInstance().registerMaterials();
+		ItemHandler.initializeAllItems();
 	}
 
 	@Mock
@@ -52,26 +55,26 @@ public class SwordTests {
 	BlockPos position;
 	@Mock
 	World world;
-	
+
 	Float currentHealth;
 	private FireSword fireSword;
 	private IceSword iceSword;
 	private EnderSword enderSword;
 	private LifeDeathSword lifeDeathSword;
 	private EarthSword earthSword;
+	private AirSword airSword;
 	private BaseSword swordBeingTested;
 
 	@BeforeEach
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		Bootstrap.register();
-		ElementalMaterials.getInstance().registerMaterials();
-		ItemHandler.initializeAllItems();
 
-		this.fireSword = new FireSword(ElementalMaterials.getInstance().TOOL_FIRE, "fakeSword", ElementalTypes.FIRE);
-		this.iceSword = new IceSword(ElementalMaterials.getInstance().TOOL_ICE, "fakeSword", ElementalTypes.ICE);
-		this.enderSword = new EnderSword(ElementalMaterials.getInstance().TOOL_ENDER, "fakeSword", ElementalTypes.ENDER);
-		this.lifeDeathSword = new LifeDeathSword(ElementalMaterials.getInstance().TOOL_PLAIN, "fakeSword", ElementalTypes.PLAIN);
+		this.fireSword = new FireSword();
+		this.iceSword = new IceSword();
+		this.enderSword = new EnderSword();
+		this.lifeDeathSword = new LifeDeathSword();
+		this.earthSword = new EarthSword();
+		this.airSword = new AirSword();
 
 		when(this.manager.get(anyObject())).thenAnswer((Answer<Float>) invocation -> this.currentHealth);
 		when(this.fakePlayer.attackEntityAsMob(any(Entity.class))).thenAnswer((Answer<Boolean>) invocation -> this.swordBeingTested.applyEffect(this.fakePlayer, this.fakeZombie));
@@ -82,9 +85,14 @@ public class SwordTests {
 		when(this.fakeZombie.isPotionApplicable(any(PotionEffect.class))).thenReturn(true);
 		when(this.fakeZombie.getRNG()).thenReturn(new Random());
 		when(this.fakeZombie.getPosition()).thenReturn(this.position);
+		when(this.fakeZombie.getEntityBoundingBox()).thenReturn(new AxisAlignedBB(0, 0, 0, 0, 0, 0));
+		// we already have an iAttribute, so why create a new one?
+		when(this.fakeZombie.getEntityAttribute(any(IAttribute.class))).thenReturn(this.maxHealth);
 		when(this.position.getX()).thenReturn(1);
 		when(this.position.getY()).thenReturn(64);
 		when(this.position.getZ()).thenReturn(2);
+
+		when(this.world.getBlockState(any(BlockPos.class))).thenReturn(Blocks.STONE.getDefaultState());
 
 		TestHelper.setField(this.fakePlayer, "dataManager", this.manager, Entity.class);
 	}
@@ -156,5 +164,36 @@ public class SwordTests {
 		this.fakePlayer.attackEntityAsMob(this.fakeZombie);
 		verify(this.fakeZombie).attackEntityFrom(eq(DamageSource.OUT_OF_WORLD), eq(expectedExtraDamage));
 		verify(this.fakePlayer).heal(eq(expectedExtraDamage));
+	}
+
+	@Test
+	public void testEarthSwordBuriesTargetOnGround() {
+		this.swordBeingTested = this.earthSword;
+		// make sure the zombie is on the ground
+		this.fakeZombie.onGround = true;
+		this.fakePlayer.attackEntityAsMob(this.fakeZombie);
+		verify(this.fakeZombie).setEntityBoundingBox(any(AxisAlignedBB.class));
+		verify(this.fakeZombie).resetPositionToBB();
+		// we want it to be buried, not made to fall
+		verify(this.fakeZombie, never()).fall(anyFloat(), anyFloat());
+	}
+
+	@Test
+	public void testEarthSwordStrikesDownAirbornTargets() {
+		this.swordBeingTested = this.earthSword;
+		// make sure the zombie is in the air
+		this.fakeZombie.onGround = false;
+		this.fakePlayer.attackEntityAsMob(this.fakeZombie);
+		verify(this.fakeZombie).setEntityBoundingBox(any(AxisAlignedBB.class));
+		verify(this.fakeZombie).resetPositionToBB();
+		// we want it to be buried, not made to fall
+		verify(this.fakeZombie).fall(anyFloat(), anyFloat());
+	}
+
+	@Test
+	public void testAirSwordKockBacksAndLaunchesTarget() {
+		this.swordBeingTested = this.airSword;
+		this.fakePlayer.attackEntityAsMob(this.fakeZombie);
+		verify(this.fakeZombie).knockBack(eq(this.fakeZombie), anyFloat(), anyDouble(), anyDouble());
 	}
 }
