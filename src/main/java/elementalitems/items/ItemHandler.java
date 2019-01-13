@@ -7,6 +7,7 @@ import elementalitems.items.combat.swords.*;
 import elementalitems.items.tools.axes.*;
 import elementalitems.items.tools.pickaxes.*;
 import elementalitems.items.tools.shovels.*;
+import elementalitems.items.unique.Flamethrower;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -138,6 +139,9 @@ public class ItemHandler {
 	public static ElementalItem enderArrow;
 	public static ElementalItem plainArrow;
 
+	// unique items
+	public static ElementalItem flamethrower;
+
 	private ItemHandler() {
 	}
 
@@ -240,6 +244,8 @@ public class ItemHandler {
 		earthArrow = new BaseArrow(EARTH);
 		enderArrow = new BaseArrow(ENDER);
 		plainArrow = new BaseArrow(PLAIN);
+		// unique items
+		flamethrower = new Flamethrower();
 	}
 
 	public static void registerSmelting() {

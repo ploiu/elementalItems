@@ -3,6 +3,7 @@ package elementalitems.entities;
 import elementalitems.ElementalItems;
 import elementalitems.ElementalTypes;
 import elementalitems.entities.arrows.*;
+import elementalitems.entities.flamethrower.FlamethrowerEntity;
 import elementalitems.util.EntityUtils;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.Minecraft;
@@ -41,6 +42,7 @@ public class EntityHandler {
 		entities.put("arrow_earth", EntityEarthArrow.class);
 		entities.put("arrow_ender", EntityEnderArrow.class);
 		entities.put("arrow_plain", EntityPlainArrow.class);
+		entities.put("flamethrower", FlamethrowerEntity.class);
 	}
 
 	public static void register() {

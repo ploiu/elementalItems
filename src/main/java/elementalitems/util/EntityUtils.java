@@ -39,6 +39,9 @@ public class EntityUtils {
 	 * @return true if toCheck is not null and is a living instance of {@link EntityLivingBase}
 	 */
 	public boolean isValidEntityLivingBase(Entity toCheck) {
+		if(toCheck == null) {
+			return false;
+		}
 		boolean isValid = toCheck instanceof EntityLivingBase;
 		// if we're set to check safely, ensure it's alive as well
 		isValid = isValid && (ElementalItemsConfig.shouldUseLessSafeCheckToValidateEntities || toCheck.isEntityAlive());
