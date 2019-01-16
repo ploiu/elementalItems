@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class Flamethrower extends BaseItem {
 
 	public Flamethrower() {
-		super("unique_flamethrower", ElementalTypes.FIRE);
+		super("flamethrower", ElementalTypes.FIRE);
 		this.setCreativeTab(CreativeTabs.COMBAT);
 	}
 
