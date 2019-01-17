@@ -1,6 +1,7 @@
 package elementalitems.entities.flamethrower;
 
 import elementalitems.util.EntityUtils;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,10 +18,11 @@ import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 public class FlamethrowerEntity extends EntityThrowable {
 
-	protected Entity ownerEntity;
+	protected EntityLivingBase ownerEntity;
 
 	public FlamethrowerEntity(World worldIn) {
 		super(worldIn);
@@ -32,34 +34,44 @@ public class FlamethrowerEntity extends EntityThrowable {
 		this.setInvisible(true);
 		this.setNoGravity(true);
 		this.ownerEntity = ownerEntity;
+		this.thrower = this.ownerEntity;
 	}
 
 	public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
 		super.shoot(entityThrower, rotationPitchIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
-		this.ownerEntity = entityThrower;
+		if(EntityUtils.getInstance().isValidEntityLivingBase(entityThrower)){
+			this.thrower = (EntityLivingBase)entityThrower;
+			this.ownerEntity = (EntityLivingBase)entityThrower;
+		}
 		this.isImmuneToFire = true;
 	}
 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-		// set any impacted mobs on fire, and any impacted blocks on fire
-		if(result.typeOfHit == RayTraceResult.Type.ENTITY && EntityUtils.getInstance().isValidEntityLivingBase(result.entityHit) && !result.entityHit.equals(this.ownerEntity)) {
-			EntityLivingBase hitEntity = (EntityLivingBase) result.entityHit;
-			// do some flat damage before setting it on fire
-			hitEntity.attackEntityFrom(DamageSource.IN_FIRE, 10.0f);
-			hitEntity.setFire(5);
-		} else if(result.typeOfHit == RayTraceResult.Type.BLOCK) {
-			BlockPos positionHit = result.getBlockPos();
-			IBlockState fire = Blocks.FIRE.getDefaultState();
-			// set the block this is on on fire
-			if(fire.getBlock().canPlaceBlockOnSide(this.world, positionHit, result.sideHit) && (!this.world.getBlockState(positionHit.offset(result.sideHit)).getMaterial().isLiquid())) {
-				BlockPos blockPosForFire = positionHit.offset(result.sideHit);
-				this.world.setBlockState(blockPosForFire, fire, 11);
+		// this doesn't work if the world isn't a WorldServer since on the client side, this.thrower is null
+		if(!this.world.isRemote){
+			// set any impacted mobs on fire, and any impacted blocks on fire
+			if(result.typeOfHit == RayTraceResult.Type.ENTITY && EntityUtils.getInstance().isValidEntityLivingBase(result.entityHit) && !result.entityHit.equals(this.ownerEntity)) {
+				EntityLivingBase hitEntity = (EntityLivingBase) result.entityHit;
+				// do some flat damage before setting it on fire
+				hitEntity.attackEntityFrom(DamageSource.IN_FIRE, 10.0f);
+				hitEntity.setFire(5);
+			} else if(result.typeOfHit == RayTraceResult.Type.BLOCK) {
+				BlockPos positionHit = result.getBlockPos();
+				IBlockState fire = Blocks.FIRE.getDefaultState();
+				// set the block this is on on fire
+				if(fire.getBlock().canPlaceBlockOnSide(this.world, positionHit, result.sideHit) && this.world.getBlockState(result.getBlockPos()).getMaterial().getCanBurn() && (!this.world.getBlockState(positionHit.offset(result.sideHit)).getMaterial().isLiquid())) {
+					BlockPos blockPosForFire = positionHit.offset(result.sideHit);
+					this.world.setBlockState(blockPosForFire, fire, 11);
+				}
+				this.setDead();
 			}
-			this.setDead();
 		}
+		
 	}
 
+	
+	
 	@Override
 	public void onEntityUpdate() {
 		super.onEntityUpdate();
@@ -72,10 +84,10 @@ public class FlamethrowerEntity extends EntityThrowable {
 		if(this.world instanceof WorldServer) {
 			WorldServer worldServer = (WorldServer) this.world;
 			worldServer.spawnParticle(EnumParticleTypes.FLAME, true, this.posX, this.posY, this.posZ, 3, this.width / 4, 0, 0, 0.0d, 0);
+			// grow our bounding box, capture any entities that aren't this and aren't our owner in it, and set them on fire
+			AxisAlignedBB expandedBoundingBox = this.getEntityBoundingBox().grow(1, 1, 1);
+			worldServer.getEntitiesInAABBexcluding(this.ownerEntity, expandedBoundingBox, input -> !this.equals(input)).forEach(this::setEntityOnFire);
 		}
-		// grow our bounding box, capture any entities that aren't this and aren't our owner in it, and set them on fire
-		AxisAlignedBB expandedBoundingBox = this.getEntityBoundingBox().grow(1, 1, 1);
-		this.world.getEntitiesInAABBexcluding(this.ownerEntity, expandedBoundingBox, null).forEach(this::setEntityOnFire);
 	}
 
 	/**
