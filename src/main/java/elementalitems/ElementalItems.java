@@ -1,6 +1,7 @@
 package elementalitems;
 
 import elementalitems.blocks.BlockHandler;
+import elementalitems.crafting.RecipeRepairFlamethrower;
 import elementalitems.entities.EntityHandler;
 import elementalitems.items.ElementalMaterials;
 import elementalitems.items.ItemHandler;
@@ -9,6 +10,7 @@ import elementalitems.proxy.CommonProxy;
 import elementalitems.worldgen.WorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -96,6 +98,12 @@ public class ElementalItems {
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			BlockHandler.register(event.getRegistry());
+		}
+
+		@SubscribeEvent
+		public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+			logger.log(Level.INFO, "Loading recipes...");
+			event.getRegistry().register(new RecipeRepairFlamethrower());
 		}
 	}
 }
