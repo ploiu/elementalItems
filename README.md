@@ -37,14 +37,14 @@ How'd you like those descriptions? I came up with them myself, pretty cool right
 
 Element | Durability | Mining Speed | Attack Damage | Enchantability
 --------|------------|--------------|---------------|-------------------
-Fire       |2000|8 |3 |5
-Ice        |1000|8 |3 |50
-Water      |2000|50|3 |10
-Leaf       |2000|8 |12|15
-Earth      |4000|8 |3 |10
-Air        |2000|10|3 |10
-Ender      |2000|8 |6 |22
-Plain      |2000|8 |3 |10
+Fire       |2000|8 |5 |5
+Ice        |1000|8 |5 |50
+Water      |2000|50|5 |10
+Leaf       |2000|8 |15|15
+Earth      |4000|8 |5 |10
+Air        |2000|10|5 |10
+Ender      |2000|8 |10 |22
+Plain      |2000|8 |5 |10
 Vs Diamond |1561|8 |3 |10
 
 Numbers aren't everything though -- the special effects listed above the table make some elements with lower numbers (like fire) perfectly viable because of the extra benefits they give. 
