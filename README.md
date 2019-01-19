@@ -45,7 +45,7 @@ Earth      |4000|8 |5 |10
 Air        |2000|10|5 |10
 Ender      |2000|8 |10 |22
 Plain      |2000|8 |5 |10
-Vs Diamond |1561|8 |5 |10
+Vs Diamond |1561|8 |3 |10
 
 Numbers aren't everything though -- the special effects listed above the table make some elements with lower numbers (like fire) perfectly viable because of the extra benefits they give. 
 
