@@ -29,7 +29,7 @@ import static elementalitems.ElementalItems.logger;
 import static org.apache.logging.log4j.Level.INFO;
 
 public class EntityHandler {
-	 static final Map<String, Class<? extends Entity>> entities = new HashMap<>();
+	static final Map<String, Class<? extends Entity>> entities = new HashMap<>();
 
 	// there's no real easy way to do this, so use a static initializer...
 	static {

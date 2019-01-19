@@ -1,7 +1,6 @@
 package elementalitems.items.tools.pickaxes;
 
 import elementalitems.ElementalTypes;
-import elementalitems.items.ElementalItem;
 import elementalitems.items.ItemHandler;
 import elementalitems.items.tools.BaseTool;
 import elementalitems.util.ElementalUtils;
@@ -85,5 +84,10 @@ public abstract class BasePickaxe extends ItemPickaxe implements BaseTool {
 				       "name='" + this.name + '\'' +
 				       ", type=" + this.type +
 				       '}';
+	}
+
+	@Override
+	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type));
 	}
 }

@@ -22,5 +22,4 @@ public class LeafPickaxe extends BasePickaxe implements ISharedLeafEffect {
 	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		this.applyLeafEffect(world, position, 10);
 	}
-
 }

@@ -50,5 +50,4 @@ public class Utils {
 	private static class SingletonHelper {
 		private static final Utils instance = new Utils();
 	}
-
 }

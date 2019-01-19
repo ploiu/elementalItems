@@ -102,7 +102,7 @@ public abstract class BaseEntityArrow extends EntityArrow implements ElementalAr
 
 	@Override
 	protected void arrowHit(EntityLivingBase living) {
-		if(!this.hasAppliedEntityCollisionEffect){
+		if(!this.hasAppliedEntityCollisionEffect) {
 			this.applyEffectOnEntity(living);
 			this.hasAppliedEntityCollisionEffect = true;
 		}

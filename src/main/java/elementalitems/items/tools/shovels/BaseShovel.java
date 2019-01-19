@@ -85,4 +85,9 @@ public abstract class BaseShovel extends ItemSpade implements BaseTool {
 				       ", type=" + this.type +
 				       '}';
 	}
+
+	@Override
+	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type));
+	}
 }

@@ -94,5 +94,4 @@ public class RenderBaseArrow<T extends BaseEntityArrow> extends Render<T> {
 		GlStateManager.popMatrix();
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
-
 }

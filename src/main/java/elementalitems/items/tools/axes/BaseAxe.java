@@ -76,6 +76,11 @@ public abstract class BaseAxe extends ItemAxe implements BaseTool {
 	}
 
 	@Override
+	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type));
+	}
+
+	@Override
 	public int hashCode() {
 		return Objects.hash(this.name, this.type);
 	}
