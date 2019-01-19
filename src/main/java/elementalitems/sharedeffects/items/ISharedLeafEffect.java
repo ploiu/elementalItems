@@ -9,5 +9,4 @@ public interface ISharedLeafEffect {
 	default void applyLeafEffect(World world, BlockPos position, int xpAmount) {
 		EntityUtils.getInstance().spawnXpOrb(world, position, xpAmount);
 	}
-
 }

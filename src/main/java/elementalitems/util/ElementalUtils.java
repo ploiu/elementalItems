@@ -109,8 +109,9 @@ public class ElementalUtils {
 
 	/**
 	 * Gets the particles that should be shown when a sword hits an entity
+	 *
 	 * @param types the {@link ElementalTypes} we want to get the particles for
-	 * @return a Map that may contain particles to be used by the calling method 
+	 * @return a Map that may contain particles to be used by the calling method
 	 * @see BaseSword#spawnAttackParticles
 	 */
 	@Nonnull

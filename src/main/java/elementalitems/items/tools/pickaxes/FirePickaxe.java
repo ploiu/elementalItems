@@ -22,5 +22,4 @@ public class FirePickaxe extends BasePickaxe implements ISharedFireEffect {
 	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		this.applyFireEffect(world, state, position);
 	}
-
 }

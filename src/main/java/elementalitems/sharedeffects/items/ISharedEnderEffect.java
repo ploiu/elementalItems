@@ -54,6 +54,5 @@ public interface ISharedEnderEffect {
 			// delete the block
 			world.setBlockToAir(position);
 		}
-
 	}
 }

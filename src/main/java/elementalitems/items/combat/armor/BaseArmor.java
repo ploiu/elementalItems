@@ -116,4 +116,9 @@ public abstract class BaseArmor extends ItemArmor implements ElementalItem {
 				       ", armorType=" + this.armorType.getName() +
 				       '}';
 	}
+
+	@Override
+	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ElementalUtils.getInstance().getCrystalForElementalType(this.type));
+	}
 }

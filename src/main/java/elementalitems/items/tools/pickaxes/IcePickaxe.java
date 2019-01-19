@@ -21,5 +21,4 @@ public class IcePickaxe extends BasePickaxe {
 	public void applyEffect(World world, IBlockState state, BlockPos position, EntityLivingBase user) {
 		// no op
 	}
-
 }

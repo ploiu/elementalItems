@@ -49,5 +49,4 @@ public class EntityEarthArrow extends BaseEntityArrow implements ISharedEarthCom
 			this.strikeDownEntity(target);
 		}
 	}
-
 }

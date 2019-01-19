@@ -21,7 +21,7 @@ public class EarthCrystalOre extends BaseOre {
 				BiomeDictionary.Type.SANDY,
 				BiomeDictionary.Type.MESA,
 				BiomeDictionary.Type.MOUNTAIN
-				);
+		);
 		this.maxYGeneration = 100; // not too high up, but high enough to replace clay and stuff in mesas
 	}
 

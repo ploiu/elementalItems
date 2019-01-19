@@ -55,7 +55,6 @@ public class EntityFireArrow extends BaseEntityArrow {
 			if(fire.getBlock().canPlaceBlockOnSide(this.world, positionHit, sideHit)) {
 				BlockPos blockPosForFire = positionHit.offset(sideHit);
 				this.world.setBlockState(blockPosForFire, fire, 11);
-
 			}
 		}
 		super.applyLandingEffect(positionHit, sideHit);
