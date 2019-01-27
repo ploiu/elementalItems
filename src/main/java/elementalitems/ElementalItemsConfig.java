@@ -20,6 +20,20 @@ public class ElementalItemsConfig {
 	})
 	@Config.Name("UseUnSafeEntityCheck")
 	public static boolean shouldUseLessSafeCheckToValidateEntities = false;
+	
+	@Config.Name("ShouldFlamethrowerSetBlocksOnFire")
+	@Config.Comment("Sometimes you just don't want to set your house on fire. Requires a world restart.")
+	@Config.RequiresWorldRestart
+	public static boolean shouldFlamethrowerSetBlocksOnFire = false;
+	
+	@Config.Name("ShouldFlamethrowerMakeSoundsWhenUsing")
+	public static boolean shouldFlamethrowerMakeSound = true;
+	
+	@Config.RangeInt(min = 1, max = 500)
+	@Config.Comment("Controls how much durability a fire crystal refills when refilling the flamethrower. Requires the world to be restarted.")
+	@Config.Name("FlamethrowerRefuelAmountPerFireCrystal")
+	@Config.RequiresWorldRestart
+	public static int flamethrowerRepairAmountPerFireCrystal = 20;
 
 	// the class that makes sure the config props are updated properly
 	@Mod.EventBusSubscriber(modid = ElementalItems.MOD_ID)

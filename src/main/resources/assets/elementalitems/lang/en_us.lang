@@ -121,3 +121,6 @@ item.arrow_earth.name=Earth Arrow
 # haha very funny
 item.arrow_air.name=Airrow
 item.arrow_ender.name=Ender Arrow
+
+# unique items for each element
+item.flamethrower.name=Flamethrower

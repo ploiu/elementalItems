@@ -200,5 +200,11 @@
 	"ingredient": {
 	  "item": "elementalitems:sword_ender"
 	}
+  },
+  {
+	"name": "OBSIDIAN",
+	"ingredient": {
+	  "item": "minecraft:obsidian"
+	}
   }
 ]

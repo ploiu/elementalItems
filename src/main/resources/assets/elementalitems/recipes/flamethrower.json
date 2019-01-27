@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"##F",
+	"#  "
+  ],
+  "key": {
+	"#": {
+	  "item": "#OBSIDIAN"
+	},
+	"F": {
+	  "item": "elementalitems:block_crystal_fire"
+	}
+  },
+  "result": {
+	"item": "elementalitems:flamethrower",
+	"count": 1
+  }
+}

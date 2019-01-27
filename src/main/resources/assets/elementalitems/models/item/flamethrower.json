@@ -22,7 +22,39 @@
 	  "scale": [ 0.68, 0.68, 0.68 ]
 	}
   },
-"textures": {
+  "textures": {
 	"layer0": "elementalitems:items/flamethrower"
-  }
+  },
+  "overrides": [
+	{
+	  "predicate": {
+		"charge": 0
+	  },
+	  "model": "elementalitems:item/flamethrower_charge_0"
+	},
+	{
+	  "predicate": {
+		"charge": 1
+	  },
+	  "model": "elementalitems:item/flamethrower_charge_1"
+	},
+	{
+	  "predicate": {
+		"charge": 2
+	  },
+	  "model": "elementalitems:item/flamethrower_charge_2"
+	},
+	{
+	  "predicate": {
+		"charge": 3
+	  },
+	  "model": "elementalitems:item/flamethrower_charge_3"
+	},
+	{
+	  "predicate": {
+		"charge": 4
+	  },
+	  "model": "elementalitems:item/flamethrower_charge_4"
+	}
+  ]
 }

@@ -1,6 +1,7 @@
 package elementalitems.crafting;
 
 import elementalitems.ElementalItems;
+import elementalitems.ElementalItemsConfig;
 import elementalitems.items.ItemHandler;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -12,7 +13,7 @@ import net.minecraft.world.World;
 public class RecipeRepairFlamethrower extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	// the amount each crystal repairs the flamethrower
-	private final int crystalRepairAmount = 10;
+	private final int crystalRepairAmount = ElementalItemsConfig.flamethrowerRepairAmountPerFireCrystal;
 
 	public RecipeRepairFlamethrower() {
 		this.setRegistryName(ElementalItems.MOD_ID + ":recipe_repair_flamethrower");
@@ -48,7 +49,7 @@ public class RecipeRepairFlamethrower extends net.minecraftforge.registries.IFor
 
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
-		// find the flamethrower in the inventory, get the damage, and add 10 durability for each fire crystal in the inventory as well
+		// find the flamethrower in the inventory, get the damage, and add crystalRepairAmount durability for each fire crystal in the inventory as well
 		ItemStack flamethrowerStack = ItemStack.EMPTY;
 		// the items in the crafting inventory
 		ItemStack[] craftingInputs = this.getItemStacksInCraftingGrid(inv);
@@ -148,7 +149,7 @@ public class RecipeRepairFlamethrower extends net.minecraftforge.registries.IFor
 		} else {
 			/* to get the number of used crystals, add (repairAmount - 1) to the stackDamage to handle leftover damage 
 			and divide by repairAmount to get the number of used crystals */
-			usedCrystalCount = (stackDamage + (this.crystalRepairAmount - 1)) / 10;
+			usedCrystalCount = (stackDamage + (this.crystalRepairAmount - 1)) / this.crystalRepairAmount;
 		}
 		return usedCrystalCount;
 	}

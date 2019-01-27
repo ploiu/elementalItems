@@ -1,0 +1,6 @@
+{
+  "parent": "elementalitems:item/flamethrower",
+  "textures": {
+	"layer0": "elementalitems:items/flamethrower"
+  }
+}
