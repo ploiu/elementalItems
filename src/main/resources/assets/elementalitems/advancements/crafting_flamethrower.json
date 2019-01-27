@@ -1,0 +1,24 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:flamethrower"
+	]
+  },
+  "criteria": {
+	"has_block_crystal_fire": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:block_crystal_fire"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_block_crystal_fire"
+	]
+  ]
+}
