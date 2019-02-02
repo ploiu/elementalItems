@@ -7,10 +7,10 @@
   ],
   "key": {
 	"#": {
-	  "item": "#CRYSTAL_ICE"
+	  "item": "#ARROW_PLAIN"
 	},
 	"|": {
-	  "item": "#ARROW_PLAIN"
+	  "item": "#CRYSTAL_ICE"
 	}
   },
   "result": {

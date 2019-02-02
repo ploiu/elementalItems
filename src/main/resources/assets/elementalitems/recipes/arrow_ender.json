@@ -7,10 +7,10 @@
   ],
   "key": {
 	"#": {
-	  "item": "#CRYSTAL_ENDER"
+	  "item": "#ARROW_PLAIN"
 	},
 	"|": {
-	  "item": "#ARROW_PLAIN"
+	  "item": "#CRYSTAL_ENDER"
 	}
   },
   "result": {

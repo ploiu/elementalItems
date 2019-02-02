@@ -7,10 +7,10 @@
   ],
   "key": {
 	"#": {
-	  "item": "#CRYSTAL_FIRE"
+	  "item": "#ARROW_PLAIN"
 	},
 	"|": {
-	  "item": "#ARROW_PLAIN"
+	  "item": "#CRYSTAL_FIRE"
 	}
   },
   "result": {
