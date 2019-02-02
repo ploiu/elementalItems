@@ -50,35 +50,72 @@ public class FlamethrowerEntity extends EntityThrowable {
 		if(!this.world.isRemote) {
 			// set any impacted mobs on fire, and any impacted blocks on fire
 			if(result.typeOfHit == RayTraceResult.Type.ENTITY && EntityUtils.getInstance().isValidEntityLivingBase(result.entityHit) && !result.entityHit.equals(this.ownerEntity)) {
-				EntityLivingBase hitEntity = (EntityLivingBase) result.entityHit;
-				// do some flat damage before setting it on fire
-				hitEntity.attackEntityFrom(DamageSource.IN_FIRE, 10.0f);
-				hitEntity.setFire(5);
+				this.attackEntityOnDirectHit((EntityLivingBase) result.entityHit);
 			} else if(result.typeOfHit == RayTraceResult.Type.BLOCK) {
-				if(ElementalItemsConfig.shouldFlamethrowerSetBlocksOnFire) {
-					BlockPos positionHit = result.getBlockPos();
-					IBlockState fire = Blocks.FIRE.getDefaultState();
-					// set the block this is on on fire
-					if(fire.getBlock().canPlaceBlockOnSide(this.world, positionHit, result.sideHit) && this.world.getBlockState(result.getBlockPos()).getMaterial().getCanBurn() && (!this.world.getBlockState(positionHit.offset(result.sideHit)).getMaterial().isLiquid())) {
-						BlockPos blockPosForFire = positionHit.offset(result.sideHit);
-						this.world.setBlockState(blockPosForFire, fire, 11);
+				this.setHitBlockOnFireIfConfigAllowsIt(result);
+				// if the block is not passable, kill this entity after spawning a bunch of particles
+				if(this.canNotPassThroughHitBlock(result)) {
+					// spawn a bunch of particles
+					if(this.world instanceof WorldServer) {
+						WorldServer worldServer = (WorldServer) this.world;
+						worldServer.spawnParticle(EnumParticleTypes.FLAME, true, this.posX, this.posY, this.posZ, 10, this.width, this.height, this.width, this.rand.nextGaussian() / 10, 0);
 					}
+					this.setDead();
 				}
-				// spawn a bunch of particles
-				if(this.world instanceof WorldServer) {
-					WorldServer worldServer = (WorldServer) this.world;
-					worldServer.spawnParticle(EnumParticleTypes.FLAME, true, this.posX, this.posY, this.posZ, 10, this.width, this.height, this.width, this.rand.nextGaussian() / 10, 0);
-				}
-				this.setDead();
 			}
+		}
+	}
+
+	/**
+	 * checks our config file, and if it's set to allow this entity to set blocks on fire, set the block this entity hit on fire
+	 *
+	 * @param result the {@link RayTraceResult} that has all the information we need
+	 */
+	private void setHitBlockOnFireIfConfigAllowsIt(RayTraceResult result) {
+		if(ElementalItemsConfig.shouldFlamethrowerSetBlocksOnFire) {
+			BlockPos positionHit = result.getBlockPos();
+			IBlockState fire = Blocks.FIRE.getDefaultState();
+			// set the block this is on on fire
+			if(fire.getBlock().canPlaceBlockOnSide(this.world, positionHit, result.sideHit) && this.world.getBlockState(result.getBlockPos()).getMaterial().getCanBurn() && (!this.world.getBlockState(positionHit.offset(result.sideHit)).getMaterial().isLiquid())) {
+				BlockPos blockPosForFire = positionHit.offset(result.sideHit);
+				this.world.setBlockState(blockPosForFire, fire, 11);
+			}
+		}
+	}
+
+	/**
+	 * checks if the block we hit blocks movement, and returns the result of that check
+	 *
+	 * @param result the {@link RayTraceResult} that has all the information we need
+	 * @return true if we can not pass through the block, false otherwise
+	 */
+	private boolean canNotPassThroughHitBlock(RayTraceResult result) {
+		// get the block at the result's block position
+		BlockPos hitBlockPos = result.getBlockPos();
+		IBlockState hitState = this.world.getBlockState(hitBlockPos);
+		return hitState.getMaterial().blocksMovement();
+	}
+
+	/**
+	 * attacks the passed {@link EntityLivingBase} that we collided with, and sets our ownerEntity to be the one who attacked it
+	 *
+	 * @param hitEntity the entity we collided with
+	 */
+	private void attackEntityOnDirectHit(@Nonnull EntityLivingBase hitEntity) {
+		// set it on fire first to modify the drops
+		hitEntity.setFire(10);
+		hitEntity.attackEntityFrom(DamageSource.IN_FIRE, 10.0f);
+		// now make the entity mad at the user
+		if(this.ownerEntity != null) {
+			hitEntity.setLastAttackedEntity(this.ownerEntity);
 		}
 	}
 
 	@Override
 	public void onEntityUpdate() {
 		super.onEntityUpdate();
-		// kill this entity if it's existed for more than 30 ticks
-		if(this.ticksExisted >= 15 || this.inWater) {
+		// kill this entity if it's existed for more than 20 ticks
+		if(this.ticksExisted >= 20 || this.inWater) {
 			this.setDead();
 			return;
 		}
