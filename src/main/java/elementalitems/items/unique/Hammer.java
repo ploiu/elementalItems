@@ -6,9 +6,12 @@ import elementalitems.items.ElementalMaterials;
 import elementalitems.items.ItemHandler;
 import elementalitems.util.EntityUtils;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.CooldownTracker;
 
 import java.util.Collections;
 import java.util.List;
@@ -23,22 +26,27 @@ public class Hammer extends ItemTool implements ElementalItem {
 		this.attackDamage = ElementalMaterials.getInstance().TOOL_EARTH.getAttackDamage();
 		this.setUnlocalizedName("hammer");
 		this.setRegistryName("hammer");
-		this.attackSpeed = -5.0f;
+		this.attackSpeed = -3.3f;
 		ItemHandler.items.add(this);
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity target) {
 		EntityUtils entityUtils = EntityUtils.getInstance();
-		if(entityUtils.isValidEntityLivingBase(target) && entityUtils.isValidEntityLivingBase(attacker)) {
-			// TODO deal extra damage to armor, slow target
-			List<ItemStack> targetArmor = entityUtils.getEntityArmor(target);
-			// deal half of our damage to the armor
-			for(ItemStack armor : targetArmor) {
-				armor.damageItem(((int) this.attackDamage * 30), target);
+		if(entityUtils.isValidEntityLivingBase(target) && entityUtils.isValidEntityLivingBase(player)) {
+			EntityLivingBase attackedEntity = (EntityLivingBase)target;
+			// if the attacker is a player, we need to look at the cooldown amount before doing damage
+			float playerCooldown = player.getCooledAttackStrength(0.5f);
+			if(playerCooldown > 0.9f) {
+				// TODO deal extra damage to armor, slow target
+				List<ItemStack> targetArmor = entityUtils.getEntityArmor(attackedEntity);
+				// deal half of our damage to the armor
+				for(ItemStack armor : targetArmor) {
+					armor.damageItem(((int) this.attackDamage * 30), attackedEntity);
+				}
 			}
 		}
-		return true;
+		return false;
 	}
 
 	@Override
