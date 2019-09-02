@@ -8,6 +8,7 @@ import elementalitems.items.tools.axes.*;
 import elementalitems.items.tools.pickaxes.*;
 import elementalitems.items.tools.shovels.*;
 import elementalitems.items.unique.Flamethrower;
+import elementalitems.items.unique.Hammer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -141,6 +142,7 @@ public class ItemHandler {
 
 	// unique items
 	public static ElementalItem flamethrower;
+	public static ElementalItem hammer;
 
 	private ItemHandler() {
 	}
@@ -246,6 +248,7 @@ public class ItemHandler {
 		plainArrow = new BaseArrow(PLAIN);
 		// unique items
 		flamethrower = new Flamethrower();
+		hammer = new Hammer();
 	}
 
 	public static void registerSmelting() {

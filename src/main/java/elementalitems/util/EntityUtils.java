@@ -12,6 +12,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,6 +23,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class EntityUtils {
 	private EntityUtils() {
@@ -153,6 +156,21 @@ public class EntityUtils {
 			return fullSet;
 		}
 		return false;
+	}
+
+	@Nonnull
+	public List<ItemStack> getEntityArmor(@Nullable Entity target) {
+		List<ItemStack> armorInventory = new ArrayList<>();
+		if(this.isValidEntityLivingBase(target)) {
+			Iterable<ItemStack> armorIterable = target.getArmorInventoryList();
+			armorIterable.forEach(armorInventory::add);
+		}
+		// now remove empty item stacks, and item stacks whose item is not an armor piece
+		return armorInventory.stream()
+				       .filter(Objects::nonNull)
+				       .filter(itemStack -> !itemStack.isEmpty())
+				       .filter(itemStack -> itemStack.getItem() instanceof ItemArmor)
+				       .collect(Collectors.toList());
 	}
 
 	public int getPlayerLevel(Entity player) {
