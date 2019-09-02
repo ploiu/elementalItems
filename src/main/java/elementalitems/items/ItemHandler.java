@@ -248,7 +248,6 @@ public class ItemHandler {
 		plainArrow = new BaseArrow(PLAIN);
 		// unique items
 		flamethrower = new Flamethrower();
-		hammer = new Hammer();
 	}
 
 	public static void registerSmelting() {
