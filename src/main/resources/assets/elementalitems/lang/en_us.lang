@@ -57,6 +57,7 @@ item.sword_ice_air.name=Blizzard Sword
 item.sword_ice_ender.name=Void Sword
 item.sword_water_leaf.name=Jungle Sword
 item.sword_water_air.name=Typhoon Sword
+item.sword_leaf_air.name=Pollen Sword
 # ores
 tile.ore_plain.name=Crystal Ore
 tile.ore_fire.name=Fire Crystal Ore

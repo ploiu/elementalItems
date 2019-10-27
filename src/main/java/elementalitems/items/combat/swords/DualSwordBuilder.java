@@ -14,16 +14,23 @@ public class DualSwordBuilder implements ISharedFireCombatEffect, ISharedIceComb
 	private ElementalTypes type1;
 	private ElementalTypes type2;
 
+	private String tooltip = null;
+
 	public DualSwordBuilder(ElementalTypes type1, ElementalTypes type2) {
 		this.type1 = type1;
 		this.type2 = type2;
+	}
+
+	public DualSwordBuilder tooltip(String tooltip) {
+		this.tooltip = tooltip;
+		return this;
 	}
 
 	public DualSword build() {
 		// sort our types before using them
 		ElementalTypes[] sortedTypes = new ElementalTypes[]{this.type1, this.type2};
 		Arrays.sort(sortedTypes);
-		return new DualSword(
+		DualSword builtSword = new DualSword(
 				sortedTypes[0],
 				sortedTypes[1],
 				this.getActiveEffectFromType(sortedTypes[0]),
@@ -31,6 +38,10 @@ public class DualSwordBuilder implements ISharedFireCombatEffect, ISharedIceComb
 				this.getPassiveEffectFromType(sortedTypes[0]),
 				this.getPassiveEffectFromType(sortedTypes[1])
 		).setRightClickEffect(this.getRightClickEffectFromType(sortedTypes[this.getRightClickEffectFromType(sortedTypes[0]) == null ? 1 : 0]));
+		if(this.tooltip != null) {
+			builtSword.setTooltip(this.tooltip);
+		}
+		return builtSword;
 	}
 
 	/**

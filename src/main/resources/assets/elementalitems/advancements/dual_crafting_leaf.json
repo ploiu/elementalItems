@@ -1,7 +1,8 @@
 {
   "rewards": {
 	"recipes": [
-	  "elementalitems:sword_water_leaf"
+	  "elementalitems:sword_water_leaf",
+	  "elementalitems:sword_leaf_air"
 	]
   },
   "criteria": {
