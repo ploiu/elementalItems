@@ -51,36 +51,22 @@ public class ElementalMaterials {
 
 	// tool materials
 	public Item.ToolMaterial TOOL_FIRE = null;
-
 	public Item.ToolMaterial TOOL_ICE = null;
-
 	public Item.ToolMaterial TOOL_WATER = null;
-
 	public Item.ToolMaterial TOOL_LEAF = null;
-
 	public Item.ToolMaterial TOOL_EARTH = null;
-
 	public Item.ToolMaterial TOOL_AIR = null;
-
 	public Item.ToolMaterial TOOL_ENDER = null;
-
 	public Item.ToolMaterial TOOL_PLAIN = null;
 
 	// armor materials
 	public ItemArmor.ArmorMaterial ARMOR_FIRE = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_ICE = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_WATER = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_LEAF = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_EARTH = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_AIR = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_ENDER = null;
-
 	public ItemArmor.ArmorMaterial ARMOR_PLAIN = null;
 
 	private ElementalMaterials() {

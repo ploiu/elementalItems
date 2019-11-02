@@ -1,8 +1,3 @@
-# Creative Tabs
-itemGroup.elementalItems_items=Elemental Items:Items
-itemGroup.elementalItems_combat=Elemental Items:Combat
-itemGroup.elementalItems_tools=Elemental Items:Tools
-itemGroup.elementalItems_blocks=Elemental Items:Blocks
 # crystals
 item.crystal_plain.name=Crystal
 item.crystal_fire.name=Fire Crystal
@@ -125,4 +120,4 @@ item.arrow_ender.name=Ender Arrow
 
 # unique items for each element
 item.flamethrower.name=Flamethrower
-item.hammer.name=Armor Crusher
+item.warhammer.name=Armor Crusher

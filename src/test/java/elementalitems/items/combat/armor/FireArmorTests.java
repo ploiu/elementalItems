@@ -23,11 +23,7 @@ import org.mockito.Mock;
 
 import static elementalitems.TestHelper.*;
 import static net.minecraft.inventory.EntityEquipmentSlot.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyFloat;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.argThat;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 

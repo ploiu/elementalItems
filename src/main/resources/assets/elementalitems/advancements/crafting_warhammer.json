@@ -1,0 +1,24 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:warhammer"
+	]
+  },
+  "criteria": {
+	"has_block_crystal_earth": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:block_crystal_earth"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_block_crystal_earth"
+	]
+  ]
+}

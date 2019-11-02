@@ -24,10 +24,7 @@ import static net.minecraft.init.MobEffects.REGENERATION;
 import static net.minecraft.init.MobEffects.WITHER;
 import static net.minecraft.inventory.EntityEquipmentSlot.*;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyFloat;
-import static org.mockito.Matchers.argThat;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
