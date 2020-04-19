@@ -1,10 +1,11 @@
 {
   "homepage": "https://github.com/ploiu/elementalItems/releases",
   "promos": {
-	"1.12.2-latest": "1.9",
-	"1.12.2-recommend": "1.9"
+	"1.12.2-latest": "1.9.1",
+	"1.12.2-recommend": "1.9.1"
   },
   "1.12.2": {
+	"1.9.1": "fixed a bug with the recipe book's recipe for the air crystal",
   	"1.9": "added the armor crusher, which is a unique weapon to the earth set that deals immense damage to armor on top of strong attack power",
 	"1.8": "added some code for the earth unique item, but it's disabled. Also added a new leaf/air dual sword",
 	"1.7": "fixed some issues with the flamethrower not shooting through some blocks like tall grass, and fixed arrow crafting recipes",
