@@ -3,14 +3,17 @@
   "pattern": [
 	"###",
 	"#C#",
-	"###"
+	"GGG"
   ],
   "key": {
 	"#": {
-	  "item": "#FIREWORKS"
+	  "item": "#PAPER"
 	},
 	"C": {
 	  "item": "#CRYSTAL_PLAIN"
+	},
+	"G": {
+	  "item": "#GUNPOWDER"
 	}
   },
   "result": {

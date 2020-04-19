@@ -153,10 +153,15 @@
 	}
   },
   {
-	"name": "FIREWORKS",
+	"name": "PAPER",
 	"ingredient": {
-	  "item": "minecraft:fireworks",
-	  "data": 32767
+	  "item": "minecraft:paper"
+	}
+  },
+  {
+	"name": "GUNPOWDER",
+	"ingredient": {
+	  "item": "minecraft:gunpowder"
 	}
   },
   {
