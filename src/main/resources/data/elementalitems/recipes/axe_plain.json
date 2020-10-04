@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BB",
+    "HB",
+    "H "
+  ],
+  "key": {
+    "B": {
+      "item": "elementalitems:crystal_plain"
+    },
+    "H": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "elementalitems:axe_plain"
+  }
+}

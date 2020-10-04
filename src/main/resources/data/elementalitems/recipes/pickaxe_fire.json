@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    " H "
+  ],
+  "key": {
+    "B": {
+      "item": "elementalitems:crystal_fire"
+    },
+    "H": {
+      "item": "elementalitems:pickaxe_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:pickaxe_fire"
+  }
+}

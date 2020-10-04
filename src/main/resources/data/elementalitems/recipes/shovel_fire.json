@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "H"
+  ],
+  "key": {
+    "B": {
+      "item": "elementalitems:crystal_fire"
+    },
+    "H": {
+      "item": "elementalitems:shovel_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:shovel_fire"
+  }
+}

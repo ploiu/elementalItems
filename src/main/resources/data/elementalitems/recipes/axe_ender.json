@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " BB",
+    " HB"
+  ],
+  "key": {
+    "B": {
+      "item": "elementalitems:crystal_ender"
+    },
+    "H": {
+      "item": "elementalitems:axe_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:axe_ender"
+  }
+}
