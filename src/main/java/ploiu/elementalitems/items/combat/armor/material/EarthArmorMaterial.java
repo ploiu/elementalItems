@@ -13,7 +13,7 @@ public class EarthArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_earth";
+		return "elementalitems:earth";
 	}
 
 	@Override

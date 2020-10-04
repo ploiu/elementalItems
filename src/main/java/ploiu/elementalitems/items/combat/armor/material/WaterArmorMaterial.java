@@ -12,6 +12,6 @@ public class WaterArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_water";
+		return "elementalitems:water";
 	}
 }

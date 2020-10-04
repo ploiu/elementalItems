@@ -13,6 +13,6 @@ public class PlainArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_plain";
+		return "elementalitems:plain";
 	}
 }

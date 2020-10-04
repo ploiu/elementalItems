@@ -14,7 +14,7 @@ public class IceArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_ice";
+		return "elementalitems:ice";
 	}
 
 	@Override

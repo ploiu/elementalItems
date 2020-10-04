@@ -12,6 +12,6 @@ public class AirArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_air";
+		return "elementalitems:air";
 	}
 }

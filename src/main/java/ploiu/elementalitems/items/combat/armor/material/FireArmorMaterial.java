@@ -13,7 +13,7 @@ public class FireArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_fire";
+		return "elementalitems:fire";
 	}
 
 	@Override

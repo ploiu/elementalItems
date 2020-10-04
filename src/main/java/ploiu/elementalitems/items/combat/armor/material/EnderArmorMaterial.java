@@ -14,7 +14,7 @@ public class EnderArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_ender";
+		return "elementalitems:ender";
 	}
 
 	@Override

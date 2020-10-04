@@ -13,7 +13,7 @@ public class LeafArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public String getName() {
-		return "material_armor_leaf";
+		return "elementalitems:leaf";
 	}
 
 	@Override
