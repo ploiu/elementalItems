@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+	"layer0": "elementalitems:items/shovel_leaf"
+  }
+}

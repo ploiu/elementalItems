@@ -1,0 +1,27 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:sword_fire_ice",
+	  "elementalitems:sword_ice_water",
+	  "elementalitems:sword_ice_air",
+	  "elementalitems:sword_ice_ender"
+	]
+  },
+  "criteria": {
+	"has_sword_ice": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:sword_ice"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_sword_ice"
+	]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_earth",
+	  "elementalitems:legs_earth",
+	  "elementalitems:chest_earth",
+	  "elementalitems:head_earth",
+	  "elementalitems:sword_earth",
+	  "elementalitems:shovel_earth",
+	  "elementalitems:axe_earth",
+	  "elementalitems:pickaxe_earth",
+	  "elementalitems:arrow_earth",
+	  "elementalitems:block_crystal_earth"
+	]
+  },
+  "criteria": {
+	"has_crystal_earth": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_earth"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_earth"
+	]
+  ]
+}

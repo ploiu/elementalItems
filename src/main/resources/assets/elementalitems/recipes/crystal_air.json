@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#C#",
+	"GGG"
+  ],
+  "key": {
+	"#": {
+	  "item": "#PAPER"
+	},
+	"C": {
+	  "item": "#CRYSTAL_PLAIN"
+	},
+	"G": {
+	  "item": "#GUNPOWDER"
+	}
+  },
+  "result": {
+	"item": "elementalitems:crystal_air",
+	"count": 1
+  }
+}

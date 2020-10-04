@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#P#",
+	"# #"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_ICE"
+	},
+	"P": {
+	  "item": "#LEGS_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:legs_ice",
+	"count": 1
+  }
+}

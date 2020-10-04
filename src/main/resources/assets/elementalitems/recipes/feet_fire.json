@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"# #",
+	"#P#"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_FIRE"
+	},
+	"P": {
+	  "item": "#FEET_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:feet_fire",
+	"count": 1
+  }
+}

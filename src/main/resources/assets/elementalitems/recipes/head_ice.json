@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"#P#"
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_ICE"
+	},
+	"P": {
+	  "item": "#HEAD_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:head_ice",
+	"count": 1
+  }
+}

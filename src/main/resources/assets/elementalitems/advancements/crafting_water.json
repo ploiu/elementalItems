@@ -1,0 +1,33 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_water",
+	  "elementalitems:legs_water",
+	  "elementalitems:chest_water",
+	  "elementalitems:head_water",
+	  "elementalitems:sword_water",
+	  "elementalitems:shovel_water",
+	  "elementalitems:axe_water",
+	  "elementalitems:pickaxe_water",
+	  "elementalitems:arrow_water",
+	  "elementalitems:block_crystal_water"
+	]
+  },
+  "criteria": {
+	"has_crystal_water": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_water"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_water"
+	]
+  ]
+}

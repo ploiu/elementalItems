@@ -1,0 +1,28 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:crystal_ice",
+	  "elementalitems:crystal_leaf",
+	  "elementalitems:crystal_earth",
+	  "elementalitems:crystal_air",
+	  "elementalitems:crystal_ender"
+	]
+  },
+  "criteria": {
+	"has_crystal_plain": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_plain"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_plain"
+	]
+  ]
+}

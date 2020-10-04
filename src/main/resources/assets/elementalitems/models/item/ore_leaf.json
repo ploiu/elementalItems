@@ -1,0 +1,6 @@
+{
+  "parent": "elementalitems:block/ore_leaf",
+  "textures": {
+    "layer0": "elementalitems:blocks/ore_leaf"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_fire",
+	  "elementalitems:legs_fire",
+	  "elementalitems:chest_fire",
+	  "elementalitems:head_fire",
+	  "elementalitems:sword_fire",
+	  "elementalitems:shovel_fire",
+	  "elementalitems:axe_fire",
+	  "elementalitems:pickaxe_fire",
+	  "elementalitems:arrow_fire",
+	  "elementalitems:block_crystal_fire"
+	]
+  },
+  "criteria": {
+	"has_crystal_fire": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_fire"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_fire"
+	]
+  ]
+}

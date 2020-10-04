@@ -1,0 +1,33 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_leaf",
+	  "elementalitems:legs_leaf",
+	  "elementalitems:chest_leaf",
+	  "elementalitems:head_leaf",
+	  "elementalitems:sword_leaf",
+	  "elementalitems:shovel_leaf",
+	  "elementalitems:axe_leaf",
+	  "elementalitems:pickaxe_leaf",
+	  "elementalitems:arrow_leaf",
+	  "elementalitems:block_crystal_leaf"
+	]
+  },
+  "criteria": {
+	"has_crystal_leaf": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_leaf"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_leaf"
+	]
+  ]
+}

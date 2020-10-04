@@ -1,0 +1,25 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:sword_water_leaf",
+	  "elementalitems:sword_leaf_air"
+	]
+  },
+  "criteria": {
+	"has_sword_leaf": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:sword_leaf"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_sword_leaf"
+	]
+  ]
+}

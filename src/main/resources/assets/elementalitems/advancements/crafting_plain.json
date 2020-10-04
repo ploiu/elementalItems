@@ -1,0 +1,33 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_plain",
+	  "elementalitems:legs_plain",
+	  "elementalitems:chest_plain",
+	  "elementalitems:head_plain",
+	  "elementalitems:sword_plain",
+	  "elementalitems:axe_plain",
+	  "elementalitems:pickaxe_plain",
+	  "elementalitems:shovel_plain",
+	  "elementalitems:arrow_plain",
+	  "elementalitems:block_crystal_plain"
+	]
+  },
+  "criteria": {
+	"has_crystal_plain": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_plain"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_plain"
+	]
+  ]
+}

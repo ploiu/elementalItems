@@ -1,0 +1,33 @@
+{
+  "rewards": {
+	"recipes": [
+	  "elementalitems:feet_ice",
+	  "elementalitems:legs_ice",
+	  "elementalitems:chest_ice",
+	  "elementalitems:head_ice",
+	  "elementalitems:sword_ice",
+	  "elementalitems:shovel_ice",
+	  "elementalitems:axe_ice",
+	  "elementalitems:pickaxe_ice",
+	  "elementalitems:arrow_ice",
+	  "elementalitems:block_crystal_ice"
+	]
+  },
+  "criteria": {
+	"has_crystal_ice": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"item": "elementalitems:crystal_ice"
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_crystal_ice"
+	]
+  ]
+}

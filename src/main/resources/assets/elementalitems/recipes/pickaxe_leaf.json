@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	" | "
+  ],
+  "key": {
+	"#": {
+	  "item": "#CRYSTAL_LEAF"
+	},
+	"|": {
+	  "item": "#PICKAXE_PLAIN"
+	}
+  },
+  "result": {
+	"item": "elementalitems:pickaxe_leaf",
+	"count": 1
+  }
+}
