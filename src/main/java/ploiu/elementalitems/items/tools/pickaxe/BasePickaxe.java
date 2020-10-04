@@ -9,6 +9,7 @@ import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.items.ItemUtils;
 import ploiu.elementalitems.items.tools.ElementalTool;
 
@@ -20,6 +21,7 @@ public abstract class BasePickaxe extends PickaxeItem implements ElementalTool {
 		super(ItemUtils.getItemTierFromType(type), 1, -2.8F, new Properties().group(ItemGroup.TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("pickaxe_%s", type.getTypeName()));
+		ElementalItemsItemRegistry.addItem(this);
 	}
 
 	@Override

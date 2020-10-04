@@ -5,10 +5,12 @@ import net.minecraftforge.event.RegistryEvent;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
+import ploiu.elementalitems.items.tools.shovel.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class ElementalItemsItemRegistry {
 	// needs to be public or else intelliJ will move it down below the other items, causing it to be null
 	public static final List<Item> items = new ArrayList<>();
@@ -40,7 +42,14 @@ public class ElementalItemsItemRegistry {
 	public static BasePickaxe airPickaxe = new AirPickaxe();
 	public static BasePickaxe enderPickaxe = new EnderPickaxe();
 	// shovels
-
+	public static BaseShovel plainShovel = new PlainShovel();
+	public static BaseShovel fireShovel = new FireShovel();
+	public static BaseShovel iceShovel = new IceShovel();
+	public static BaseShovel waterShovel = new WaterShovel();
+	public static BaseShovel leafShovel = new LeafShovel();
+	public static BaseShovel earthShovel = new EarthShovel();
+	public static BaseShovel airShovel = new AirShovel();
+	public static BaseShovel enderShovel = new EnderShovel();
 	// swords
 
 	// dual swords
