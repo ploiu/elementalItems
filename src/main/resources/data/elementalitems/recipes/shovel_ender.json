@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:shovel_ender"
+    "item": "elementalitems:shovel_ender",
+    "count": 1
   }
 }

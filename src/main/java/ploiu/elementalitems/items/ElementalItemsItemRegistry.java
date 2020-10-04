@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.combat.armor.*;
+import ploiu.elementalitems.items.combat.weapons.arrows.ElementalArrow;
 import ploiu.elementalitems.items.combat.weapons.swords.*;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
@@ -105,8 +106,15 @@ public class ElementalItemsItemRegistry {
 	public static BaseArmorItem enderLeggings = new EnderArmor(EquipmentSlotType.LEGS);
 	public static BaseArmorItem enderBoots = new EnderArmor(EquipmentSlotType.FEET);
 
-
 	// arrows
+	public static ElementalArrow plainArrow = new ElementalArrow(ElementalTypes.PLAIN);
+	public static ElementalArrow fireArrow = new ElementalArrow(ElementalTypes.FIRE);
+	public static ElementalArrow iceArrow = new ElementalArrow(ElementalTypes.ICE);
+	public static ElementalArrow waterArrow = new ElementalArrow(ElementalTypes.WATER);
+	public static ElementalArrow leafArrow = new ElementalArrow(ElementalTypes.LEAF);
+	public static ElementalArrow earthArrow = new ElementalArrow(ElementalTypes.EARTH);
+	public static ElementalArrow airArrow = new ElementalArrow(ElementalTypes.AIR);
+	public static ElementalArrow enderArrow = new ElementalArrow(ElementalTypes.ENDER);
 
 
 	private ElementalItemsItemRegistry() {

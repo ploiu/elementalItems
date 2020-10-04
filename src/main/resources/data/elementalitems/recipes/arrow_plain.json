@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "B",
-    "B",
-    "H"
+    "C",
+    "S",
+    "S"
   ],
   "key": {
-    "B": {
+    "C": {
       "item": "elementalitems:crystal_plain"
     },
-    "H": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "elementalitems:sword_plain",
-    "count": 1
+    "item": "elementalitems:arrow_plain",
+    "count": 4
   }
 }

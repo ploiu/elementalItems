@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:chest_earth"
+    "item": "elementalitems:chest_earth",
+    "count": 1
   }
 }

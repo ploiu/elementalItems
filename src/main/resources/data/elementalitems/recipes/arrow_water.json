@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CCC",
-    "CHC",
-    "C C"
+    "C",
+    "S",
+    "S"
   ],
   "key": {
     "C": {
       "item": "elementalitems:crystal_water"
     },
-    "H": {
-      "item": "elementalitems:legs_plain"
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "elementalitems:legs_water",
-    "count": 1
+    "item": "elementalitems:arrow_water",
+    "count": 4
   }
 }

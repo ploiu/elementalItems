@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_leaf"
+    "item": "elementalitems:pickaxe_leaf",
+    "count": 1
   }
 }

@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:chest_leaf"
+    "item": "elementalitems:chest_leaf",
+    "count": 1
   }
 }

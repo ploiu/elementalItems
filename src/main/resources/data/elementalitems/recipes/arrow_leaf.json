@@ -1,19 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "B",
-    "H"
+    "C",
+    "S",
+    "S"
   ],
   "key": {
-    "B": {
+    "C": {
       "item": "elementalitems:crystal_leaf"
     },
-    "H": {
-      "item": "elementalitems:shovel_plain"
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "elementalitems:shovel_leaf",
-    "count": 1
+    "item": "elementalitems:arrow_leaf",
+    "count": 4
   }
 }

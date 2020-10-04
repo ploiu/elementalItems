@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_plain"
+    "item": "elementalitems:pickaxe_plain",
+    "count": 1
   }
 }

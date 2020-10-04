@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:feet_water"
+    "item": "elementalitems:feet_water",
+    "count": 1
   }
 }

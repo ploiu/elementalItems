@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:legs_air"
+    "item": "elementalitems:legs_air",
+    "count": 1
   }
 }

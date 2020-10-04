@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:feet_ender"
+    "item": "elementalitems:feet_ender",
+    "count": 1
   }
 }

@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:shovel_earth"
+    "item": "elementalitems:shovel_earth",
+    "count": 1
   }
 }

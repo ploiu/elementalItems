@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_water"
+    "item": "elementalitems:pickaxe_water",
+    "count": 1
   }
 }

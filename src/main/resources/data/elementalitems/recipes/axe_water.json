@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:axe_water"
+    "item": "elementalitems:axe_water",
+    "count": 1
   }
 }

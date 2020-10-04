@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:sword_leaf"
+    "item": "elementalitems:sword_leaf",
+    "count": 1
   }
 }

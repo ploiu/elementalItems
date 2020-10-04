@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:axe_earth"
+    "item": "elementalitems:axe_earth",
+    "count": 1
   }
 }

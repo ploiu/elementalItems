@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:shovel_water"
+    "item": "elementalitems:shovel_water",
+    "count": 1
   }
 }

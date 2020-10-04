@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:shovel_air"
+    "item": "elementalitems:shovel_air",
+    "count": 1
   }
 }

@@ -1,19 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "BBB",
-    " H "
+    "C",
+    "S",
+    "S"
   ],
   "key": {
-    "B": {
+    "C": {
       "item": "elementalitems:crystal_ender"
     },
-    "H": {
-      "item": "elementalitems:pickaxe_plain"
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_ender",
-    "count": 1
+    "item": "elementalitems:arrow_ender",
+    "count": 4
   }
 }

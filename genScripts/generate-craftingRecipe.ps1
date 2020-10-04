@@ -4,7 +4,7 @@
 #>
 
 param(
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string]$recipeName,
     [Parameter(Mandatory = $true)]
     [string[]]$recipe,
@@ -12,7 +12,8 @@ param(
     [hashtable]$keys,
     [Parameter(Mandatory = $true)]
     [string]$output,
-    [string]$type = 'crafting_shaped'
+    [string]$type = 'crafting_shaped',
+    [int]$count = 1
 )
 
 # since we will move directories, get the current one to go back to
@@ -34,7 +35,8 @@ $contents = [PSCustomObject]@{
     pattern = $recipe;
     key     = convertKeys;
     result  = @{
-        item = $output.Contains(':') ? $output : "minecraft:$output";
+        item  = $output.Contains(':') ? $output : "minecraft:$output";
+        count = $count;
     }
 }
 

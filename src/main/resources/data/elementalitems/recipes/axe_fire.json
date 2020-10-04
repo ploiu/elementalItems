@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:axe_fire"
+    "item": "elementalitems:axe_fire",
+    "count": 1
   }
 }

@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:sword_ice"
+    "item": "elementalitems:sword_ice",
+    "count": 1
   }
 }

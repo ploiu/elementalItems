@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:chest_fire"
+    "item": "elementalitems:chest_fire",
+    "count": 1
   }
 }

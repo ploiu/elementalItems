@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:sword_air"
+    "item": "elementalitems:sword_air",
+    "count": 1
   }
 }

@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_fire"
+    "item": "elementalitems:pickaxe_fire",
+    "count": 1
   }
 }

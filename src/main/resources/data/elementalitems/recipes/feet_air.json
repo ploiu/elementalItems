@@ -13,6 +13,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:feet_air"
+    "item": "elementalitems:feet_air",
+    "count": 1
   }
 }

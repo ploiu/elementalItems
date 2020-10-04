@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:chest_ender"
+    "item": "elementalitems:chest_ender",
+    "count": 1
   }
 }

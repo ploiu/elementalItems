@@ -14,6 +14,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:chest_ice"
+    "item": "elementalitems:chest_ice",
+    "count": 1
   }
 }
