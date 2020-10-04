@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "H"
+  ],
+  "key": {
+    "B": {
+      "item": "elementalitems:crystal_water"
+    },
+    "H": {
+      "item": "elementalitems:sword_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:sword_water"
+  }
+}

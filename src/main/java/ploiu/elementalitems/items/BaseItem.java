@@ -3,7 +3,7 @@ package ploiu.elementalitems.items;
 import net.minecraft.item.Item;
 import ploiu.elementalitems.ElementalTypes;
 
-public class BaseItem extends Item {
+public class BaseItem extends Item implements ElementalItem {
 	private final ElementalTypes type;
 	private final String itemName;
 
@@ -20,6 +20,7 @@ public class BaseItem extends Item {
 		ElementalItemsItemRegistry.addItem(this);
 	}
 
+	@Override
 	public ElementalTypes getType() {
 		return this.type;
 	}

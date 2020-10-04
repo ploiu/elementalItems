@@ -3,6 +3,7 @@ package ploiu.elementalitems.items;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.items.combat.weapons.swords.*;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
 import ploiu.elementalitems.items.tools.shovel.*;
@@ -51,7 +52,14 @@ public class ElementalItemsItemRegistry {
 	public static BaseShovel airShovel = new AirShovel();
 	public static BaseShovel enderShovel = new EnderShovel();
 	// swords
-
+	public static BaseSword plainSword = new PlainSword();
+	public static BaseSword fireSword = new FireSword();
+	public static BaseSword iceSword = new IceSword();
+	public static BaseSword waterSword = new WaterSword();
+	public static BaseSword leafSword = new LeafSword();
+	public static BaseSword earthSword = new EarthSword();
+	public static BaseSword airSword = new AirSword();
+	public static BaseSword enderSword = new EnderSword();
 	// dual swords
 
 	// armor
