@@ -1,12 +1,10 @@
 package ploiu.elementalitems.items.combat.armor;
 
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;

@@ -6,9 +6,6 @@ import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.tools.itemtiers.TierRegistry;
 
 import javax.annotation.Nonnull;
-import javax.rmi.CORBA.Tie;
-
-import static ploiu.elementalitems.items.tools.itemtiers.TierRegistry.fireTier;
 
 public class ItemUtils {
 	private ItemUtils() {

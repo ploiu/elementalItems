@@ -2,7 +2,6 @@ package ploiu.elementalitems.items.combat.armor.material;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.crafting.Ingredient;
-import ploiu.elementalitems.items.combat.armor.BaseArmor;
 
 import static ploiu.elementalitems.items.ElementalItemsItemRegistry.iceCrystal;
 

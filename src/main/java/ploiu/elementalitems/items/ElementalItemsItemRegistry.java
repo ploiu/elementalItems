@@ -16,7 +16,7 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public class ElementalItemsItemRegistry {
-	// needs to be public or else intelliJ will move it down below the other items, causing it to be null
+	// needs to be public or else intelliJ will move it down below the other items, causing it to be null when items get added to it
 	public static final List<Item> items = new ArrayList<>();
 	// crystals
 	public static BaseCrystal plainCrystal = new BaseCrystal(ElementalTypes.PLAIN);
@@ -63,7 +63,7 @@ public class ElementalItemsItemRegistry {
 	public static BaseSword earthSword = new EarthSword();
 	public static BaseSword airSword = new AirSword();
 	public static BaseSword enderSword = new EnderSword();
-	// dual swords
+	// dual swords TODO
 
 	// armor
 	public static BaseArmorItem plainHelmet = new PlainArmor(EquipmentSlotType.HEAD);
@@ -105,7 +105,6 @@ public class ElementalItemsItemRegistry {
 	public static BaseArmorItem enderChestplate = new EnderArmor(EquipmentSlotType.CHEST);
 	public static BaseArmorItem enderLeggings = new EnderArmor(EquipmentSlotType.LEGS);
 	public static BaseArmorItem enderBoots = new EnderArmor(EquipmentSlotType.FEET);
-
 	// arrows
 	public static ElementalArrow plainArrow = new ElementalArrow(ElementalTypes.PLAIN);
 	public static ElementalArrow fireArrow = new ElementalArrow(ElementalTypes.FIRE);
@@ -115,7 +114,7 @@ public class ElementalItemsItemRegistry {
 	public static ElementalArrow earthArrow = new ElementalArrow(ElementalTypes.EARTH);
 	public static ElementalArrow airArrow = new ElementalArrow(ElementalTypes.AIR);
 	public static ElementalArrow enderArrow = new ElementalArrow(ElementalTypes.ENDER);
-
+	// unique items TODO
 
 	private ElementalItemsItemRegistry() {
 	}

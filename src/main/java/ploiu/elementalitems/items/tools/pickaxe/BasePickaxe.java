@@ -2,7 +2,6 @@ package ploiu.elementalitems.items.tools.pickaxe;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;

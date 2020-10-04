@@ -5,7 +5,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.ElementalItem;
 
 public interface ElementalTool extends ElementalItem {
