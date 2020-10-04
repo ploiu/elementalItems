@@ -7,6 +7,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 
+/**
+ * TODO set attackers on fire, apply fire resistance
+ */
 public class FireArmor extends BaseArmorItem {
 	public FireArmor(EquipmentSlotType slot) {
 		super(ElementalTypes.FIRE, slot);

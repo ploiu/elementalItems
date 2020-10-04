@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CHC"
+  ],
+  "key": {
+    "C": {
+      "item": "elementalitems:crystal_ice"
+    },
+    "H": {
+      "item": "elementalitems:head_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:head_ice"
+  }
+}

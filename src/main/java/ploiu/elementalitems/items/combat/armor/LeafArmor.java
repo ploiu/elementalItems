@@ -8,20 +8,20 @@ import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 
 /**
- * TODO prevent depth strider enchantment, slow & weaken mobs, speed increase
+ * TODO apply regeneration, hurt undead that attack player, reduce wither and poison debuffs
  */
-public class IceArmor extends BaseArmorItem {
-	public IceArmor(EquipmentSlotType slot) {
-		super(ElementalTypes.ICE, slot);
+public class LeafArmor extends BaseArmorItem {
+	public LeafArmor(EquipmentSlotType slot) {
+		super(ElementalTypes.LEAF, slot);
 	}
 
 	@Override
-	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity target) {
-		// TODO slow and weaken the target
+	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
+		// TODO
 	}
 
 	@Override
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
-		// TODO apply speed
+		// TODO
 	}
 }

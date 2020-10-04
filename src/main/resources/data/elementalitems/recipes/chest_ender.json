@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CHC",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "elementalitems:crystal_ender"
+    },
+    "H": {
+      "item": "elementalitems:chest_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:chest_ender"
+  }
+}

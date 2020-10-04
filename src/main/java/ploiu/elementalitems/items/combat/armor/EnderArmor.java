@@ -8,20 +8,20 @@ import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 
 /**
- * TODO prevent depth strider enchantment, slow & weaken mobs, speed increase
+ * TODO remove teleport damage, teleport direct attackers, potion effects based on pieces worn
  */
-public class IceArmor extends BaseArmorItem {
-	public IceArmor(EquipmentSlotType slot) {
-		super(ElementalTypes.ICE, slot);
+public class EnderArmor extends BaseArmorItem {
+	public EnderArmor(EquipmentSlotType slot) {
+		super(ElementalTypes.ENDER, slot);
 	}
 
 	@Override
-	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity target) {
-		// TODO slow and weaken the target
+	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
+
 	}
 
 	@Override
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
-		// TODO apply speed
+
 	}
 }

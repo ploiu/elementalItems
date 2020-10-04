@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C C",
+    "CHC"
+  ],
+  "key": {
+    "C": {
+      "item": "elementalitems:crystal_leaf"
+    },
+    "H": {
+      "item": "elementalitems:feet_plain"
+    }
+  },
+  "result": {
+    "item": "elementalitems:feet_leaf"
+  }
+}

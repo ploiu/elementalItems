@@ -8,20 +8,20 @@ import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 
 /**
- * TODO prevent depth strider enchantment, slow & weaken mobs, speed increase
+ * TODO knockback immunity
  */
-public class IceArmor extends BaseArmorItem {
-	public IceArmor(EquipmentSlotType slot) {
-		super(ElementalTypes.ICE, slot);
+public class EarthArmor extends BaseArmorItem {
+	public EarthArmor(EquipmentSlotType slot) {
+		super(ElementalTypes.EARTH, slot);
 	}
 
 	@Override
-	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity target) {
-		// TODO slow and weaken the target
+	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
+		// no-op
 	}
 
 	@Override
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
-		// TODO apply speed
+		// TODO
 	}
 }

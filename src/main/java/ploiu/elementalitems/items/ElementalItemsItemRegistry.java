@@ -1,8 +1,10 @@
 package ploiu.elementalitems.items;
 
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.items.combat.armor.*;
 import ploiu.elementalitems.items.combat.weapons.swords.*;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
@@ -63,6 +65,46 @@ public class ElementalItemsItemRegistry {
 	// dual swords
 
 	// armor
+	public static BaseArmorItem plainHelmet = new PlainArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem plainChestplate = new PlainArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem plainLeggings = new PlainArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem plainBoots = new PlainArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem fireHelmet = new FireArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem fireChestplate = new FireArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem fireLeggings = new FireArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem fireBoots = new FireArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem iceHelmet = new IceArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem iceChestplate = new IceArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem iceLeggings = new IceArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem iceBoots = new IceArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem waterHelmet = new WaterArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem waterChestplate = new WaterArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem waterLeggings = new WaterArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem waterBoots = new WaterArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem leafHelmet = new LeafArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem leafChestplate = new LeafArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem leafLeggings = new LeafArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem leafBoots = new LeafArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem earthHelmet = new EarthArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem earthChestplate = new EarthArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem earthLeggings = new EarthArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem earthBoots = new EarthArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem airHelmet = new AirArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem airChestplate = new AirArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem airLeggings = new AirArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem airBoots = new AirArmor(EquipmentSlotType.FEET);
+
+	public static BaseArmorItem enderHelmet = new EnderArmor(EquipmentSlotType.HEAD);
+	public static BaseArmorItem enderChestplate = new EnderArmor(EquipmentSlotType.CHEST);
+	public static BaseArmorItem enderLeggings = new EnderArmor(EquipmentSlotType.LEGS);
+	public static BaseArmorItem enderBoots = new EnderArmor(EquipmentSlotType.FEET);
+
 
 	// arrows
 
