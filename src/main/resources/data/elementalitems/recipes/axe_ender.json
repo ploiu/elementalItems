@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " BB",
-    " HB"
+    "BB",
+    "HB",
+    "H "
   ],
   "key": {
     "B": {
       "item": "elementalitems:crystal_ender"
     },
     "H": {
-      "item": "elementalitems:axe_plain"
+      "item": "minecraft:stick"
     }
   },
   "result": {

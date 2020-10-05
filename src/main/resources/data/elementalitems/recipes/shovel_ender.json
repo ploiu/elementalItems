@@ -2,6 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "B",
+    "H",
     "H"
   ],
   "key": {
@@ -9,7 +10,7 @@
       "item": "elementalitems:crystal_ender"
     },
     "H": {
-      "item": "elementalitems:shovel_plain"
+      "item": "minecraft:stick"
     }
   },
   "result": {

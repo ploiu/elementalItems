@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "BBB",
-    " H ",
-    " H "
+    "BHB",
+    "BBB"
   ],
   "key": {
     "B": {
-      "item": "elementalitems:crystal_leaf"
+      "item": "minecraft:snowball"
     },
     "H": {
-      "item": "minecraft:stick"
+      "item": "elementalitems:crystal_plain"
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_leaf",
+    "item": "elementalitems:crystal_ice",
     "count": 1
   }
 }

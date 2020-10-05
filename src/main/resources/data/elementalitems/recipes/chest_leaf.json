@@ -1,16 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CHC",
+    "C C",
     "CCC",
     "CCC"
   ],
   "key": {
     "C": {
       "item": "elementalitems:crystal_leaf"
-    },
-    "H": {
-      "item": "elementalitems:chest_plain"
     }
   },
   "result": {

@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "C C",
-    "CHC"
+    "C C"
   ],
   "key": {
     "C": {
       "item": "elementalitems:crystal_ender"
-    },
-    "H": {
-      "item": "elementalitems:feet_plain"
     }
   },
   "result": {

@@ -23,9 +23,23 @@ function convertKeys {
     $converted = @{};
     # for each entry in our keys, convert it to the proper format (from char=value)
     $keys.GetEnumerator() | ForEach-Object {
-        $converted.($_.Key) = @{
-            item = $_.Value.Contains(':') ? $_.Value : "minecraft:$($_.Value)";
-        };
+        $entry = $_;
+        if ($entry.Value.GetType().BaseType -ne [System.Array]) {
+            $converted.($entry.Key) = @{
+                item = $entry.Value.Contains(':') ? $entry.Value : "minecraft:$($_.Value)";
+            };
+        }
+        else {
+            $converted.($entry.Key) = $entry.Value | ForEach-Object {
+                if ($_.GetType() -eq [hashtable]) {
+                    return [PSCustomObject]$_;
+                }
+                else {
+                    return [PSCustomObject]@{item = $_.Contains(':') ? $_ : "minecraft:$_"};
+                }
+            }
+        }
+
     }
     return $converted;
 }

@@ -1,14 +1,13 @@
 param(
 	[string]$recipeName,
 	[string]$bladeItem,
-	[string]$outputItem,
-	[string]$handleItem = 'elementalitems:axe_plain'
+	[string]$outputItem
 )
 
 # keep track of the original directory
 $origDir = $pwd;
-$recipe = ' BB', ' HB';
-$key = @{B = $bladeItem; H = $handleItem }
+$recipe = 'BB', 'HB', 'H ';
+$key = @{B = $bladeItem; H = 'stick' }
 ./generate-craftingRecipe.ps1 -recipeName $recipeName -recipe $recipe -keys $key -output $outputItem
 
 # return to the original directory

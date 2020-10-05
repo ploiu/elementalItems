@@ -3,7 +3,7 @@
   "pattern": [
     "C",
     "S",
-    "S"
+    "F"
   ],
   "key": {
     "C": {
@@ -11,6 +11,9 @@
     },
     "S": {
       "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "minecraft:feather"
     }
   },
   "result": {

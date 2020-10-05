@@ -6,8 +6,8 @@ param(
 
 # keep track of the original directory
 $origDir = $pwd;
-$recipe = 'C', 'S', 'S';
-$key = @{C = $crystalItem; S = 'stick' }
+$recipe = 'C', 'S', 'F';
+$key = @{C = $crystalItem; S = 'stick'; F = 'feather'}
 ./generate-craftingRecipe.ps1 -recipeName $recipeName -recipe $recipe -keys $key -output $outputItem -count 4
 
 # return to the original directory
