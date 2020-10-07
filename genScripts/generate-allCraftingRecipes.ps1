@@ -14,7 +14,7 @@ $elements | ForEach-Object {
 # generate the crystals
 .\generate-crystalRecipe.ps1 -recipeName 'crystal_ice' -outputItem 'elementalitems:crystal_ice' -outterItem 'snowball';
 .\generate-craftingRecipe.ps1 -recipeName 'crystal_air' -shaped -recipe @('PPP', 'PCP', 'GGG') -keys @{P = 'paper'; C = 'elementalitems:crystal_plain'; G = 'gunpowder' } -output 'elementalitems:crystal_air';
-.\generate-craftingRecipe.ps1 -recipeName 'crystal_water_smelting' -smelting -ingredient 'elementalitems:crystal_ice' -exp 1 -cookingTime 100 -output 'elementalitems:crystal_water' -count 2;
+.\generate-craftingRecipe.ps1 -recipeName 'crystal_water_smelting' -smelting -ingredient 'elementalitems:crystal_ice' -exp 1 -cookingTime 100 -output 'elementalitems:crystal_water';
 <#START EARTH CRYSTAL#>
 $hardenedClayArray = @('black_terracotta', 'blue_terracotta', 'brown_terracotta', 'cyan_terracotta', 'gray_terracotta', 'green_terracotta', 'lime_terracotta', 'magenta_terracotta', 'orange_terracotta', 'pink_terracotta', 'purple_terracotta', 'red_terracotta', 'white_terracotta', 'yellow_terracotta', 'light_blue_terracotta', 'terracotta');
 .\generate-craftingRecipe.ps1 -recipeName 'crystal_earth' -shaped -recipe @('SSS', 'SCS', 'SSS') -keys @{S = $hardenedClayArray; C = 'elementalitems:crystal_plain' } -output 'elementalitems:crystal_earth'
@@ -29,7 +29,7 @@ $hardenedClayArray = @('black_terracotta', 'blue_terracotta', 'brown_terracotta'
 	@('ice', 'air'),
 	@('ice', 'ender'),
 	@('water', 'leaf'),
-	@('water', 'ice'),
+	@('ice', 'water'),
 	@('leaf', 'air')
 ) | ForEach-Object {
 	.\generate-dualSwordRecipe.ps1 -type1 $_[0] -type2 $_[1];

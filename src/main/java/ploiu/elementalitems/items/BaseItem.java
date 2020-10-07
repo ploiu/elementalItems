@@ -5,7 +5,7 @@ import ploiu.elementalitems.ElementalTypes;
 
 public class BaseItem extends Item implements ElementalItem {
 	private final ElementalTypes type;
-	private final String itemName;
+	protected String itemName;
 
 	public BaseItem(ElementalTypes type, String name) {
 		this(type, name, new Properties());
@@ -14,9 +14,15 @@ public class BaseItem extends Item implements ElementalItem {
 	public BaseItem(ElementalTypes type, String name, Properties properties) {
 		super(properties);
 		this.type = type;
-		// itemType_elementType
 		this.itemName = String.format("%s_%s", name, this.type.getTypeName());
 		this.setRegistryName(this.itemName);
+		ElementalItemsItemRegistry.addItem(this);
+	}
+	
+	// for when we want to manually set the registry name in the child class
+	public BaseItem(ElementalTypes type, Properties properties) {
+		super(properties);
+		this.type = type;
 		ElementalItemsItemRegistry.addItem(this);
 	}
 

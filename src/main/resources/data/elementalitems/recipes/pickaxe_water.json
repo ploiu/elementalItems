@@ -6,11 +6,11 @@
     " H "
   ],
   "key": {
-    "H": {
-      "item": "minecraft:stick"
-    },
     "B": {
       "item": "elementalitems:crystal_water"
+    },
+    "H": {
+      "item": "minecraft:stick"
     }
   },
   "result": {

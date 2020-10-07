@@ -30,6 +30,8 @@ param(
 
     [Parameter(Mandatory = $true)]
     [string]$output,
+    [Parameter(ParameterSetName = "shaped")]
+    [Parameter(ParameterSetName = "shapeless")]
     [int]$count = 1
 )
 
@@ -103,7 +105,6 @@ elseif ($smelting.IsPresent) {
         result      = $output.contains(':') ? $output : "minecraft:$output"
         experience  = $exp;
         cookingTime = $cookingTime;
-        count       = $count
     }
 }
 

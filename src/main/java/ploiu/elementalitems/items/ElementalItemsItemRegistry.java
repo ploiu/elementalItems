@@ -11,6 +11,7 @@ import ploiu.elementalitems.items.combat.weapons.swords.dual.DualSwordBuilder;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
 import ploiu.elementalitems.items.tools.shovel.*;
+import ploiu.elementalitems.items.unique.Flamethrower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,6 +127,8 @@ public class ElementalItemsItemRegistry {
 	public static ElementalArrow airArrow = new ElementalArrow(AIR);
 	public static ElementalArrow enderArrow = new ElementalArrow(ENDER);
 	// unique items TODO
+	public static BaseSword swordOfLifeAndDeath = new SwordOfLifeAndDeath();
+	public static Flamethrower flamethrower = new Flamethrower();
 
 	private ElementalItemsItemRegistry() {
 	}
