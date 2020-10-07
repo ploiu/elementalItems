@@ -8,7 +8,7 @@ param(
 $origDir = $pwd;
 $recipe = 'B', 'H', 'H';
 $key = @{B = $bladeItem; H = 'stick' }
-./generate-craftingRecipe.ps1 -recipeName $recipeName -recipe $recipe -keys $key -output $outputItem
+./generate-craftingRecipe.ps1 -recipeName $recipeName -shaped -recipe $recipe -keys $key -output $outputItem
 
 # return to the original directory
 Set-Location $origDir;

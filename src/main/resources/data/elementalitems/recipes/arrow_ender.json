@@ -6,11 +6,11 @@
     "F"
   ],
   "key": {
-    "C": {
-      "item": "elementalitems:crystal_ender"
-    },
     "S": {
       "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "elementalitems:crystal_ender"
     },
     "F": {
       "item": "minecraft:feather"

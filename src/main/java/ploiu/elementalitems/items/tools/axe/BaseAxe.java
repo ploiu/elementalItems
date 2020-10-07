@@ -9,8 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
-import ploiu.elementalitems.items.ItemUtils;
 import ploiu.elementalitems.items.tools.ElementalTool;
+import ploiu.elementalitems.util.ItemUtils;
 
 public abstract class BaseAxe extends AxeItem implements ElementalTool {
 

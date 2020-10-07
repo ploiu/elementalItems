@@ -6,11 +6,11 @@
     " H "
   ],
   "key": {
-    "B": {
-      "item": "elementalitems:crystal_ender"
-    },
     "H": {
       "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "elementalitems:crystal_ender"
     }
   },
   "result": {

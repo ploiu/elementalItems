@@ -6,11 +6,11 @@
     "F"
   ],
   "key": {
-    "C": {
-      "item": "elementalitems:crystal_earth"
-    },
     "S": {
       "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "elementalitems:crystal_earth"
     },
     "F": {
       "item": "minecraft:feather"

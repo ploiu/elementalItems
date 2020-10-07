@@ -6,11 +6,11 @@
     "GGG"
   ],
   "key": {
-    "C": {
-      "item": "elementalitems:crystal_plain"
-    },
     "P": {
       "item": "minecraft:paper"
+    },
+    "C": {
+      "item": "elementalitems:crystal_plain"
     },
     "G": {
       "item": "minecraft:gunpowder"

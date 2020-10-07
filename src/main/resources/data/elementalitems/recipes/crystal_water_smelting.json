@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "elementalitems:crystal_ice"
+  },
+  "result": "elementalitems:crystal_water",
+  "experience": 1.0,
+  "cookingTime": 100,
+  "count": 2
+}

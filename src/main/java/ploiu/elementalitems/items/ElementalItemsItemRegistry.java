@@ -3,10 +3,11 @@ package ploiu.elementalitems.items;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
-import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.combat.armor.*;
 import ploiu.elementalitems.items.combat.weapons.arrows.ElementalArrow;
 import ploiu.elementalitems.items.combat.weapons.swords.*;
+import ploiu.elementalitems.items.combat.weapons.swords.dual.DualSword;
+import ploiu.elementalitems.items.combat.weapons.swords.dual.DualSwordBuilder;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
 import ploiu.elementalitems.items.tools.shovel.*;
@@ -14,19 +15,21 @@ import ploiu.elementalitems.items.tools.shovel.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ploiu.elementalitems.ElementalTypes.*;
+
 @SuppressWarnings("unused")
 public class ElementalItemsItemRegistry {
 	// needs to be public or else intelliJ will move it down below the other items, causing it to be null when items get added to it
 	public static final List<Item> items = new ArrayList<>();
 	// crystals
-	public static BaseCrystal plainCrystal = new BaseCrystal(ElementalTypes.PLAIN);
-	public static BaseCrystal fireCrystal = new BaseCrystal(ElementalTypes.FIRE);
-	public static BaseCrystal iceCrystal = new BaseCrystal(ElementalTypes.ICE);
-	public static BaseCrystal waterCrystal = new BaseCrystal(ElementalTypes.WATER);
-	public static BaseCrystal leafCrystal = new BaseCrystal(ElementalTypes.LEAF);
-	public static BaseCrystal earthCrystal = new BaseCrystal(ElementalTypes.EARTH);
-	public static BaseCrystal airCrystal = new BaseCrystal(ElementalTypes.AIR);
-	public static BaseCrystal enderCrystal = new BaseCrystal(ElementalTypes.ENDER);
+	public static BaseCrystal plainCrystal = new BaseCrystal(PLAIN);
+	public static BaseCrystal fireCrystal = new BaseCrystal(FIRE);
+	public static BaseCrystal iceCrystal = new BaseCrystal(ICE);
+	public static BaseCrystal waterCrystal = new BaseCrystal(WATER);
+	public static BaseCrystal leafCrystal = new BaseCrystal(LEAF);
+	public static BaseCrystal earthCrystal = new BaseCrystal(EARTH);
+	public static BaseCrystal airCrystal = new BaseCrystal(AIR);
+	public static BaseCrystal enderCrystal = new BaseCrystal(ENDER);
 	// axes
 	public static BaseAxe plainAxe = new PlainAxe();
 	public static BaseAxe fireAxe = new FireAxe();
@@ -63,8 +66,16 @@ public class ElementalItemsItemRegistry {
 	public static BaseSword earthSword = new EarthSword();
 	public static BaseSword airSword = new AirSword();
 	public static BaseSword enderSword = new EnderSword();
-	// dual swords TODO
-
+	// dual swords
+	public static DualSword meteorSword = new DualSwordBuilder(FIRE, EARTH).build(); // fire and earth
+	public static DualSword coldFireSword = new DualSwordBuilder(FIRE, ICE).build(); // fire and ice
+	public static DualSword steamSword = new DualSwordBuilder(FIRE, WATER).build(); // fire and water
+	public static DualSword typhoonSword = new DualSwordBuilder(WATER, AIR).build(); // water and air
+	public static DualSword blizzardSword = new DualSwordBuilder(ICE, AIR).build(); // ice and air
+	public static DualSword voidSword = new DualSwordBuilder(ICE, ENDER).build(); // ice and ender
+	public static DualSword jungleSword = new DualSwordBuilder(WATER, LEAF).build(); // water and leaf
+	public static DualSword glacialSword = new DualSwordBuilder(WATER, ICE).build(); // water and ice
+	public static DualSword pollenSword = new DualSwordBuilder(LEAF, AIR).build(); // leaf and air
 	// armor
 	public static BaseArmorItem plainHelmet = new PlainArmor(EquipmentSlotType.HEAD);
 	public static BaseArmorItem plainChestplate = new PlainArmor(EquipmentSlotType.CHEST);
@@ -106,14 +117,14 @@ public class ElementalItemsItemRegistry {
 	public static BaseArmorItem enderLeggings = new EnderArmor(EquipmentSlotType.LEGS);
 	public static BaseArmorItem enderBoots = new EnderArmor(EquipmentSlotType.FEET);
 	// arrows
-	public static ElementalArrow plainArrow = new ElementalArrow(ElementalTypes.PLAIN);
-	public static ElementalArrow fireArrow = new ElementalArrow(ElementalTypes.FIRE);
-	public static ElementalArrow iceArrow = new ElementalArrow(ElementalTypes.ICE);
-	public static ElementalArrow waterArrow = new ElementalArrow(ElementalTypes.WATER);
-	public static ElementalArrow leafArrow = new ElementalArrow(ElementalTypes.LEAF);
-	public static ElementalArrow earthArrow = new ElementalArrow(ElementalTypes.EARTH);
-	public static ElementalArrow airArrow = new ElementalArrow(ElementalTypes.AIR);
-	public static ElementalArrow enderArrow = new ElementalArrow(ElementalTypes.ENDER);
+	public static ElementalArrow plainArrow = new ElementalArrow(PLAIN);
+	public static ElementalArrow fireArrow = new ElementalArrow(FIRE);
+	public static ElementalArrow iceArrow = new ElementalArrow(ICE);
+	public static ElementalArrow waterArrow = new ElementalArrow(WATER);
+	public static ElementalArrow leafArrow = new ElementalArrow(LEAF);
+	public static ElementalArrow earthArrow = new ElementalArrow(EARTH);
+	public static ElementalArrow airArrow = new ElementalArrow(AIR);
+	public static ElementalArrow enderArrow = new ElementalArrow(ENDER);
 	// unique items TODO
 
 	private ElementalItemsItemRegistry() {

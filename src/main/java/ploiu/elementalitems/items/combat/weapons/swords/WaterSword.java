@@ -1,6 +1,5 @@
 package ploiu.elementalitems.items.combat.weapons.swords;
 
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -8,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
-import ploiu.elementalitems.util.ItemUtils;
+import ploiu.elementalitems.items.combat.ElementalEffects;
 
 public class WaterSword extends BaseSword {
 
@@ -18,17 +17,16 @@ public class WaterSword extends BaseSword {
 
 	@Override
 	public void applyEffect(ItemStack stack, LivingEntity target, LivingEntity user) {
+		// no-op
+	}
+
+	@Override
+	protected void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+		ElementalEffects.enchantWithKnockback(stack);
 	}
 
 	@Override
 	public void onUsed(World world, PlayerEntity player, Hand hand) {
-
-	}
-
-	@Override
-	public void inventoryTick(ItemStack stack, World world, Entity inventoryOwner, int itemSlot, boolean isSelected) {
-		// remove the knockback enchantment from the stack to prevent duplicate enchantments
-		ItemUtils.removeEnchantmentFromItem(stack, "knockback");
-		stack.addEnchantment(Enchantments.KNOCKBACK, 5);
+		// no-op
 	}
 }

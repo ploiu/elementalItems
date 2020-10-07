@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:sword_ice"
+    },
+    {
+      "item": "elementalitems:sword_ender"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:sword_ice_ender",
+    "count": 1
+  }
+}

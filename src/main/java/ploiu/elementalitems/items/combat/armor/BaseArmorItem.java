@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
-import ploiu.elementalitems.items.ItemUtils;
+import ploiu.elementalitems.util.ItemUtils;
 
 public abstract class BaseArmorItem extends ArmorItem implements BaseArmor {
 
