@@ -23,6 +23,13 @@ public abstract class BaseAxe extends AxeItem implements ElementalTool {
 		ElementalItemsItemRegistry.addItem(this);
 	}
 
+	protected BaseAxe(ElementalTypes type, float attackSpeed) {
+		super(ItemUtils.getItemTierFromType(type), 5.0f, attackSpeed, new Properties().group(ItemGroup.TOOLS));
+		this.type = type;
+		this.setRegistryName(String.format("axe_%s", this.type.getTypeName()));
+		ElementalItemsItemRegistry.addItem(this);
+	}
+
 	@Override
 	public ElementalTypes getType() {
 		return this.type;

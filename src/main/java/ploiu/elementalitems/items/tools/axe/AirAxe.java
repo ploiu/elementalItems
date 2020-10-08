@@ -10,7 +10,7 @@ import ploiu.elementalitems.ElementalTypes;
 public class AirAxe extends BaseAxe {
 	
 	public AirAxe() {
-		super(ElementalTypes.AIR);
+		super(ElementalTypes.AIR, 2f);
 	}
 	
 	@Override

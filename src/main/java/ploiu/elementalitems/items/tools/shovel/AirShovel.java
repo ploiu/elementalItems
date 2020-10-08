@@ -10,7 +10,7 @@ import ploiu.elementalitems.ElementalTypes;
 public class AirShovel extends BaseShovel {
 	
 	public AirShovel() {
-		super(ElementalTypes.AIR);
+		super(ElementalTypes.AIR, 2);
 	}
 	
 	@Override

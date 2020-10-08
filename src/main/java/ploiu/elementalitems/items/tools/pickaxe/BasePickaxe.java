@@ -22,6 +22,13 @@ public abstract class BasePickaxe extends PickaxeItem implements ElementalTool {
 		this.setRegistryName(String.format("pickaxe_%s", type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);
 	}
+	
+	protected BasePickaxe(ElementalTypes type, float attackSpeed) {
+		super(ItemUtils.getItemTierFromType(type), 1, attackSpeed, new Properties().group(ItemGroup.TOOLS));
+		this.type = type;
+		this.setRegistryName(String.format("pickaxe_%s", type.getTypeName()));
+		ElementalItemsItemRegistry.addItem(this);
+	}
 
 	@Override
 	public ElementalTypes getType() {

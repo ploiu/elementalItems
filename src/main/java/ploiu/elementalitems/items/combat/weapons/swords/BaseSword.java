@@ -33,6 +33,14 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 		this.setRegistryName(this.name);
 		ElementalItemsItemRegistry.addItem(this);
 	}
+	
+	protected BaseSword(ElementalTypes type, float attackSpeed) {
+		super(ItemUtils.getItemTierFromType(type), 5, attackSpeed, new Properties().group(ItemGroup.COMBAT));
+		this.type = type;
+		this.name = String.format("sword_%s", type);
+		this.setRegistryName(this.name);
+		ElementalItemsItemRegistry.addItem(this);
+	}
 
 	public BaseSword(IItemTier tier, String name, ElementalTypes type) {
 		super(tier, 5, -2.4f, new Properties().group(ItemGroup.COMBAT));

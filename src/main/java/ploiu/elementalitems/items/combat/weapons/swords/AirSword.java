@@ -12,7 +12,7 @@ import ploiu.elementalitems.items.combat.ElementalEffects;
 public class AirSword extends BaseSword {
 
 	public AirSword() {
-		super(ElementalTypes.AIR);
+		super(ElementalTypes.AIR, 2f);
 	}
 
 	@Override

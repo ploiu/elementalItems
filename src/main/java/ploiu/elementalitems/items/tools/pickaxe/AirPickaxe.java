@@ -10,7 +10,7 @@ import ploiu.elementalitems.ElementalTypes;
 public class AirPickaxe extends BasePickaxe {
 	
 	public AirPickaxe() {
-		super(ElementalTypes.AIR);
+		super(ElementalTypes.AIR, 2f);
 	}
 	
 	@Override
