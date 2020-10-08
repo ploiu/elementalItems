@@ -1,7 +1,8 @@
 package ploiu.elementalitems.items.combat.armor;
 
+import net.minecraft.enchantment.DepthStriderEnchantment;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,6 @@ import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.util.EntityUtils;
 import ploiu.elementalitems.util.ItemUtils;
 
-import static net.minecraft.enchantment.Enchantments.DEPTH_STRIDER;
 import static net.minecraft.enchantment.Enchantments.FROST_WALKER;
 
 public class IceArmor extends BaseArmorItem {
@@ -39,16 +39,20 @@ public class IceArmor extends BaseArmorItem {
 		int potionEffectLevel = amountOfIceArmorPieces == 4 ? 1 : 0;
 		wearer.addPotionEffect(new EffectInstance(Effects.SPEED, 100, potionEffectLevel, false, false));
 		// if we have all 4 pieces of armor, enchant the boots with frost walker
-		if(amountOfIceArmorPieces == 4 && stack.getItem().equals(ElementalItemsItemRegistry.iceBoots)) {
-			ItemUtils.removeEnchantmentFromItem(stack, "frost_walker");
+		if(amountOfIceArmorPieces == 4 && ElementalItemsItemRegistry.iceBoots.equals(stack.getItem())) {
+			ItemUtils.removeEnchantmentFromItem(stack, FROST_WALKER);
 			stack.addEnchantment(FROST_WALKER, 2);
 		} else if(stack.getItem().equals(ElementalItemsItemRegistry.iceBoots)) {
-			ItemUtils.removeEnchantmentFromItem(stack, "frost_walker");
+			ItemUtils.removeEnchantmentFromItem(stack, FROST_WALKER);
 		}
 	}
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		return enchantment != DEPTH_STRIDER;
+		if(ElementalItemsItemRegistry.iceBoots.equals(stack.getItem()) && enchantment instanceof DepthStriderEnchantment) {
+			return false;
+		} else {
+			return super.canApplyAtEnchantingTable(stack, enchantment);
+		}
 	}
 }

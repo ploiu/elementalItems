@@ -1,5 +1,6 @@
 package ploiu.elementalitems.util;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
@@ -14,11 +15,13 @@ public class ItemUtils {
 
 	/**
 	 * removes all enchantments with the passed name from the passed item stack
+	 *
 	 * @param stack
-	 * @param enchantmentName
+	 * @param enchantment
 	 */
-	public static void removeEnchantmentFromItem(ItemStack stack, String enchantmentName) {
-		stack.getEnchantmentTagList().removeIf(tag -> tag.getString().toLowerCase().contains(enchantmentName.toLowerCase()));
+	public static void removeEnchantmentFromItem(ItemStack stack, Enchantment enchantment) {
+		final String enchantmentName = enchantment.getName().toLowerCase().split("\\.")[2];
+		stack.getEnchantmentTagList().removeIf(tag -> tag.getString().toLowerCase().contains(enchantmentName));
 	}
 
 	/**
@@ -70,8 +73,8 @@ public class ItemUtils {
 				return TierRegistry.plainArmorMaterial;
 		}
 	}
-	
-	
+
+
 	public static BaseCrystal getCrystalForElementalType(ElementalTypes type) {
 		switch(type) {
 			case FIRE:

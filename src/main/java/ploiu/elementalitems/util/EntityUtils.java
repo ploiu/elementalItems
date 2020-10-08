@@ -67,6 +67,13 @@ public class EntityUtils {
 		}
 	}
 
+	/**
+	 * Spawns an experience orb into the world
+	 *
+	 * @param world
+	 * @param positionToSpawn
+	 * @param xpAmount
+	 */
 	public static void spawnXpOrb(@Nonnull World world, BlockPos positionToSpawn, int xpAmount) {
 		if(!world.isRemote && positionToSpawn != null && xpAmount > 0) {
 			world.addEntity(new ExperienceOrbEntity(world, positionToSpawn.getX(), positionToSpawn.getY(), positionToSpawn.getZ(), xpAmount));
@@ -139,6 +146,12 @@ public class EntityUtils {
 		return false;
 	}
 
+	/**
+	 * Gets the equipped armor for the passed entity
+	 *
+	 * @param target
+	 * @return
+	 */
 	@Nonnull
 	public static List<ItemStack> getEntityArmor(@Nullable Entity target) {
 		List<ItemStack> armorInventory = new ArrayList<>();
@@ -170,30 +183,20 @@ public class EntityUtils {
 		}
 	}
 
+	/**
+	 * Gets the level of the passed entity
+	 *
+	 * @param player
+	 * @return
+	 */
 	public static int getPlayerLevel(Entity player) {
 		return isValidLivingEntity(player) && player instanceof PlayerEntity ? ((PlayerEntity) player).experienceLevel : 0;
 	}
 
-	public static ElementalItem getArrowItemFromElementalType(ElementalTypes type) {
-		switch(type) {
-			case FIRE:
-				return ElementalItemsItemRegistry.fireArrow;
-			case WATER:
-				return ElementalItemsItemRegistry.waterArrow;
-			case EARTH:
-				return ElementalItemsItemRegistry.earthArrow;
-			case AIR:
-				return ElementalItemsItemRegistry.airArrow;
-			case ICE:
-				return ElementalItemsItemRegistry.iceArrow;
-			case ENDER:
-				return ElementalItemsItemRegistry.enderArrow;
-			case LEAF:
-				return ElementalItemsItemRegistry.leafArrow;
-			case PLAIN:
-			default:
-				return ElementalItemsItemRegistry.plainArrow;
-		}
+	public static boolean doesEntityHaveArmorPieceEquipped(Entity entity, ArmorItem armorPiece) {
+		List<ItemStack> armorPieces = getEntityArmor(entity);
+		armorPieces.removeIf(piece -> !armorPiece.equals(piece.getItem()));
+		return armorPieces.size() > 0;
 	}
 
 	public static BaseEntityArrow createArrow(@Nonnull ElementalTypes type, World world, double x, double y, double z) {

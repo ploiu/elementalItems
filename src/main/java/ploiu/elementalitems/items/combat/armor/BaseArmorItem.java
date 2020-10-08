@@ -27,6 +27,15 @@ public abstract class BaseArmorItem extends ArmorItem implements BaseArmor {
 	}
 
 	@Override
+	public boolean equals(Object other) {
+		if(other == this) {
+			return true;
+		} else {
+			return other instanceof BaseArmorItem && ((BaseArmorItem) other).getType() == this.getType() && ((BaseArmorItem) other).getEquipmentSlot() == this.getEquipmentSlot();
+		}
+	}
+
+	@Override
 	public ElementalTypes getType() {
 		return this.type;
 	}
