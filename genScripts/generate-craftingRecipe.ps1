@@ -109,7 +109,7 @@ elseif ($smelting.IsPresent) {
 }
 
 # git should be replaced with your directory where the project root folder is in
-Set-Location $git/elementalitems/src/main/resources/data/elementalitems/recipes;
+Set-Location ../src/main/resources/data/elementalitems/recipes;
 ($contents | ConvertTo-Json -Depth 100 )> "$recipeName.json";
 
 Set-Location $origDir;

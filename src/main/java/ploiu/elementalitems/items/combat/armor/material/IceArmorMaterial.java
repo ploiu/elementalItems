@@ -18,7 +18,7 @@ public class IceArmorMaterial extends BaseArmorMaterial {
 
 	@Override
 	public int getDurability(EquipmentSlotType slotIn) {
-		return 20;
+		return new int[]{13, 15, 16, 11}[slotIn.getIndex()] * 20;
 	}
 
 	@Override
