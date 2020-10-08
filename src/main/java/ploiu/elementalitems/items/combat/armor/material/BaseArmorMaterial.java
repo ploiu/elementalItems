@@ -11,7 +11,7 @@ public abstract class BaseArmorMaterial implements IArmorMaterial {
 
 	@Override
 	public int getDurability(EquipmentSlotType slotIn) {
-		return 33;
+		return new int[]{13, 15, 16, 11}[slotIn.getIndex()] * 33;
 	}
 
 	@Override
