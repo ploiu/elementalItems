@@ -19,6 +19,7 @@ import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.ElementalItem;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.items.combat.armor.BaseArmor;
+import ploiu.elementalitems.items.combat.armor.BaseArmorItem;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -151,6 +152,22 @@ public class EntityUtils {
 				       .filter(itemStack -> !itemStack.isEmpty())
 				       .filter(itemStack -> itemStack.getItem() instanceof ArmorItem)
 				       .collect(Collectors.toList());
+	}
+
+	/**
+	 * Gets the number of pieces of armor worn for the passed elemental type on the passed entity
+	 *
+	 * @param type   the elemental type to count the equipped armor for
+	 * @param target the entity to get the equipped armor of
+	 * @return the number of pieces of armor worn that match the passed elemental type
+	 */
+	public static int getNumberOfElementalArmorForType(ElementalTypes type, Entity target) {
+		if(isValidLivingEntity(target)) {
+			List<ItemStack> armorList = getEntityArmor(target);
+			return (int) armorList.stream().filter(armor -> armor.getItem() instanceof BaseArmorItem && ((BaseArmorItem) armor.getItem()).getType() == type).count();
+		} else {
+			return 0;
+		}
 	}
 
 	public static int getPlayerLevel(Entity player) {
