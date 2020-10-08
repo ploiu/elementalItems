@@ -33,7 +33,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 		this.setRegistryName(this.name);
 		ElementalItemsItemRegistry.addItem(this);
 	}
-	
+
 	protected BaseSword(ElementalTypes type, float attackSpeed) {
 		super(ItemUtils.getItemTierFromType(type), 5, attackSpeed, new Properties().group(ItemGroup.COMBAT));
 		this.type = type;
@@ -55,6 +55,9 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	@Override
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if(EntityUtils.isValidLivingEntity(target)) {
+			if(target.getEntityWorld() instanceof ServerWorld) {
+				this.spawnAttackParticles((ServerWorld) target.getEntityWorld(), target);
+			}
 			this.applyEffect(stack, target, attacker);
 		}
 		return super.hitEntity(stack, target, attacker);

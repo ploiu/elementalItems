@@ -1,11 +1,15 @@
 package ploiu.elementalitems.util;
 
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.tileentity.LockableTileEntity;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Utils {
 	public static Map<ItemStack, ItemStack> smeltingRecipes = new HashMap<>();
@@ -26,5 +30,28 @@ public class Utils {
 				                                       .findFirst();
 		resultStack = schrodingerStack.orElse(null);
 		return resultStack;
+	}
+
+	public static List<ItemStack> getContainerItems(Container container) {
+		final List<ItemStack> stacks = new ArrayList<>();
+		if(container != null) {
+			// get all the slots that have non-empty item stacks
+			List<ItemStack> inventoryItems = container.getInventory().stream().filter(Objects::nonNull).filter(stack -> !stack.isEmpty()).collect(Collectors.toList());
+			stacks.addAll(inventoryItems);
+		}
+		return stacks;
+	}
+
+	public static List<ItemStack> getContainerItems(IInventory container) {
+		List<ItemStack> items = new ArrayList<>();
+		int inventorySize = container.getSizeInventory();
+		// for each slot in the container, if it's not empty or null, add it to items
+		for(int i = 0; i < inventorySize; i++) {
+			ItemStack currentStack = container.getStackInSlot(i);
+			if(!currentStack.isEmpty()) {
+				items.add(currentStack);
+			}
+		}
+		return items;
 	}
 }
