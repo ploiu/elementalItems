@@ -32,11 +32,11 @@ public class WaterArmor extends BaseArmorItem {
 		// if the player is wearing a full set, enchant the helmet and boots with water-related enchantments
 		int piecesWorn = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.WATER, wearer);
 		if(piecesWorn == 4) {
-			// if the player has the mining fatigue effect (from elder guardians), remove it
-			wearer.removePotionEffect(Effects.MINING_FATIGUE);
 			// if the player is in water, allow them to breathe forever
 			if(wearer.isInWater()) {
 				wearer.setAir(300);
+				// if the player has the mining fatigue effect (from elder guardians), remove it
+				wearer.removePotionEffect(Effects.MINING_FATIGUE);
 			}
 			if(ElementalItemsItemRegistry.waterHelmet.equals(stack.getItem())) {
 				ItemUtils.removeEnchantmentFromItem(stack, Enchantments.AQUA_AFFINITY);
