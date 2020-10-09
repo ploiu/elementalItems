@@ -61,10 +61,10 @@ public class LivingEvents {
 						float newArrowPitch = -arrow.getShooter().rotationPitch;
 						float newArrowYaw = -arrow.getShooter().rotationYaw;
 						arrow.setShooter(target);
-						arrow.shoot(target, newArrowPitch, newArrowYaw, 0, 2f, 1f);
+						arrow.setVelocity(0, -.1f, 0);
 					} else {
-						arrow.shoot(target, target.rotationPitch, target.rotationYaw, 0, 2f, 1f);
 						arrow.setShooter(target);
+						arrow.setVelocity(0, -.1f, 0);
 					}
 					World world = target.getEntityWorld();
 					// play a sound and spawn particles to give sensory cues as to the arrow getting sent back to the attacker TODO arrows won't damage any mobs
