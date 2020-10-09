@@ -14,10 +14,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -55,19 +52,15 @@ public class LivingEvents {
 				LivingEntity target = (LivingEntity) ((EntityRayTraceResult) event.getRayTraceResult()).getEntity();
 				// if the target is wearing a full set of air armor, cancel the event and knock back the arrow
 				if(EntityUtils.doesEntityHaveFullElementalSetOfType(ElementalTypes.AIR, target)) {
+					// prevent the arrow from dealing damage
 					event.setCanceled(true);
 					AbstractArrowEntity arrow = event.getArrow();
-					if(arrow.getShooter() != null) {
-						float newArrowPitch = -arrow.getShooter().rotationPitch;
-						float newArrowYaw = -arrow.getShooter().rotationYaw;
-						arrow.setShooter(target);
-						arrow.setVelocity(0, -.1f, 0);
-					} else {
-						arrow.setShooter(target);
-						arrow.setVelocity(0, -.1f, 0);
-					}
+					// allow the player to pick up the arrow once it lands
+					arrow.setShooter(target);
+					// stop the arrow and make it fall
+					arrow.setVelocity(0, -.1f, 0);
 					World world = target.getEntityWorld();
-					// play a sound and spawn particles to give sensory cues as to the arrow getting sent back to the attacker TODO arrows won't damage any mobs
+					// play a sound and spawn particles to give sensory cues as to the arrow getting sent back to the attacker
 					if(!world.isRemote()) {
 						world.playSound(null, target.getPosition(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
@@ -118,6 +111,14 @@ public class LivingEvents {
 			if(ElementalItemsItemRegistry.airBoots.equals(eventLiving.getItemStackFromSlot(EquipmentSlotType.FEET).getItem())) {
 				event.setDamageMultiplier(0);
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onLivingTeleport(EnderTeleportEvent event) {
+		// if the event's entity is wearing a full set of ender armor, prevent the teleport damage
+		if(EntityUtils.doesEntityHaveFullElementalSetOfType(ElementalTypes.ENDER, event.getEntityLiving())) {
+			event.setAttackDamage(0);
 		}
 	}
 }
