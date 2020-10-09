@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,5 +40,12 @@ public class LivingEvents {
 		List<Entity> waterArmorEntities = event.getAffectedEntities().stream().filter(entity -> EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.WATER, entity) > 0).collect(Collectors.toList());
 		// now remove those entities from the affected entities list
 		event.getAffectedEntities().removeIf(waterArmorEntities::contains);
+	}
+
+	@SubscribeEvent
+	public static void onKnockback(LivingKnockBackEvent event) {
+		if(EntityUtils.isValidLivingEntity(event.getEntityLiving()) && EntityUtils.doesEntityHaveFullElementalSetOfType(ElementalTypes.EARTH, event.getEntityLiving())) {
+			event.setCanceled(true);
+		}
 	}
 }

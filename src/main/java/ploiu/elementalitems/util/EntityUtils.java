@@ -126,11 +126,11 @@ public class EntityUtils {
 	/**
 	 * Takes an {@link Entity} and checks its armorInventoryList for a full set of {@link BaseArmor} where each {@code currentArmor.type == type}
 	 *
-	 * @param toCheck the entity to check
 	 * @param type    the {@link ElementalTypes} we are checking for
+	 * @param toCheck the entity to check
 	 * @return true if all 4 pieces of the wearer's armor is the same type as {@code type}, false otherwise
 	 */
-	public static boolean doesEntityHaveFullElementalSetOfType(@Nullable Entity toCheck, ElementalTypes type) {
+	public static boolean doesEntityHaveFullElementalSetOfType(ElementalTypes type, @Nullable Entity toCheck) {
 		if(isValidLivingEntity(toCheck) && type != null) {
 			// do we have a full set?
 			boolean fullSet = true;
@@ -181,6 +181,10 @@ public class EntityUtils {
 		} else {
 			return 0;
 		}
+	}
+
+	public static boolean doesEntityHaveElementalArmorEquipped(ElementalTypes type, Entity target) {
+		return getNumberOfElementalArmorForType(type, target) > 0;
 	}
 
 	/**

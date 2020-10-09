@@ -22,6 +22,6 @@ public class EarthArmor extends BaseArmorItem {
 
 	@Override
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
-		// TODO
+		// no-op
 	}
 }

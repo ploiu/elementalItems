@@ -10,7 +10,7 @@ import ploiu.elementalitems.util.Utils;
 
 @Mod.EventBusSubscriber(modid = "elementalitems")
 @SuppressWarnings("unused")
-public class GenericEventHandler {
+public class GenericEvents {
 
 	@SubscribeEvent
 	public static void onSmeltingUpdated(RecipesUpdatedEvent event) {
