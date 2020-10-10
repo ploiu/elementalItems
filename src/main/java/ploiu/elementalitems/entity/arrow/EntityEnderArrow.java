@@ -18,8 +18,8 @@ public class EntityEnderArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.ENDER);
 	}
 
-	public EntityEnderArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.enderArrowEntity, worldIn, shooter, type);
+	public EntityEnderArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.enderArrowEntity, worldIn, shooter, ElementalTypes.ENDER);
 	}
 	
 	@Override

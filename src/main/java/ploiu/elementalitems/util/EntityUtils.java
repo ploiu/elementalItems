@@ -227,4 +227,29 @@ public class EntityUtils {
 				return new EntityPlainArrow(world, x, y, z);
 		}
 	}
+	
+	public static BaseEntityArrow createArrow(@Nonnull ElementalTypes type, World world, LivingEntity shooter) {
+		switch(type) {
+			case FIRE:
+				return new EntityFireArrow(world, shooter);
+			case WATER:
+				return new EntityWaterArrow(world, shooter);
+			case EARTH:
+				return new EntityEarthArrow(world, shooter);
+			case AIR:
+				return new EntityAirArrow(world, shooter);
+			case ICE:
+				return new EntityIceArrow(world, shooter);
+			case ENDER:
+				return new EntityEnderArrow(world, shooter);
+			case LEAF:
+				return new EntityLeafArrow(world, shooter);
+			case PLAIN:
+				return new EntityPlainArrow(world, shooter);
+			default:
+				ElementalItems.LOGGER.log(Level.ERROR, "Error when creating arrow!\n" + "From type: " + type.getTypeName());
+				// we don't want to crash their game, so just print something instead of returning null
+				return new EntityPlainArrow(world, shooter);
+		}
+	}
 }

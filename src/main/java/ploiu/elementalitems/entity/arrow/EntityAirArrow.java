@@ -19,8 +19,8 @@ public class EntityAirArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.AIR);
 	}
 
-	public EntityAirArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.airArrowEntity, worldIn, shooter, type);
+	public EntityAirArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.airArrowEntity, worldIn, shooter, ElementalTypes.AIR);
 	}
 
 	@Override

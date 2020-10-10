@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ploiu.elementalitems.client.render.entity.BaseEntityArrowRenderer;
 import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
-import ploiu.elementalitems.entity.arrow.EntityAirArrow;
+import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.recipe.ElementalItemsRecipeRegistry;
 
@@ -27,7 +27,21 @@ public class ElementalItems {
 	}
 
 	public void doClientSetup(final FMLClientSetupEvent event) {
-		RenderingRegistry.registerEntityRenderingHandler(EntityAirArrow.class, BaseEntityArrowRenderer::new);
+		// register the elemental arrow renderer with our arrow entities
+		@SuppressWarnings("unchecked")
+		Class<BaseEntityArrow>[] elementalArrows = new Class[]{
+				EntityPlainArrow.class,
+				EntityFireArrow.class,
+				EntityIceArrow.class,
+				EntityWaterArrow.class,
+				EntityLeafArrow.class,
+				EntityEarthArrow.class,
+				EntityAirArrow.class,
+				EntityEnderArrow.class
+		};
+		for(Class<BaseEntityArrow> elementalArrow : elementalArrows) {
+			RenderingRegistry.registerEntityRenderingHandler(elementalArrow, BaseEntityArrowRenderer::new);
+		}
 	}
 
 	/**

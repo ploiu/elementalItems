@@ -20,8 +20,8 @@ public class EntityEarthArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.EARTH);
 	}
 
-	public EntityEarthArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.earthArrowEntity, worldIn, shooter, type);
+	public EntityEarthArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.earthArrowEntity, worldIn, shooter, ElementalTypes.EARTH);
 	}
 
 	@Override

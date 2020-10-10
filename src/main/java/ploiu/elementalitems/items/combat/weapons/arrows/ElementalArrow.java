@@ -6,8 +6,11 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
 import ploiu.elementalitems.entity.arrow.BaseEntityArrow;
 import ploiu.elementalitems.items.ElementalItem;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
@@ -25,9 +28,7 @@ public class ElementalArrow extends ArrowItem implements ElementalItem {
 
 	@Override
 	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
-		BaseEntityArrow createdArrow = EntityUtils.createArrow(this.type, worldIn, shooter.posX, shooter.posY, shooter.posZ);
-		createdArrow.setShooter(shooter);
-		return createdArrow;
+		return EntityUtils.createArrow(this.type, worldIn, shooter);
 	}
 
 	@Override

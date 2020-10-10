@@ -18,8 +18,8 @@ public class EntityFireArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.FIRE);
 	}
 
-	public EntityFireArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.fireArrowEntity, worldIn, shooter, type);
+	public EntityFireArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.fireArrowEntity, worldIn, shooter, ElementalTypes.FIRE);
 	}
 	
 	@Override

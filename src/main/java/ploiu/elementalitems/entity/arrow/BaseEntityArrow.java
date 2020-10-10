@@ -5,10 +5,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.IPacket;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.util.ElementalUtils;
 
@@ -29,6 +31,12 @@ public abstract class BaseEntityArrow extends AbstractArrowEntity {
 	protected BaseEntityArrow(EntityType<? extends BaseEntityArrow> entityType, World world, LivingEntity shooter, ElementalTypes type) {
 		super(entityType, shooter, world);
 		this.type = type;
+	}
+
+	@Override
+	public IPacket<?> createSpawnPacket() {
+		// this is required to render the arrow. Without this, the arrow won't be spawned client side
+		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
 	public ElementalTypes getElementalType() {

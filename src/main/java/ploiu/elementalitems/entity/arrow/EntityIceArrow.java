@@ -18,8 +18,8 @@ public class EntityIceArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.ICE);
 	}
 
-	public EntityIceArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.iceArrowEntity, worldIn, shooter, type);
+	public EntityIceArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.iceArrowEntity, worldIn, shooter, ElementalTypes.ICE);
 	}
 	
 	@Override

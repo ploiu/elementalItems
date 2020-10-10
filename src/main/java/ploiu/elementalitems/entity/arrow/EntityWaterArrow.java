@@ -18,8 +18,8 @@ public class EntityWaterArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.WATER);
 	}
 
-	public EntityWaterArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.waterArrowEntity, worldIn, shooter, type);
+	public EntityWaterArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.waterArrowEntity, worldIn, shooter, ElementalTypes.WATER);
 	}
 	
 	@Override

@@ -18,8 +18,8 @@ public class EntityLeafArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.LEAF);
 	}
 
-	public EntityLeafArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.leafArrowEntity, worldIn, shooter, type);
+	public EntityLeafArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.leafArrowEntity, worldIn, shooter, ElementalTypes.LEAF);
 	}
 
 	@Override

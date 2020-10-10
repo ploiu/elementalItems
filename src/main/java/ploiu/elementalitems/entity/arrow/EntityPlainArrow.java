@@ -18,8 +18,8 @@ public class EntityPlainArrow extends BaseEntityArrow {
 		super(entityType, world, ElementalTypes.PLAIN);
 	}
 
-	public EntityPlainArrow(World worldIn, LivingEntity shooter, ElementalTypes type) {
-		super(ElementalItemsEntityRegistry.plainArrowEntity, worldIn, shooter, type);
+	public EntityPlainArrow(World worldIn, LivingEntity shooter) {
+		super(ElementalItemsEntityRegistry.plainArrowEntity, worldIn, shooter, ElementalTypes.PLAIN);
 	}
 	
 	@Override
