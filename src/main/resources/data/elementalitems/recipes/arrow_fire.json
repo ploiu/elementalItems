@@ -6,14 +6,14 @@
     "F"
   ],
   "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
     "C": {
       "item": "elementalitems:crystal_fire"
     },
     "S": {
       "item": "minecraft:stick"
-    },
-    "F": {
-      "item": "minecraft:feather"
     }
   },
   "result": {

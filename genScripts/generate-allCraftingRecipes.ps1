@@ -35,4 +35,7 @@ $hardenedClayArray = @('black_terracotta', 'blue_terracotta', 'brown_terracotta'
 	.\generate-dualSwordRecipe.ps1 -type1 $_[0] -type2 $_[1];
 }
 <#END DUAL SWORDS#>
-# TODO special items
+# flamethrower
+.\generate-craftingRecipe.ps1 -recipeName 'flamethrower' -shaped -recipe @('OOO','OOF','O  ') -key @{O = 'obsidian'; F = 'elementalitems:block_crystal_fire'} -output 'elementalitems:flamethrower';
+# armor crusher
+.\generate-craftingRecipe.ps1 -recipeName 'armor_crusher' -shaped -recipe @(' EX', ' OO', 'O  ') -key @{E = 'elementalitems:block_crystal_earth'; X = 'elementalitems:crystal_earth'; O = 'obsidian'} -output 'elementalitems:warhammer';

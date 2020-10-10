@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " EX",
+    " OO",
+    "O  "
+  ],
+  "key": {
+    "X": {
+      "item": "elementalitems:crystal_earth"
+    },
+    "E": {
+      "item": "elementalitems:block_crystal_earth"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "elementalitems:warhammer",
+    "count": 1
+  }
+}
