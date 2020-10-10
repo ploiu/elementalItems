@@ -41,11 +41,12 @@ public class ElementalItemsEntityRegistry {
 				throw new RuntimeException("FAILED TO INSTANTIATE ARROWS");
 			}
 		}, EntityClassification.MISC)
-				                       .setShouldReceiveVelocityUpdates(true)
-				                       .setTrackingRange(24)
-				                       .setUpdateInterval(60)
-				                       .build(String.format("entity_arrow_%s", type.getTypeName()))
-				                       .setRegistryName(String.format("elementalitems:entity_arrow_%s", type.getTypeName()));
+        .setShouldReceiveVelocityUpdates(true)
+        .setTrackingRange(24)
+        .setUpdateInterval(60)
+        .size(1, 1)
+        .build(String.format("entity_arrow_%s", type.getTypeName()))
+        .setRegistryName(String.format("elementalitems:entity_arrow_%s", type.getTypeName()));
 		entities.add(arrowEntity);
 		return arrowEntity;
 	}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+	"elementalitems:arrow_plain",
+	"elementalitems:arrow_fire",
+	"elementalitems:arrow_ice",
+	"elementalitems:arrow_water",
+	"elementalitems:arrow_leaf",
+	"elementalitems:arrow_earth",
+	"elementalitems:arrow_air",
+	"elementalitems:arrow_ender"
+  ]
+}

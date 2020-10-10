@@ -5,6 +5,7 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.entity.arrow.BaseEntityArrow;
