@@ -1,17 +1,19 @@
 package ploiu.elementalitems.items.unique;
 
-import javafx.geometry.Side;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.entity.flamethrower.FlamethrowerEntity;
 import ploiu.elementalitems.items.BaseItem;
+import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 
 import javax.annotation.Nullable;
 
@@ -40,6 +42,38 @@ public class Flamethrower extends BaseItem {
 	}
 
 	@Override
+	public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
+		if(!world.isRemote) {
+			// get the item in the hand and make sure it's not damaged
+			ItemStack activeItemStack = player.getHeldItem(hand);
+			/*
+			 * Don't do anything if this item is damaged and has a durability of 0. Sounds simple, right?
+			 * WRONG
+			 * when an item is undamaged, its durability is 0, so that makes things complicated
+			 * a) if we are damaged, and our durability is at 0, we cannot fire
+			 * b) if we are damaged, and our durability is not 0, we can fire
+			 * c) if we are not damaged, we can fire since our durability is at 0
+			 * */
+			boolean canFireIfDamaged = activeItemStack.getDamage() < activeItemStack.getMaxDamage() - 1;
+			// items break when they're used and are already at 0% durability. We want to prevent this
+			if(ElementalItemsItemRegistry.flamethrower.equals(activeItemStack.getItem()) && canFireIfDamaged) {
+				FlamethrowerEntity flamethrowerEntity = new FlamethrowerEntity(player, world);
+				flamethrowerEntity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0f, 1.5f, 0.0f);
+				world.addEntity(flamethrowerEntity);
+				if(!player.abilities.isCreativeMode) {
+					activeItemStack.damageItem(1, player, (stack) -> {
+					});
+				}
+				// play the same sound for a fireball being launched if the config allows it TODO
+				// if(ElementalItemsConfig.shouldFlamethrowerMakeSound) {
+				world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.75F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
+				// }
+			}
+		}
+		return new ActionResult<>(ActionResultType.FAIL, player.getHeldItem(hand));
+	}
+
+	@Override
 	public boolean isDamageable() {
 		return true;
 	}
@@ -53,4 +87,6 @@ public class Flamethrower extends BaseItem {
 	public boolean equals(Object other) {
 		return other instanceof Flamethrower;
 	}
+	
+	
 }
