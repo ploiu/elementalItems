@@ -24,7 +24,7 @@ public class FireArmor extends BaseArmorItem {
 			// get the number of fire armor pieces the wearer is wearing and set the attacker on fire for time based on that
 			int numberOfFirePieces = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.FIRE, wearer);
 			int fireTime = 5 * numberOfFirePieces;
-			source.getImmediateSource().setFire(5 * fireTime);
+			source.getImmediateSource().setFire(fireTime);
 		}
 	}
 
