@@ -24,7 +24,7 @@ public class EntityLeafArrow extends BaseEntityArrow {
 
 	@Override
 	public void hitEntity(EntityRayTraceResult rayTraceResult) {
-		// TODO
+		// TODO figure out how to do extra damage. Mobs are immune to damage immediately after getting hit by an arrow
 	}
 
 	@Override

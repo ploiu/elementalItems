@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
 import ploiu.elementalitems.client.render.entity.BaseEntityArrowRenderer;
 import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
 import ploiu.elementalitems.entity.arrow.*;
@@ -19,6 +20,7 @@ import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.recipe.ElementalItemsRecipeRegistry;
 
 @Mod("elementalitems")
+@SuppressWarnings("unused")
 public class ElementalItems {
 	public static final Logger LOGGER = LogManager.getLogger();
 
@@ -52,12 +54,14 @@ public class ElementalItems {
 		@SubscribeEvent
 		public static void blockRegistry(final RegistryEvent.Register<Block> event) {
 			LOGGER.info("Registering blocks...");
+			ElementalItemsBlockRegistry.registerBlocks(event);
 		}
 
 		@SubscribeEvent
 		public static void itemRegistry(final RegistryEvent.Register<Item> event) {
 			LOGGER.info("Registering items...");
 			ElementalItemsItemRegistry.registerItems(event);
+			ElementalItemsBlockRegistry.registerItemBlocks(event);
 		}
 
 		@SubscribeEvent

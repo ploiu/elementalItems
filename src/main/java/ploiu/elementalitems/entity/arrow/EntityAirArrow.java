@@ -10,6 +10,9 @@ import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 
+/**
+ * TODO make super fast
+ */
 public class EntityAirArrow extends BaseEntityArrow {
 	public EntityAirArrow(World worldIn, double x, double y, double z) {
 		super(ElementalItemsEntityRegistry.airArrowEntity, worldIn, x, y, z, ElementalTypes.AIR);
