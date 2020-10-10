@@ -36,7 +36,7 @@ public class LeafArmor extends BaseArmorItem {
 		if(EntityUtils.isValidLivingEntity(wearer)) {
 			wearer.removePotionEffect(Effects.WITHER);
 			int regenLevel = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.LEAF, wearer);
-			wearer.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, regenLevel, false, true));
+			wearer.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, regenLevel - 1, false, true));
 		}
 	}
 }
