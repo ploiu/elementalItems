@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
   "textures": {
-	"all": "elementalitems:blocks/block_crystal_leaf"
-  }
+    "all": "elementalitems:blocks/block_crystal_leaf"
+  },
+  "parent": "block/cube_all"
 }

@@ -1,12 +1,16 @@
 package ploiu.elementalitems.util;
 
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.IItemTier;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.blocks.BaseBlock;
+import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
 import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.BaseCrystal;
+import ploiu.elementalitems.items.ElementalItem;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.items.combat.weapons.arrows.ElementalArrow;
 import ploiu.elementalitems.items.tools.itemtiers.TierRegistry;
@@ -175,6 +179,29 @@ public class ElementalUtils {
 				break;
 		}
 		return mixedParticles;
+	}
+
+	public static BlockItem getCrystalBlockItemForElementalType(ElementalTypes type) {
+		switch(type) {
+			case PLAIN:
+				return ElementalItemsBlockRegistry.plainCrystalBlockItem;
+			case FIRE:
+				return ElementalItemsBlockRegistry.fireCrystalBlockItem;
+			case ICE:
+				return ElementalItemsBlockRegistry.iceCrystalBlockItem;
+			case WATER:
+				return ElementalItemsBlockRegistry.waterCrystalBlockItem;
+			case LEAF:
+				return ElementalItemsBlockRegistry.leafCrystalBlockItem;
+			case EARTH:
+				return ElementalItemsBlockRegistry.earthCrystalBlockItem;
+			case AIR:
+				return ElementalItemsBlockRegistry.airCrystalBlockItem;
+			case ENDER:
+				return ElementalItemsBlockRegistry.enderCrystalBlockItem;
+			default:
+				return ElementalItemsBlockRegistry.plainCrystalBlockItem;
+		}
 	}
 
 	public static ElementalArrow getArrowItemForType(ElementalTypes type) {

@@ -18,7 +18,7 @@ public class CrystalBlock extends BaseBlock {
 	}
 
 	public CrystalBlock(ElementalTypes type, Properties properties) {
-		super(type, properties);
+		super(type, properties, String.format("block_crystal_%s", type.getTypeName()));
 	}
 
 	@Override

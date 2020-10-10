@@ -17,6 +17,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class ElementalItemsBlockRegistry {
 	public static final List<BaseBlock> blocks = new ArrayList<>();
+	public static final List<BlockItem> blockItems = new ArrayList<>();
 
 	// crystal blocks
 	public static final CrystalBlock plainCrystalBlock = new CrystalBlock(ElementalTypes.PLAIN);
@@ -30,6 +31,17 @@ public class ElementalItemsBlockRegistry {
 
 	// ores
 
+	// item versions of the crystal blocks
+	public static final BlockItem plainCrystalBlockItem = createBlockItemForBlock(plainCrystalBlock);
+	public static final BlockItem fireCrystalBlockItem = createBlockItemForBlock(fireCrystalBlock);
+	public static final BlockItem iceCrystalBlockItem = createBlockItemForBlock(iceCrystalBlock);
+	public static final BlockItem waterCrystalBlockItem = createBlockItemForBlock(waterCrystalBlock);
+	public static final BlockItem leafCrystalBlockItem = createBlockItemForBlock(leafCrystalBlock);
+	public static final BlockItem earthCrystalBlockItem = createBlockItemForBlock(earthCrystalBlock);
+	public static final BlockItem airCrystalBlockItem = createBlockItemForBlock(airCrystalBlock);
+	public static final BlockItem enderCrystalBlockItem = createBlockItemForBlock(enderCrystalBlock);
+
+
 	public static void addBlock(BaseBlock block) {
 		blocks.add(block);
 	}
@@ -38,9 +50,21 @@ public class ElementalItemsBlockRegistry {
 		blocks.forEach(event.getRegistry()::register);
 	}
 
+	/**
+	 * creates a blockItem for the passed block and adds it to our blockItems list to be registered later
+	 *
+	 * @param block
+	 * @return
+	 */
+	private static BlockItem createBlockItemForBlock(BaseBlock block) {
+		BlockItem item = (BlockItem) new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName());
+		blockItems.add(item);
+		return item;
+	}
+
 	public static void registerItemBlocks(final RegistryEvent.Register<Item> registry) {
 		ElementalItems.LOGGER.info("Registering block items...");
 		//register all of our itemBlocks
-		blocks.forEach((BaseBlock block) -> registry.getRegistry().register(new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS))));
+		blockItems.forEach(registry.getRegistry()::register);
 	}
 }

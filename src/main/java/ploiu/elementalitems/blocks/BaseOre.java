@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class BaseOre extends BaseBlock {
 	public BaseOre(ElementalTypes type, Properties properties) {
-		super(type, properties);
+		super(type, properties, String.format("ore_%s", type.getTypeName()));
 	}
 
 	/**
