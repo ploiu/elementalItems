@@ -5,8 +5,10 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.BaseCrystal;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
+import ploiu.elementalitems.items.combat.weapons.arrows.ElementalArrow;
 import ploiu.elementalitems.items.tools.itemtiers.TierRegistry;
 
 import javax.annotation.Nonnull;
@@ -173,5 +175,28 @@ public class ElementalUtils {
 				break;
 		}
 		return mixedParticles;
+	}
+
+	public static ElementalArrow getArrowItemForType(ElementalTypes type) {
+		switch(type) {
+			case PLAIN:
+				return ElementalItemsItemRegistry.plainArrow;
+			case FIRE:
+				return ElementalItemsItemRegistry.fireArrow;
+			case ICE:
+				return ElementalItemsItemRegistry.iceArrow;
+			case WATER:
+				return ElementalItemsItemRegistry.waterArrow;
+			case LEAF:
+				return ElementalItemsItemRegistry.leafArrow;
+			case EARTH:
+				return ElementalItemsItemRegistry.earthArrow;
+			case AIR:
+				return ElementalItemsItemRegistry.airArrow;
+			case ENDER:
+				return ElementalItemsItemRegistry.enderArrow;
+			default:
+				return ElementalItemsItemRegistry.plainArrow;
+		}
 	}
 }

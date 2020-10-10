@@ -1,18 +1,33 @@
 package ploiu.elementalitems.entity.arrow;
 
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.util.ElementalUtils;
 
-public abstract class BaseEntityArrow extends ArrowEntity {
+public abstract class BaseEntityArrow extends AbstractArrowEntity {
 
 	private final ElementalTypes type;
 
-	public BaseEntityArrow(World worldIn, double x, double y, double z, ElementalTypes type) {
-		super(worldIn, x, y, z);
+	public BaseEntityArrow(EntityType<? extends BaseEntityArrow> entityType, World world, ElementalTypes type) {
+		super(entityType, world);
+		this.type = type;
+	}
+
+	public BaseEntityArrow(EntityType<? extends BaseEntityArrow> entityType, World worldIn, double x, double y, double z, ElementalTypes type) {
+		super(entityType, x, y, z, worldIn);
+		this.type = type;
+	}
+
+	protected BaseEntityArrow(EntityType<? extends BaseEntityArrow> entityType, World world, LivingEntity shooter, ElementalTypes type) {
+		super(entityType, shooter, world);
 		this.type = type;
 	}
 
@@ -28,6 +43,11 @@ public abstract class BaseEntityArrow extends ArrowEntity {
 		} else if(raytraceResultIn.getType() == RayTraceResult.Type.ENTITY) {
 			this.hitEntity((EntityRayTraceResult) raytraceResultIn);
 		}
+	}
+
+	@Override
+	protected ItemStack getArrowStack() {
+		return new ItemStack(ElementalUtils.getArrowItemForType(this.type));
 	}
 
 	/**

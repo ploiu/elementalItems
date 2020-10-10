@@ -7,8 +7,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
+import ploiu.elementalitems.entity.arrow.BaseEntityArrow;
 import ploiu.elementalitems.items.ElementalItem;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
+import ploiu.elementalitems.util.EntityUtils;
 
 public class ElementalArrow extends ArrowItem implements ElementalItem {
 	private final ElementalTypes type;
@@ -22,8 +24,9 @@ public class ElementalArrow extends ArrowItem implements ElementalItem {
 
 	@Override
 	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
-		// TODO create proper arrow entity based off of type
-		return super.createArrow(worldIn, stack, shooter);
+		BaseEntityArrow createdArrow = EntityUtils.createArrow(this.type, worldIn, shooter.posX, shooter.posY, shooter.posZ);
+		createdArrow.setShooter(shooter);
+		return createdArrow;
 	}
 
 	@Override
