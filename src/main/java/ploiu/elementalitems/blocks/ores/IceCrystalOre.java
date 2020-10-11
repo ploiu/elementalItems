@@ -23,7 +23,7 @@ public class IceCrystalOre extends BaseOre {
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(
 				BiomeDictionary.Type.COLD,
 				BiomeDictionary.Type.SNOWY,
-				BiomeDictionary.Type.BEACH
+				BiomeDictionary.Type.MOUNTAIN
 		);
 		this.maxVeinSize = 10;
 		this.spawnChances = 100;

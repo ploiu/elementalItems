@@ -68,7 +68,7 @@ public class ExpandedOreFeatureConfig implements IFeatureConfig {
 				return false;
 			} else {
 				Block block = blockState.getBlock();
-				return Blocks.ICE.equals(block) || Blocks.PACKED_ICE.equals(block) || Blocks.BLUE_ICE.equals(block);
+				return Blocks.ICE.equals(block) || Blocks.PACKED_ICE.equals(block) || Blocks.BLUE_ICE.equals(block) || Blocks.WATER.equals(block);
 			}
 		}),
 		EARTH_CRYSTAL("earth_crystal", (blockState) -> {

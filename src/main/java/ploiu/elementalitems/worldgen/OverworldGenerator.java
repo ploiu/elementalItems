@@ -36,14 +36,25 @@ public class OverworldGenerator {
 				ore.getBlocksToGenerateOver().forEach(block -> {
 					ExpandedOreFeatureConfig.FillerBlockType fillerBlockType = null;
 					// get the type of blocks to replace with this ore
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-							Biome.createDecoratedFeature(
-									ElementalItemsFeatureRegistry.expandedOreFeature,
-									new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize()),
-									Placement.COUNT_RANGE,
-									new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration())
-							)
-					);
+					if(iceCrystalOre.equals(ore)) {
+						biome.addFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION,
+								Biome.createDecoratedFeature(
+										ElementalItemsFeatureRegistry.iceOreFeature,
+										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize()),
+										Placement.COUNT_RANGE,
+										new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration())
+								)
+						);
+					} else {
+						biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+								Biome.createDecoratedFeature(
+										ElementalItemsFeatureRegistry.expandedOreFeature,
+										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize()),
+										Placement.COUNT_RANGE,
+										new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration())
+								)
+						);
+					}
 				});
 				// also allow the ore to spawn in stone like normal ore pockets
 				if(!iceCrystalOre.equals(ore)) {

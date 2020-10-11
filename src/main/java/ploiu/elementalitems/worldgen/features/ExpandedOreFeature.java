@@ -23,7 +23,7 @@ import java.util.function.Function;
  * but with the changed generic type.
  *
  * <h1 style="color: red">DO NOT TOUCH THE INNER CONTENTS OF THIS FILE. IT IS MEANT TO BEHAVE EXACTLY AS THE CLASS IT CANNOT EXTEND</h1>
- * 
+ * <p>
  * I may be missing something that allows me to not do this. If I find that, this class will be removed.
  */
 public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
@@ -50,9 +50,7 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 
 		for(int l1 = k; l1 <= k + j1; ++l1) {
 			for(int i2 = i1; i2 <= i1 + j1; ++i2) {
-				if(l <= worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, l1, i2)) {
-					return this.func_207803_a(worldIn, rand, config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
-				}
+				return this.func_207803_a(worldIn, rand, config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
 			}
 		}
 
