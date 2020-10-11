@@ -30,33 +30,8 @@ public class IceOreFeature extends ExpandedOreFeature {
 		super(p_i51472_1_);
 	}
 
-	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, ExpandedOreFeatureConfig config) {
-		float f = rand.nextFloat() * (float) Math.PI;
-		float f1 = (float) config.size / 8.0F;
-		int i = MathHelper.ceil(((float) config.size / 16.0F * 2.0F + 1.0F) / 2.0F);
-		double d0 = (double) ((float) pos.getX() + MathHelper.sin(f) * f1); // I THINK x start
-		double d1 = (double) ((float) pos.getX() - MathHelper.sin(f) * f1); // I THINK x end
-		double d2 = (double) ((float) pos.getZ() + MathHelper.cos(f) * f1); // I THINK z start
-		double d3 = (double) ((float) pos.getZ() - MathHelper.cos(f) * f1); // I THINK z end
-		int j = 2;
-		double d4 = (double) (pos.getY() + rand.nextInt(3) - 2);
-		double d5 = (double) (pos.getY() + rand.nextInt(3) - 2);
-		int k = pos.getX() - MathHelper.ceil(f1) - i;
-		int l = pos.getY() - 2 - i;
-		int i1 = pos.getZ() - MathHelper.ceil(f1) - i;
-		int j1 = 2 * (MathHelper.ceil(f1) + i);
-		int k1 = 2 * (2 + i);
-
-		for(int l1 = k; l1 <= k + j1; ++l1) {
-			for(int i2 = i1; i2 <= i1 + j1; ++i2) {
-				return this.func_207803_a(worldIn, rand, config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
-			}
-		}
-
-		return false;
-	}
-
-	protected boolean func_207803_a(IWorld world, Random random, ExpandedOreFeatureConfig config, double xStart, double xEnd, double zStart, double zEnd, double yMin, double yMax, int x, int y, int z, int p_207803_19_, int p_207803_20_) {
+	@Override
+	protected boolean generateBlock(IWorld world, Random random, ExpandedOreFeatureConfig config, double xStart, double xEnd, double zStart, double zEnd, double yMin, double yMax, int x, int y, int z, int p_207803_19_, int p_207803_20_) {
 		int i = 0;
 		BitSet attemptedLocations = new BitSet(p_207803_19_ * p_207803_20_ * p_207803_19_);
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
