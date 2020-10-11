@@ -1,10 +1,7 @@
 {
   "variants": {
-	"nether_variant=0": {
-	  "model": "elementalitems:ore_fire"
-	},
-	"nether_variant=1": {
-	  "model":"elementalitems:ore_fire_nether"
-	}
+    "": {
+      "model": "elementalitems:block/ore_fire"
+    }
   }
 }

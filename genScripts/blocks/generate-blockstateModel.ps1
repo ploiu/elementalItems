@@ -24,8 +24,8 @@ $blockInventory = @{
 }
 
 # write the 3 objects to the correct files
-$blockstate | ConvertTo-Json -Depth 100 > ../src/main/resources/assets/elementalitems/blockstates/$blockName.json
-$blockModel | ConvertTo-Json -Depth 100 > ../src/main/resources/assets/elementalitems/models/block/$blockName.json
-$blockInventory | ConvertTo-Json -Depth 100 > ../src/main/resources/assets/elementalitems/models/item/$blockName.json
+$blockstate | ConvertTo-Json -Depth 100 > ../../src/main/resources/assets/elementalitems/blockstates/$blockName.json
+$blockModel | ConvertTo-Json -Depth 100 > ../../src/main/resources/assets/elementalitems/models/block/$blockName.json
+$blockInventory | ConvertTo-Json -Depth 100 > ../../src/main/resources/assets/elementalitems/models/item/$blockName.json
 
 cd $origDir;

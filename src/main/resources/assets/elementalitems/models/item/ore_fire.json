@@ -1,6 +1,3 @@
 {
-  "parent": "elementalitems:block/ore_fire",
-  "textures": {
-	"layer0": "elementalitems:blocks/ore_fire"
-  }
+  "parent": "elementalitems:block/ore_fire"
 }

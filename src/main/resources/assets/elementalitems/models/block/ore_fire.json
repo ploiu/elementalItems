@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
   "textures": {
     "all": "elementalitems:blocks/ore_fire"
-  }
+  },
+  "parent": "block/cube_all"
 }

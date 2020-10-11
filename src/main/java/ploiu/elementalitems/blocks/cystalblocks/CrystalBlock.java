@@ -12,7 +12,7 @@ public class CrystalBlock extends BaseBlock {
 	public CrystalBlock(ElementalTypes type) {
 		super(type, Properties.create(Material.ROCK)
 				            .hardnessAndResistance(5.0f, 6.0f)
-				            .harvestLevel(3)
+				            .harvestLevel(2)
 				            .harvestTool(ToolType.PICKAXE),
 				String.format("block_crystal_%s", type.getTypeName()));
 	}

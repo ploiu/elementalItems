@@ -9,7 +9,7 @@ public class IceCrystalBlock extends CrystalBlock {
 	public IceCrystalBlock() {
 		super(ElementalTypes.ICE, Properties.create(Material.ROCK)
 				                          .hardnessAndResistance(5.0f, 6.0f)
-				                          .harvestLevel(3)
+				                          .harvestLevel(2)
 				                          .harvestTool(ToolType.PICKAXE)
 				                          .slipperiness(0.98f));
 	}

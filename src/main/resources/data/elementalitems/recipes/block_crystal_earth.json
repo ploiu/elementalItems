@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    },
+    {
+      "item": "elementalitems:crystal_earth"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:block_crystal_earth",
+    "count": 1
+  }
+}

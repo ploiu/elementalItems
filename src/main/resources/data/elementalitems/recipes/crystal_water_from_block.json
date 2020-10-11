@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:block_crystal_water"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:crystal_water",
+    "count": 9
+  }
+}

@@ -1,6 +1,7 @@
 {
   "variants": {
-	"normal": { "model": "elementalitems:ore_leaf" },
-	"inventory": { "model": "elementalitems:ore_leaf" }
+    "": {
+      "model": "elementalitems:block/ore_leaf"
+    }
   }
 }

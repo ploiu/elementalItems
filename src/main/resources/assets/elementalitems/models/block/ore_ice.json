@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "all": "elementalitems:blocks/ore_ice"
+  },
+  "parent": "block/cube_all"
+}

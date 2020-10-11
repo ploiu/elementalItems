@@ -10,6 +10,7 @@ import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.blocks.cystalblocks.CrystalBlock;
 import ploiu.elementalitems.blocks.cystalblocks.FireCrystalBlock;
 import ploiu.elementalitems.blocks.cystalblocks.IceCrystalBlock;
+import ploiu.elementalitems.blocks.ores.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,15 @@ public class ElementalItemsBlockRegistry {
 	public static final CrystalBlock enderCrystalBlock = new CrystalBlock(ElementalTypes.ENDER);
 
 	// ores
+	public static final BaseOre plainCrystalOre = new PlainCrystalOre();
+	public static final BaseOre fireCrystalOre = new FireCrystalOre();
+	public static final BaseOre iceCrystalOre = new IceCrystalOre();
+	public static final BaseOre waterCrystalOre = new WaterCrystalOre();
+	public static final BaseOre leafCrystalOre = new LeafCrystalOre();
+	public static final BaseOre earthCrystalOre = new EarthCrystalOre();
+	public static final BaseOre airCrystalOre = new AirCrystalOre();
+	public static final BaseOre enderCrystalOre = new EndCrystalOre();
+	public static final BaseOre netherCrystalOre = new NetherCrystalOre();
 
 	// item versions of the crystal blocks
 	public static final BlockItem plainCrystalBlockItem = createBlockItemForBlock(plainCrystalBlock);
@@ -40,6 +50,17 @@ public class ElementalItemsBlockRegistry {
 	public static final BlockItem earthCrystalBlockItem = createBlockItemForBlock(earthCrystalBlock);
 	public static final BlockItem airCrystalBlockItem = createBlockItemForBlock(airCrystalBlock);
 	public static final BlockItem enderCrystalBlockItem = createBlockItemForBlock(enderCrystalBlock);
+
+	// item versions of the ore blocks
+	public static final BlockItem plainCrystalOreItem = createBlockItemForBlock(plainCrystalOre);
+	public static final BlockItem fireCrystalOreItem = createBlockItemForBlock(fireCrystalOre);
+	public static final BlockItem iceCrystalOreItem = createBlockItemForBlock(iceCrystalOre);
+	public static final BlockItem waterCrystalOreItem = createBlockItemForBlock(waterCrystalOre);
+	public static final BlockItem leafCrystalOreItem = createBlockItemForBlock(leafCrystalOre);
+	public static final BlockItem earthCrystalOreItem = createBlockItemForBlock(earthCrystalOre);
+	public static final BlockItem airCrystalOreItem = createBlockItemForBlock(airCrystalOre);
+	public static final BlockItem enderCrystalOreItem = createBlockItemForBlock(enderCrystalOre);
+	public static final BlockItem netherCrystalOreItem = createBlockItemForBlock(netherCrystalOre);
 
 
 	public static void addBlock(BaseBlock block) {

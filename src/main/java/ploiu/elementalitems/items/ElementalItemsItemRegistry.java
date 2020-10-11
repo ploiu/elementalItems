@@ -8,6 +8,7 @@ import ploiu.elementalitems.items.combat.weapons.arrows.ElementalArrow;
 import ploiu.elementalitems.items.combat.weapons.swords.*;
 import ploiu.elementalitems.items.combat.weapons.swords.dual.DualSword;
 import ploiu.elementalitems.items.combat.weapons.swords.dual.DualSwordBuilder;
+import ploiu.elementalitems.items.crystal.BaseCrystal;
 import ploiu.elementalitems.items.tools.axe.*;
 import ploiu.elementalitems.items.tools.pickaxe.*;
 import ploiu.elementalitems.items.tools.shovel.*;

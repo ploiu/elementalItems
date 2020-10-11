@@ -10,6 +10,10 @@ $elements | ForEach-Object {
 	.\generate-swordRecipe.ps1 -recipeName "sword_$type" -bladeItem $crystalType -outputItem "elementalitems:sword_$type";
 	.\generate-armorRecipesForType.ps1 -type $type;
 	.\generate-arrowRecipe.ps1 -recipeName "arrow_$type" -crystalItem $crystalType -outputItem "elementalitems:arrow_$type";
+	# crystal from block
+	.\generate-crystalRecipeFromBlock.ps1 -element $type;
+	# block recipe from crystal
+	.\generate-blockRecipeForCrystal.ps1 -element $type;
 }
 # generate the crystals
 .\generate-crystalRecipe.ps1 -recipeName 'crystal_ice' -outputItem 'elementalitems:crystal_ice' -outterItem 'snowball';

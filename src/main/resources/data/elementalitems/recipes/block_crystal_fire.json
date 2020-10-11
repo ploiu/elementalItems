@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    },
+    {
+      "item": "elementalitems:crystal_fire"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:block_crystal_fire",
+    "count": 1
+  }
+}

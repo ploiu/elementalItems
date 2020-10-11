@@ -6,11 +6,11 @@
     "BBB"
   ],
   "key": {
-    "H": {
-      "item": "elementalitems:crystal_plain"
-    },
     "B": {
       "item": "minecraft:snowball"
+    },
+    "H": {
+      "item": "elementalitems:crystal_plain"
     }
   },
   "result": {

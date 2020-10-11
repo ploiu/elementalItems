@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    },
+    {
+      "item": "elementalitems:crystal_water"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:block_crystal_water",
+    "count": 1
+  }
+}

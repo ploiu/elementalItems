@@ -70,7 +70,7 @@ function convertKeysForShapeless {
             item = $_.contains(':') ? $_ : "minecraft:$_";
         }
     }
-    return $contents;
+    return [Object[]]$contents;
 }
 
 $contents = $null;
@@ -89,7 +89,7 @@ if ($shaped.IsPresent) {
 elseif ($shapeless.IsPresent) {
     $contents = [PSCustomObject]@{
         type        = "minecraft:crafting_shapeless";
-        ingredients = convertKeysForShapeless;
+        ingredients = [PSCustomObject[]](convertKeysForShapeless);
         result      = @{
             item  = $output.Contains(':') ? $output : "minecraft:$output";
             count = $count;

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    },
+    {
+      "item": "elementalitems:crystal_leaf"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:block_crystal_leaf",
+    "count": 1
+  }
+}

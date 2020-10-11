@@ -12,7 +12,7 @@ function createItemEntry {
 			name = $_.contains(':') ? $_ : "minecraft:$_";
 		}
 	}
-	return $items;
+	return [Object[]]$items;
 }
 
 $obj = @{
@@ -20,7 +20,7 @@ $obj = @{
 	pools = @(
 		@{
 			rolls      = $rolls;
-			entries    = createItemEntry;
+			entries    = [Object[]](createItemEntry);
 			conditions = @(
 				@{
 					condition = 'minecraft:survives_explosion'
@@ -31,4 +31,4 @@ $obj = @{
 }
 
 # now write obj to the correct file
-$obj | ConvertTo-Json -Depth 100 > ../src/main/resources/data/elementalitems/loot_tables/$blockName.json
+$obj | ConvertTo-Json -Depth 100 > ../../src/main/resources/data/elementalitems/loot_tables/blocks/$blockName.json

@@ -43,7 +43,7 @@ public class RecipeRepairFlamethrower extends SpecialRecipe {
 				}
 			}
 		}
-		return matches;
+		return matches && hasOneFlamethrower;
 	}
 
 	@Override

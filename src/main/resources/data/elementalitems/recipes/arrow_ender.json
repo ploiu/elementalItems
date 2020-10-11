@@ -6,14 +6,14 @@
     "F"
   ],
   "key": {
-    "F": {
-      "item": "minecraft:feather"
+    "S": {
+      "item": "minecraft:stick"
     },
     "C": {
       "item": "elementalitems:crystal_ender"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "F": {
+      "item": "minecraft:feather"
     }
   },
   "result": {

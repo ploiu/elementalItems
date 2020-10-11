@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    },
+    {
+      "item": "elementalitems:crystal_ice"
+    }
+  ],
+  "result": {
+    "item": "elementalitems:block_crystal_ice",
+    "count": 1
+  }
+}
