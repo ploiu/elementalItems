@@ -4,11 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +20,9 @@ import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
 import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.recipe.ElementalItemsRecipeRegistry;
+import ploiu.elementalitems.worldgen.OverworldGenerator;
+import ploiu.elementalitems.worldgen.features.ElementalItemsFeatureRegistry;
+
 
 @Mod("elementalitems")
 @SuppressWarnings("unused")
@@ -26,9 +31,10 @@ public class ElementalItems {
 
 	public ElementalItems() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doCommonSetup);
 	}
 
-	public void doClientSetup(final FMLClientSetupEvent event) {
+	private void doClientSetup(final FMLClientSetupEvent event) {
 		// register the elemental arrow renderer with our arrow entities
 		@SuppressWarnings("unchecked")
 		Class<BaseEntityArrow>[] elementalArrows = new Class[]{
@@ -44,6 +50,10 @@ public class ElementalItems {
 		for(Class<BaseEntityArrow> elementalArrow : elementalArrows) {
 			RenderingRegistry.registerEntityRenderingHandler(elementalArrow, BaseEntityArrowRenderer::new);
 		}
+	}
+
+	private void doCommonSetup(final FMLCommonSetupEvent event) {
+		OverworldGenerator.setupOreGeneration();
 	}
 
 	/**
@@ -73,6 +83,12 @@ public class ElementalItems {
 		@SubscribeEvent
 		public static void recipeRegistry(final RegistryEvent.Register<IRecipeSerializer<?>> event) {
 			ElementalItemsRecipeRegistry.registerRecipes(event);
+		}
+
+		@SubscribeEvent
+		public static void worldGenFeatureRegistry(final RegistryEvent.Register<Feature<?>> event) {
+			// I don't want to do this, but I have to...
+			ElementalItemsFeatureRegistry.registerFeatures(event);
 		}
 	}
 }

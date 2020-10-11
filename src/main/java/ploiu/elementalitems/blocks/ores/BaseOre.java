@@ -40,7 +40,7 @@ public abstract class BaseOre extends BaseBlock {
 				            .hardnessAndResistance(5.0f, 6.0f),
 				String.format("ore_%s", type.getTypeName()));
 	}
-	
+
 	protected BaseOre(ElementalTypes type, Properties properties, String name) {
 		super(type, properties, name);
 	}
@@ -77,6 +77,9 @@ public abstract class BaseOre extends BaseBlock {
 		return input -> input != null && this.blocksThisCanGenerateOver.contains(input.getBlock());
 	}
 
+	public List<Block> getBlocksToGenerateOver() {
+		return this.blocksThisCanGenerateOver;
+	}
 
 	public int getMaxVeinSize() {
 		return this.maxVeinSize;
