@@ -30,7 +30,7 @@
     }
   ],
   "result": {
-    "item": "elementalitems:block_crystal_leaf",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:block_crystal_leaf"
   }
 }

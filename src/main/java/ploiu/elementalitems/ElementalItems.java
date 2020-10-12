@@ -20,6 +20,8 @@ import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
 import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.recipe.ElementalItemsRecipeRegistry;
+import ploiu.elementalitems.worldgen.EndGenerator;
+import ploiu.elementalitems.worldgen.NetherGenerator;
 import ploiu.elementalitems.worldgen.OverworldGenerator;
 import ploiu.elementalitems.worldgen.features.ElementalItemsFeatureRegistry;
 
@@ -53,7 +55,9 @@ public class ElementalItems {
 	}
 
 	private void doCommonSetup(final FMLCommonSetupEvent event) {
-		OverworldGenerator.setupOreGeneration();
+		OverworldGenerator.setupOverworldGeneration();
+		NetherGenerator.setupNetherGenerator();
+		EndGenerator.setupEndGeneration();
 	}
 
 	/**

@@ -6,15 +6,15 @@
     " H "
   ],
   "key": {
-    "B": {
-      "item": "elementalitems:crystal_air"
-    },
     "H": {
       "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "elementalitems:crystal_air"
     }
   },
   "result": {
-    "item": "elementalitems:pickaxe_air",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:pickaxe_air"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "elementalitems:crystal_plain"
+  },
+  "result": "elementalitems:crystal_fire",
+  "experience": 1.0,
+  "cookingTime": 200
+}

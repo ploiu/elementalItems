@@ -1,17 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CCC",
-    "C C",
-    "C C"
+    "BBB",
+    "BHB",
+    "BBB"
   ],
   "key": {
-    "C": {
+    "H": {
       "item": "elementalitems:crystal_plain"
+    },
+    "B": {
+      "item": "minecraft:ender_pearl"
     }
   },
   "result": {
     "count": 1,
-    "item": "elementalitems:legs_plain"
+    "item": "elementalitems:crystal_ender"
   }
 }

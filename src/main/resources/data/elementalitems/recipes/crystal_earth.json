@@ -6,6 +6,9 @@
     "SSS"
   ],
   "key": {
+    "C": {
+      "item": "elementalitems:crystal_plain"
+    },
     "S": [
       {
         "item": "minecraft:black_terracotta"
@@ -55,13 +58,10 @@
       {
         "item": "minecraft:terracotta"
       }
-    ],
-    "C": {
-      "item": "elementalitems:crystal_plain"
-    }
+    ]
   },
   "result": {
-    "item": "elementalitems:crystal_earth",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:crystal_earth"
   }
 }

@@ -10,7 +10,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:feet_fire",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:feet_fire"
   }
 }

@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SCS",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "item": "elementalitems:crystal_plain"
+    },
+    "S": [
+      {
+        "item": "minecraft:acacia_leaves"
+      },
+      {
+        "item": "minecraft:birch_leaves"
+      },
+      {
+        "item": "minecraft:dark_oak_leaves"
+      },
+      {
+        "item": "minecraft:jungle_leaves"
+      },
+      {
+        "item": "minecraft:oak_leaves"
+      },
+      {
+        "item": "minecraft:spruce_leaves"
+      }
+    ]
+  },
+  "result": {
+    "count": 1,
+    "item": "elementalitems:crystal_leaf"
+  }
+}

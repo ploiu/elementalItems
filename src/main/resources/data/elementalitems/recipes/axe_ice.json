@@ -6,15 +6,15 @@
     "H "
   ],
   "key": {
-    "B": {
-      "item": "elementalitems:crystal_ice"
-    },
     "H": {
       "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "elementalitems:crystal_ice"
     }
   },
   "result": {
-    "item": "elementalitems:axe_ice",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:axe_ice"
   }
 }

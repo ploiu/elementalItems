@@ -6,15 +6,15 @@
     "O  "
   ],
   "key": {
-    "O": {
-      "item": "minecraft:obsidian"
-    },
     "F": {
       "item": "elementalitems:block_crystal_fire"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
     }
   },
   "result": {
-    "item": "elementalitems:flamethrower",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:flamethrower"
   }
 }

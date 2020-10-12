@@ -6,15 +6,15 @@
     "H"
   ],
   "key": {
-    "B": {
-      "item": "elementalitems:crystal_earth"
-    },
     "H": {
       "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "elementalitems:crystal_earth"
     }
   },
   "result": {
-    "item": "elementalitems:shovel_earth",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:shovel_earth"
   }
 }

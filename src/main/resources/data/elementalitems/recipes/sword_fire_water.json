@@ -9,7 +9,7 @@
     }
   ],
   "result": {
-    "item": "elementalitems:sword_fire_water",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:sword_fire_water"
   }
 }

@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:arrow_air",
-    "count": 4
+    "count": 4,
+    "item": "elementalitems:arrow_air"
   }
 }

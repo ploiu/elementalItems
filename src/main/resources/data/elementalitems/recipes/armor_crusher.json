@@ -6,18 +6,18 @@
     "O  "
   ],
   "key": {
-    "E": {
-      "item": "elementalitems:block_crystal_earth"
-    },
     "X": {
       "item": "elementalitems:crystal_earth"
+    },
+    "E": {
+      "item": "elementalitems:block_crystal_earth"
     },
     "O": {
       "item": "minecraft:obsidian"
     }
   },
   "result": {
-    "item": "elementalitems:warhammer",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:warhammer"
   }
 }

@@ -18,7 +18,7 @@ import static ploiu.elementalitems.blocks.ElementalItemsBlockRegistry.*;
 
 public class OverworldGenerator {
 
-	public static void setupOreGeneration() {
+	public static void setupOverworldGeneration() {
 		// get all the ores for the overworld
 		final List<BaseOre> ores = Arrays.asList(
 				plainCrystalOre,

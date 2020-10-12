@@ -11,7 +11,7 @@
     }
   },
   "result": {
-    "item": "elementalitems:legs_ice",
-    "count": 1
+    "count": 1,
+    "item": "elementalitems:legs_ice"
   }
 }
