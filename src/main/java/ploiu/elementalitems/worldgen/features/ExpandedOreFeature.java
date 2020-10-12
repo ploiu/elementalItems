@@ -111,18 +111,22 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 
 				for(int actualX = k; actualX <= i1; ++actualX) {
 					double xCoordChance = ((double) actualX + 0.5D - currentX) / coordinateContinueChance;
-					for(int actualY = k3; actualY <= j1; ++actualY) {
-						double yCoordChance = ((double) actualY + 0.5D - currentY) / coordinateContinueChance;
-						for(int actualZ = l; actualZ <= k1; ++actualZ) {
-							double zCoordChance = ((double) actualZ + 0.5D - currentZ) / coordinateContinueChance;
-							// if the coordinates all are less than 5, run one last check before generating the block
-							if(xCoordChance * xCoordChance + yCoordChance * yCoordChance + zCoordChance * zCoordChance < 1.0D) {
-								int k2 = actualX - x + (actualY - y) * p_207803_19_ + (actualZ - z) * p_207803_19_ * p_207803_20_;
-								if(!attemptedLocations.get(k2)) {
-									attemptedLocations.set(k2);
-									blockpos$mutableblockpos.setPos(actualX, actualY, actualZ);
-									if(generateBlock(world, blockpos$mutableblockpos, config)) {
-										i++;
+					if(xCoordChance * xCoordChance < 1.0D) {
+						for(int actualY = k3; actualY <= j1; ++actualY) {
+							double yCoordChance = ((double) actualY + 0.5D - currentY) / coordinateContinueChance;
+							if(yCoordChance * yCoordChance + xCoordChance * xCoordChance < 1.0D) {
+								for(int actualZ = l; actualZ <= k1; ++actualZ) {
+									double zCoordChance = ((double) actualZ + 0.5D - currentZ) / coordinateContinueChance;
+									// if the coordinates all are less than 5, run one last check before generating the block
+									if(xCoordChance * xCoordChance + yCoordChance * yCoordChance + zCoordChance * zCoordChance < 1.0D) {
+										int k2 = actualX - x + (actualY - y) * p_207803_19_ + (actualZ - z) * p_207803_19_ * p_207803_20_;
+										if(!attemptedLocations.get(k2)) {
+											attemptedLocations.set(k2);
+											blockpos$mutableblockpos.setPos(actualX, actualY, actualZ);
+											if(generateBlock(world, blockpos$mutableblockpos, config)) {
+												i++;
+											}
+										}
 									}
 								}
 							}

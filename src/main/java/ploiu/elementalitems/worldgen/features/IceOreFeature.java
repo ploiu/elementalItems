@@ -86,19 +86,23 @@ public class IceOreFeature extends ExpandedOreFeature {
 
 				for(int actualX = k; actualX <= i1; ++actualX) {
 					double xCoordChance = ((double) actualX + 0.5D - currentX) / coordinateContinueChance;
-					for(int actualY = k3; actualY <= j1; ++actualY) {
-						double yCoordChance = ((double) actualY + 0.5D - currentY) / coordinateContinueChance;
-						for(int actualZ = l; actualZ <= k1; ++actualZ) {
-							double zCoordChance = ((double) actualZ + 0.5D - currentZ) / coordinateContinueChance;
-							// if the coordinates all are less than 5, run one last check before generating the block
-							if(xCoordChance * xCoordChance + yCoordChance * yCoordChance + zCoordChance * zCoordChance < 5.0D) {
-								int k2 = actualX - x + (actualY - y) * p_207803_19_ + (actualZ - z) * p_207803_19_ * p_207803_20_;
-								if(!attemptedLocations.get(k2)) {
-									attemptedLocations.set(k2);
-									blockpos$mutableblockpos.setPos(actualX, actualY, actualZ);
-									if(config.target.getCanReplaceFunction().test(world.getBlockState(blockpos$mutableblockpos)) && world.getBlockState(blockpos$mutableblockpos.up()).getBlock().equals(Blocks.AIR)) {
-										world.setBlockState(blockpos$mutableblockpos, config.state, 2);
-										++i;
+					if(xCoordChance * xCoordChance < 1) {
+						for(int actualY = k3; actualY <= j1; ++actualY) {
+							double yCoordChance = ((double) actualY + 0.5D - currentY) / coordinateContinueChance;
+							if(xCoordChance * xCoordChance + yCoordChance * yCoordChance < 1) {
+								for(int actualZ = l; actualZ <= k1; ++actualZ) {
+									double zCoordChance = ((double) actualZ + 0.5D - currentZ) / coordinateContinueChance;
+									// if the coordinates all are less than 5, run one last check before generating the block
+									if(xCoordChance * xCoordChance + yCoordChance * yCoordChance + zCoordChance * zCoordChance < 1.0D) {
+										int k2 = actualX - x + (actualY - y) * p_207803_19_ + (actualZ - z) * p_207803_19_ * p_207803_20_;
+										if(!attemptedLocations.get(k2)) {
+											attemptedLocations.set(k2);
+											blockpos$mutableblockpos.setPos(actualX, actualY, actualZ);
+											if(config.target.getCanReplaceFunction().test(world.getBlockState(blockpos$mutableblockpos)) && world.getBlockState(blockpos$mutableblockpos.up()).getBlock().equals(Blocks.AIR)) {
+												world.setBlockState(blockpos$mutableblockpos, config.state, 2);
+												++i;
+											}
+										}
 									}
 								}
 							}
