@@ -4,6 +4,9 @@
 	"1.12.2-latest": "1.9.1",
 	"1.12.2-recommend": "1.9.1"
   },
+  "1.14.4": {
+  	"2.0": "complete rewrite to match new forge API for 1.14. all 1.14 versions will start with version 2.x"
+  },
   "1.12.2": {
 	"1.9.1": "fixed a bug with the recipe book's recipe for the air crystal",
   	"1.9": "added the armor crusher, which is a unique weapon to the earth set that deals immense damage to armor on top of strong attack power",
