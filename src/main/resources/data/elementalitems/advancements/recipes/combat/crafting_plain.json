@@ -6,11 +6,16 @@
 	  "elementalitems:chest_plain",
 	  "elementalitems:head_plain",
 	  "elementalitems:sword_plain",
+	  "elementalitems:shovel_plain",
 	  "elementalitems:axe_plain",
 	  "elementalitems:pickaxe_plain",
-	  "elementalitems:shovel_plain",
 	  "elementalitems:arrow_plain",
-	  "elementalitems:block_crystal_plain"
+	  "elementalitems:block_crystal_plain",
+	  "elementalitems:crystal_ice",
+	  "elementalitems:crystal_leaf",
+	  "elementalitems:crystal_earth",
+	  "elementalitems:crystal_air",
+	  "elementalitems:crystal_ender"
 	]
   },
   "criteria": {
