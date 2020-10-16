@@ -35,7 +35,6 @@ public class EarthCrystalOre extends BaseOre {
 				DIRT
 		);
 		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(
-				BiomeDictionary.Type.SANDY,
 				BiomeDictionary.Type.MESA,
 				BiomeDictionary.Type.MOUNTAIN
 		);
