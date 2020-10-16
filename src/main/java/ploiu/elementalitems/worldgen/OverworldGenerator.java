@@ -56,15 +56,6 @@ public class OverworldGenerator {
 						);
 					}
 				});
-				// also allow the ore to spawn in stone like normal ore pockets
-				if(!iceCrystalOre.equals(ore)) {
-					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-							Biome.createDecoratedFeature(
-									Feature.ORE,
-									new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ore.getDefaultState(), ore.getMaxVeinSize()),
-									Placement.COUNT_RANGE,
-									new CountRangeConfig(10, ore.getMinYGeneration(), 0, ore.getMaxYGeneration())));
-				}
 			});
 		}
 	}
