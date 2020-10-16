@@ -174,7 +174,7 @@ public class ElementalEffects {
 	public static void enchantWithSmite(ItemStack stack, Entity entity) {
 		if(isValidLivingEntity(entity)) {
 			// update the smite enchantment on the stack based on the player level
-			int smiteLevel = Math.min((int) Math.floor(EntityUtils.getPlayerLevel(entity) / 6f), 5);
+			int smiteLevel = Math.min((int) Math.floor(EntityUtils.getPlayerLevel(entity) / 6f), 4) + 1;
 			// remove the smite enchantment from the stack to prevent duplicate enchantments
 			ItemUtils.removeEnchantmentFromItem(stack, Enchantments.SMITE);
 			stack.addEnchantment(Enchantments.SMITE, smiteLevel);

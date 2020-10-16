@@ -33,5 +33,6 @@ public class PlainCrystalOre extends BaseOre {
 				SANDY,
 				SAVANNA
 		);
+		this.maxYGeneration = 50;
 	}
 }

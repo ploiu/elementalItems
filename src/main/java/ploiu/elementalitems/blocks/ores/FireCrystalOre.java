@@ -30,9 +30,10 @@ public class FireCrystalOre extends BaseOre {
 				BiomeDictionary.Type.DRY,
 				BiomeDictionary.Type.HILLS
 		);
-		this.biomesToGenerateIn.add(Biomes.NETHER);
+		this.maxYGeneration = 30;
 	}
 	
+	// for overriding by the nether crystal ore
 	protected FireCrystalOre(String registryName) {
 		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
 				                           .harvestTool(ToolType.PICKAXE)
