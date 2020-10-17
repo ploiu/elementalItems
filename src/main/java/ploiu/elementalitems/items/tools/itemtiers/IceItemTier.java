@@ -3,8 +3,7 @@ package ploiu.elementalitems.items.tools.itemtiers;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
-import static net.minecraft.item.ItemTier.DIAMOND;
-import static net.minecraft.item.ItemTier.IRON;
+import static net.minecraft.item.ItemTier.*;
 import static ploiu.elementalitems.items.ElementalItemsItemRegistry.iceCrystal;
 
 public class IceItemTier implements IItemTier {
@@ -30,7 +29,7 @@ public class IceItemTier implements IItemTier {
 
 	@Override
 	public int getEnchantability() {
-		return 50;
+		return GOLD.getEnchantability() * 2;
 	}
 
 	@Override
