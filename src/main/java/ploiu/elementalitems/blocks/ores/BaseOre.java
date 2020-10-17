@@ -3,6 +3,7 @@ package ploiu.elementalitems.blocks.ores;
 import com.google.common.base.Predicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -36,7 +37,7 @@ public abstract class BaseOre extends BaseBlock {
 	public BaseOre(ElementalTypes type) {
 		super(type, Properties.create(Material.ROCK)
 				            .harvestTool(ToolType.PICKAXE)
-				            .harvestLevel(3)
+				            .harvestLevel(Blocks.DIAMOND_ORE.getDefaultState().getHarvestLevel())
 				            .hardnessAndResistance(5.0f, 6.0f),
 				String.format("ore_%s", type.getTypeName()));
 	}

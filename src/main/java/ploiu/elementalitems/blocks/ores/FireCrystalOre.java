@@ -1,5 +1,6 @@
 package ploiu.elementalitems.blocks.ores;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.BiomeDictionary;
@@ -14,7 +15,7 @@ public class FireCrystalOre extends BaseOre {
 	public FireCrystalOre() {
 		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .harvestLevel(2)
+				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel())
 				                           .hardnessAndResistance(5.0f, 6.0f)
 				                           .lightValue(15));
 		this.blocksThisCanGenerateOver = Arrays.asList(
@@ -37,7 +38,7 @@ public class FireCrystalOre extends BaseOre {
 	protected FireCrystalOre(String registryName) {
 		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .harvestLevel(2)
+				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel())
 				                           .hardnessAndResistance(5.0f, 6.0f)
 				                           .lightValue(15), registryName);
 	}
