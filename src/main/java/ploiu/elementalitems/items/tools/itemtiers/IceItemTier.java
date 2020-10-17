@@ -4,6 +4,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
 import static net.minecraft.item.ItemTier.DIAMOND;
+import static net.minecraft.item.ItemTier.IRON;
 import static ploiu.elementalitems.items.ElementalItemsItemRegistry.iceCrystal;
 
 public class IceItemTier implements IItemTier {
@@ -24,7 +25,7 @@ public class IceItemTier implements IItemTier {
 
 	@Override
 	public int getHarvestLevel() {
-		return DIAMOND.getHarvestLevel() + 1;
+		return IRON.getHarvestLevel();
 	}
 
 	@Override

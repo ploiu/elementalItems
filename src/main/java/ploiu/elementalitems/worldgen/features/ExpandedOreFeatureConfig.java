@@ -68,7 +68,7 @@ public class ExpandedOreFeatureConfig implements IFeatureConfig {
 				return false;
 			} else {
 				Block block = blockState.getBlock();
-				return Blocks.ICE.equals(block) || Blocks.PACKED_ICE.equals(block) || Blocks.BLUE_ICE.equals(block) || Blocks.WATER.equals(block);
+				return Blocks.ICE.equals(block) || Blocks.PACKED_ICE.equals(block) || Blocks.BLUE_ICE.equals(block);
 			}
 		}),
 		EARTH_CRYSTAL("earth_crystal", (blockState) -> {
@@ -94,8 +94,7 @@ public class ExpandedOreFeatureConfig implements IFeatureConfig {
 						BLUE_TERRACOTTA,
 						BROWN_TERRACOTTA,
 						GREEN_TERRACOTTA,
-						RED_TERRACOTTA,
-						DIRT
+						RED_TERRACOTTA
 				);
 				boolean matches = false;
 				Block stateBlock = blockState.getBlock();
