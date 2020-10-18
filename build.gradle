@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0-mc1.14.4'
+version = '1.0.1-mc1.14.4'
 group = 'ploiu' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'elementalitems'
 

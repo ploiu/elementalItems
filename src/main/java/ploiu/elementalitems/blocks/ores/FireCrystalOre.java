@@ -15,7 +15,7 @@ public class FireCrystalOre extends BaseOre {
 	public FireCrystalOre() {
 		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel())
+				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel() + 1)
 				                           .hardnessAndResistance(5.0f, 6.0f)
 				                           .lightValue(15));
 		this.blocksThisCanGenerateOver = Arrays.asList(
@@ -38,7 +38,7 @@ public class FireCrystalOre extends BaseOre {
 	protected FireCrystalOre(String registryName) {
 		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel())
+				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel() + 1)
 				                           .hardnessAndResistance(5.0f, 6.0f)
 				                           .lightValue(15), registryName);
 	}

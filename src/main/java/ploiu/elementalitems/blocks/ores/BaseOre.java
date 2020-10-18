@@ -37,7 +37,7 @@ public abstract class BaseOre extends BaseBlock {
 	public BaseOre(ElementalTypes type) {
 		super(type, Properties.create(Material.ROCK)
 				            .harvestTool(ToolType.PICKAXE)
-				            .harvestLevel(Blocks.DIAMOND_ORE.getDefaultState().getHarvestLevel())
+				            .harvestLevel(Blocks.DIAMOND_ORE.getDefaultState().getHarvestLevel() + 1)
 				            .hardnessAndResistance(5.0f, 6.0f),
 				String.format("ore_%s", type.getTypeName()));
 	}
