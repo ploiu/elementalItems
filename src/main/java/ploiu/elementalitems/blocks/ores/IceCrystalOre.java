@@ -15,7 +15,9 @@ public class IceCrystalOre extends BaseOre {
 		super(ElementalTypes.ICE, Properties.create(Material.ICE)
 				                          .hardnessAndResistance(0.5f, 3.0f)
 				                          .slipperiness(0.98f)
-				                          .sound(SoundType.GLASS));
+				                          .sound(SoundType.GLASS)
+				                          .harvestLevel(0)
+		);
 		this.blocksThisCanGenerateOver = Arrays.asList(
 				Blocks.ICE,
 				Blocks.PACKED_ICE
