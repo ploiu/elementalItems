@@ -16,9 +16,8 @@ public class BaseEntityArrowRenderer extends ArrowRenderer<BaseEntityArrow> {
 		super(renderManager);
 	}
 
-	@Nullable
 	@Override
-	protected ResourceLocation getEntityTexture(BaseEntityArrow entity) {
+	public ResourceLocation getEntityTexture(BaseEntityArrow entity) {
 		String base = "elementalitems:textures/entity/projectiles/arrow_";
 		return new ResourceLocation(base + entity.getElementalType().getTypeName() + ".png");
 	}

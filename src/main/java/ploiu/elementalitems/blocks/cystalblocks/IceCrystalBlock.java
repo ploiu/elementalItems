@@ -1,7 +1,6 @@
 package ploiu.elementalitems.blocks.cystalblocks;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.common.ToolType;
 import ploiu.elementalitems.ElementalTypes;
 
@@ -11,11 +10,8 @@ public class IceCrystalBlock extends CrystalBlock {
 				                          .hardnessAndResistance(5.0f, 6.0f)
 				                          .harvestLevel(2)
 				                          .harvestTool(ToolType.PICKAXE)
-				                          .slipperiness(0.98f));
+				                          .slipperiness(0.98f)
+				                          .notSolid());
 	}
 
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.TRANSLUCENT;
-	}
 }

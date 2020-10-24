@@ -65,7 +65,7 @@ public class LivingEvents {
 						world.playSound(null, target.getPosition(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
 					if(world instanceof ServerWorld) {
-						((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, arrow.posX, arrow.posY, arrow.posZ, 2, arrow.getWidth(), arrow.getHeight(), arrow.getWidth(), 0.0);
+						((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, arrow.getPosX(), arrow.getPosY(), arrow.getPosZ(), 2, arrow.getWidth(), arrow.getHeight(), arrow.getWidth(), 0.0);
 					}
 				}
 			}

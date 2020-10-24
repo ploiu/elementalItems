@@ -108,7 +108,7 @@ public class FlamethrowerEntity extends ThrowableEntity {
 		// spawn fire particles after a little bit
 		if(this.ticksExisted >= 2 && this.world instanceof ServerWorld) {
 			ServerWorld worldServer = (ServerWorld) this.world;
-			worldServer.spawnParticle(ParticleTypes.FLAME, this.posX, this.posY, this.posZ, 3, this.getWidth() / 4, 0, 0, 0.0d);
+			worldServer.spawnParticle(ParticleTypes.FLAME, this.getPosX(), this.getPosY(), this.getPosZ(), 3, this.getWidth() / 4, 0, 0, 0.0d);
 			// grow our bounding box, capture any entities that aren't this and aren't our owner in it, and set them on fire
 			AxisAlignedBB expandedBoundingBox = this.getBoundingBox().grow(1, 1, 1);
 			worldServer.getEntitiesInAABBexcluding(this.ownerEntity, expandedBoundingBox, input -> !this.equals(input)).forEach(this::setEntityOnFire);
@@ -129,7 +129,7 @@ public class FlamethrowerEntity extends ThrowableEntity {
 					// spawn a bunch of particles
 					if(this.world instanceof ServerWorld) {
 						ServerWorld worldServer = (ServerWorld) this.world;
-						worldServer.spawnParticle(ParticleTypes.FLAME, this.posX, this.posY, this.posZ, 10, this.getWidth(), this.getHeight(), this.getWidth(), this.rand.nextGaussian() / 10);
+						worldServer.spawnParticle(ParticleTypes.FLAME, this.getPosX(), this.getPosY(), this.getPosZ(), 10, this.getWidth(), this.getHeight(), this.getWidth(), this.rand.nextGaussian() / 10);
 					}
 					this.remove();
 				}

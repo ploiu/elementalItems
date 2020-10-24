@@ -7,7 +7,6 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -15,9 +14,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
-import ploiu.elementalitems.client.render.entity.BaseEntityArrowRenderer;
+import ploiu.elementalitems.client.render.entity.ElementalItemsRenderingRegistry;
 import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
-import ploiu.elementalitems.entity.arrow.*;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.recipe.ElementalItemsRecipeRegistry;
 import ploiu.elementalitems.worldgen.EndGenerator;
@@ -38,20 +36,7 @@ public class ElementalItems {
 
 	private void doClientSetup(final FMLClientSetupEvent event) {
 		// register the elemental arrow renderer with our arrow entities
-		@SuppressWarnings("unchecked")
-		Class<BaseEntityArrow>[] elementalArrows = new Class[]{
-				EntityPlainArrow.class,
-				EntityFireArrow.class,
-				EntityIceArrow.class,
-				EntityWaterArrow.class,
-				EntityLeafArrow.class,
-				EntityEarthArrow.class,
-				EntityAirArrow.class,
-				EntityEnderArrow.class
-		};
-		for(Class<BaseEntityArrow> elementalArrow : elementalArrows) {
-			RenderingRegistry.registerEntityRenderingHandler(elementalArrow, BaseEntityArrowRenderer::new);
-		}
+		ElementalItemsRenderingRegistry.registerRenderers();
 	}
 
 	private void doCommonSetup(final FMLCommonSetupEvent event) {

@@ -3,7 +3,6 @@ package ploiu.elementalitems.blocks.ores;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.ToolType;
 import ploiu.elementalitems.ElementalTypes;
@@ -17,6 +16,7 @@ public class IceCrystalOre extends BaseOre {
 				                          .slipperiness(0.98f)
 				                          .sound(SoundType.GLASS)
 				                          .harvestLevel(0)
+				                          .notSolid()
 		);
 		this.blocksThisCanGenerateOver = Arrays.asList(
 				Blocks.ICE,
@@ -30,9 +30,5 @@ public class IceCrystalOre extends BaseOre {
 		this.maxVeinSize = 10;
 		this.spawnChances = 100;
 		this.maxYGeneration = 255;
-	}
-
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.TRANSLUCENT;
 	}
 }

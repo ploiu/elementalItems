@@ -6,6 +6,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
@@ -59,7 +60,7 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 	protected boolean generateBlock(IWorld world, Random random, ExpandedOreFeatureConfig config, double xStart, double xEnd, double zStart, double zEnd, double yMin, double yMax, int x, int y, int z, int p_207803_19_, int p_207803_20_) {
 		int i = 0;
 		BitSet attemptedLocations = new BitSet(p_207803_19_ * p_207803_20_ * p_207803_19_);
-		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+		BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 		double[] coordinateSets = new double[config.size * 4];
 		/** BUILD COORDINATE SETS **/
 		for(int j = 0; j < config.size; ++j) {

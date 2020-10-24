@@ -63,7 +63,7 @@ public class ElementalEffects {
 			if(!world.isRemote()) {
 				world.playSound(null, target.getPosition(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
 			}
-			target.knockBack(target, 2F, user.posX - target.posX, user.posZ - target.posZ);
+			target.knockBack(target, 2F, user.getPosX() - target.getPosX(), user.getPosZ() - target.getPosZ());
 			// launch it into the air, based on the target's knockBack resistance
 			target.addVelocity(0, target.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).getValue() + 1, 0);
 		}
@@ -91,7 +91,7 @@ public class ElementalEffects {
 			}
 			target.setBoundingBox(target.getBoundingBox().offset(0, -distance, 0));
 			target.resetPositionToBB();
-			target.fall(distance, 2);
+			target.onLivingFall(distance, 2);
 		}
 	}
 
@@ -121,7 +121,7 @@ public class ElementalEffects {
 	 */
 	public static void throwSnowball(World world, PlayerEntity player) {
 		if(isValidLivingEntity(player)) {
-			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+			world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 			if(!world.isRemote) {
 				SnowballEntity snowballentity = new SnowballEntity(world, player);
 				snowballentity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3F, 1.0F);
@@ -142,7 +142,7 @@ public class ElementalEffects {
 			int max = 10;
 			int newX = target.getRNG().nextInt(max - min) + min + target.getPosition().getX();
 			int newZ = target.getRNG().nextInt(max - min) + min + target.getPosition().getZ();
-			target.attemptTeleport(newX, target.posY, newZ, true);
+			target.attemptTeleport(newX, target.getPosY(), newZ, true);
 			target.getEntityWorld().playSound(null, target.prevPosX, target.prevPosY, target.prevPosZ, SoundEvents.ENTITY_ENDERMAN_TELEPORT, target.getSoundCategory(), 1.0F, 1.0F);
 			target.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0F, 1.0F);
 		}

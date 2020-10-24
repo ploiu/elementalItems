@@ -86,7 +86,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 		// spawn all the particle types associated with this
 		particlesToSpawn.forEach((type, count) -> {
 			// use the worldServer to spawn the particles
-			worldServer.spawnParticle(type, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, count, targetToSpawnParticlesAt.getWidth(), targetToSpawnParticlesAt.getHeight(), targetToSpawnParticlesAt.getWidth(), 0.0);
+			worldServer.spawnParticle(type, targetToSpawnParticlesAt.getPosX(), targetToSpawnParticlesAt.getPosY(), targetToSpawnParticlesAt.getPosZ(), count, targetToSpawnParticlesAt.getWidth(), targetToSpawnParticlesAt.getHeight(), targetToSpawnParticlesAt.getWidth(), 0.0);
 		});
 	}
 

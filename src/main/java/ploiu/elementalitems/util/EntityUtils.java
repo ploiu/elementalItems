@@ -104,7 +104,7 @@ public class EntityUtils {
 	public static void dropItemsInWorld(@Nonnull World world, @Nonnull LivingEntity target, List<ItemStack> itemsToDrop) {
 		itemsToDrop.forEach(itemStack -> {
 			// create a new Item to be dropped into the world
-			ItemEntity itemStackEntity = new ItemEntity(world, target.posX, target.posY, target.posZ, itemStack);
+			ItemEntity itemStackEntity = new ItemEntity(world, target.getPosX(), target.getPosY(), target.getPosZ(), itemStack);
 			itemStackEntity.setDefaultPickupDelay();
 			world.addEntity(itemStackEntity);
 		});

@@ -123,7 +123,7 @@ public class DualSword extends BaseSword {
 			particles.putAll(ElementalUtils.getParticlesForElementalType(this.type2));
 		}
 		// now spawn our particles
-		particles.forEach((particleType, count) -> worldServer.spawnParticle(particleType, targetToSpawnParticlesAt.posX, targetToSpawnParticlesAt.posY, targetToSpawnParticlesAt.posZ, count, targetToSpawnParticlesAt.getWidth(), targetToSpawnParticlesAt.getHeight(), targetToSpawnParticlesAt.getWidth(), 0.0));
+		particles.forEach((particleType, count) -> worldServer.spawnParticle(particleType, targetToSpawnParticlesAt.getPosX(), targetToSpawnParticlesAt.getPosY(), targetToSpawnParticlesAt.getPosZ(), count, targetToSpawnParticlesAt.getWidth(), targetToSpawnParticlesAt.getHeight(), targetToSpawnParticlesAt.getWidth(), 0.0));
 	}
 
 	@Override

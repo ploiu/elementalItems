@@ -1,9 +1,6 @@
 package ploiu.elementalitems.worldgen;
 
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import ploiu.elementalitems.ElementalTypes;
@@ -34,24 +31,23 @@ public class OverworldGenerator {
 			ore.getBiomesToGenerateIn().forEach(biome -> {
 				// for each block that can be replaced by the ore, add a feature to the biome
 				ore.getBlocksToGenerateOver().forEach(block -> {
-					ExpandedOreFeatureConfig.FillerBlockType fillerBlockType = null;
 					// get the type of blocks to replace with this ore
 					if(iceCrystalOre.equals(ore)) {
-						biome.addFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION,
-								Biome.createDecoratedFeature(
-										ElementalItemsFeatureRegistry.iceOreFeature,
-										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize()),
-										Placement.COUNT_RANGE,
-										new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration())
+						biome.addFeature(
+								GenerationStage.Decoration.UNDERGROUND_ORES,
+								ElementalItemsFeatureRegistry.iceOreFeature.withConfiguration(
+										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize())
+								).withPlacement(
+										Placement.COUNT_RANGE.configure(new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration()))
 								)
 						);
 					} else {
-						biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-								Biome.createDecoratedFeature(
-										ElementalItemsFeatureRegistry.expandedOreFeature,
-										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize()),
-										Placement.COUNT_RANGE,
-										new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration())
+						biome.addFeature(
+								GenerationStage.Decoration.UNDERGROUND_ORES,
+								ElementalItemsFeatureRegistry.expandedOreFeature.withConfiguration(
+										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize())
+								).withPlacement(
+										Placement.COUNT_RANGE.configure(new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration()))
 								)
 						);
 					}

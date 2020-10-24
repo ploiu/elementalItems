@@ -1,9 +1,6 @@
 package ploiu.elementalitems.worldgen;
 
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
@@ -18,11 +15,10 @@ public class EndGenerator {
 		ore.getBiomesToGenerateIn().forEach(biome -> {
 			biome.addFeature(
 					GenerationStage.Decoration.UNDERGROUND_ORES,
-					Biome.createDecoratedFeature(
-							ElementalItemsFeatureRegistry.expandedOreFeature,
-							new ExpandedOreFeatureConfig(ExpandedOreFeatureConfig.FillerBlockType.ENDER_CRYSTAL, ore.getDefaultState(), ore.getMaxVeinSize()),
-							Placement.COUNT_RANGE,
-							new CountRangeConfig(10, ore.getMinYGeneration(), 0, ore.getMaxYGeneration())
+					ElementalItemsFeatureRegistry.expandedOreFeature.withConfiguration(
+							new ExpandedOreFeatureConfig(ExpandedOreFeatureConfig.FillerBlockType.ENDER_CRYSTAL, ore.getDefaultState(), ore.getMaxVeinSize())
+					).withPlacement(
+							Placement.COUNT_RANGE.configure(new CountRangeConfig(10, ore.getMinYGeneration(), 0, ore.getMaxYGeneration()))
 					)
 			);
 		});

@@ -21,7 +21,7 @@ public interface ISharedEnderToolEffects {
 	default void teleportItemsToOwnerInventory(World world, BlockState blockState, BlockPos blockPos, LivingEntity user) {
 		if(world instanceof ServerWorld && EntityUtils.isValidLivingEntity(user) && user instanceof PlayerEntity) {
 			final List<ItemStack> blockDrops = new ArrayList<>();
-			if(world.getTileEntity(blockPos) instanceof IInventory) {
+			if(world.getTileEntity(blockPos) instanceof IInventory && world.getTileEntity(blockPos) != null) {
 				blockDrops.addAll(Utils.getContainerItems((IInventory) world.getTileEntity(blockPos)));
 			}
 			PlayerEntity player = (PlayerEntity) user;
@@ -31,7 +31,7 @@ public interface ISharedEnderToolEffects {
 			List<ItemStack> didNotFitInInventory = blockDrops.stream().filter(drop -> !player.addItemStackToInventory(drop)).collect(Collectors.toList());
 			// for the drops that did not fit, spawn them at the player's feet
 			for(ItemStack stack : didNotFitInInventory) {
-				ItemEntity droppedItem = new ItemEntity(world, player.posX, player.posY, player.posZ, stack);
+				ItemEntity droppedItem = new ItemEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), stack);
 				world.addEntity(droppedItem);
 			}
 			// destroy the block so that we don't duplicate drops

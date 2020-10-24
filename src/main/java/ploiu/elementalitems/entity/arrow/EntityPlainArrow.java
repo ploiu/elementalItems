@@ -21,7 +21,7 @@ public class EntityPlainArrow extends BaseEntityArrow {
 	public EntityPlainArrow(World worldIn, LivingEntity shooter) {
 		super(ElementalItemsEntityRegistry.plainArrowEntity, worldIn, shooter, ElementalTypes.PLAIN);
 	}
-	
+
 	@Override
 	public void hitEntity(EntityRayTraceResult rayTraceResult) {
 		// no-op
