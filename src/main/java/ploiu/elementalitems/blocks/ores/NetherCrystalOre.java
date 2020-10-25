@@ -45,7 +45,7 @@ public class NetherCrystalOre extends FireCrystalOre {
 	@Override
 	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid) {
 		// don't want to destroy their builds or anything
-		if(!player.abilities.isCreativeMode && this.RANDOM.nextInt(10) < 2) {
+		if(!player.abilities.isCreativeMode && this.RANDOM.nextInt(10) == 1) {
 			return super.removedByPlayer(state, world, pos, player, willHarvest, Fluids.LAVA.getStillFluidState(false));
 		} else {
 			return super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
