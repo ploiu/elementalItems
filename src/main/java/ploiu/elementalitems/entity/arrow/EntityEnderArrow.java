@@ -37,12 +37,12 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	@Override
 	public void hitBlock(BlockRayTraceResult rayTraceResult) {
 		// if the world is not remote and our shooter is a valid entity, attempt to teleport our shooter to where the arrow landed
-		if(!this.world.isRemote && EntityUtils.isValidLivingEntity(this.getShooter())) {
-			EnderTeleportEvent event = new EnderTeleportEvent((LivingEntity) this.getShooter(), this.getPosX(), this.getPosY(), this.getPosZ(), 0);
-			this.getShooter().setPositionAndUpdate(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+		if(!this.world.isRemote && EntityUtils.isValidLivingEntity(this.func_234616_v_())) {
+			EnderTeleportEvent event = new EnderTeleportEvent((LivingEntity) this.func_234616_v_(), this.getPosX(), this.getPosY(), this.getPosZ(), 0);
+			this.func_234616_v_().setPositionAndUpdate(event.getTargetX(), event.getTargetY(), event.getTargetZ());
 			// play the sounds
-			this.world.playSound(null, this.getShooter().getPosition().getX(), this.getShooter().getPosition().getY(), this.getShooter().getPosition().getZ(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-			this.getShooter().playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
+			this.world.playSound(null, this.func_234616_v_().getPosX(), this.func_234616_v_().getPosY(), this.func_234616_v_().getPosZ(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+			this.func_234616_v_().playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
 		}
 	}
 }

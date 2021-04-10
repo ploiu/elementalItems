@@ -1,10 +1,9 @@
 package ploiu.elementalitems.blocks.ores;
 
-import net.minecraft.block.Blocks;
-import net.minecraftforge.common.BiomeDictionary;
 import ploiu.elementalitems.ElementalTypes;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import static net.minecraft.block.Blocks.*;
 
@@ -34,10 +33,7 @@ public class EarthCrystalOre extends BaseOre {
 				RED_TERRACOTTA,
 				DIRT
 		);
-		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(
-				BiomeDictionary.Type.MESA,
-				BiomeDictionary.Type.MOUNTAIN
-		);
+		this.biomesToGenerateIn = new HashSet<>(); // MESA and MOUNTAIN
 		this.maxYGeneration = 100; // not too high up, but high enough to replace clay and stuff in mesas
 	}
 }

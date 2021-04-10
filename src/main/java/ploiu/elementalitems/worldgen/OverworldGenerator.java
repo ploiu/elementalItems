@@ -1,14 +1,18 @@
 package ploiu.elementalitems.worldgen;
 
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.placement.CountRangeConfig;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.blocks.ores.BaseOre;
 import ploiu.elementalitems.worldgen.features.ElementalItemsFeatureRegistry;
 import ploiu.elementalitems.worldgen.features.ExpandedOreFeatureConfig;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import static ploiu.elementalitems.blocks.ElementalItemsBlockRegistry.*;
@@ -27,32 +31,11 @@ public class OverworldGenerator {
 				airCrystalOre
 		);
 		// for each base ore, register it with the biome to generate
-		for(BaseOre ore : ores) {
-			ore.getBiomesToGenerateIn().forEach(biome -> {
-				// for each block that can be replaced by the ore, add a feature to the biome
-				ore.getBlocksToGenerateOver().forEach(block -> {
-					// get the type of blocks to replace with this ore
-					if(iceCrystalOre.equals(ore)) {
-						biome.addFeature(
-								GenerationStage.Decoration.UNDERGROUND_ORES,
-								ElementalItemsFeatureRegistry.iceOreFeature.withConfiguration(
-										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize())
-								).withPlacement(
-										Placement.COUNT_RANGE.configure(new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration()))
-								)
-						);
-					} else {
-						biome.addFeature(
-								GenerationStage.Decoration.UNDERGROUND_ORES,
-								ElementalItemsFeatureRegistry.expandedOreFeature.withConfiguration(
-										new ExpandedOreFeatureConfig(getFillerBlockForElementalType(ore.getType()), ore.getDefaultState(), ore.getMaxVeinSize())
-								).withPlacement(
-										Placement.COUNT_RANGE.configure(new CountRangeConfig(ore.getMaxVeinSize(), ore.getMinYGeneration(), 0, ore.getMaxYGeneration()))
-								)
-						);
-					}
-				});
-			});
+		// FIXME this is a temporary test for some crystals
+		final Collection<Biome> biomes = plainCrystalOre.getBiomesToGenerateIn();
+		BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+		for(Biome biome: biomes) {
+			biomeBuilder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ElementalItemsFeatureRegistry.CRYSTAL_PLAIN_FEATURE);
 		}
 	}
 

@@ -1,12 +1,11 @@
 package ploiu.elementalitems.blocks.ores;
 
-import net.minecraftforge.common.BiomeDictionary;
 import ploiu.elementalitems.ElementalTypes;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import static net.minecraft.block.Blocks.*;
-import static net.minecraftforge.common.BiomeDictionary.Type.*;
 
 public class PlainCrystalOre extends BaseOre {
 
@@ -17,7 +16,7 @@ public class PlainCrystalOre extends BaseOre {
 				COBBLESTONE,
 				GRAVEL
 		);
-		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(
+		this.biomesToGenerateIn = new HashSet<>(); /*this.getBiomesToGenerateInFromTypes(
 				WET,
 				DRY,
 				HOT,
@@ -32,7 +31,7 @@ public class PlainCrystalOre extends BaseOre {
 				BEACH,
 				SANDY,
 				SAVANNA
-		);
+		);*/
 		this.maxYGeneration = 50;
 	}
 }

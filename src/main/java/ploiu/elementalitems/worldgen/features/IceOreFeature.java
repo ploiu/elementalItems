@@ -1,18 +1,15 @@
 package ploiu.elementalitems.worldgen.features;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.OreFeature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 import java.util.BitSet;
 import java.util.Random;
-import java.util.function.Function;
 
 /**
  * Like {@link ExpandedOreFeatureConfig}, this class is the result of not being able to directly extend a class. (in this case it's {@link OreFeature}
@@ -26,10 +23,9 @@ import java.util.function.Function;
  * I may be missing something that allows me to not do this. If I find that, this class will be removed.
  */
 public class IceOreFeature extends ExpandedOreFeature {
-	public IceOreFeature(Function<Dynamic<?>, ? extends ExpandedOreFeatureConfig> p_i51472_1_) {
-		super(p_i51472_1_);
+	public IceOreFeature(Codec<ExpandedOreFeatureConfig> codec) {
+		super(codec);
 	}
-
 	@Override
 	protected boolean generateBlock(IWorld world, Random random, ExpandedOreFeatureConfig config, double xStart, double xEnd, double zStart, double zEnd, double yMin, double yMax, int x, int y, int z, int p_207803_19_, int p_207803_20_) {
 		int i = 0;

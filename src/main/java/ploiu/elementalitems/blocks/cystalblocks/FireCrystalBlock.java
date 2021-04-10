@@ -11,6 +11,6 @@ public class FireCrystalBlock extends CrystalBlock {
 				                           .hardnessAndResistance(5.0f, 6.0f)
 				                           .harvestLevel(2)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .lightValue(15));
+				                           .setLightLevel(state -> 15));
 	}
 }

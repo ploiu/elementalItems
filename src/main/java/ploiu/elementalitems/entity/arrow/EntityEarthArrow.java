@@ -31,7 +31,7 @@ public class EntityEarthArrow extends BaseEntityArrow {
 		// if the target is on the ground, bury them. Else strike them down
 		if(EntityUtils.isValidLivingEntity(rayTraceResult.getEntity())) {
 			LivingEntity entity = (LivingEntity) rayTraceResult.getEntity();
-			if(entity.onGround) {
+			if(entity.func_233570_aj_()) {
 				ElementalEffects.bury(entity);
 			} else {
 				ElementalEffects.strikeDown(entity);

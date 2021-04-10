@@ -3,12 +3,7 @@ package ploiu.elementalitems.entity.flamethrower;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.DamagingProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.entity.projectile.ThrowableEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.*;
@@ -28,14 +23,14 @@ public class FlamethrowerEntity extends ThrowableEntity {
 		super(ElementalItemsEntityRegistry.flamethrowerEntity, livingEntityIn, worldIn);
 		this.ownerEntity = livingEntityIn;
 		this.setNoGravity(true);
-		this.owner = this.ownerEntity;
+		this.setShooter(this.ownerEntity);
 	}
 
 	public FlamethrowerEntity(EntityType<? extends ThrowableEntity> type, World worldIn) {
 		super(type, worldIn);
 		this.ownerEntity = null;
 		this.setNoGravity(true);
-		this.owner = this.ownerEntity;
+		this.setShooter(this.ownerEntity);
 	}
 
 	
@@ -90,9 +85,9 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	}
 
 	public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
-		super.shoot(entityThrower, rotationPitchIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
+		super.shoot(rotationPitchIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
 		if(EntityUtils.isValidLivingEntity(entityThrower)) {
-			this.owner = (LivingEntity) entityThrower;
+			this.setShooter(entityThrower);
 			this.ownerEntity = (LivingEntity) entityThrower;
 		}
 	}
@@ -142,11 +137,6 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	}
 
 	@Override
-	protected void dealFireDamage(int amount) {
-		// no-op (immune to fire)
-	}
-
-	@Override
 	public boolean isInvisible() {
 		return true;
 	}
@@ -162,7 +152,7 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	 * @param target the entity we want to set on fire
 	 */
 	private void setEntityOnFire(@Nullable Entity target) {
-		if(EntityUtils.isValidLivingEntity(target) && !target.isImmuneToFire() && !target.equals(this.ownerEntity)) {
+		if(EntityUtils.isValidLivingEntity(target) && !target.equals(this.ownerEntity)) {
 			target.setFire(5);
 		}
 	}

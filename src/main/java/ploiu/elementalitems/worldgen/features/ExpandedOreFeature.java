@@ -1,19 +1,17 @@
 package ploiu.elementalitems.worldgen.features;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 import java.util.BitSet;
 import java.util.Random;
-import java.util.function.Function;
 
 /**
  * Like {@link ExpandedOreFeatureConfig}, this class is the result of not being able to directly extend a class. (in this case it's {@link OreFeature}
@@ -27,11 +25,11 @@ import java.util.function.Function;
  * I may be missing something that allows me to not do this. If I find that, this class will be removed.
  */
 public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
-	public ExpandedOreFeature(Function<Dynamic<?>, ? extends ExpandedOreFeatureConfig> p_i51472_1_) {
-		super(p_i51472_1_);
+	public ExpandedOreFeature(Codec<ExpandedOreFeatureConfig> codec) {
+		super(codec);
 	}
 
-	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, ExpandedOreFeatureConfig config) {
+	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, ExpandedOreFeatureConfig config) {
 		float f = rand.nextFloat() * (float) Math.PI;
 		float f1 = (float) config.size / 8.0F;
 		int i = MathHelper.ceil(((float) config.size / 16.0F * 2.0F + 1.0F) / 2.0F);
@@ -50,7 +48,7 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 
 		for(int l1 = k; l1 <= k + j1; ++l1) {
 			for(int i2 = i1; i2 <= i1 + j1; ++i2) {
-				return this.generateBlock(worldIn, rand, config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
+				return this.generateBlock(reader, rand, config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
 			}
 		}
 

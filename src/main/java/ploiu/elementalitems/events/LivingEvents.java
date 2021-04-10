@@ -62,7 +62,7 @@ public class LivingEvents {
 					World world = target.getEntityWorld();
 					// play a sound and spawn particles to give sensory cues as to the arrow getting sent back to the attacker
 					if(!world.isRemote()) {
-						world.playSound(null, target.getPosition(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
+						world.playSound(null, target.getPosX(), target.getPosY(), target.getPosZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
 					if(world instanceof ServerWorld) {
 						((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, arrow.getPosX(), arrow.getPosY(), arrow.getPosZ(), 2, arrow.getWidth(), arrow.getHeight(), arrow.getWidth(), 0.0);

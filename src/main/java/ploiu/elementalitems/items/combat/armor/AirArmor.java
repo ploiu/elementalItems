@@ -30,9 +30,9 @@ public class AirArmor extends BaseArmorItem {
 			float effectMultiplier = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.AIR, wearer) / 4f;
 			// knockback the attacker
 			if(!world.isRemote()) {
-				world.playSound(null, wearer.getPosition(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
+				world.playSound(null, wearer.getPosX(), wearer.getPosY(), wearer.getPosZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 			}
-			attacker.knockBack(wearer, effectMultiplier, -MathHelper.sin(attacker.rotationYaw * 0.017453292F), MathHelper.cos(attacker.rotationYaw * 0.017453292F));
+			attacker.func_233627_a_(effectMultiplier, -MathHelper.sin(attacker.rotationYaw * 0.017453292F), MathHelper.cos(attacker.rotationYaw * 0.017453292F));
 			// spawn particles to signify the attacker flying back
 			if(world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, attacker.getPosX(), attacker.getPosY(), attacker.getPosZ(), 10, attacker.getWidth(), attacker.getHeight(), attacker.getWidth(), 0.0);

@@ -13,11 +13,11 @@ public class EndCrystalOre extends BaseOre {
 		super(ElementalTypes.ENDER);
 		this.blocksThisCanGenerateOver = Collections.singletonList(Blocks.END_STONE);
 		this.biomesToGenerateIn = new HashSet<>();
-		this.biomesToGenerateIn.add(Biomes.END_BARRENS);
+		/*this.biomesToGenerateIn.add(Biomes.END_BARRENS);
 		this.biomesToGenerateIn.add(Biomes.END_HIGHLANDS);
 		this.biomesToGenerateIn.add(Biomes.END_MIDLANDS);
 		this.biomesToGenerateIn.add(Biomes.SMALL_END_ISLANDS);
-		this.biomesToGenerateIn.add(Biomes.THE_END);
+		this.biomesToGenerateIn.add(Biomes.THE_END);*/
 		this.minYGeneration = 0;
 		this.maxYGeneration = 255;
 		this.maxVeinSize = 10;

@@ -1,17 +1,21 @@
 package ploiu.elementalitems.worldgen.features;
 
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.feature.*;
 import net.minecraftforge.event.RegistryEvent;
+import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
 
 @SuppressWarnings("unchecked")
 public class ElementalItemsFeatureRegistry {
-	public static Feature<ExpandedOreFeatureConfig> expandedOreFeature = (Feature<ExpandedOreFeatureConfig>) new ExpandedOreFeature(ExpandedOreFeatureConfig::deserialize).setRegistryName("expanded_ore_feature");
-	public static Feature<ExpandedOreFeatureConfig> iceOreFeature = (Feature<ExpandedOreFeatureConfig>) new IceOreFeature(ExpandedOreFeatureConfig::deserialize).setRegistryName("expanded_ore_feature_ice");
+	public static final ConfiguredFeature<?, ?> CRYSTAL_PLAIN_FEATURE = register("ore_crystal_plain",
+			Feature.ORE.withConfiguration(
+					new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ElementalItemsBlockRegistry.plainCrystalOre.getDefaultState(), 9))
+					.range(64)
+					.square()
+					.func_242731_b(20));
 
-	public static void registerFeatures(final RegistryEvent.Register<Feature<?>> event) {
-		event.getRegistry().registerAll(
-				expandedOreFeature,
-				iceOreFeature
-		);
+	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
+		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, key, configuredFeature);
 	}
 }

@@ -21,7 +21,9 @@ public class CrystalBlock extends BaseBlock {
 		super(type, properties, String.format("block_crystal_%s", type.getTypeName()));
 	}
 
-	@Override
+	
+	
+	// @Override TODO figure out alternative
 	public boolean isBeaconBase(BlockState state, IWorldReader world, BlockPos pos, BlockPos beacon) {
 		return true;
 	}

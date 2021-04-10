@@ -1,8 +1,5 @@
 package ploiu.elementalitems.worldgen.features;
 
-import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.Dynamic;
-import com.mojang.datafixers.types.DynamicOps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -17,7 +14,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static net.minecraft.block.Blocks.*;
-import static net.minecraft.block.Blocks.DIRT;
 
 /**
  * This class is meant to expand upon {@link OreFeatureConfig}, but can't do so directly because I would have to use the
@@ -36,18 +32,7 @@ public class ExpandedOreFeatureConfig implements IFeatureConfig {
 		this.target = target;
 	}
 
-	public static ExpandedOreFeatureConfig deserialize(Dynamic<?> dynamic) {
-		int veinSize = dynamic.get("size").asInt(0);
-		ExpandedOreFeatureConfig.FillerBlockType orefeatureconfig$fillerblocktype = ExpandedOreFeatureConfig.FillerBlockType.getFillerBlockTypeByName(dynamic.get("target").asString(""));
-		BlockState blockstate = dynamic.get("state").map(BlockState::deserialize).orElse(Blocks.AIR.getDefaultState());
-		return new ExpandedOreFeatureConfig(orefeatureconfig$fillerblocktype, blockstate, veinSize);
-	}
-
-	public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
-		return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("size"), ops.createInt(this.size), ops.createString("target"), ops.createString(this.target.getName()), ops.createString("state"), BlockState.serialize(ops, this.state).getValue())));
-	}
-
-	public static enum FillerBlockType {
+	public enum FillerBlockType {
 		/**
 		 * VANILLA ENUM PARTS
 		 **/

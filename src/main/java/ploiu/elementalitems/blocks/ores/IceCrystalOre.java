@@ -3,11 +3,10 @@ package ploiu.elementalitems.blocks.ores;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.ToolType;
 import ploiu.elementalitems.ElementalTypes;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class IceCrystalOre extends BaseOre {
 	public IceCrystalOre() {
@@ -22,11 +21,11 @@ public class IceCrystalOre extends BaseOre {
 				Blocks.ICE,
 				Blocks.PACKED_ICE
 		);
-		this.biomesToGenerateIn = this.getBiomesToGenerateInFromTypes(
+		this.biomesToGenerateIn = new HashSet<>();/* this.getBiomesToGenerateInFromTypes(
 				BiomeDictionary.Type.COLD,
 				BiomeDictionary.Type.SNOWY,
 				BiomeDictionary.Type.MOUNTAIN
-		);
+		);*/
 		this.maxVeinSize = 10;
 		this.spawnChances = 100;
 		this.maxYGeneration = 255;
