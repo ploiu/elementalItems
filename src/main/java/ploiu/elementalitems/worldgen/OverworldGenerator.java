@@ -6,6 +6,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraftforge.registries.ForgeRegistries;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.blocks.ores.BaseOre;
 import ploiu.elementalitems.worldgen.features.ElementalItemsFeatureRegistry;
@@ -32,7 +33,7 @@ public class OverworldGenerator {
 		);
 		// for each base ore, register it with the biome to generate
 		// FIXME this is a temporary test for some crystals
-		final Collection<Biome> biomes = plainCrystalOre.getBiomesToGenerateIn();
+		final Collection<Biome> biomes = ForgeRegistries.BIOMES.getValues();
 		BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
 		for(Biome biome: biomes) {
 			biomeBuilder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ElementalItemsFeatureRegistry.CRYSTAL_PLAIN_FEATURE);

@@ -16,7 +16,7 @@ public class LootTableHelper {
 		// get the minecraft version of the loot table
 		final String MCLootTable = "minecraft:" + lootTable;
 		if(event.getName().toString().equalsIgnoreCase(MCLootTable)) {
-			event.getTable().addPool(LootPool.builder().addEntry(TableLootEntry.builder(new ResourceLocation("elementalitems", lootTable))).build());
+			event.getTable().addPool(new LootPool.Builder().addEntry(TableLootEntry.builder(new ResourceLocation("elementalitems", lootTable))).build());
 		}
 	}
 }

@@ -66,7 +66,7 @@ public class Flamethrower extends BaseItem {
 				}
 				// play the same sound for a fireball being launched if the config allows it TODO
 				// if(ElementalItemsConfig.shouldFlamethrowerMakeSound) {
-				world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.75F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
+				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.75F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
 				// }
 			}
 		}

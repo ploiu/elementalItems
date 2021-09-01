@@ -18,22 +18,22 @@ import javax.annotation.Nullable;
 public class FlamethrowerEntity extends ThrowableEntity {
 
 	protected LivingEntity ownerEntity;
+	private int ticksExisted = 0;
 
 	public FlamethrowerEntity(LivingEntity livingEntityIn, World worldIn) {
 		super(ElementalItemsEntityRegistry.flamethrowerEntity, livingEntityIn, worldIn);
 		this.ownerEntity = livingEntityIn;
 		this.setNoGravity(true);
-		this.setShooter(this.ownerEntity);
+		this.setOwner(this.ownerEntity);
 	}
 
 	public FlamethrowerEntity(EntityType<? extends ThrowableEntity> type, World worldIn) {
 		super(type, worldIn);
 		this.ownerEntity = null;
 		this.setNoGravity(true);
-		this.setShooter(this.ownerEntity);
+		this.setOwner(this.ownerEntity);
 	}
 
-	
 	/**
 	 * checks our config file, and if it's set to allow this entity to set blocks on fire, set the block this entity hit on fire
 	 *
@@ -41,12 +41,12 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	 */
 	private void setHitBlockOnFireIfConfigAllowsIt(BlockRayTraceResult result) {
 		// if(ElementalItemsConfig.shouldFlamethrowerSetBlocksOnFire) { TODO
-		BlockPos positionHit = result.getPos();
-		BlockState fire = Blocks.FIRE.getDefaultState();
+		BlockPos positionHit = result.getBlockPos();
+		BlockState fire = Blocks.FIRE.defaultBlockState();
 		// set the block this is on on fire
-		if(this.world.getBlockState(positionHit).getMaterial().isFlammable() && (!this.world.getBlockState(positionHit.offset(result.getFace())).getMaterial().isLiquid())) {
-			BlockPos blockPosForFire = positionHit.offset(result.getFace());
-			this.world.setBlockState(blockPosForFire, fire, 11);
+		if(this.level.getBlockState(positionHit).getMaterial().isFlammable() && (!this.level.getBlockState(positionHit.offset(result.getDirection().getNormal())).getMaterial().isLiquid())) {
+			BlockPos blockPosForFire = positionHit.offset(result.getDirection().getNormal());
+			this.level.setBlock(blockPosForFire, fire, 11);
 		}
 		// }
 	}
@@ -59,9 +59,9 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	 */
 	private boolean canNotPassThroughHitBlock(BlockRayTraceResult result) {
 		// get the block at the result's block position
-		BlockPos hitBlockPos = result.getPos();
-		BlockState hitState = this.world.getBlockState(hitBlockPos);
-		return hitState.getMaterial().blocksMovement();
+		BlockPos hitBlockPos = result.getBlockPos();
+		BlockState hitState = this.level.getBlockState(hitBlockPos);
+		return hitState.getMaterial().blocksMotion();
 	}
 
 	/**
@@ -71,69 +71,49 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	 */
 	private void attackEntityOnDirectHit(@Nonnull LivingEntity hitEntity) {
 		// set it on fire first to modify the drops
-		hitEntity.setFire(10);
-		hitEntity.attackEntityFrom(DamageSource.IN_FIRE, 10.0f);
+		hitEntity.setSecondsOnFire(10);
+		hitEntity.hurt(DamageSource.IN_FIRE, 10.0f);
 		// now make the entity mad at the user
 		if(this.ownerEntity != null) {
-			hitEntity.setLastAttackedEntity(this.ownerEntity);
+			hitEntity.setLastHurtByMob(this.ownerEntity);
 		}
 	}
 
 	@Override
-	public boolean isInRangeToRenderDist(double distance) {
+	public boolean shouldRenderAtSqrDistance(double p_70112_1_) {
 		return false;
-	}
-
-	public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
-		super.shoot(rotationPitchIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
-		if(EntityUtils.isValidLivingEntity(entityThrower)) {
-			this.setShooter(entityThrower);
-			this.ownerEntity = (LivingEntity) entityThrower;
-		}
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
+		this.ticksExisted++;
 		// kill this entity if it's existed for more than 20 ticks
-		if(this.ticksExisted >= 20 || this.inWater) {
+		if(this.ticksExisted >= 20 || this.isInWater()) {
 			this.remove();
 			return;
 		}
 		// spawn fire particles after a little bit
-		if(this.ticksExisted >= 2 && this.world instanceof ServerWorld) {
-			ServerWorld worldServer = (ServerWorld) this.world;
-			worldServer.spawnParticle(ParticleTypes.FLAME, this.getPosX(), this.getPosY(), this.getPosZ(), 3, this.getWidth() / 4, 0, 0, 0.0d);
+		if(this.ticksExisted >= 2 && this.level instanceof ServerWorld) {
+			ServerWorld worldServer = (ServerWorld) this.level;
+			worldServer.addParticle(ParticleTypes.FLAME, true, this.getX(), this.getY(), this.getZ(), 3.0d, this.getBbWidth() / 4, 0.0d);
 			// grow our bounding box, capture any entities that aren't this and aren't our owner in it, and set them on fire
-			AxisAlignedBB expandedBoundingBox = this.getBoundingBox().grow(1, 1, 1);
-			worldServer.getEntitiesInAABBexcluding(this.ownerEntity, expandedBoundingBox, input -> !this.equals(input)).forEach(this::setEntityOnFire);
+			AxisAlignedBB expandedBoundingBox = this.getBoundingBox().inflate(1, 1, 1);
+			worldServer.getEntities(this.ownerEntity, expandedBoundingBox, input -> !this.equals(input)).forEach(this::setEntityOnFire);
+		}
+	}
+
+	public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
+		super.shoot(rotationPitchIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
+		if(EntityUtils.isValidLivingEntity(entityThrower)) {
+			this.setOwner(entityThrower);
+			this.ownerEntity = (LivingEntity) entityThrower;
 		}
 	}
 
 	@Override
-	protected void onImpact(RayTraceResult result) {
-		// this doesn't work if the world isn't a ServerWorld since on the client side, this.thrower is null
-		if(!this.world.isRemote) {
-			// set any impacted mobs on fire, and any impacted blocks on fire
-			if(result.getType() == RayTraceResult.Type.ENTITY && EntityUtils.isValidLivingEntity(((EntityRayTraceResult) result).getEntity()) && !((EntityRayTraceResult) result).getEntity().equals(this.ownerEntity)) {
-				this.attackEntityOnDirectHit((LivingEntity) ((EntityRayTraceResult) result).getEntity());
-			} else if(result.getType() == RayTraceResult.Type.BLOCK && result instanceof BlockRayTraceResult) {
-				this.setHitBlockOnFireIfConfigAllowsIt((BlockRayTraceResult) result);
-				// if the block is not passable, kill this entity after spawning a bunch of particles
-				if(this.canNotPassThroughHitBlock((BlockRayTraceResult) result)) {
-					// spawn a bunch of particles
-					if(this.world instanceof ServerWorld) {
-						ServerWorld worldServer = (ServerWorld) this.world;
-						worldServer.spawnParticle(ParticleTypes.FLAME, this.getPosX(), this.getPosY(), this.getPosZ(), 10, this.getWidth(), this.getHeight(), this.getWidth(), this.rand.nextGaussian() / 10);
-					}
-					this.remove();
-				}
-			}
-		}
-	}
+	protected void defineSynchedData() {
 
-	@Override
-	protected void registerData() {
 	}
 
 	@Override
@@ -142,8 +122,32 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	}
 
 	@Override
-	public EntitySize getSize(Pose poseIn) {
+	public EntitySize getDimensions(Pose poseIn) {
 		return new EntitySize(0.5f, 0.5f, true);
+	}
+
+	
+	
+	@Override
+	protected void onHit(RayTraceResult result) {
+		// this doesn't work if the world isn't a ServerWorld since on the client side, this.thrower is null
+		if(this.level.isClientSide()) {
+			// set any impacted mobs on fire, and any impacted blocks on fire
+			if(result.getType() == RayTraceResult.Type.ENTITY && EntityUtils.isValidLivingEntity(((EntityRayTraceResult) result).getEntity()) && !((EntityRayTraceResult) result).getEntity().equals(this.ownerEntity)) {
+				this.attackEntityOnDirectHit((LivingEntity) ((EntityRayTraceResult) result).getEntity());
+			} else if(result.getType() == RayTraceResult.Type.BLOCK && result instanceof BlockRayTraceResult) {
+				this.setHitBlockOnFireIfConfigAllowsIt((BlockRayTraceResult) result);
+				// if the block is not passable, kill this entity after spawning a bunch of particles
+				if(this.canNotPassThroughHitBlock((BlockRayTraceResult) result)) {
+					// spawn a bunch of particles
+					if(this.level instanceof ServerWorld) {
+						ServerWorld worldServer = (ServerWorld) this.level;
+						worldServer.addParticle(ParticleTypes.FLAME, true, this.getX(), this.getY(), this.getZ(), 3.0d, this.getBbWidth() / 4, 0.0d);
+					}
+					this.remove();
+				}
+			}
+		}
 	}
 
 	/**
@@ -153,7 +157,7 @@ public class FlamethrowerEntity extends ThrowableEntity {
 	 */
 	private void setEntityOnFire(@Nullable Entity target) {
 		if(EntityUtils.isValidLivingEntity(target) && !target.equals(this.ownerEntity)) {
-			target.setFire(5);
+			target.setSecondsOnFire(5);
 		}
 	}
 }

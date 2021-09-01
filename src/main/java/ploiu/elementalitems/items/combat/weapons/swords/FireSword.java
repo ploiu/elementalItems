@@ -16,7 +16,7 @@ public class FireSword extends BaseSword {
 
 	@Override
 	public void applyEffect(ItemStack stack, LivingEntity target, LivingEntity user) {
-		target.setFire(10);
+		target.setSecondsOnFire(10);
 	}
 
 	@Override

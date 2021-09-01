@@ -2,15 +2,12 @@ package ploiu.elementalitems.entity.arrow;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
 import ploiu.elementalitems.items.combat.ElementalEffects;
-import ploiu.elementalitems.util.ElementalUtils;
 import ploiu.elementalitems.util.EntityUtils;
 
 public class EntityEarthArrow extends BaseEntityArrow {
@@ -31,7 +28,7 @@ public class EntityEarthArrow extends BaseEntityArrow {
 		// if the target is on the ground, bury them. Else strike them down
 		if(EntityUtils.isValidLivingEntity(rayTraceResult.getEntity())) {
 			LivingEntity entity = (LivingEntity) rayTraceResult.getEntity();
-			if(entity.func_233570_aj_()) {
+			if(entity.isOnGround()) {
 				ElementalEffects.bury(entity);
 			} else {
 				ElementalEffects.strikeDown(entity);

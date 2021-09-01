@@ -2,13 +2,11 @@ package ploiu.elementalitems.entity.arrow;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.entity.ElementalItemsEntityRegistry;
-import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 
 /**
  * TODO make super fast

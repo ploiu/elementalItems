@@ -40,7 +40,7 @@ public class LivingEvents {
 					                                       .collect(Collectors.toList());
 			// apply the hurt effect for each piece of elemental armor
 			for(ItemStack stack : targetElementalArmor) {
-				((BaseArmorItem) stack.getItem()).onUserHurt(stack, target.getEntityWorld(), event.getSource(), target);
+				((BaseArmorItem) stack.getItem()).onUserHurt(stack, target.level, event.getSource(), target);
 			}
 		}
 	}
@@ -56,16 +56,16 @@ public class LivingEvents {
 					event.setCanceled(true);
 					AbstractArrowEntity arrow = event.getArrow();
 					// allow the player to pick up the arrow once it lands
-					arrow.setShooter(target);
+					arrow.setOwner(target);
 					// stop the arrow and make it fall
-					arrow.setVelocity(0, -.1f, 0);
-					World world = target.getEntityWorld();
+					arrow.setDeltaMovement(0, -.1f, 0);
+					World world = target.level;
 					// play a sound and spawn particles to give sensory cues as to the arrow getting sent back to the attacker
-					if(!world.isRemote()) {
-						world.playSound(null, target.getPosX(), target.getPosY(), target.getPosZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
+					if(world.isClientSide()) {
+						world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
 					if(world instanceof ServerWorld) {
-						((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, arrow.getPosX(), arrow.getPosY(), arrow.getPosZ(), 2, arrow.getWidth(), arrow.getHeight(), arrow.getWidth(), 0.0);
+						((ServerWorld) world).addParticle(ParticleTypes.CLOUD, true, arrow.getX(), arrow.getY(), arrow.getZ(), arrow.getBbWidth(), 0.0);
 					}
 				}
 			}

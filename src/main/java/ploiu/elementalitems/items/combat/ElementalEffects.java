@@ -46,7 +46,7 @@ public class ElementalEffects {
 	public static void ignite(LivingEntity target) {
 		if(isValidLivingEntity(target)) {
 			// 200 ticks = 10 seconds
-			target.setFire(200);
+			target.setSecondsOnFire(200);
 		}
 	}
 
@@ -61,9 +61,9 @@ public class ElementalEffects {
 			// spawn a bunch of particles around the target and play a sound
 			final World world = target.getEntityWorld();
 			if(!world.isRemote()) {
-				world.playSound(null, target.getPosX(), target.getPosY(), target.getPosZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
+				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
 			}
-			target.func_233627_a_(2F, user.getPosX() - target.getPosX(), user.getPosZ() - target.getPosZ());
+			target.func_233627_a_(2F, user.getX() - target.getX(), user.getZ() - target.getZ());
 			// launch it into the air, based on the target's knockBack resistance
 			target.addVelocity(0, target.getAttribute(Attributes.field_233820_c_).getValue() + 1, 0);
 		}
@@ -79,7 +79,7 @@ public class ElementalEffects {
 			// get the world the entity is in
 			World world = target.getEntityWorld();
 			// there doesn't need to be a body for this
-			BlockPos pos = new BlockPos(target.getPosX(), target.getPosY(), target.getPosZ());
+			BlockPos pos = new BlockPos(target.getX(), target.getY(), target.getZ());
 			int distance;
 			for(int i = 0; ; i++) {
 				// get the current block
@@ -108,7 +108,7 @@ public class ElementalEffects {
 			final World world = target.getEntityWorld();
 			if(!world.isRemote()) {
 				// play a sound effect
-				world.playSound(null, target.getPosX(), target.getPosY(), target.getPosZ(), SoundEvents.ENTITY_GENERIC_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
+				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ENTITY_GENERIC_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
 			}
 		}
 	}
@@ -121,7 +121,7 @@ public class ElementalEffects {
 	 */
 	public static void throwSnowball(World world, PlayerEntity player) {
 		if(isValidLivingEntity(player)) {
-			world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+			world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 			if(!world.isRemote) {
 				SnowballEntity snowballentity = new SnowballEntity(world, player);
 				snowballentity.shoot(player.rotationPitch, player.rotationYaw, 0.0F, 3F, 1.0F);
@@ -140,9 +140,9 @@ public class ElementalEffects {
 			// teleport the target to a random location
 			int min = -10;
 			int max = 10;
-			int newX = target.getRNG().nextInt(max - min) + min + (int)target.getPosX();
-			int newZ = target.getRNG().nextInt(max - min) + min + (int)target.getPosZ();
-			target.attemptTeleport(newX, target.getPosY(), newZ, true);
+			int newX = target.getRNG().nextInt(max - min) + min + (int)target.getX();
+			int newZ = target.getRNG().nextInt(max - min) + min + (int)target.getZ();
+			target.attemptTeleport(newX, target.getY(), newZ, true);
 			target.getEntityWorld().playSound(null, target.prevPosX, target.prevPosY, target.prevPosZ, SoundEvents.ENTITY_ENDERMAN_TELEPORT, target.getSoundCategory(), 1.0F, 1.0F);
 			target.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0F, 1.0F);
 		}
@@ -159,7 +159,7 @@ public class ElementalEffects {
 			if(!world.isRemote) {
 				EnderPearlEntity enderpearl = new EnderPearlEntity(world, player);
 				enderpearl.shoot(player.rotationPitch, player.rotationYaw, 0f, 1.5f, 1.0f);
-				world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 				world.addEntity(enderpearl);
 			}
 		}

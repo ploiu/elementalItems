@@ -78,7 +78,7 @@ public class ElementalItemsBlockRegistry {
 	 * @return
 	 */
 	private static BlockItem createBlockItemForBlock(BaseBlock block) {
-		BlockItem item = (BlockItem) new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName());
+		BlockItem item = (BlockItem) new BlockItem(block, new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)).setRegistryName(block.getRegistryName());
 		blockItems.add(item);
 		return item;
 	}

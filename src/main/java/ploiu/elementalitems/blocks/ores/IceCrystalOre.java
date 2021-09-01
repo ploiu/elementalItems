@@ -10,12 +10,12 @@ import java.util.HashSet;
 
 public class IceCrystalOre extends BaseOre {
 	public IceCrystalOre() {
-		super(ElementalTypes.ICE, Properties.create(Material.ICE)
-				                          .hardnessAndResistance(0.5f, 3.0f)
-				                          .slipperiness(0.98f)
+		super(ElementalTypes.ICE, Properties.of(Material.ICE)
+				                          .strength(0.5f, 3.0f)
+				                          .friction(0.98f)
 				                          .sound(SoundType.GLASS)
 				                          .harvestLevel(0)
-				                          .notSolid()
+				                          .noOcclusion()
 		);
 		this.blocksThisCanGenerateOver = Arrays.asList(
 				Blocks.ICE,

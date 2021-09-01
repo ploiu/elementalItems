@@ -11,11 +11,12 @@ import static net.minecraft.block.Blocks.*;
 
 public class FireCrystalOre extends BaseOre {
 	public FireCrystalOre() {
-		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
+		super(ElementalTypes.FIRE, Properties.of(Material.STONE)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel() + 1)
-				                           .hardnessAndResistance(5.0f, 6.0f)
-				                           .setLightLevel(state -> 15));
+				                           .harvestLevel(DIAMOND_ORE.defaultBlockState().getHarvestLevel() + 1)
+				                           .strength(5.0f, 6.0f)
+				                           .lightLevel(state -> 15)
+				                           .requiresCorrectToolForDrops());
 		this.blocksThisCanGenerateOver = Arrays.asList(
 				STONE,
 				COBBLESTONE,
@@ -32,13 +33,14 @@ public class FireCrystalOre extends BaseOre {
 		this.biomesToGenerateIn = new HashSet<>();
 		this.maxYGeneration = 30;
 	}
-	
+
 	// for overriding by the nether crystal ore
 	protected FireCrystalOre(String registryName) {
-		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
+		super(ElementalTypes.FIRE, Properties.of(Material.STONE)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .harvestLevel(DIAMOND_ORE.getDefaultState().getHarvestLevel())
-				                           .hardnessAndResistance(5.0f, 6.0f)
-				                           .setLightLevel(state -> 15), registryName);
+				                           .harvestLevel(DIAMOND_ORE.defaultBlockState().getHarvestLevel())
+				                           .strength(5.0f, 6.0f)
+				                           .lightLevel(state -> 15)
+				                           .requiresCorrectToolForDrops(), registryName);
 	}
 }

@@ -31,7 +31,7 @@ public interface ISharedEnderToolEffects {
 			List<ItemStack> didNotFitInInventory = blockDrops.stream().filter(drop -> !player.addItemStackToInventory(drop)).collect(Collectors.toList());
 			// for the drops that did not fit, spawn them at the player's feet
 			for(ItemStack stack : didNotFitInInventory) {
-				ItemEntity droppedItem = new ItemEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), stack);
+				ItemEntity droppedItem = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), stack);
 				world.addEntity(droppedItem);
 			}
 			// destroy the block so that we don't duplicate drops

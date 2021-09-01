@@ -23,8 +23,8 @@ public class GenericEvents {
 				.forEach(recipe -> {
 					Ingredient ingredient = recipe.getIngredients().get(0);
 					// add create a new entry for each input item
-					for(ItemStack stack : ingredient.getMatchingStacks()) {
-						Utils.smeltingRecipes.put(stack, recipe.getRecipeOutput());
+					for(ItemStack stack : ingredient.getItems()) {
+						Utils.smeltingRecipes.put(stack, recipe.getResultItem());
 					}
 				});
 	}

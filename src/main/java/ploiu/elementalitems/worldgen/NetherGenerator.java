@@ -1,5 +1,6 @@
 package ploiu.elementalitems.worldgen;
 
+import net.minecraft.world.biome.Biomes;
 import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
 import ploiu.elementalitems.blocks.ores.BaseOre;
 

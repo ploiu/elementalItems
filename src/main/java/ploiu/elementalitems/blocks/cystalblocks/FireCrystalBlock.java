@@ -7,10 +7,11 @@ import ploiu.elementalitems.blocks.BaseBlock;
 
 public class FireCrystalBlock extends CrystalBlock {
 	public FireCrystalBlock() {
-		super(ElementalTypes.FIRE, Properties.create(Material.ROCK)
-				                           .hardnessAndResistance(5.0f, 6.0f)
+		super(ElementalTypes.FIRE, Properties.of(Material.STONE)
+				                           .strength(5.0f, 6.0f)
 				                           .harvestLevel(2)
 				                           .harvestTool(ToolType.PICKAXE)
-				                           .setLightLevel(state -> 15));
+				                           .lightLevel(state -> 15)
+				                           .requiresCorrectToolForDrops());
 	}
 }

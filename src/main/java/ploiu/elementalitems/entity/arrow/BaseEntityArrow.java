@@ -33,8 +33,10 @@ public abstract class BaseEntityArrow extends AbstractArrowEntity {
 		this.type = type;
 	}
 
+	
+	
 	@Override
-	public IPacket<?> createSpawnPacket() {
+	public IPacket<?> getAddEntityPacket() {
 		// this is required to render the arrow. Without this, the arrow won't be spawned client side
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
@@ -54,7 +56,7 @@ public abstract class BaseEntityArrow extends AbstractArrowEntity {
 	}
 
 	@Override
-	protected ItemStack getArrowStack() {
+	protected ItemStack getPickupItem() {
 		return new ItemStack(ElementalUtils.getArrowItemForType(this.type));
 	}
 

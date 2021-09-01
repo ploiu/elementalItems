@@ -28,7 +28,9 @@ public class NetherCrystalOre extends FireCrystalOre {
 		// this.biomesToGenerateIn.add(Biomes.NETHER);
 	}
 
-	@Override
+	
+
+	/*@Override
 	public void onExplosionDestroy(World worldIn, BlockPos pos, Explosion explosionIn) {
 		super.onExplosionDestroy(worldIn, pos, explosionIn);
 		// spawn a block of lava where the block was
@@ -46,5 +48,5 @@ public class NetherCrystalOre extends FireCrystalOre {
 		if(!player.abilities.isCreativeMode && this.RANDOM.nextInt(10) == 1) {
 			worldIn.setBlockState(pos, Blocks.LAVA.getDefaultState());
 		}
-	}
+	}*/
 }

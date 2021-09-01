@@ -25,7 +25,7 @@ public class LeafArmor extends BaseArmorItem {
 			LivingEntity attacker = (LivingEntity) source.getImmediateSource();
 			if(attacker.getCreatureAttribute() == CreatureAttribute.UNDEAD) {
 				// deal 2.5 hearts of damage times the number of pieces of this armor worn
-				attacker.attackEntityFrom(DamageSource.GENERIC, 5 * EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.LEAF, wearer));
+				attacker.hurt(DamageSource.GENERIC, 5 * EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.LEAF, wearer));
 			}
 		}
 	}

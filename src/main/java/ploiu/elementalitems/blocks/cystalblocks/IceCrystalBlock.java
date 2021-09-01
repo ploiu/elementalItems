@@ -6,12 +6,11 @@ import ploiu.elementalitems.ElementalTypes;
 
 public class IceCrystalBlock extends CrystalBlock {
 	public IceCrystalBlock() {
-		super(ElementalTypes.ICE, Properties.create(Material.ROCK)
-				                          .hardnessAndResistance(5.0f, 6.0f)
+		super(ElementalTypes.ICE, Properties.of(Material.STONE)
+				                          .strength(5.0f, 6.0f)
 				                          .harvestLevel(2)
 				                          .harvestTool(ToolType.PICKAXE)
-				                          .slipperiness(0.98f)
-				                          .notSolid());
+				                          .friction(0.98f)
+				                          .noOcclusion());
 	}
-
 }

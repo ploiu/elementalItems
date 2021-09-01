@@ -22,7 +22,7 @@ import java.util.List;
 public class ElementalItemsEntityRegistry {
 	public static List<EntityType<?>> entities = new ArrayList<>();
 
-	public static EntityType<FlamethrowerEntity> flamethrowerEntity = (EntityType<FlamethrowerEntity>) EntityType.Builder.<FlamethrowerEntity>create(FlamethrowerEntity::new, EntityClassification.MISC)
+	public static EntityType<FlamethrowerEntity> flamethrowerEntity = (EntityType<FlamethrowerEntity>) EntityType.Builder.<FlamethrowerEntity>of(FlamethrowerEntity::new, EntityClassification.MISC)
 			                                                                                                   .setShouldReceiveVelocityUpdates(true)
 			                                                                                                   .setTrackingRange(24)
 			                                                                                                   .setUpdateInterval(60)
@@ -39,7 +39,7 @@ public class ElementalItemsEntityRegistry {
 	public static EntityType<EntityEnderArrow> enderArrowEntity = buildArrowEntityType(ElementalTypes.ENDER, EntityEnderArrow.class);
 
 	private static <T extends BaseEntityArrow> EntityType<T> buildArrowEntityType(ElementalTypes type, Class<T> arrowClass) {
-		EntityType<T> arrowEntity = (EntityType<T>) EntityType.Builder.<T>create((entityType, world) -> {
+		EntityType<T> arrowEntity = (EntityType<T>) EntityType.Builder.<T>of((entityType, world) -> {
 			try {
 				return arrowClass.getConstructor(EntityType.class, World.class).newInstance(entityType, world);
 			} catch(Exception e) {
@@ -49,7 +49,7 @@ public class ElementalItemsEntityRegistry {
 				                                            .setShouldReceiveVelocityUpdates(true)
 				                                            .setTrackingRange(24)
 				                                            .setUpdateInterval(60)
-				                                            .size(1, 1)
+				                                            .sized(1, 1)
 				                                            .build(String.format("entity_arrow_%s", type.getTypeName()))
 				                                            .setRegistryName(String.format("elementalitems:entity_arrow_%s", type.getTypeName()));
 		entities.add(arrowEntity);
@@ -66,66 +66,66 @@ public class ElementalItemsEntityRegistry {
 
 	private static void registerDispenserBehaviorForArrows() {
 		// plain arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.plainArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityPlainArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.plainArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityPlainArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// fire arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.fireArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityFireArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.fireArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityFireArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// ice arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.iceArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityIceArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.iceArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityIceArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// water arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.waterArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityWaterArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.waterArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityWaterArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// leaf arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.leafArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityLeafArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.leafArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityLeafArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// earth arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.earthArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityEarthArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.earthArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityEarthArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// air arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.airArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityAirArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.airArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityAirArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});
 		// ender arrow
-		DispenserBlock.registerDispenseBehavior(ElementalItemsItemRegistry.enderArrow, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				BaseEntityArrow arrow = new EntityEnderArrow(worldIn, position.getX(), position.getY(), position.getZ());
-				arrow.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+		DispenserBlock.registerBehavior(ElementalItemsItemRegistry.enderArrow, new ProjectileDispenseBehavior() {
+			protected ProjectileEntity getProjectile(World worldIn, IPosition position, ItemStack stackIn) {
+				BaseEntityArrow arrow = new EntityEnderArrow(worldIn, position.x(), position.y(), position.z());
+				arrow.pickup = AbstractArrowEntity.PickupStatus.ALLOWED;
 				return arrow;
 			}
 		});

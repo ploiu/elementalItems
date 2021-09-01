@@ -34,7 +34,7 @@ public class SwordOfLifeAndDeath extends BaseSword {
 			// get the player's current health, and factor it into how much extra damage to deal
 			float extraDamage = this.calculateExtraDamageBasedOnHealth(user);
 			// dish out that extra damage
-			target.attackEntityFrom(DamageSource.OUT_OF_WORLD, extraDamage);
+			target.hurt(DamageSource.OUT_OF_WORLD, extraDamage);
 			// don't dish it if you can't take it (back into your own health)
 			user.heal(extraDamage);
 		}

@@ -2,7 +2,6 @@ package ploiu.elementalitems.entity.arrow;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -31,8 +30,8 @@ public class EntityIceArrow extends BaseEntityArrow {
 		if(EntityUtils.isValidLivingEntity(rayTraceResult.getEntity())) {
 			LivingEntity target = (LivingEntity) rayTraceResult.getEntity();
 			// slow and weaken the target
-			target.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 2, false, true));
-			target.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 100, 2, false, true));
+			target.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 2, false, true));
+			target.addEffect(new EffectInstance(Effects.WEAKNESS, 100, 2, false, true));
 		}
 	}
 

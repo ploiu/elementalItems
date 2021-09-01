@@ -19,7 +19,7 @@ public abstract class BaseOre extends BaseBlock {
 
 	// the list of biomes this block can generate in
 	protected Set<Biome> biomesToGenerateIn;
-	
+
 	protected float minBiomeTemperature;
 	protected float maxBiomeTemperature;
 
@@ -36,10 +36,11 @@ public abstract class BaseOre extends BaseBlock {
 	}
 
 	public BaseOre(ElementalTypes type) {
-		super(type, Properties.create(Material.ROCK)
+		super(type, Properties.of(Material.STONE)
 				            .harvestTool(ToolType.PICKAXE)
-				            .harvestLevel(Blocks.DIAMOND_ORE.getDefaultState().getHarvestLevel() + 1)
-				            .hardnessAndResistance(5.0f, 6.0f),
+				            .harvestLevel(Blocks.DIAMOND_ORE.defaultBlockState().getHarvestLevel() + 1)
+				            .strength(5.0f, 6.0f)
+				            .requiresCorrectToolForDrops(),
 				String.format("ore_%s", type.getTypeName()));
 	}
 

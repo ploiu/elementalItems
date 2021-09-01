@@ -7,8 +7,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import ploiu.elementalitems.entity.arrow.BaseEntityArrow;
 
-import javax.annotation.Nullable;
-
 @OnlyIn(Dist.CLIENT)
 public class BaseEntityArrowRenderer extends ArrowRenderer<BaseEntityArrow> {
 
@@ -17,7 +15,7 @@ public class BaseEntityArrowRenderer extends ArrowRenderer<BaseEntityArrow> {
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(BaseEntityArrow entity) {
+	public ResourceLocation getTextureLocation(BaseEntityArrow entity) {
 		String base = "elementalitems:textures/entity/projectiles/arrow_";
 		return new ResourceLocation(base + entity.getElementalType().getTypeName() + ".png");
 	}

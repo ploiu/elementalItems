@@ -17,7 +17,7 @@ public class ClientEvents {
 
 	@SubscribeEvent
 	public static void onLavaFog(EntityViewRenderEvent.FogDensity event) {
-		Entity eventEntity = event.getInfo().getRenderViewEntity();
+		Entity eventEntity = event.getInfo().getEntity();
 		if(EntityUtils.isValidLivingEntity(eventEntity)) {
 			// if the entity is in lava and has the lava helmet
 			if(EntityUtils.doesEntityHaveArmorPieceEquipped(eventEntity, ElementalItemsItemRegistry.fireHelmet) && eventEntity.isInLava()) {
