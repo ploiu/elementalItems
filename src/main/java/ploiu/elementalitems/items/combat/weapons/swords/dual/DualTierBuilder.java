@@ -39,13 +39,13 @@ public class DualTierBuilder {
 				}
 
 				@Override
-				public int getEnchantability() {
-					return max(firstTier.getEnchantability(), secondTier.getEnchantability());
+				public int getEnchantmentValue() {
+					return max(firstTier.getEnchantmentValue(), secondTier.getEnchantmentValue());
 				}
 
 				@Override
-				public Ingredient getRepairMaterial() {
-					return Ingredient.fromItems(ElementalUtils.getCrystalForElementalType(first), ElementalUtils.getCrystalForElementalType(second));
+				public Ingredient getRepairIngredient() {
+					return Ingredient.of(ElementalUtils.getCrystalForElementalType(first), ElementalUtils.getCrystalForElementalType(second));
 				}
 			};
 		}

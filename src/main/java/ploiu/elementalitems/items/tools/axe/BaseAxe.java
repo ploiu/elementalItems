@@ -17,14 +17,14 @@ public abstract class BaseAxe extends AxeItem implements ElementalTool {
 	private final ElementalTypes type;
 
 	public BaseAxe(ElementalTypes type) {
-		super(ItemUtils.getItemTierFromType(type), 5.0f, -3.0f, new Properties().group(ItemGroup.TOOLS));
+		super(ItemUtils.getItemTierFromType(type), 5.0f, -3.0f, new Properties().group(ItemGroup.TAB_TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("axe_%s", this.type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);
 	}
 
 	protected BaseAxe(ElementalTypes type, float attackSpeed) {
-		super(ItemUtils.getItemTierFromType(type), 5.0f, attackSpeed, new Properties().group(ItemGroup.TOOLS));
+		super(ItemUtils.getItemTierFromType(type), 5.0f, attackSpeed, new Properties().group(ItemGroup.TAB_TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("axe_%s", this.type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);

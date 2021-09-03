@@ -34,17 +34,17 @@ public class WaterArmor extends BaseArmorItem {
 		if(piecesWorn == 4) {
 			// if the player is in water, allow them to breathe forever
 			if(wearer.isInWater()) {
-				wearer.setAir(300);
+				wearer.setAirSupply(300);
 				// if the player has the mining fatigue effect (from elder guardians), remove it
-				wearer.removePotionEffect(Effects.MINING_FATIGUE);
+				wearer.removeEffect(Effects.DIG_SLOWDOWN);
 			}
 			if(ElementalItemsItemRegistry.waterHelmet.equals(stack.getItem())) {
 				ItemUtils.removeEnchantmentFromItem(stack, Enchantments.AQUA_AFFINITY);
-				stack.addEnchantment(Enchantments.AQUA_AFFINITY, 4);
+				stack.enchant(Enchantments.AQUA_AFFINITY, 4);
 			} else if(ElementalItemsItemRegistry.waterBoots.equals(stack.getItem())) {
 				ItemUtils.removeEnchantmentFromItem(stack, Enchantments.DEPTH_STRIDER);
 				// re-apply depth strider now
-				stack.addEnchantment(Enchantments.DEPTH_STRIDER, 3);
+				stack.enchant(Enchantments.DEPTH_STRIDER, 3);
 			}
 		} else {
 			// remove the enchantments as they are reserved for set bonus only

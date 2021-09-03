@@ -10,12 +10,12 @@ import static net.minecraft.item.ArmorMaterial.DIAMOND;
 public abstract class BaseArmorMaterial implements IArmorMaterial {
 
 	@Override
-	public int getDurability(EquipmentSlotType slotIn) {
+	public int getDurabilityForSlot(EquipmentSlotType slotIn) {
 		return new int[]{13, 15, 16, 11}[slotIn.getIndex()] * 33;
 	}
 
 	@Override
-	public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+	public int getDefenseForSlot(EquipmentSlotType slotIn) {
 		switch(slotIn) {
 			case FEET:
 			case HEAD:
@@ -30,13 +30,18 @@ public abstract class BaseArmorMaterial implements IArmorMaterial {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return DIAMOND.getEnchantability();
+	public int getEnchantmentValue() {
+		return DIAMOND.getEnchantmentValue();
 	}
 
 	@Override
-	public SoundEvent getSoundEvent() {
-		return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+	public SoundEvent getEquipSound() {
+		return SoundEvents.ARMOR_EQUIP_DIAMOND;
+	}
+
+	@Override
+	public float getKnockbackResistance() {
+		return DIAMOND.getKnockbackResistance();
 	}
 
 	@Override

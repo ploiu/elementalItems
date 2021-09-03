@@ -28,12 +28,12 @@ public class WaterItemTier implements IItemTier {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return DIAMOND.getEnchantability();
+	public int getEnchantmentValue() {
+		return DIAMOND.getEnchantmentValue();
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(waterCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(waterCrystal);
 	}
 }

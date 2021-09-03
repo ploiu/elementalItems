@@ -29,12 +29,12 @@ public class EnderItemTier implements IItemTier {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return GOLD.getEnchantability();
+	public int getEnchantmentValue() {
+		return GOLD.getEnchantmentValue();
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(enderCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(enderCrystal);
 	}
 }

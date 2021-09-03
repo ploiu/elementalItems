@@ -6,8 +6,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.airCrystal;
 
 public class AirArmorMaterial extends BaseArmorMaterial {
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(airCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(airCrystal);
 	}
 
 	@Override

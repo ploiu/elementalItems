@@ -13,9 +13,6 @@ import net.minecraft.world.server.ServerWorld;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.util.EntityUtils;
 
-/**
- * TODO allow flight and arrow immunity
- */
 public class AirArmor extends BaseArmorItem {
 	public AirArmor(EquipmentSlotType slot) {
 		super(ElementalTypes.AIR, slot);
@@ -24,18 +21,18 @@ public class AirArmor extends BaseArmorItem {
 	@Override
 	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
 		// get the damage source entity and validate it
-		if(EntityUtils.isValidLivingEntity(source.getImmediateSource())) {
-			LivingEntity attacker = (LivingEntity) source.getImmediateSource();
+		if(EntityUtils.isValidLivingEntity(source.getDirectEntity())) {
+			LivingEntity attacker = (LivingEntity) source.getDirectEntity();
 			// knockback the attacker based on the number of pieces being worn and the attacker's knockback resistance
 			float effectMultiplier = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.AIR, wearer) / 4f;
 			// knockback the attacker
-			if(!world.isRemote()) {
-				world.playSound(null, wearer.getX(), wearer.getY(), wearer.getZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
+			if(world.isClientSide()) {
+				world.playSound(null, wearer.getX(), wearer.getY(), wearer.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 			}
-			attacker.func_233627_a_(effectMultiplier, -MathHelper.sin(attacker.rotationYaw * 0.017453292F), MathHelper.cos(attacker.rotationYaw * 0.017453292F));
+			attacker.knockback(effectMultiplier, -MathHelper.sin(attacker.yRot * 0.017453292F), MathHelper.cos(attacker.yRot * 0.017453292F));
 			// spawn particles to signify the attacker flying back
 			if(world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, attacker.getX(), attacker.getY(), attacker.getZ(), 10, attacker.getWidth(), attacker.getHeight(), attacker.getWidth(), 0.0);
+				world.addParticle(ParticleTypes.CLOUD, true, attacker.getX(), attacker.getY(), attacker.getZ(), 3.0d, attacker.getBbWidth() / 4, 0.0d);
 			}
 		}
 	}

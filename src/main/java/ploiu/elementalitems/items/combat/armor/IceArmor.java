@@ -24,12 +24,12 @@ public class IceArmor extends BaseArmorItem {
 
 	@Override
 	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
-		if(EntityUtils.isValidLivingEntity(source.getImmediateSource())) {
+		if(EntityUtils.isValidLivingEntity(source.getDirectEntity())) {
 			int numberOfPiecesWorn = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.ICE, wearer);
 			int potionEffectLevel = numberOfPiecesWorn - 1; // potion effect level is 0-based, so this is from lv 1 - 4
-			LivingEntity attacker = (LivingEntity) source.getImmediateSource();
-			attacker.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 100, potionEffectLevel));
-			attacker.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, potionEffectLevel));
+			LivingEntity attacker = (LivingEntity) source.getDirectEntity();
+			attacker.addEffect(new EffectInstance(Effects.WEAKNESS, 100, potionEffectLevel));
+			attacker.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, potionEffectLevel));
 		}
 	}
 
@@ -37,11 +37,11 @@ public class IceArmor extends BaseArmorItem {
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
 		int amountOfIceArmorPieces = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.ICE, wearer);
 		int potionEffectLevel = amountOfIceArmorPieces == 4 ? 1 : 0;
-		wearer.addPotionEffect(new EffectInstance(Effects.SPEED, 100, potionEffectLevel, false, false));
+		wearer.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 100, potionEffectLevel, false, false));
 		// if we have all 4 pieces of armor, enchant the boots with frost walker
 		if(amountOfIceArmorPieces == 4 && ElementalItemsItemRegistry.iceBoots.equals(stack.getItem())) {
 			ItemUtils.removeEnchantmentFromItem(stack, FROST_WALKER);
-			stack.addEnchantment(FROST_WALKER, 2);
+			stack.enchant(FROST_WALKER, 2);
 		} else if(stack.getItem().equals(ElementalItemsItemRegistry.iceBoots)) {
 			ItemUtils.removeEnchantmentFromItem(stack, FROST_WALKER);
 		}

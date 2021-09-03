@@ -7,8 +7,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.fireCrystal;
 
 public class FireArmorMaterial extends BaseArmorMaterial {
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(fireCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(fireCrystal);
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class FireArmorMaterial extends BaseArmorMaterial {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return STONE.getEnchantability();
+	public int getEnchantmentValue() {
+		return STONE.getEnchantmentValue();
 	}
 }

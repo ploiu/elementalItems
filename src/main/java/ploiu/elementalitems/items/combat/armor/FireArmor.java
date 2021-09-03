@@ -17,16 +17,16 @@ public class FireArmor extends BaseArmorItem {
 
 	@Override
 	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
-		if(EntityUtils.isValidLivingEntity(source.getImmediateSource())) {
+		if(EntityUtils.isValidLivingEntity(source.getDirectEntity())) {
 			// get the number of fire armor pieces the wearer is wearing and set the attacker on fire for time based on that
 			int numberOfFirePieces = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.FIRE, wearer);
 			int fireTime = 5 * numberOfFirePieces;
-			source.getImmediateSource().setSecondsOnFire(fireTime);
+			source.getDirectEntity().setSecondsOnFire(fireTime);
 		}
 	}
 
 	@Override
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
-		wearer.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 0, false, false));
+		wearer.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 0, false, false));
 	}
 }

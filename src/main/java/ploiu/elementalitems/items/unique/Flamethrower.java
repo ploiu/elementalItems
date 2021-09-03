@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 
 public class Flamethrower extends BaseItem {
 	public Flamethrower() {
-		super(ElementalTypes.FIRE, new Properties().group(ItemGroup.COMBAT).maxDamage(500));
+		super(ElementalTypes.FIRE, new Properties().group(ItemGroup.TAB_COMBAT).maxDamage(500));
 		this.setRegistryName("flamethrower");
 		this.itemName = "flamethrower";
 		this.addPropertyOverride(new ResourceLocation("charge"), new IItemPropertyGetter() {
@@ -58,7 +58,7 @@ public class Flamethrower extends BaseItem {
 			// items break when they're used and are already at 0% durability. We want to prevent this
 			if(ElementalItemsItemRegistry.flamethrower.equals(activeItemStack.getItem()) && canFireIfDamaged) {
 				FlamethrowerEntity flamethrowerEntity = new FlamethrowerEntity(player, world);
-				flamethrowerEntity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0f, 1.5f, 0.0f);
+				flamethrowerEntity.shoot(player, player.rotationPitch, player.yRot, 0.0f, 1.5f, 0.0f);
 				world.addEntity(flamethrowerEntity);
 				if(!player.abilities.isCreativeMode) {
 					activeItemStack.damageItem(1, player, (stack) -> {

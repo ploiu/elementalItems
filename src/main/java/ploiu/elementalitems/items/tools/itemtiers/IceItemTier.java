@@ -28,12 +28,12 @@ public class IceItemTier implements IItemTier {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return GOLD.getEnchantability() * 2;
+	public int getEnchantmentValue() {
+		return GOLD.getEnchantmentValue() * 2;
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(iceCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(iceCrystal);
 	}
 }

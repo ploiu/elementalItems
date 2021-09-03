@@ -1,7 +1,7 @@
 package ploiu.elementalitems.helpers;
 
+import net.minecraft.loot.DynamicLootEntry;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.TableLootEntry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.LootTableLoadEvent;
 
@@ -16,7 +16,7 @@ public class LootTableHelper {
 		// get the minecraft version of the loot table
 		final String MCLootTable = "minecraft:" + lootTable;
 		if(event.getName().toString().equalsIgnoreCase(MCLootTable)) {
-			event.getTable().addPool(new LootPool.Builder().addEntry(TableLootEntry.builder(new ResourceLocation("elementalitems", lootTable))).build());
+			event.getTable().addPool(new LootPool.Builder().add(DynamicLootEntry.dynamicEntry(new ResourceLocation("elementalitems", lootTable))).build());
 		}
 	}
 }

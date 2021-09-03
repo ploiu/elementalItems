@@ -7,8 +7,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.iceCrystal;
 
 public class IceArmorMaterial extends BaseArmorMaterial {
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(iceCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(iceCrystal);
 	}
 
 	@Override
@@ -17,12 +17,12 @@ public class IceArmorMaterial extends BaseArmorMaterial {
 	}
 
 	@Override
-	public int getDurability(EquipmentSlotType slotIn) {
+	public int getDurabilityForSlot(EquipmentSlotType slotIn) {
 		return new int[]{13, 15, 16, 11}[slotIn.getIndex()] * 20;
 	}
 
 	@Override
-	public int getEnchantability() {
+	public int getEnchantmentValue() {
 		return 50;
 	}
 }

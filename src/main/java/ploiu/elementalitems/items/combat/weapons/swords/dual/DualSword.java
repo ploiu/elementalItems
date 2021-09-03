@@ -83,8 +83,8 @@ public class DualSword extends BaseSword {
 	}
 
 	@Override
-	public boolean getIsRepairable(ItemStack thisItem, ItemStack repairMaterial) {
-		return super.getIsRepairable(thisItem, repairMaterial) || repairMaterial.getItem().equals(ItemUtils.getCrystalForElementalType(this.type1)) || repairMaterial.getItem().equals(ItemUtils.getCrystalForElementalType(this.type2));
+	public boolean isValidRepairItem(ItemStack thisItem, ItemStack repairMaterial) {
+		return super.isValidRepairItem(thisItem, repairMaterial) || repairMaterial.getItem().equals(ItemUtils.getCrystalForElementalType(this.type1)) || repairMaterial.getItem().equals(ItemUtils.getCrystalForElementalType(this.type2));
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class DualSword extends BaseSword {
 				       ", secondEffect=" + this.secondEffect +
 				       ", type1=" + this.type1 +
 				       ", type2=" + this.type2 +
-				       ", name='" + this.getName() + '\'' +
+				       ", name='" + this.name + '\'' +
 				       '}';
 	}
 
@@ -123,7 +123,7 @@ public class DualSword extends BaseSword {
 			particles.putAll(ElementalUtils.getParticlesForElementalType(this.type2));
 		}
 		// now spawn our particles
-		particles.forEach((particleType, count) -> worldServer.spawnParticle(particleType, targetToSpawnParticlesAt.getX(), targetToSpawnParticlesAt.getY(), targetToSpawnParticlesAt.getZ(), count, targetToSpawnParticlesAt.getWidth(), targetToSpawnParticlesAt.getHeight(), targetToSpawnParticlesAt.getWidth(), 0.0));
+		particles.forEach((particleType, count) -> worldServer.addParticle(particleType, true, targetToSpawnParticlesAt.getX(), targetToSpawnParticlesAt.getY(), targetToSpawnParticlesAt.getZ(), count, targetToSpawnParticlesAt.getBbWidth(), 0.0));
 	}
 
 	@Override

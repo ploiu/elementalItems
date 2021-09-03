@@ -65,7 +65,7 @@ public class LivingEvents {
 						world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
 					if(world instanceof ServerWorld) {
-						((ServerWorld) world).addParticle(ParticleTypes.CLOUD, true, arrow.getX(), arrow.getY(), arrow.getZ(), arrow.getBbWidth(), 0.0);
+						world.addParticle(ParticleTypes.CLOUD, true, arrow.getX(), arrow.getY(), arrow.getZ(), 3.0d, arrow.getBbWidth() / 4, 0.0d);
 					}
 				}
 			}
@@ -92,13 +92,13 @@ public class LivingEvents {
 		if(EntityUtils.isValidLivingEntity(event.getEntityLiving()) && event.getEntityLiving() != null && event.getEntityLiving() instanceof PlayerEntity) {
 			PlayerEntity eventEntity = (PlayerEntity) event.getEntityLiving();
 			if(EntityUtils.doesEntityHaveFullElementalSetOfType(ElementalTypes.AIR, eventEntity) && !eventEntity.isCreative() && !eventEntity.isSpectator()) {
-				eventEntity.abilities.allowFlying = true;
+				eventEntity.abilities.mayfly = true;
 				// this is what allows them to begin flying
 				eventEntity.fallDistance = 0.0f;
 			} else if(!eventEntity.isCreative() && !eventEntity.isSpectator()) {
 				// prevent them from flying
-				eventEntity.abilities.allowFlying = false;
-				eventEntity.abilities.isFlying = false;
+				eventEntity.abilities.mayfly = false;
+				eventEntity.abilities.flying = false;
 			}
 		}
 	}
@@ -108,16 +108,16 @@ public class LivingEvents {
 		LivingEntity eventLiving = event.getEntityLiving();
 		if(EntityUtils.isValidLivingEntity(eventLiving)) {
 			// get the entity's boots and check if they're air armor
-			if(ElementalItemsItemRegistry.airBoots.equals(eventLiving.getItemStackFromSlot(EquipmentSlotType.FEET).getItem())) {
+			if(ElementalItemsItemRegistry.airBoots.equals(eventLiving.getItemBySlot(EquipmentSlotType.FEET).getItem())) {
 				event.setDamageMultiplier(0);
 			}
 		}
 	}
 
 	@SubscribeEvent
-	public static void onLivingTeleport(EnderTeleportEvent event) {
+	public static void onLivingTeleport(EntityTeleportEvent.EnderPearl event) {
 		// if the event's entity is wearing a full set of ender armor, prevent the teleport damage
-		if(EntityUtils.doesEntityHaveFullElementalSetOfType(ElementalTypes.ENDER, event.getEntityLiving())) {
+		if(EntityUtils.doesEntityHaveFullElementalSetOfType(ElementalTypes.ENDER, event.getEntity())) {
 			event.setAttackDamage(0);
 		}
 	}

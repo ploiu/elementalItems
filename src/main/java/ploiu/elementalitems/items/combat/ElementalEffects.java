@@ -33,8 +33,8 @@ public class ElementalEffects {
 	public static void slowAndWeakenTarget(LivingEntity target) {
 		if(isValidLivingEntity(target)) {
 			// apply slow and weakness to the target
-			target.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 200, 1));
-			target.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 200, 1));
+			target.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 200, 1));
+			target.addEffect(new EffectInstance(Effects.WEAKNESS, 200, 1));
 		}
 	}
 
@@ -124,7 +124,7 @@ public class ElementalEffects {
 			world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 			if(!world.isRemote) {
 				SnowballEntity snowballentity = new SnowballEntity(world, player);
-				snowballentity.shoot(player.rotationPitch, player.rotationYaw, 0.0F, 3F, 1.0F);
+				snowballentity.shoot(player.rotationPitch, player.yRot, 0.0F, 3F, 1.0F);
 				world.addEntity(snowballentity);
 			}
 		}
@@ -158,7 +158,7 @@ public class ElementalEffects {
 		if(isValidLivingEntity(player)) {
 			if(!world.isRemote) {
 				EnderPearlEntity enderpearl = new EnderPearlEntity(world, player);
-				enderpearl.shoot(player.rotationPitch, player.rotationYaw, 0f, 1.5f, 1.0f);
+				enderpearl.shoot(player.rotationPitch, player.yRot, 0f, 1.5f, 1.0f);
 				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 				world.addEntity(enderpearl);
 			}
@@ -177,7 +177,7 @@ public class ElementalEffects {
 			int smiteLevel = Math.min((int) Math.floor(EntityUtils.getPlayerLevel(entity) / 6f), 4) + 1;
 			// remove the smite enchantment from the stack to prevent duplicate enchantments
 			ItemUtils.removeEnchantmentFromItem(stack, Enchantments.SMITE);
-			stack.addEnchantment(Enchantments.SMITE, smiteLevel);
+			stack.enchant(Enchantments.SMITE, smiteLevel);
 		}
 	}
 
@@ -189,6 +189,6 @@ public class ElementalEffects {
 	public static void enchantWithKnockback(ItemStack stack) {
 		// remove the knockback enchantment from the stack to prevent duplicate enchantments
 		ItemUtils.removeEnchantmentFromItem(stack, Enchantments.KNOCKBACK);
-		stack.addEnchantment(Enchantments.KNOCKBACK, 5);
+		stack.enchant(Enchantments.KNOCKBACK, 5);
 	}
 }

@@ -28,12 +28,12 @@ public class EarthItemTier implements IItemTier {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return DIAMOND.getEnchantability();
+	public int getEnchantmentValue() {
+		return DIAMOND.getEnchantmentValue();
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(earthCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(earthCrystal);
 	}
 }

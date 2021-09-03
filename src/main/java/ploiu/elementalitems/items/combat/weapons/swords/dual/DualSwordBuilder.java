@@ -1,5 +1,7 @@
 package ploiu.elementalitems.items.combat.weapons.swords.dual;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.combat.ElementalEffects;
 
@@ -59,7 +61,7 @@ public class DualSwordBuilder {
 				};
 			case EARTH:
 				return (user, target) -> {
-					if(target.getEntityWorld().getBlockState(target.getPosition().down(1)).isSolid()) {
+					if(target.level.getBlockState(new BlockPos(target.getPosition(0).subtract(new Vector3d(0, 1, 0)))).isSolid()) {
 						ElementalEffects.bury(target);
 					} else {
 						ElementalEffects.strikeDown(target);

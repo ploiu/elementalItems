@@ -8,8 +8,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.enderCrystal
 public class EnderArmorMaterial extends BaseArmorMaterial {
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(enderCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(enderCrystal);
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class EnderArmorMaterial extends BaseArmorMaterial {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return GOLD.getEnchantability();
+	public int getEnchantmentValue() {
+		return GOLD.getEnchantmentValue();
 	}
 }

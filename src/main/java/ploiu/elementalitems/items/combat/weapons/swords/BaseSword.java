@@ -27,7 +27,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	private final ElementalTypes type;
 
 	public BaseSword(ElementalTypes type) {
-		super(ItemUtils.getItemTierFromType(type), 5, -2.4F, new Properties().group(ItemGroup.COMBAT));
+		super(ItemUtils.getItemTierFromType(type), 5, -2.4F, new Properties().group(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.name = String.format("sword_%s", type);
 		this.setRegistryName(this.name);
@@ -35,7 +35,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	}
 
 	protected BaseSword(ElementalTypes type, float attackSpeed) {
-		super(ItemUtils.getItemTierFromType(type), 5, attackSpeed, new Properties().group(ItemGroup.COMBAT));
+		super(ItemUtils.getItemTierFromType(type), 5, attackSpeed, new Properties().group(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.name = String.format("sword_%s", type);
 		this.setRegistryName(this.name);
@@ -43,7 +43,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	}
 
 	public BaseSword(IItemTier tier, String name, ElementalTypes type) {
-		super(tier, 5, -2.4f, new Properties().group(ItemGroup.COMBAT));
+		super(tier, 5, -2.4f, new Properties().group(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.name = name;
 		this.setRegistryName(this.name);

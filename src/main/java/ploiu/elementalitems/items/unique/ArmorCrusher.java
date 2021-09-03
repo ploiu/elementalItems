@@ -18,7 +18,7 @@ public class ArmorCrusher extends ToolItem implements ElementalItem {
 
 
 	public ArmorCrusher() {
-		super(10, -3.3f, TierRegistry.earthTier, new HashSet<>(), new Properties().group(ItemGroup.COMBAT).maxDamage(4000));
+		super(10, -3.3f, TierRegistry.earthTier, new HashSet<>(), new Properties().group(ItemGroup.TAB_COMBAT).maxDamage(4000));
 		this.setRegistryName("warhammer");
 		ElementalItemsItemRegistry.addItem(this);
 	}

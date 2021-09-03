@@ -28,12 +28,12 @@ public class LeafItemTier implements IItemTier {
 	}
 
 	@Override
-	public int getEnchantability() {
+	public int getEnchantmentValue() {
 		return 15;
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(leafCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(leafCrystal);
 	}
 }

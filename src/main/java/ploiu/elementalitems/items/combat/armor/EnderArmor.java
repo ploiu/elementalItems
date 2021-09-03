@@ -11,9 +11,6 @@ import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.combat.ElementalEffects;
 import ploiu.elementalitems.util.EntityUtils;
 
-/**
- * TODO remove teleport damage, teleport direct attackers, potion effects based on pieces worn
- */
 public class EnderArmor extends BaseArmorItem {
 	public EnderArmor(EquipmentSlotType slot) {
 		super(ElementalTypes.ENDER, slot);
@@ -22,8 +19,8 @@ public class EnderArmor extends BaseArmorItem {
 	@Override
 	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
 		// randomly teleport the attacker
-		if(EntityUtils.isValidLivingEntity(source.getImmediateSource())) {
-			LivingEntity attacker = (LivingEntity) source.getImmediateSource();
+		if(EntityUtils.isValidLivingEntity(source.getDirectEntity())) {
+			LivingEntity attacker = (LivingEntity) source.getDirectEntity();
 			ElementalEffects.teleportTarget(attacker);
 		}
 	}
@@ -34,19 +31,19 @@ public class EnderArmor extends BaseArmorItem {
 		int numberOfPieces = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.ENDER, wearer);
 		if(numberOfPieces >= 1) {
 			// give jump boost
-			wearer.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 21, 3, false, false));
+			wearer.addEffect(new EffectInstance(Effects.JUMP, 21, 3, false, false));
 		}
 		if(numberOfPieces >= 2) {
 			// apply night vision; the duration is so high because when it starts to run out the screen starts to flicker and it's annoying
-			wearer.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 240, 0, false, false));
+			wearer.addEffect(new EffectInstance(Effects.NIGHT_VISION, 240, 0, false, false));
 		}
 		if(numberOfPieces >= 3) {
 			// speed
-			wearer.addPotionEffect(new EffectInstance(Effects.SPEED, 21, 0, false, false));
+			wearer.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 21, 0, false, false));
 		}
 		if(numberOfPieces == 4) {
 			// luck
-			wearer.addPotionEffect(new EffectInstance(Effects.LUCK, 21, 1, false, false));
+			wearer.addEffect(new EffectInstance(Effects.LUCK, 21, 1, false, false));
 		}
 	}
 }

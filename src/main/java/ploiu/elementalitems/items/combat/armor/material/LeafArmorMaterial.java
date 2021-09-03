@@ -7,8 +7,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.leafCrystal;
 
 public class LeafArmorMaterial extends BaseArmorMaterial {
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(leafCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(leafCrystal);
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class LeafArmorMaterial extends BaseArmorMaterial {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return WOOD.getEnchantability();
+	public int getEnchantmentValue() {
+		return WOOD.getEnchantmentValue();
 	}
 }

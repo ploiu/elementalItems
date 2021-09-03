@@ -7,8 +7,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.plainCrystal
 public class PlainArmorMaterial extends BaseArmorMaterial {
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(plainCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(plainCrystal);
 	}
 
 	@Override

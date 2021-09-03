@@ -17,14 +17,14 @@ public abstract class BasePickaxe extends PickaxeItem implements ElementalTool {
 	private final ElementalTypes type;
 
 	public BasePickaxe(ElementalTypes type) {
-		super(ItemUtils.getItemTierFromType(type), 1, -2.8F, new Properties().group(ItemGroup.TOOLS));
+		super(ItemUtils.getItemTierFromType(type), 1, -2.8F, new Properties().group(ItemGroup.TAB_TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("pickaxe_%s", type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);
 	}
 	
 	protected BasePickaxe(ElementalTypes type, float attackSpeed) {
-		super(ItemUtils.getItemTierFromType(type), 1, attackSpeed, new Properties().group(ItemGroup.TOOLS));
+		super(ItemUtils.getItemTierFromType(type), 1, attackSpeed, new Properties().group(ItemGroup.TAB_TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("pickaxe_%s", type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);

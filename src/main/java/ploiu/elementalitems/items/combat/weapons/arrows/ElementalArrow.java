@@ -20,7 +20,7 @@ public class ElementalArrow extends ArrowItem implements ElementalItem {
 	private final ElementalTypes type;
 
 	public ElementalArrow(ElementalTypes type) {
-		super(new Properties().group(ItemGroup.COMBAT));
+		super(new Properties().tab(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.setRegistryName(String.format("arrow_%s", this.type));
 		ElementalItemsItemRegistry.addItem(this);

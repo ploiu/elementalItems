@@ -15,7 +15,7 @@ public abstract class BaseArmorItem extends ArmorItem implements BaseArmor {
 	private final ElementalTypes type;
 
 	public BaseArmorItem(ElementalTypes type, EquipmentSlotType slot) {
-		super(ItemUtils.getArmorMaterialFromType(type), slot, new Properties().group(ItemGroup.COMBAT));
+		super(ItemUtils.getArmorMaterialFromType(type), slot, new Properties().tab(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.setRegistryName(String.format("%s_%s", slot.getName(), type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);
@@ -31,7 +31,7 @@ public abstract class BaseArmorItem extends ArmorItem implements BaseArmor {
 		if(other == this) {
 			return true;
 		} else {
-			return other instanceof BaseArmorItem && ((BaseArmorItem) other).getType() == this.getType() && ((BaseArmorItem) other).getEquipmentSlot() == this.getEquipmentSlot();
+			return other instanceof BaseArmorItem && ((BaseArmorItem) other).getType() == this.getType() && ((BaseArmorItem) other).getSlot() == this.getSlot();
 		}
 	}
 

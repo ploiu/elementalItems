@@ -21,9 +21,9 @@ public class LeafArmor extends BaseArmorItem {
 
 	@Override
 	public void onUserHurt(ItemStack stack, World world, DamageSource source, LivingEntity wearer) {
-		if(EntityUtils.isValidLivingEntity(source.getImmediateSource())) {
-			LivingEntity attacker = (LivingEntity) source.getImmediateSource();
-			if(attacker.getCreatureAttribute() == CreatureAttribute.UNDEAD) {
+		if(EntityUtils.isValidLivingEntity(source.getDirectEntity())) {
+			LivingEntity attacker = (LivingEntity) source.getDirectEntity();
+			if(attacker.getMobType() == CreatureAttribute.UNDEAD) {
 				// deal 2.5 hearts of damage times the number of pieces of this armor worn
 				attacker.hurt(DamageSource.GENERIC, 5 * EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.LEAF, wearer));
 			}
@@ -34,9 +34,9 @@ public class LeafArmor extends BaseArmorItem {
 	public void applyPassiveEffect(ItemStack stack, World world, LivingEntity wearer) {
 		// give regeneration and remove the wither potion effect
 		if(EntityUtils.isValidLivingEntity(wearer)) {
-			wearer.removePotionEffect(Effects.WITHER);
+			wearer.removeEffect(Effects.WITHER);
 			int regenLevel = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.LEAF, wearer);
-			wearer.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, regenLevel - 1, false, true));
+			wearer.addEffect(new EffectInstance(Effects.REGENERATION, 100, regenLevel - 1, false, true));
 		}
 	}
 }

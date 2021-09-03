@@ -28,12 +28,12 @@ public class FireItemTier implements IItemTier {
 	}
 
 	@Override
-	public int getEnchantability() {
-		return DIAMOND.getEnchantability() / 2;
+	public int getEnchantmentValue() {
+		return DIAMOND.getEnchantmentValue() / 2;
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(fireCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(fireCrystal);
 	}
 }

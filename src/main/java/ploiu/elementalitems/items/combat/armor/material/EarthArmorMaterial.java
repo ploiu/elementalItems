@@ -7,8 +7,8 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.earthCrystal
 
 public class EarthArmorMaterial extends BaseArmorMaterial {
 	@Override
-	public Ingredient getRepairMaterial() {
-		return Ingredient.fromItems(earthCrystal);
+	public Ingredient getRepairIngredient() {
+		return Ingredient.of(earthCrystal);
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class EarthArmorMaterial extends BaseArmorMaterial {
 	}
 
 	@Override
-	public int getDurability(EquipmentSlotType slotIn) {
+	public int getDurabilityForSlot(EquipmentSlotType slotIn) {
 		return new int[]{13, 15, 16, 11}[slotIn.getIndex()] * 100;
 	}
 
