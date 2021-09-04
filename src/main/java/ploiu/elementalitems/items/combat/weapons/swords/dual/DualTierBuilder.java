@@ -19,23 +19,23 @@ public class DualTierBuilder {
 			// create a tier with all the best stats from each tier
 			tier = new IItemTier() {
 				@Override
-				public int getMaxUses() {
-					return max(firstTier.getMaxUses(), secondTier.getMaxUses());
+				public int getUses() {
+					return max(firstTier.getUses(), secondTier.getUses());
 				}
 
 				@Override
-				public float getEfficiency() {
-					return max(firstTier.getMaxUses(), secondTier.getMaxUses());
+				public float getSpeed() {
+					return max(firstTier.getSpeed(), secondTier.getSpeed());
 				}
 
 				@Override
-				public float getAttackDamage() {
-					return max(firstTier.getAttackDamage(), secondTier.getAttackDamage());
+				public float getAttackDamageBonus() {
+					return max(firstTier.getAttackDamageBonus(), secondTier.getAttackDamageBonus());
 				}
 
 				@Override
-				public int getHarvestLevel() {
-					return max(firstTier.getHarvestLevel(), secondTier.getHarvestLevel());
+				public int getLevel() {
+					return max(firstTier.getLevel(), secondTier.getLevel());
 				}
 
 				@Override

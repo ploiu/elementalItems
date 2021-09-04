@@ -17,14 +17,14 @@ public abstract class BaseAxe extends AxeItem implements ElementalTool {
 	private final ElementalTypes type;
 
 	public BaseAxe(ElementalTypes type) {
-		super(ItemUtils.getItemTierFromType(type), 5.0f, -3.0f, new Properties().group(ItemGroup.TAB_TOOLS));
+		super(ItemUtils.getItemTierFromType(type), 5.0f, -3.0f, new Properties().tab(ItemGroup.TAB_TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("axe_%s", this.type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);
 	}
 
 	protected BaseAxe(ElementalTypes type, float attackSpeed) {
-		super(ItemUtils.getItemTierFromType(type), 5.0f, attackSpeed, new Properties().group(ItemGroup.TAB_TOOLS));
+		super(ItemUtils.getItemTierFromType(type), 5.0f, attackSpeed, new Properties().tab(ItemGroup.TAB_TOOLS));
 		this.type = type;
 		this.setRegistryName(String.format("axe_%s", this.type.getTypeName()));
 		ElementalItemsItemRegistry.addItem(this);
@@ -36,8 +36,8 @@ public abstract class BaseAxe extends AxeItem implements ElementalTool {
 	}
 
 	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+	public boolean mineBlock(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
 		this.applyEffect(stack, worldIn, state, pos, entityLiving);
-		return super.onBlockDestroyed(stack, worldIn, state, pos, entityLiving);
+		return super.mineBlock(stack, worldIn, state, pos, entityLiving);
 	}
 }

@@ -25,7 +25,7 @@ public class Utils {
 		final ItemStack resultStack;
 		// we can't just use the input as a key as the object won't be equal. We have to use the ItemStack's special equals method
 		Optional<ItemStack> schrodingerStack = smeltingRecipes.entrySet().parallelStream()
-				                                       .filter(entry -> entry.getKey().isItemEqual(input))
+				                                       .filter(entry -> entry.getKey().sameItem(input))
 				                                       .map(Map.Entry::getValue)
 				                                       .findFirst();
 		resultStack = schrodingerStack.orElse(null);
@@ -36,7 +36,7 @@ public class Utils {
 		final List<ItemStack> stacks = new ArrayList<>();
 		if(container != null) {
 			// get all the slots that have non-empty item stacks
-			List<ItemStack> inventoryItems = container.getInventory().stream().filter(Objects::nonNull).filter(stack -> !stack.isEmpty()).collect(Collectors.toList());
+			List<ItemStack> inventoryItems = container.getItems().stream().filter(Objects::nonNull).filter(stack -> !stack.isEmpty()).collect(Collectors.toList());
 			stacks.addAll(inventoryItems);
 		}
 		return stacks;
@@ -44,10 +44,10 @@ public class Utils {
 
 	public static List<ItemStack> getContainerItems(IInventory container) {
 		List<ItemStack> items = new ArrayList<>();
-		int inventorySize = container.getSizeInventory();
+		int inventorySize = container.getContainerSize();
 		// for each slot in the container, if it's not empty or null, add it to items
 		for(int i = 0; i < inventorySize; i++) {
-			ItemStack currentStack = container.getStackInSlot(i);
+			ItemStack currentStack = container.getItem(i);
 			if(!currentStack.isEmpty()) {
 				items.add(currentStack);
 			}

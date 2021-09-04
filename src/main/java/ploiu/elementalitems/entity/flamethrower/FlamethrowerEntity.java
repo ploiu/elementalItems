@@ -103,8 +103,8 @@ public class FlamethrowerEntity extends ThrowableEntity {
 		}
 	}
 
-	public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
-		super.shoot(rotationPitchIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
+	public void shoot(Entity entityThrower, float xRotIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
+		super.shoot(xRotIn, rotationYawIn, pitchOffset, velocity, inaccuracy);
 		if(EntityUtils.isValidLivingEntity(entityThrower)) {
 			this.setOwner(entityThrower);
 			this.ownerEntity = (LivingEntity) entityThrower;

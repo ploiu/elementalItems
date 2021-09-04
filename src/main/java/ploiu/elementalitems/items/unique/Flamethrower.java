@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 
 public class Flamethrower extends BaseItem {
 	public Flamethrower() {
-		super(ElementalTypes.FIRE, new Properties().group(ItemGroup.TAB_COMBAT).maxDamage(500));
+		super(ElementalTypes.FIRE, new Properties().tab(ItemGroup.TAB_COMBAT).durability(500));
 		this.setRegistryName("flamethrower");
 		this.itemName = "flamethrower";
 		this.addPropertyOverride(new ResourceLocation("charge"), new IItemPropertyGetter() {
@@ -42,8 +42,8 @@ public class Flamethrower extends BaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-		if(!world.isRemote) {
+	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		if(world.isClientSide()) {
 			// get the item in the hand and make sure it's not damaged
 			ItemStack activeItemStack = player.getHeldItem(hand);
 			/*
@@ -58,7 +58,7 @@ public class Flamethrower extends BaseItem {
 			// items break when they're used and are already at 0% durability. We want to prevent this
 			if(ElementalItemsItemRegistry.flamethrower.equals(activeItemStack.getItem()) && canFireIfDamaged) {
 				FlamethrowerEntity flamethrowerEntity = new FlamethrowerEntity(player, world);
-				flamethrowerEntity.shoot(player, player.rotationPitch, player.yRot, 0.0f, 1.5f, 0.0f);
+				flamethrowerEntity.shoot(player, player.xRot, player.yRot, 0.0f, 1.5f, 0.0f);
 				world.addEntity(flamethrowerEntity);
 				if(!player.abilities.isCreativeMode) {
 					activeItemStack.damageItem(1, player, (stack) -> {
@@ -66,7 +66,7 @@ public class Flamethrower extends BaseItem {
 				}
 				// play the same sound for a fireball being launched if the config allows it TODO
 				// if(ElementalItemsConfig.shouldFlamethrowerMakeSound) {
-				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.75F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
+				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLAZE_SHOOT, SoundCategory.PLAYERS, 0.75F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
 				// }
 			}
 		}

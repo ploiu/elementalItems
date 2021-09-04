@@ -61,7 +61,7 @@ public class DualSwordBuilder {
 				};
 			case EARTH:
 				return (user, target) -> {
-					if(target.level.getBlockState(new BlockPos(target.getPosition(0).subtract(new Vector3d(0, 1, 0)))).isSolid()) {
+					if(target.level.getBlockState(new BlockPos(target.getPosition(0).subtract(new Vector3d(0, 1, 0)))).getMaterial().blocksMotion()) {
 						ElementalEffects.bury(target);
 					} else {
 						ElementalEffects.strikeDown(target);

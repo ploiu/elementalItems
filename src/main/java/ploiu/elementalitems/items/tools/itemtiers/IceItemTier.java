@@ -8,23 +8,23 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.iceCrystal;
 
 public class IceItemTier implements IItemTier {
 	@Override
-	public int getMaxUses() {
+	public int getUses() {
 		return 1000;
 	}
 
 	@Override
-	public float getEfficiency() {
-		return DIAMOND.getEfficiency();
+	public float getSpeed() {
+		return DIAMOND.getSpeed();
 	}
 
 	@Override
-	public float getAttackDamage() {
+	public float getAttackDamageBonus() {
 		return 5f;
 	}
 
 	@Override
-	public int getHarvestLevel() {
-		return IRON.getHarvestLevel();
+	public int getLevel() {
+		return IRON.getLevel();
 	}
 
 	@Override

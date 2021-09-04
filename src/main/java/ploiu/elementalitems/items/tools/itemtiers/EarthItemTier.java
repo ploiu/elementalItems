@@ -8,23 +8,23 @@ import static ploiu.elementalitems.items.ElementalItemsItemRegistry.earthCrystal
 
 public class EarthItemTier implements IItemTier {
 	@Override
-	public int getMaxUses() {
+	public int getUses() {
 		return 4000;
 	}
 
 	@Override
-	public float getEfficiency() {
-		return DIAMOND.getEfficiency();
+	public float getSpeed() {
+		return DIAMOND.getSpeed();
 	}
 
 	@Override
-	public float getAttackDamage() {
+	public float getAttackDamageBonus() {
 		return 5;
 	}
 
 	@Override
-	public int getHarvestLevel() {
-		return DIAMOND.getHarvestLevel() + 1;
+	public int getLevel() {
+		return DIAMOND.getLevel() + 1;
 	}
 
 	@Override

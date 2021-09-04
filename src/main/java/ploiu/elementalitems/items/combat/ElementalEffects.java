@@ -13,6 +13,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.World;
 import ploiu.elementalitems.util.EntityUtils;
 import ploiu.elementalitems.util.ItemUtils;
@@ -59,13 +60,14 @@ public class ElementalEffects {
 	public static void launchTarget(LivingEntity user, LivingEntity target) {
 		if(isValidLivingEntity(target) && isValidLivingEntity(user)) {
 			// spawn a bunch of particles around the target and play a sound
-			final World world = target.getEntityWorld();
-			if(!world.isRemote()) {
-				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ENTITY_BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
+			final World world = target.level;
+			if(world.isClientSide()) {
+				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
 			}
-			target.func_233627_a_(2F, user.getX() - target.getX(), user.getZ() - target.getZ());
+			target.knockback(2F, user.getX() - target.getX(), user.getZ() - target.getZ());
 			// launch it into the air, based on the target's knockBack resistance
-			target.addVelocity(0, target.getAttribute(Attributes.field_233820_c_).getValue() + 1, 0);
+			double knockbackResistance = target.getAttribute(Attributes.KNOCKBACK_RESISTANCE) != null ? target.getAttribute(Attributes.KNOCKBACK_RESISTANCE).getValue() + 1 : 1;
+			target.setDeltaMovement(0, knockbackResistance, 0);
 		}
 	}
 
@@ -77,21 +79,21 @@ public class ElementalEffects {
 	public static void strikeDown(LivingEntity target) {
 		if(isValidLivingEntity(target)) {
 			// get the world the entity is in
-			World world = target.getEntityWorld();
+			World world = target.level;
 			// there doesn't need to be a body for this
 			BlockPos pos = new BlockPos(target.getX(), target.getY(), target.getZ());
 			int distance;
 			for(int i = 0; ; i++) {
 				// get the current block
-				if(world.getBlockState(pos.down(i + 1)).isSolid()) {
+				if(world.getBlockState(new BlockPos(pos.subtract(new Vector3i(0, i + 1, 0)))).getMaterial().blocksMotion()) {
 					// set our distance and break
 					distance = i;
 					break;
 				}
 			}
-			target.setBoundingBox(target.getBoundingBox().offset(0, -distance, 0));
-			target.resetPositionToBB();
-			target.onLivingFall(distance, 2);
+			target.setBoundingBox(target.getBoundingBox().move(0, -distance, 0));
+			// TODO? target.resetPositionToBB();
+			target.causeFallDamage(distance, 2);
 		}
 	}
 
@@ -102,13 +104,13 @@ public class ElementalEffects {
 	 */
 	public static void bury(LivingEntity target) {
 		if(isValidLivingEntity(target)) {
-			float height = target.getHeight() + 1;
-			target.setBoundingBox(target.getBoundingBox().offset(0, -height, 0));
-			target.resetPositionToBB();
-			final World world = target.getEntityWorld();
-			if(!world.isRemote()) {
+			float height = target.getBbHeight() + 1;
+			target.setBoundingBox(target.getBoundingBox().move(0, -height, 0));
+			// TODO? target.resetPositionToBB();
+			final World world = target.level;
+			if(world.isClientSide()) {
 				// play a sound effect
-				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ENTITY_GENERIC_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
+				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.GENERIC_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
 			}
 		}
 	}
@@ -121,11 +123,11 @@ public class ElementalEffects {
 	 */
 	public static void throwSnowball(World world, PlayerEntity player) {
 		if(isValidLivingEntity(player)) {
-			world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
-			if(!world.isRemote) {
+			world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+			if(world.isClientSide()) {
 				SnowballEntity snowballentity = new SnowballEntity(world, player);
-				snowballentity.shoot(player.rotationPitch, player.yRot, 0.0F, 3F, 1.0F);
-				world.addEntity(snowballentity);
+				snowballentity.shoot(player.xRot, player.yRot, 0.0F, 3F, 1.0F);
+				world.addFreshEntity(snowballentity);
 			}
 		}
 	}
@@ -140,11 +142,11 @@ public class ElementalEffects {
 			// teleport the target to a random location
 			int min = -10;
 			int max = 10;
-			int newX = target.getRNG().nextInt(max - min) + min + (int)target.getX();
-			int newZ = target.getRNG().nextInt(max - min) + min + (int)target.getZ();
-			target.attemptTeleport(newX, target.getY(), newZ, true);
-			target.getEntityWorld().playSound(null, target.prevPosX, target.prevPosY, target.prevPosZ, SoundEvents.ENTITY_ENDERMAN_TELEPORT, target.getSoundCategory(), 1.0F, 1.0F);
-			target.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0F, 1.0F);
+			int newX = target.getRandom().nextInt(max - min) + min + (int) target.getX();
+			int newZ = target.getRandom().nextInt(max - min) + min + (int) target.getZ();
+			target.teleportToWithTicket(newX, target.getY(), newZ);
+			target.level.playSound(null, target.xOld, target.yOld, target.zOld, SoundEvents.ENDERMAN_TELEPORT, SoundCategory.MASTER, 1.0F, 1.0F);
+			target.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
 		}
 	}
 
@@ -156,11 +158,11 @@ public class ElementalEffects {
 	 */
 	public static void throwEnderpearl(World world, PlayerEntity player) {
 		if(isValidLivingEntity(player)) {
-			if(!world.isRemote) {
+			if(world.isClientSide()) {
 				EnderPearlEntity enderpearl = new EnderPearlEntity(world, player);
-				enderpearl.shoot(player.rotationPitch, player.yRot, 0f, 1.5f, 1.0f);
-				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
-				world.addEntity(enderpearl);
+				enderpearl.shoot(player.xRot, player.yRot, 0f, 1.5f, 1.0f);
+				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+				world.addFreshEntity(enderpearl);
 			}
 		}
 	}

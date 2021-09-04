@@ -27,7 +27,7 @@ public interface ISharedFireToolEffects {
 					ItemStack currentItem = smeltedOutput.get(i);
 					// if the item is null, then there's no smelting output and we should drop the original item
 					currentItem = currentItem == null ? drops.get(i) : currentItem;
-					world.addEntity(new ItemEntity(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), currentItem));
+					world.addFreshEntity(new ItemEntity(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), currentItem));
 				} catch(IndexOutOfBoundsException ignored) {
 					// the lists should be the same exact size, this is more of a just in case so the game doesn't crash
 				}

@@ -75,7 +75,7 @@ public class EntityUtils {
 	 * @param xpAmount
 	 */
 	public static void spawnXpOrb(@Nonnull World world, BlockPos positionToSpawn, int xpAmount) {
-		if(!world.isRemote && positionToSpawn != null && xpAmount > 0) {
+		if(world.isClientSide() && positionToSpawn != null && xpAmount > 0) {
 			world.addEntity(new ExperienceOrbEntity(world, positionToSpawn.getX(), positionToSpawn.getY(), positionToSpawn.getZ(), xpAmount));
 		}
 	}

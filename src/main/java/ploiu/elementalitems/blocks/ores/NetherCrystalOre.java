@@ -38,8 +38,8 @@ public class NetherCrystalOre extends FireCrystalOre {
 	}
 
 	@Override
-	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-		super.onBlockHarvested(worldIn, pos, state, player);
+	public void mineBlock(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
+		super.mineBlock(worldIn, pos, state, player);
 	}
 
 	@Override

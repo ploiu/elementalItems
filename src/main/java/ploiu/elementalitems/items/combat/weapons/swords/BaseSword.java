@@ -27,7 +27,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	private final ElementalTypes type;
 
 	public BaseSword(ElementalTypes type) {
-		super(ItemUtils.getItemTierFromType(type), 5, -2.4F, new Properties().group(ItemGroup.TAB_COMBAT));
+		super(ItemUtils.getItemTierFromType(type), 5, -2.4F, new Properties().tab(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.name = String.format("sword_%s", type);
 		this.setRegistryName(this.name);
@@ -35,7 +35,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	}
 
 	protected BaseSword(ElementalTypes type, float attackSpeed) {
-		super(ItemUtils.getItemTierFromType(type), 5, attackSpeed, new Properties().group(ItemGroup.TAB_COMBAT));
+		super(ItemUtils.getItemTierFromType(type), 5, attackSpeed, new Properties().tab(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.name = String.format("sword_%s", type);
 		this.setRegistryName(this.name);
@@ -43,7 +43,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	}
 
 	public BaseSword(IItemTier tier, String name, ElementalTypes type) {
-		super(tier, 5, -2.4f, new Properties().group(ItemGroup.TAB_COMBAT));
+		super(tier, 5, -2.4f, new Properties().tab(ItemGroup.TAB_COMBAT));
 		this.type = type;
 		this.name = name;
 		this.setRegistryName(this.name);
@@ -53,20 +53,20 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 	protected abstract void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected);
 
 	@Override
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if(EntityUtils.isValidLivingEntity(target)) {
-			if(target.getEntityWorld() instanceof ServerWorld) {
-				this.spawnAttackParticles((ServerWorld) target.getEntityWorld(), target);
+			if(target.level instanceof ServerWorld) {
+				this.spawnAttackParticles((ServerWorld) target.level, target);
 			}
 			this.applyEffect(stack, target, attacker);
 		}
-		return super.hitEntity(stack, target, attacker);
+		return super.hurtEnemy(stack, target, attacker);
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		this.onUsed(worldIn, playerIn, handIn);
-		return super.onItemRightClick(worldIn, playerIn, handIn);
+		return super.use(worldIn, playerIn, handIn);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 		// spawn all the particle types associated with this
 		particlesToSpawn.forEach((type, count) -> {
 			// use the worldServer to spawn the particles
-			worldServer.spawnParticle(type, targetToSpawnParticlesAt.getX(), targetToSpawnParticlesAt.getY(), targetToSpawnParticlesAt.getZ(), count, targetToSpawnParticlesAt.getWidth(), targetToSpawnParticlesAt.getHeight(), targetToSpawnParticlesAt.getWidth(), 0.0);
+			worldServer.addParticle(type, true, targetToSpawnParticlesAt.getX(), targetToSpawnParticlesAt.getY(), targetToSpawnParticlesAt.getZ(), count, targetToSpawnParticlesAt.getBbWidth(), 0.0);
 		});
 	}
 
