@@ -21,21 +21,21 @@ public interface ISharedEnderToolEffects {
 	default void teleportItemsToOwnerInventory(World world, BlockState blockState, BlockPos blockPos, LivingEntity user) {
 		if(world instanceof ServerWorld && EntityUtils.isValidLivingEntity(user) && user instanceof PlayerEntity) {
 			final List<ItemStack> blockDrops = new ArrayList<>();
-			if(world.getTileEntity(blockPos) instanceof IInventory && world.getTileEntity(blockPos) != null) {
-				blockDrops.addAll(Utils.getContainerItems((IInventory) world.getTileEntity(blockPos)));
+			if(world.getBlockEntity(blockPos) instanceof IInventory && world.getBlockEntity(blockPos) != null) {
+				blockDrops.addAll(Utils.getContainerItems((IInventory) world.getBlockEntity(blockPos)));
 			}
 			PlayerEntity player = (PlayerEntity) user;
 			// get the block drops
 			blockDrops.addAll(Block.getDrops(blockState, (ServerWorld) world, blockPos, null));
 			// go through the user's inventory and add the block drops to their free slots
-			List<ItemStack> didNotFitInInventory = blockDrops.stream().filter(drop -> !player.addItemStackToInventory(drop)).collect(Collectors.toList());
+			List<ItemStack> didNotFitInInventory = blockDrops.stream().filter(drop -> !player.addItem(drop)).collect(Collectors.toList());
 			// for the drops that did not fit, spawn them at the player's feet
 			for(ItemStack stack : didNotFitInInventory) {
 				ItemEntity droppedItem = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), stack);
-				world.addEntity(droppedItem);
+				world.addFreshEntity(droppedItem);
 			}
 			// destroy the block so that we don't duplicate drops
-			world.removeTileEntity(blockPos);
+			world.removeBlockEntity(blockPos);
 			world.destroyBlock(blockPos, false);
 		}
 	}

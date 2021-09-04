@@ -28,11 +28,11 @@ public class IceOreFeature extends ExpandedOreFeature {
 	}
 	@Override
 	protected boolean generateBlock(IWorld world, Random random, ExpandedOreFeatureConfig config, double xStart, double xEnd, double zStart, double zEnd, double yMin, double yMax, int x, int y, int z, int p_207803_19_, int p_207803_20_) {
-		int i = 0;
+		/*int i = 0;
 		BitSet attemptedLocations = new BitSet(p_207803_19_ * p_207803_20_ * p_207803_19_);
 		BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 		double[] coordinateSets = new double[config.size * 4];
-		/** BUILD COORDINATE SETS **/
+		*//** BUILD COORDINATE SETS **//*
 		for(int j = 0; j < config.size; ++j) {
 			float f = (float) j / (float) config.size;
 			double d0 = MathHelper.lerp((double) f, xStart, xEnd);
@@ -66,7 +66,7 @@ public class IceOreFeature extends ExpandedOreFeature {
 			}
 		}
 
-		/** CHECK IF THE BLOCK SHOULD BE PLACED AND PLACE IT **/
+		*//** CHECK IF THE BLOCK SHOULD BE PLACED AND PLACE IT **//*
 		for(int i3 = 0; i3 < config.size; ++i3) {
 			double coordinateContinueChance = coordinateSets[i3 * 4 + 3];
 			if(!(coordinateContinueChance < 0.0D)) {
@@ -95,7 +95,7 @@ public class IceOreFeature extends ExpandedOreFeature {
 											attemptedLocations.set(k2);
 											blockpos$mutableblockpos.setPos(actualX, actualY, actualZ);
 											if(config.target.getCanReplaceFunction().test(world.getBlockState(blockpos$mutableblockpos)) && world.getBlockState(blockpos$mutableblockpos.up()).getBlock().equals(Blocks.AIR)) {
-												world.setBlockState(blockpos$mutableblockpos, config.state, 2);
+												world.setBlock(blockpos$mutableblockpos, config.state, 2);
 												++i;
 											}
 										}
@@ -108,6 +108,7 @@ public class IceOreFeature extends ExpandedOreFeature {
 			}
 		}
 
-		return i > 0;
+		return i > 0;*/
+		return false;
 	}
 }

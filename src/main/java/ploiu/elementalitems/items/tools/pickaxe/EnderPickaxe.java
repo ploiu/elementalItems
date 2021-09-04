@@ -16,7 +16,7 @@ public class EnderPickaxe extends BasePickaxe implements ISharedEnderToolEffects
 
 	@Override
 	public void applyEffect(ItemStack stack, World world, BlockState blockState, BlockPos blockPos, LivingEntity user) {
-		if(this.canHarvestBlock(blockState)) {
+		if(this.canHarvestBlock(stack, blockState)) {
 			this.teleportItemsToOwnerInventory(world, blockState, blockPos, user);
 		}
 	}

@@ -36,8 +36,8 @@ public abstract class BasePickaxe extends PickaxeItem implements ElementalTool {
 	}
 
 	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+	public boolean mineBlock(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
 		this.applyEffect(stack, worldIn, state, pos, entityLiving);
-		return super.onBlockDestroyed(stack, worldIn, state, pos, entityLiving);
+		return super.mineBlock(stack, worldIn, state, pos, entityLiving);
 	}
 }

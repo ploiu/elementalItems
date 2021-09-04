@@ -21,7 +21,6 @@ import ploiu.elementalitems.recipe.ElementalItemsRecipeRegistry;
 import ploiu.elementalitems.worldgen.EndGenerator;
 import ploiu.elementalitems.worldgen.NetherGenerator;
 import ploiu.elementalitems.worldgen.OverworldGenerator;
-import ploiu.elementalitems.worldgen.features.ElementalItemsFeatureRegistry;
 
 
 @Mod("elementalitems")
@@ -40,7 +39,7 @@ public class ElementalItems {
 	}
 
 	private void doCommonSetup(final FMLCommonSetupEvent event) {
-		OverworldGenerator.setupOverworldGeneration();
+		// TODO OverworldGenerator.setupOverworldGeneration();
 		NetherGenerator.setupNetherGenerator();
 		EndGenerator.setupEndGeneration();
 	}
@@ -77,7 +76,7 @@ public class ElementalItems {
 		@SubscribeEvent
 		public static void worldGenFeatureRegistry(final RegistryEvent.Register<Feature<?>> event) {
 			// I don't want to do this, but I have to...
-			ElementalItemsFeatureRegistry.registerFeatures(event);
+			// ElementalItemsFeatureRegistry.registerFeatures(event);
 		}
 	}
 }

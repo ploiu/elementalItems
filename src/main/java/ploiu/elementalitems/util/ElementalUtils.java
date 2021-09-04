@@ -7,6 +7,7 @@ import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.blocks.ElementalItemsBlockRegistry;
+import ploiu.elementalitems.items.combat.weapons.swords.BaseSword;
 import ploiu.elementalitems.items.crystal.BaseCrystal;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.items.combat.weapons.arrows.ElementalArrow;

@@ -29,7 +29,7 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 		super(codec);
 	}
 
-	public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, ExpandedOreFeatureConfig config) {
+	public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, ExpandedOreFeatureConfig config) {
 		float f = rand.nextFloat() * (float) Math.PI;
 		float f1 = (float) config.size / 8.0F;
 		int i = MathHelper.ceil(((float) config.size / 16.0F * 2.0F + 1.0F) / 2.0F);
@@ -121,7 +121,7 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 										int k2 = actualX - x + (actualY - y) * p_207803_19_ + (actualZ - z) * p_207803_19_ * p_207803_20_;
 										if(!attemptedLocations.get(k2)) {
 											attemptedLocations.set(k2);
-											blockpos$mutableblockpos.setPos(actualX, actualY, actualZ);
+											blockpos$mutableblockpos.set(actualX, actualY, actualZ);
 											if(generateBlock(world, blockpos$mutableblockpos, config)) {
 												i++;
 											}
@@ -140,7 +140,7 @@ public class ExpandedOreFeature extends Feature<ExpandedOreFeatureConfig> {
 
 	protected boolean generateBlock(IWorld worldIn, BlockPos blockPos, ExpandedOreFeatureConfig config) {
 		if(config.target.getCanReplaceFunction().test(worldIn.getBlockState(blockPos))) {
-			worldIn.setBlockState(blockPos, config.state, 2);
+			worldIn.setBlock(blockPos, config.state, 2);
 			return true;
 		}
 		return false;

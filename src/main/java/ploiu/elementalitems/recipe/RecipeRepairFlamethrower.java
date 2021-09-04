@@ -24,10 +24,10 @@ public class RecipeRepairFlamethrower extends SpecialRecipe {
 		boolean hasOneFlamethrower = false;
 		boolean matches = false;
 		// go through all stacks in the inventory and get the stuff
-		int invSize = inv.getSizeInventory();
+		int invSize = inv.getContainerSize();
 		for(int i = 0; i < invSize; i++) {
 			// the itemStack at i
-			ItemStack currentStack = inv.getStackInSlot(i);
+			ItemStack currentStack = inv.getItem(i);
 			if(ElementalItemsItemRegistry.flamethrower.equals(currentStack.getItem())) {
 				// we start off at false, so the first time we reach here, it becomes true. Any times after that makes it false
 				hasOneFlamethrower ^= true;
@@ -47,7 +47,7 @@ public class RecipeRepairFlamethrower extends SpecialRecipe {
 	}
 
 	@Override
-	public ItemStack getCraftingResult(CraftingInventory inv) {
+	public ItemStack assemble(CraftingInventory inv) {
 		// find the flamethrower in the inventory, get the damage, and add crystalRepairAmount durability for each fire crystal in the inventory as well
 		ItemStack flamethrowerStack = ItemStack.EMPTY;
 		// the items in the crafting inventory
@@ -63,13 +63,13 @@ public class RecipeRepairFlamethrower extends SpecialRecipe {
 		}
 		if(!flamethrowerStack.isEmpty()) {
 			// return flamethrowerStack, but with increased durability
-			flamethrowerStack.setDamage(flamethrowerStack.getDamage() - fireCrystalCount * this.crystalRepairAmount);
+			flamethrowerStack.setDamageValue(flamethrowerStack.getDamageValue() - fireCrystalCount * this.crystalRepairAmount);
 		}
 		return flamethrowerStack;
 	}
 
 	@Override
-	public boolean canFit(int width, int height) {
+	public boolean canCraftInDimensions(int width, int height) {
 		return width > 1 || height > 1;
 	}
 
@@ -131,7 +131,7 @@ public class RecipeRepairFlamethrower extends SpecialRecipe {
 
 	private int getNumberOfUsedFireCrystals(int numberOfFireCrystalsInGrid, ItemStack flamethrowerStack) {
 		// get the stack damage
-		int stackDamage = flamethrowerStack.getDamage();
+		int stackDamage = flamethrowerStack.getDamageValue();
 		// get the repair amount for the crystals
 		int totalRepairAmount = this.crystalRepairAmount * numberOfFireCrystalsInGrid;
 		// the number of used crystals
@@ -155,10 +155,10 @@ public class RecipeRepairFlamethrower extends SpecialRecipe {
 	 * 		faster which is why it's done this way
 	 */
 	private ItemStack[] getItemStacksInCraftingGrid(CraftingInventory inv) {
-		ItemStack[] craftingStacks = new ItemStack[inv.getSizeInventory()];
+		ItemStack[] craftingStacks = new ItemStack[inv.getContainerSize()];
 		// add all the items from inv
-		for(int i = 0; i < inv.getSizeInventory(); i++) {
-			craftingStacks[i] = inv.getStackInSlot(i).copy();
+		for(int i = 0; i < inv.getContainerSize(); i++) {
+			craftingStacks[i] = inv.getItem(i).copy();
 		}
 		return craftingStacks;
 	}

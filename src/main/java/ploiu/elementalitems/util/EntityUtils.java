@@ -49,7 +49,7 @@ public class EntityUtils {
 		return isValid;
 	}
 
-	@Deprecated // TODO remove if we don't use this after the migration to 1.14
+	/*@Deprecated // TODO remove if we don't use this after the migration to 1.14
 	public static boolean isMobFromBiome(final LivingEntity toCheck, final Biome biome) {
 		if(toCheck != null && biome != null) {
 			boolean isFromBiome = false;
@@ -65,7 +65,7 @@ public class EntityUtils {
 		} else {
 			return false;
 		}
-	}
+	}*/
 
 	/**
 	 * Spawns an experience orb into the world
@@ -76,7 +76,7 @@ public class EntityUtils {
 	 */
 	public static void spawnXpOrb(@Nonnull World world, BlockPos positionToSpawn, int xpAmount) {
 		if(world.isClientSide() && positionToSpawn != null && xpAmount > 0) {
-			world.addEntity(new ExperienceOrbEntity(world, positionToSpawn.getX(), positionToSpawn.getY(), positionToSpawn.getZ(), xpAmount));
+			world.addFreshEntity(new ExperienceOrbEntity(world, positionToSpawn.getX(), positionToSpawn.getY(), positionToSpawn.getZ(), xpAmount));
 		}
 	}
 
@@ -92,7 +92,7 @@ public class EntityUtils {
 		// try to add all items from itemToAdd to the player's inventory
 		for(ItemStack stack : itemsToAdd) {
 			// attempt to add the current item to the player's inventory
-			boolean wasUnableToAdd = !player.addItemStackToInventory(stack);
+			boolean wasUnableToAdd = !player.addItem(stack);
 			// add the current stack to leftOverItems if we couldn't add it to the player's inventory
 			if(wasUnableToAdd) {
 				leftOverItems.add(stack);
@@ -105,8 +105,8 @@ public class EntityUtils {
 		itemsToDrop.forEach(itemStack -> {
 			// create a new Item to be dropped into the world
 			ItemEntity itemStackEntity = new ItemEntity(world, target.getX(), target.getY(), target.getZ(), itemStack);
-			itemStackEntity.setDefaultPickupDelay();
-			world.addEntity(itemStackEntity);
+			itemStackEntity.setDefaultPickUpDelay();
+			world.addFreshEntity(itemStackEntity);
 		});
 	}
 
@@ -119,7 +119,7 @@ public class EntityUtils {
 	 */
 	public static void dropItemsInWorld(@Nonnull World world, @Nonnull BlockPos position, @Nonnull List<ItemStack> itemsToDrop) {
 		for(ItemStack itemStack : itemsToDrop) {
-			Block.spawnAsEntity(world, position, itemStack);
+			world.addFreshEntity(new ItemEntity(world, position.getX(), position.getY(), position.getZ(), itemStack));
 		}
 	}
 
@@ -135,7 +135,7 @@ public class EntityUtils {
 			// do we have a full set?
 			boolean fullSet = true;
 			// iterate through toCheck's armor inventory and check for BaseArmor with the same type as what's passed in
-			Iterable<ItemStack> armorItems = toCheck.getArmorInventoryList();
+			Iterable<ItemStack> armorItems = toCheck.getArmorSlots();
 			for(ItemStack stack : armorItems) {
 				if(stack == null || !(stack.getItem() instanceof BaseArmor) || ((BaseArmor) stack.getItem()).getType() != type) {
 					fullSet = false;
@@ -156,7 +156,7 @@ public class EntityUtils {
 	public static List<ItemStack> getEntityArmor(@Nullable Entity target) {
 		List<ItemStack> armorInventory = new ArrayList<>();
 		if(isValidLivingEntity(target)) {
-			Iterable<ItemStack> armorIterable = target.getArmorInventoryList();
+			Iterable<ItemStack> armorIterable = target.getArmorSlots();
 			armorIterable.forEach(armorInventory::add);
 		}
 		// now remove empty item stacks, and item stacks whose item is not an armor piece

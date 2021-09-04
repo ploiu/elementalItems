@@ -5,8 +5,8 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import ploiu.elementalitems.ElementalTypes;
-import ploiu.elementalitems.items.crystal.BaseCrystal;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
+import ploiu.elementalitems.items.crystal.BaseCrystal;
 import ploiu.elementalitems.items.tools.itemtiers.TierRegistry;
 
 import javax.annotation.Nonnull;
@@ -20,8 +20,9 @@ public class ItemUtils {
 	 * @param enchantment
 	 */
 	public static void removeEnchantmentFromItem(ItemStack stack, Enchantment enchantment) {
-		final String enchantmentName = enchantment.getName().toLowerCase().split("\\.")[2];
-		stack.getEnchantmentTagList().removeIf(tag -> tag.getString().toLowerCase().contains(enchantmentName));
+		// FIXME change toString to get the enchantment name
+		final String enchantmentName = enchantment.getDescriptionId().toLowerCase().split("\\.")[2];
+		stack.getEnchantmentTags().removeIf(tag -> tag.getAsString().toLowerCase().contains(enchantmentName));
 	}
 
 	/**

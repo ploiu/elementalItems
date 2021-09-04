@@ -20,7 +20,7 @@ import static ploiu.elementalitems.blocks.ElementalItemsBlockRegistry.*;
 
 public class OverworldGenerator {
 
-	public static void setupOverworldGeneration() {
+	/*public static void setupOverworldGeneration() {
 		// get all the ores for the overworld
 		final List<BaseOre> ores = Arrays.asList(
 				plainCrystalOre,
@@ -57,5 +57,5 @@ public class OverworldGenerator {
 			default:
 				throw new IllegalArgumentException(String.format("The type [%s] is not a valid elemental type", type.getTypeName()));
 		}
-	}
+	}*/
 }

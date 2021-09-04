@@ -1,7 +1,6 @@
 package ploiu.elementalitems.items.unique;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
@@ -18,17 +17,17 @@ public class ArmorCrusher extends ToolItem implements ElementalItem {
 
 
 	public ArmorCrusher() {
-		super(10, -3.3f, TierRegistry.earthTier, new HashSet<>(), new Properties().tab(ItemGroup.TAB_COMBAT).maxDamage(4000));
+		super(10, -3.3f, TierRegistry.earthTier, new HashSet<>(), new Properties().tab(ItemGroup.TAB_COMBAT).durability(4000));
 		this.setRegistryName("warhammer");
 		ElementalItemsItemRegistry.addItem(this);
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		// damage the target's equipped armor a lot
 		List<ItemStack> targetArmor = EntityUtils.getEntityArmor(target);
-		targetArmor.forEach(piece -> piece.damageItem((int) this.attackDamage * 10, target, (entity -> { })));
-		return super.hitEntity(stack, target, attacker);
+		targetArmor.forEach(piece -> piece.setDamageValue(piece.getDamageValue() - (int) this.getAttackDamage() * 10));
+		return super.hurtEnemy(stack, target, attacker);
 	}
 
 	@Override
