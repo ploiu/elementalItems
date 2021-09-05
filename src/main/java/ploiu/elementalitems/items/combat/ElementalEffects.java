@@ -61,7 +61,7 @@ public class ElementalEffects {
 		if(isValidLivingEntity(target) && isValidLivingEntity(user)) {
 			// spawn a bunch of particles around the target and play a sound
 			final World world = target.level;
-			if(world.isClientSide()) {
+			if(!world.isClientSide()) {
 				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
 			}
 			target.knockback(2F, user.getX() - target.getX(), user.getZ() - target.getZ());
@@ -88,6 +88,7 @@ public class ElementalEffects {
 				if(world.getBlockState(new BlockPos(pos.subtract(new Vector3i(0, i + 1, 0)))).getMaterial().blocksMotion()) {
 					// set our distance and break
 					distance = i;
+					target.level.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.GENERIC_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
 					break;
 				}
 			}
@@ -108,10 +109,7 @@ public class ElementalEffects {
 			target.setBoundingBox(target.getBoundingBox().move(0, -height, 0));
 			// TODO? target.resetPositionToBB();
 			final World world = target.level;
-			if(world.isClientSide()) {
-				// play a sound effect
-				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.GENERIC_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
-			}
+			world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.HOSTILE_BIG_FALL, SoundCategory.NEUTRAL, 1.5f, .5f);
 		}
 	}
 
@@ -158,7 +156,7 @@ public class ElementalEffects {
 	 */
 	public static void throwEnderpearl(World world, PlayerEntity player) {
 		if(isValidLivingEntity(player)) {
-			if(world.isClientSide()) {
+			if(!world.isClientSide()) {
 				EnderPearlEntity enderpearl = new EnderPearlEntity(world, player);
 				enderpearl.shoot(player.xRot, player.yRot, 0f, 1.5f, 1.0f);
 				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));

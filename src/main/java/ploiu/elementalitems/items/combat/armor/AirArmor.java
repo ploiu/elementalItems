@@ -25,10 +25,8 @@ public class AirArmor extends BaseArmorItem {
 			LivingEntity attacker = (LivingEntity) source.getDirectEntity();
 			// knockback the attacker based on the number of pieces being worn and the attacker's knockback resistance
 			float effectMultiplier = EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.AIR, wearer) / 4f;
-			// knockback the attacker
-			if(world.isClientSide()) {
-				world.playSound(null, wearer.getX(), wearer.getY(), wearer.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
-			}
+			// dividing the sound volume so that 4 pieces isn't ear splitting but also so that 1 piece isn't super quiet
+			world.playSound(null, wearer.getX(), wearer.getY(), wearer.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f / EntityUtils.getNumberOfElementalArmorForType(ElementalTypes.AIR, wearer), 1f);
 			attacker.knockback(effectMultiplier, -MathHelper.sin(attacker.yRot * 0.017453292F), MathHelper.cos(attacker.yRot * 0.017453292F));
 			// spawn particles to signify the attacker flying back
 			if(world instanceof ServerWorld) {

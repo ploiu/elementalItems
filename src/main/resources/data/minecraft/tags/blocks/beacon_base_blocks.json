@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+	"elementalitems:block_crystal_plain",
+	"elementalitems:block_crystal_fire",
+	"elementalitems:block_crystal_ice",
+	"elementalitems:block_crystal_water",
+	"elementalitems:block_crystal_leaf",
+	"elementalitems:block_crystal_earth",
+	"elementalitems:block_crystal_air",
+	"elementalitems:block_crystal_ender"
+  ]
+}

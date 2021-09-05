@@ -49,7 +49,7 @@ public class Flamethrower extends BaseItem {
 
 	@Override
 	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-		if(world.isClientSide()) {
+		if(!world.isClientSide()) {
 			// get the item in the hand and make sure it's not damaged
 			ItemStack activeItemStack = player.getItemInHand(hand);
 			/*
@@ -65,7 +65,9 @@ public class Flamethrower extends BaseItem {
 			if(ElementalItemsItemRegistry.flamethrower.equals(activeItemStack.getItem()) && canFireIfDamaged) {
 				FlamethrowerEntity flamethrowerEntity = new FlamethrowerEntity(player, world);
 				flamethrowerEntity.shoot(player, player.xRot, player.yRot, 0.0f, 1.5f, 0.0f);
-				world.addFreshEntity(flamethrowerEntity);
+				if(!world.isClientSide()) {
+					world.addFreshEntity(flamethrowerEntity);
+				}
 				if(!player.abilities.instabuild) {
 					activeItemStack.setDamageValue(activeItemStack.getDamageValue() - 1);
 				}

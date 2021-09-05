@@ -12,7 +12,7 @@ import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.util.EntityUtils;
 
 /**
- * TODO apply regeneration, hurt undead that attack player, reduce wither and poison debuffs
+ * reduce wither and poison debuffs
  */
 public class LeafArmor extends BaseArmorItem {
 	public LeafArmor(EquipmentSlotType slot) {

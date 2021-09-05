@@ -7,9 +7,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import ploiu.elementalitems.ElementalTypes;
 
-/**
- * TODO knockback immunity
- */
 public class EarthArmor extends BaseArmorItem {
 	public EarthArmor(EquipmentSlotType slot) {
 		super(ElementalTypes.EARTH, slot);

@@ -37,7 +37,7 @@ public class EntityEnderArrow extends BaseEntityArrow {
 	@Override
 	public void hitBlock(BlockRayTraceResult rayTraceResult) {
 		// if the world is not remote and our shooter is a valid entity, attempt to teleport our shooter to where the arrow landed
-		if(this.level.isClientSide && EntityUtils.isValidLivingEntity(this.getOwner())) {
+		if(!this.level.isClientSide() && EntityUtils.isValidLivingEntity(this.getOwner())) {
 			EntityTeleportEvent.EnderEntity event = new EntityTeleportEvent.EnderEntity((LivingEntity) this.getOwner(), this.getX(), this.getY(), this.getZ());
 			this.getOwner().teleportToWithTicket(event.getTargetX(), event.getTargetY(), event.getTargetZ());
 			// play the sounds

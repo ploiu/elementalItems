@@ -61,7 +61,7 @@ public class LivingEvents {
 					arrow.setDeltaMovement(0, -.1f, 0);
 					World world = target.level;
 					// play a sound and spawn particles to give sensory cues as to the arrow getting sent back to the attacker
-					if(world.isClientSide()) {
+					if(!world.isClientSide()) {
 						world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
 					if(world instanceof ServerWorld) {
