@@ -30,7 +30,7 @@ public class AirArmor extends BaseArmorItem {
 			attacker.knockback(effectMultiplier, -MathHelper.sin(attacker.yRot * 0.017453292F), MathHelper.cos(attacker.yRot * 0.017453292F));
 			// spawn particles to signify the attacker flying back
 			if(world instanceof ServerWorld) {
-				world.addParticle(ParticleTypes.CLOUD, true, attacker.getX(), attacker.getY(), attacker.getZ(), 3.0d, attacker.getBbWidth() / 4, 0.0d);
+				((ServerWorld)world).sendParticles(ParticleTypes.CLOUD, attacker.getRandomX(1.0D), attacker.getRandomY(), attacker.getRandomZ(1.0D), 0, 0, 0, 0, .1);
 			}
 		}
 	}

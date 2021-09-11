@@ -96,7 +96,7 @@ public class FlamethrowerEntity extends ThrowableEntity {
 		// spawn fire particles after a little bit
 		if(this.ticksExisted >= 2 && this.level instanceof ServerWorld) {
 			ServerWorld worldServer = (ServerWorld) this.level;
-			worldServer.addParticle(ParticleTypes.FLAME, true, this.getX(), this.getY(), this.getZ(), 3.0d, this.getBbWidth() / 4, 0.0d);
+			worldServer.sendParticles(ParticleTypes.FLAME, this.getRandomX(1.0D), this.getRandomY(), this.getRandomZ(1.0D), 0, 0, 0, 0, .1);
 			// grow our bounding box, capture any entities that aren't this and aren't our owner in it, and set them on fire
 			AxisAlignedBB expandedBoundingBox = this.getBoundingBox().inflate(1, 1, 1);
 			worldServer.getEntities(this.ownerEntity, expandedBoundingBox, input -> !this.equals(input)).forEach(this::setEntityOnFire);
@@ -142,7 +142,8 @@ public class FlamethrowerEntity extends ThrowableEntity {
 					// spawn a bunch of particles
 					if(this.level instanceof ServerWorld) {
 						ServerWorld worldServer = (ServerWorld) this.level;
-						worldServer.addParticle(ParticleTypes.FLAME, true, this.getX(), this.getY(), this.getZ(), 3.0d, this.getBbWidth() / 4, 0.0d);
+						// FIXME make flame particles spread out as if they're hitting a wall
+						worldServer.sendParticles(ParticleTypes.FLAME, this.getRandomX(1.0D), this.getRandomY(), this.getRandomZ(1.0D), 0, 0, 0, 0, .1);
 					}
 					this.remove();
 				}

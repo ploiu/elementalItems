@@ -18,6 +18,7 @@ import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.core.jmx.Server;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.items.combat.armor.BaseArmorItem;
@@ -65,7 +66,7 @@ public class LivingEvents {
 						world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 0.5f, 1f);
 					}
 					if(world instanceof ServerWorld) {
-						world.addParticle(ParticleTypes.CLOUD, true, arrow.getX(), arrow.getY(), arrow.getZ(), 3.0d, arrow.getBbWidth() / 4, 0.0d);
+						((ServerWorld)world).sendParticles(ParticleTypes.CLOUD, arrow.getRandomX(1.0D), arrow.getRandomY(), arrow.getRandomZ(1.0D), 0, 0, 0, 0, .1);
 					}
 				}
 			}
