@@ -1,5 +1,6 @@
 package ploiu.elementalitems.items.combat.weapons.swords;
 
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -8,8 +9,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import ploiu.elementalitems.ElementalTypes;
@@ -85,8 +88,14 @@ public abstract class BaseSword extends SwordItem implements BaseWeapon {
 		Map<IParticleData, Integer> particlesToSpawn = ElementalUtils.getParticlesForElementalType(this.type);
 		// spawn all the particle types associated with this
 		particlesToSpawn.forEach((type, count) -> {
-			// use the worldServer to spawn the particles
-			worldServer.addParticle(type, true, targetToSpawnParticlesAt.getX(), targetToSpawnParticlesAt.getY(), targetToSpawnParticlesAt.getZ(), count, targetToSpawnParticlesAt.getBbWidth(), 0.0);
+			for(int i = 0; i < count; i++) {
+				double direction0 = targetToSpawnParticlesAt.getRandom().nextGaussian() * 0.02D;
+				double direction1 = targetToSpawnParticlesAt.getRandom().nextGaussian() * 0.02D;
+				double direction2 = targetToSpawnParticlesAt.getRandom().nextGaussian() * 0.02D;
+				// use the world to spawn the particles
+				worldServer.sendParticles(type, targetToSpawnParticlesAt.getRandomX(1.0D), targetToSpawnParticlesAt.getRandomY(), targetToSpawnParticlesAt.getRandomZ(1.0D), 0, direction0, direction1, direction2, .1);
+
+			}
 		});
 	}
 

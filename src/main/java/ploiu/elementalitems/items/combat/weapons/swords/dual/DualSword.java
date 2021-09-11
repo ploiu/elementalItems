@@ -1,5 +1,6 @@
 package ploiu.elementalitems.items.combat.weapons.swords.dual;
 
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -123,7 +124,15 @@ public class DualSword extends BaseSword {
 			particles.putAll(ElementalUtils.getParticlesForElementalType(this.type2));
 		}
 		// now spawn our particles
-		particles.forEach((particleType, count) -> worldServer.addParticle(particleType, true, targetToSpawnParticlesAt.getX(), targetToSpawnParticlesAt.getY(), targetToSpawnParticlesAt.getZ(), count, targetToSpawnParticlesAt.getBbWidth(), 0.0));
+		particles.forEach((type, count) -> {
+			// use the world to spawn the particles
+			for(int i = 0; i < count; i++) {
+				double direction0 = targetToSpawnParticlesAt.getRandom().nextGaussian() * 0.02D;
+				double direction1 = targetToSpawnParticlesAt.getRandom().nextGaussian() * 0.02D;
+				double direction2 = targetToSpawnParticlesAt.getRandom().nextGaussian() * 0.02D;
+				worldServer.sendParticles(type, targetToSpawnParticlesAt.getRandomX(1.0D), targetToSpawnParticlesAt.getRandomY(), targetToSpawnParticlesAt.getRandomZ(1.0D), 0, direction0, direction1, direction2, .1);
+			}
+		});
 	}
 
 	@Override
