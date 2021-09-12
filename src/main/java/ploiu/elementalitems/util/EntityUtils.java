@@ -1,8 +1,6 @@
 package ploiu.elementalitems.util;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.item.ItemEntity;
@@ -11,13 +9,10 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.Level;
 import ploiu.elementalitems.ElementalItems;
 import ploiu.elementalitems.ElementalTypes;
 import ploiu.elementalitems.entity.arrow.*;
-import ploiu.elementalitems.items.ElementalItem;
-import ploiu.elementalitems.items.ElementalItemsItemRegistry;
 import ploiu.elementalitems.items.combat.armor.BaseArmor;
 import ploiu.elementalitems.items.combat.armor.BaseArmorItem;
 
@@ -49,24 +44,6 @@ public class EntityUtils {
 		return isValid;
 	}
 
-	/*@Deprecated // TODO remove if we don't use this after the migration to 1.14
-	public static boolean isMobFromBiome(final LivingEntity toCheck, final Biome biome) {
-		if(toCheck != null && biome != null) {
-			boolean isFromBiome = false;
-			EntityClassification[] values = EntityClassification.values();
-			for(EntityClassification creatureType : values) {
-				List<Biome.SpawnListEntry> spawnListEntries = biome.getSpawns(creatureType);
-				for(Biome.SpawnListEntry entry : spawnListEntries) {
-					// this way it'll stay true if it's met the criteria already
-					isFromBiome |= entry.entityType.equals(toCheck.getType());
-				}
-			}
-			return isFromBiome;
-		} else {
-			return false;
-		}
-	}*/
-
 	/**
 	 * Spawns an experience orb into the world
 	 *
@@ -75,7 +52,7 @@ public class EntityUtils {
 	 * @param xpAmount
 	 */
 	public static void spawnXpOrb(@Nonnull World world, BlockPos positionToSpawn, int xpAmount) {
-		if(world.isClientSide() && positionToSpawn != null && xpAmount > 0) {
+		if(!world.isClientSide() && positionToSpawn != null && xpAmount > 0) {
 			world.addFreshEntity(new ExperienceOrbEntity(world, positionToSpawn.getX(), positionToSpawn.getY(), positionToSpawn.getZ(), xpAmount));
 		}
 	}
