@@ -13,6 +13,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.World;
 import ploiu.elementalitems.util.EntityUtils;
@@ -64,10 +65,12 @@ public class ElementalEffects {
 			if(!world.isClientSide()) {
 				world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.BAT_TAKEOFF, SoundCategory.NEUTRAL, 1f, 1f);
 			}
-			target.knockback(2F, user.getX() - target.getX(), user.getZ() - target.getZ());
-			// launch it into the air, based on the target's knockBack resistance
 			double knockbackResistance = target.getAttribute(Attributes.KNOCKBACK_RESISTANCE) != null ? target.getAttribute(Attributes.KNOCKBACK_RESISTANCE).getValue() + 1 : 1;
-			target.setDeltaMovement(0, knockbackResistance, 0);
+			// knockback code adapted from MobEntity#doHurtTarget since I'm terrible at trigonometry
+			float degree = (float) Math.PI / 180;
+			target.knockback((float) (knockbackResistance + 1), MathHelper.sin(user.yRot * degree), -MathHelper.cos(user.yRot * degree));
+			// launch it into the air, based on the target's knockBack resistance
+			target.setDeltaMovement(target.getDeltaMovement().x(), knockbackResistance, target.getDeltaMovement().z());
 		}
 	}
 
@@ -122,9 +125,9 @@ public class ElementalEffects {
 	public static void throwSnowball(World world, PlayerEntity player) {
 		if(isValidLivingEntity(player)) {
 			world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
-			if(world.isClientSide()) {
+			if(!world.isClientSide()) {
 				SnowballEntity snowballentity = new SnowballEntity(world, player);
-				snowballentity.shoot(player.xRot, player.yRot, 0.0F, 3F, 1.0F);
+				snowballentity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
 				world.addFreshEntity(snowballentity);
 			}
 		}
@@ -158,7 +161,7 @@ public class ElementalEffects {
 		if(isValidLivingEntity(player)) {
 			if(!world.isClientSide()) {
 				EnderPearlEntity enderpearl = new EnderPearlEntity(world, player);
-				enderpearl.shoot(player.xRot, player.yRot, 0f, 1.5f, 1.0f);
+				enderpearl.shootFromRotation(player, player.xRot, player.yRot, 0f, 1.5f, 1.0f);
 				world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 				world.addFreshEntity(enderpearl);
 			}
